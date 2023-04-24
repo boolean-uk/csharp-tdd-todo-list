@@ -6,7 +6,7 @@
 
 ## Set up instructions
 - Fork this repository and clone the forked version to your machine
-- Open the root directory of the project in Visual Studio 2022
+- Open the tdd-todo-list.sln in Visual Studio.
 
 ## Exercise Instructions
 
