@@ -86,6 +86,13 @@ namespace tdd_todo_list.CSharp.Main
         {
             return tasks.Where(t => !t.IsComplete).ToList();
         }
+
+        // return message is task is not found
+
+        public string SearchTask(string taskName)
+        {
+            return tasks.Any(t => t.Name == taskName) ? "Task is found!" : "Task is not found!";
+        }
     }
 
 }

@@ -113,11 +113,36 @@ namespace tdd_todo_list.CSharp.Test
 
 
             // Act
+
             todoList.ChangeTaskStatus("Buy", true);
             var tasks = todoList.GetCompletedTasks();
 
             //Assert
+
             Assert.AreEqual(new List<string> {"Buy"}, tasks.ConvertAll(task => task.Name));
+        }
+
+        // I want to search for a task and receive a message that says it wasn't found if it doesn't exist.
+
+        [Test]
+        public void TestSearchTask()
+        {
+            // Arrange
+
+            var todoList = new TodoList();
+            todoList.AddTask("Smile");
+
+            // Act
+
+            string message1 = todoList.SearchTask("Smile");
+            string message2 = todoList.SearchTask("Laugh");
+
+
+            // Assert
+
+            Assert.AreEqual("Task is found!", message1);
+            Assert.AreEqual("Task is not found!", message2);
+
         }
 
     }
