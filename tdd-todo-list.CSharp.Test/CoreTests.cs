@@ -47,6 +47,22 @@ namespace tdd_todo_list.CSharp.Test
 
         //  I want to change the status of a task between incomplete and complete.
 
+        [Test]
+        public void TestTaskStatus()
+        {
+            // Arrange
 
+            var todoList = new TodoList();
+            todoList.AddTask("Task 1");
+
+            // Act
+
+            todoList.TaskStatus("Task 1", true);
+            var task = todoList.GetTask("Task 1");
+
+            // Assert
+            Assert.IsTrue(task.IsComplete);
+
+        }
     }
 }
