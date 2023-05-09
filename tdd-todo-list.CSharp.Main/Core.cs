@@ -25,7 +25,7 @@ namespace tdd_todo_list.CSharp.Main
 
         }
 
-       // public List<Tuple<string, bool>> tasks { get { return _tasks; } }
+        public List<Tuple<string, bool>> tasks { get { return _tasks; } }
 
 
         public bool add(string todo, bool completed)
