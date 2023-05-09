@@ -104,6 +104,23 @@ namespace tdd_todo_list.CSharp.Main
                 tasks.Remove(task);
             }
         }
+
+
+        // return tasks in ascending order
+
+        public List<Task>GetTaskInAscendingOrder()
+        {
+            return tasks.OrderBy(t => t.Name).ToList();
+        }
+
+        // return tasks in descending order
+
+        public List<Task> GetTaskInDescendingOrderOrder()
+        {
+            return tasks.OrderByDescending(t => t.Name).ToList();
+        }
+
+
     }
 
 }

@@ -164,5 +164,45 @@ namespace tdd_todo_list.CSharp.Test
             Assert.AreEqual(0, todoList.Count);
         }
 
+        // I want to see all the tasks in my list ordered alphabetically in ascending order.
+
+        [Test]
+        public void TestAscendingOrderTasks()
+        {
+            // Arrange
+
+            var todoList = new TodoList();
+            todoList.AddTask("Ask");
+            todoList.AddTask("Borrow");
+
+            // Act
+
+            var tasks = todoList.GetTaskInAscendingOrder();
+
+            // Assert
+            Assert.AreEqual(new List<string> { "Ask", "Borrow" }, tasks.ConvertAll(task => task.Name));
+
+        }
+
+        //  I want to see all the tasks in my list ordered alphabetically in descending order.
+        [Test]
+        public void TestDescendingOrderTasks()
+        {
+            // Arrange
+
+            var todoList = new TodoList();
+            todoList.AddTask("Ask");
+            todoList.AddTask("Borrow");
+
+            // Act
+
+            var tasks = todoList.GetTaskInDescendingOrderOrder();
+
+            // Assert
+            Assert.AreEqual(new List<string> { "Borrow", "Ask" }, tasks.ConvertAll(task => task.Name));
+
+        }
+
+
     }
 }
