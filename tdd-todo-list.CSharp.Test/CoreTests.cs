@@ -145,5 +145,24 @@ namespace tdd_todo_list.CSharp.Test
 
         }
 
+        // I want to remove tasks from my list.
+
+        [Test]
+        public void TestRemoveTask()
+        {
+            // Arrange
+
+            var todoList = new TodoList();
+            todoList.AddTask("Delete");
+
+            // Act
+
+            todoList.RemoveTask("Delete");
+
+            // Assert
+
+            Assert.AreEqual(0, todoList.Count);
+        }
+
     }
 }

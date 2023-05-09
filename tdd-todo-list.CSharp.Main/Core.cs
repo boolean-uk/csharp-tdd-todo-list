@@ -93,6 +93,17 @@ namespace tdd_todo_list.CSharp.Main
         {
             return tasks.Any(t => t.Name == taskName) ? "Task is found!" : "Task is not found!";
         }
+
+        // remove task
+
+        public void RemoveTask(string taskName)
+        {
+            var task = tasks.FirstOrDefault(task => task.Name == taskName);
+            if (task != null)
+            {
+                tasks.Remove(task);
+            }
+        }
     }
 
 }
