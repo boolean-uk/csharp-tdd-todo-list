@@ -19,7 +19,7 @@ namespace tdd_todo_list.CSharp.Test
 
             // Assert
             Assert.AreEqual(1, todoList.Count);
-            Assert.AreEqual("Task1", todoList.GetTask(0));
+            Assert.AreEqual("Task1", todoList.GetTask(0).Name);
 
         }
 
@@ -40,7 +40,7 @@ namespace tdd_todo_list.CSharp.Test
 
             // Assert
 
-            Assert.AreEqual(new List<string> { "Task1", "Task2" }, tasks);
+            Assert.AreEqual(new List<string> { "Task1", "Task2" }, tasks.ConvertAll(task => task.Name));
 
         }
 
@@ -57,12 +57,68 @@ namespace tdd_todo_list.CSharp.Test
 
             // Act
 
-            todoList.TaskStatus("Task 1", true);
+            todoList.ChangeTaskStatus("Task 1", true);
             var task = todoList.GetTask("Task 1");
 
             // Assert
-            Assert.IsTrue(task.IsComplete);
+            Assert.IsTrue(todoList.GetTask("Task 1").IsComplete);
 
         }
+
+        // I want to be able to get only the complete tasks
+
+        [Test]
+        public void CompletedTasks()
+        {
+            // Arrange
+
+            var todoList = new TodoList();
+            todoList.AddTask("Clean");
+            todoList.AddTask("Breathe");
+
+
+
+           
+
+            // Assert
+            Assert.IsFalse(todoList.GetTask("Clean").IsComplete );
+            Assert.IsFalse(todoList.GetTask("Breathe").IsComplete );
+
+
+
+            // Act
+
+            todoList.ChangeTaskStatus("Clean", true);
+            var tasks = todoList.GetCompletedTasks();
+
+
+           Assert.AreEqual(new List<string> { "Clean" }, tasks.ConvertAll(task => task.Name));
+        }
+
+        // I want to be able to get only the incomplete tasks
+
+        [Test]
+        public void TestIncompletedTasks()
+        {
+            // Arrange
+
+            var todoList = new TodoList();
+            todoList.AddTask("Buy");
+            todoList.AddTask("Cry");
+
+            //Assert
+
+            Assert.IsFalse(todoList.GetTask("Buy").IsComplete);
+            Assert.IsFalse(todoList.GetTask("Cry").IsComplete);
+
+
+            // Act
+            todoList.ChangeTaskStatus("Buy", true);
+            var tasks = todoList.GetCompletedTasks();
+
+            //Assert
+            Assert.AreEqual(new List<string> {"Buy"}, tasks.ConvertAll(task => task.Name));
+        }
+
     }
 }

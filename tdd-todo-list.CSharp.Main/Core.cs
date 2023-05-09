@@ -64,8 +64,8 @@ namespace tdd_todo_list.CSharp.Main
         }
 
 
-        // check if task status
-        public void TaskStatus(string taskName, bool status)
+        // change the task status
+        public void ChangeTaskStatus(string taskName, bool status)
         {
             var task = GetTask(taskName);
             if (task != null)
@@ -74,8 +74,18 @@ namespace tdd_todo_list.CSharp.Main
             }
         }
 
-        
+        // return completed tasks
+        public List<Task>GetCompletedTasks()
+        {
+            return tasks.Where(t => t.IsComplete).ToList();
+        }
 
+        
+        // return incompleted tasks
+        public List<Task>GetIncompletedTasks()
+        {
+            return tasks.Where(t => !t.IsComplete).ToList();
+        }
     }
 
 }
