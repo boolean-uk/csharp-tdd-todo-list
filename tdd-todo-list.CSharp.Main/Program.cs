@@ -4,14 +4,16 @@ using tdd_todo_list.CSharp.Main;
 Console.WriteLine("Hello, World!");
 
 TodoList todo = new TodoList();
-foreach (var s in todo.tasks)
+foreach (var item in todo.tasks)
 {
-    Console.WriteLine($"{s.Item1}, {s.Item2}");
+    Console.WriteLine(item);
 }
-todo.add("shopping", false);
-foreach( var s  in todo.tasks )
+todo.changedStatus(2);
+foreach (var item in todo.tasks)
 {
-    Console.WriteLine($"{s.Item1}, {s.Item2}");
+    Console.WriteLine(item);
 }
+
+
 
 
