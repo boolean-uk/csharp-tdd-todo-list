@@ -81,5 +81,23 @@ namespace tdd_todo_list.CSharp.Test
             Assert.IsTrue(_todoList.IncompletedList.ContainsKey(task3));
             Assert.IsTrue(_todoList.IncompletedList.ContainsKey(task1));
         }
+
+        [Test]
+        public void TestTodoContainsTask()
+        {
+            TodoList _todoList = new TodoList();
+            string task1 = "Do laundry";
+            string task2 = "Make diner";
+            string task3 = "Have a meeting";
+            _todoList.AddTask(task1, false);
+            _todoList.AddTask(task2, false);
+            _todoList.AddTask(task3, false);
+            _todoList.UpdateTaskStatus(task2, true);
+            Assert.IsTrue(_todoList.TaskList.ContainsKey(task1));
+            Assert.IsFalse(_todoList.TaskList.ContainsKey("workout"));
+            Assert.AreEqual(_todoList.TodoContainsTask("workout"), "Task not found");
+            Assert.IsTrue(_todoList.TodoContainsTask(task1)== "Task found");
+            // test the return strings Taks found and Task not found
+        }
     }
 }

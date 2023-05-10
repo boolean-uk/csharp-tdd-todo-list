@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -55,6 +56,18 @@ namespace tdd_todo_list.CSharp.Main
                     incompletedList.Add(task, todo[task]);
                 }
 
+            }
+        }
+
+        public string TodoContainsTask(string task)
+        {
+            if (!todo.ContainsKey(task))
+            {
+                return "Task not found";
+            }
+            else
+            {
+                return "Task found";
             }
         }
 
