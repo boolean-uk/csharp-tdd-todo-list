@@ -97,7 +97,34 @@ namespace tdd_todo_list.CSharp.Test
             Assert.IsFalse(_todoList.TaskList.ContainsKey("workout"));
             Assert.AreEqual(_todoList.TodoContainsTask("workout"), "Task not found");
             Assert.IsTrue(_todoList.TodoContainsTask(task1)== "Task found");
-            // test the return strings Taks found and Task not found
+        }
+        [Test]
+        public void TestAscendingListOrder()
+        {
+            TodoList _todoList = new TodoList();
+            string task1 = "Make diner";
+            string task2 = "Do laundry";
+            string task3 = "Have a meeting";
+            _todoList.AddTask(task1, false);
+            _todoList.AddTask(task2, true);
+            _todoList.AddTask(task3, false);
+            var ordered = _todoList.TodoAlphabetically();
+            Assert.IsTrue(ordered.First().Key == task2);
+            Assert.IsTrue(ordered.Last().Key == task1);
+        }
+        [Test]
+        public void TestDescendingListOrder()
+        {
+            TodoList _todoList = new TodoList();
+            string task1 = "Make diner";
+            string task2 = "Do laundry";
+            string task3 = "Have a meeting";
+            _todoList.AddTask(task1, false);
+            _todoList.AddTask(task2, true);
+            _todoList.AddTask(task3, false);
+            var ordered = _todoList.TodoAlphabeticallyReverse();
+            Assert.IsTrue(ordered.First().Key == task1);
+            Assert.IsTrue(ordered.Last().Key == task2);
         }
     }
 }

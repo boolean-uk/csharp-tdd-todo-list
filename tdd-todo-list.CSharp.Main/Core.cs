@@ -12,9 +12,7 @@ namespace tdd_todo_list.CSharp.Main
         private Dictionary<string, bool> todo = new Dictionary<string, bool>();
         Dictionary<string, bool> completedList = new Dictionary<string, bool>();
         Dictionary<string, bool> incompletedList = new Dictionary<string, bool>();
-
-
-
+        
         public void AddTask(string task, bool status)
         {
             todo.Add(task, status);
@@ -71,9 +69,17 @@ namespace tdd_todo_list.CSharp.Main
             }
         }
 
+        public Dictionary<string,bool> TodoAlphabetically()
+        {
+            return todo.OrderBy(x => x.Key).ToDictionary(x => x.Key, x => x.Value);
+        }
+        public Dictionary<string, bool> TodoAlphabeticallyReverse()
+        {
+            return todo.OrderByDescending(x => x.Key).ToDictionary(x => x.Key, x => x.Value);
+        }
+
         public Dictionary<string, bool> TaskList { get { return todo; } }
         public Dictionary<string, bool> CompletedList { get { return completedList; } }
         public Dictionary<string, bool> IncompletedList { get { return incompletedList; } }
-
     }
 }
