@@ -78,6 +78,11 @@ namespace tdd_todo_list.CSharp.Main
             return todo.OrderByDescending(x => x.Key).ToDictionary(x => x.Key, x => x.Value);
         }
 
+        public void RemoveTask(string task)
+        {
+            todo.Remove(task);
+        }
+
         public Dictionary<string, bool> TaskList { get { return todo; } }
         public Dictionary<string, bool> CompletedList { get { return completedList; } }
         public Dictionary<string, bool> IncompletedList { get { return incompletedList; } }

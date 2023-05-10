@@ -126,5 +126,19 @@ namespace tdd_todo_list.CSharp.Test
             Assert.IsTrue(ordered.First().Key == task1);
             Assert.IsTrue(ordered.Last().Key == task2);
         }
+        [Test]
+        public void TestRemoveTask()
+        {
+            TodoList _todoList = new TodoList();
+            string task1 = "Make diner";
+            string task2 = "Do laundry";
+            string task3 = "Have a meeting";
+            _todoList.AddTask(task1, false);
+            _todoList.AddTask(task2, true);
+            _todoList.AddTask(task3, false);
+            _todoList.RemoveTask(task2);
+            Assert.IsFalse(_todoList.TaskList.ContainsKey(task2));
+
+        }
     }
 }
