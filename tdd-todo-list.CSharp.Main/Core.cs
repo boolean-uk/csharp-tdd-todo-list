@@ -10,6 +10,7 @@ namespace tdd_todo_list.CSharp.Main
     // task 
     public class Task
     {
+        internal readonly Guid Id;
 
         public string Name { get; set; }
         public bool IsComplete { get; set; }
