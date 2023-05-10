@@ -21,7 +21,6 @@ namespace tdd_todo_list.CSharp.Main
 
         public Dictionary<string, bool> todolisttrue = new Dictionary<string, bool>();
         public Dictionary<string, bool> todolistfalse = new Dictionary<string, bool>();
-        public SortedDictionary<string, bool> todolistascending = new SortedDictionary<string, bool>();
 
         public Dictionary<string, bool> addToDo(string todo, bool status)
         {
@@ -85,13 +84,19 @@ namespace tdd_todo_list.CSharp.Main
             }
         }
 
-        public SortedDictionary<string, bool> sortByAscending()
+        public List<string> sortByAscending()
         {
-            foreach (KeyValuePair<string, bool> todo in todolist)
-            {
-                todolistascending.Add(todo.Key, todo.Value);
-            }
-            return todolistascending;
+            List<string> tasks = todolist.Keys.ToList();
+            tasks.Sort();
+            return tasks;
+        }
+
+        public List<string> sortByDescending()
+        {
+            List<string> tasks = todolist.Keys.ToList();
+            tasks.Sort();
+            tasks.Reverse();
+            return tasks;
         }
     }
 }

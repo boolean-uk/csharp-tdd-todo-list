@@ -66,10 +66,20 @@ namespace tdd_todo_list.CSharp.Test
             Assert.IsTrue(_core.searchToDo(todo));
         }
 
+        // Check if the list is sorted by ascending order
+        // If so, the first key should be coding
         [Test]
         public void SortByAscending()
         {
-            Assert.IsTrue(_core.todolistascending.First().Key == "coding");
+            Assert.IsTrue(_core.sortByAscending().First() == "coding");
+        }
+
+        // Check if the list is sorted by descending order
+        // If so, the first key should be traveling
+        [Test]
+        public void SortByDescending()
+        {
+            Assert.IsTrue(_core.sortByDescending().First() == "traveling");
         }
     }
 }
