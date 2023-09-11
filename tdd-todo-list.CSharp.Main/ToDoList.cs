@@ -9,14 +9,9 @@ namespace tdd_todo_list.CSharp.Main
 {
     public class TodoList  // list for tasks
     {
-        public List<TodoTask> Tasks { get; set; }
+        public List<TodoTask> Tasks { get; private set; } = new List<TodoTask>();
 
         public int NextTaskId { get; set; } = 1; //setting id
-
-        public TodoList() //constructor for list
-        {
-            Tasks = new List<TodoTask>();
-        }
 
         public void AddATask(TodoTask task) // method for adding task
         {
@@ -68,7 +63,6 @@ namespace tdd_todo_list.CSharp.Main
 
         public TodoTask(string title) // constructor for starting task
         {
-            Id = 0;
             Title = title;
             IsCompleted = false;
         }
