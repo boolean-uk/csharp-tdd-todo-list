@@ -3,12 +3,15 @@ using NUnit.Framework;
 
 namespace tdd_todo_list.CSharp.Test
 {
+    [TestFixture]
     public class CoreTests
     {
-        private TodoList _core;
-        public CoreTests()
+
+        [Test]
+        public void FirstTest()
         {
-            _core = new TodoList();
+            TodoList core = new TodoList();
+            Assert.Pass();
         }
     }
 }
