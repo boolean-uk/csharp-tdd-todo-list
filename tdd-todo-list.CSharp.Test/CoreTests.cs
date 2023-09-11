@@ -16,7 +16,7 @@ namespace tdd_todo_list.CSharp.Test
         }
 
         [Test]
-        public void AddATaskAndAddTaskToList()
+        public void AddTask_AddsTaskToList()
         {
             //setup
             var TodoTask = new TodoTask("This is a test task");
@@ -27,7 +27,7 @@ namespace tdd_todo_list.CSharp.Test
         }
 
         [Test]
-        public void GetCompleteTaskAndReturnCompleteTask()
+        public void GetCompleteTask_ReturnsOnlyCompletedTasks()
         {
             //setup
             var task1 = new TodoTask("Complete Task");
@@ -43,7 +43,7 @@ namespace tdd_todo_list.CSharp.Test
         }
 
         [Test]
-        public void FindATaskAndReturnCorrectTask()
+        public void FindATask_ReturnCorrectTask()
         {
             //setup
             var task = new TodoTask("Find the task");
@@ -55,7 +55,7 @@ namespace tdd_todo_list.CSharp.Test
         }
 
         [Test]
-        public void FindATaskReturnNullIfNonExisting()
+        public void FindATask_WhenTaskDoesNotExist_ReturnsNull()
         {
             //setup
             var task = new TodoTask("Dont you find me");
@@ -78,7 +78,7 @@ namespace tdd_todo_list.CSharp.Test
         }
 
         [Test]
-        public void TaskAscendingOrderAndReturnsTasksInAscendingOrder()
+        public void TaskAscendingOrder_ReturnsTasksInAscendingOrder()
         {
             // Setup
             var task1 = new TodoTask("Second Task");
@@ -96,7 +96,7 @@ namespace tdd_todo_list.CSharp.Test
         }
 
         [Test]
-        public void TaskDescendingOrderAndReturnsTasksInDescendingOrder()
+        public void TaskDescendingOrder_ReturnsTasksInDescendingOrder()
         {
             // Setup
             var task1 = new TodoTask("Second Task");
@@ -114,7 +114,7 @@ namespace tdd_todo_list.CSharp.Test
         }
 
         [Test]
-        public void GetIncompleteTaskAndReturnsOnlyIncompleteTasks()
+        public void GetIncompleteTask_ReturnsOnlyIncompleteTasks()
         {
             // Setup
             var task1 = new TodoTask("The complete Task");
