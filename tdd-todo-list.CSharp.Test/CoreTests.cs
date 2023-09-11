@@ -19,20 +19,20 @@ namespace tdd_todo_list.CSharp.Test
         public void AddATaskAndAddTaskToList()
         {
             //setup
-            var task = new Task("This is a test task");
+            var TodoTask = new TodoTask("This is a test task");
             //execute
-            _todoList.AddATask(task);
+            _todoList.AddATask(TodoTask);
             //verify
-            Assert.Contains(task, _todoList.GetTask());
+            Assert.Contains(TodoTask, _todoList.GetTask());
         }
 
         [Test]
         public void GetCompleteTaskAndReturnCompleteTask()
         {
             //setup
-            var task1 = new Task("Complete Task");
+            var task1 = new TodoTask("Complete Task");
             task1.ChangeTask(true);
-            var task2 = new Task("Incomplete task");
+            var task2 = new TodoTask("Incomplete task");
             _todoList.AddATask(task1);
             _todoList.AddATask(task2);
             //execute
@@ -46,7 +46,7 @@ namespace tdd_todo_list.CSharp.Test
         public void FindATaskAndReturnCorrectTask()
         {
             //setup
-            var task = new Task("Find the task");
+            var task = new TodoTask("Find the task");
             _todoList.AddATask(task);
             //execute
             var result = _todoList.FindATask("Find the task");
@@ -58,7 +58,7 @@ namespace tdd_todo_list.CSharp.Test
         public void FindATaskReturnNullIfNonExisting()
         {
             //setup
-            var task = new Task("Dont you find me");
+            var task = new TodoTask("Dont you find me");
             //execute
             var result = _todoList.FindATask("Dont you find me");
             //verify
@@ -69,7 +69,7 @@ namespace tdd_todo_list.CSharp.Test
         public void RemoveATaskAndRemovesTaskFromList()
         {
             // Setup
-            var task = new Task("This is the task to remove");
+            var task = new TodoTask("This is the task to remove");
             _todoList.AddATask(task);
             // Execute
             _todoList.RemoveATask(task);
@@ -81,9 +81,9 @@ namespace tdd_todo_list.CSharp.Test
         public void TaskAscendingOrderAndReturnsTasksInAscendingOrder()
         {
             // Setup
-            var task1 = new Task("Second Task");
-            var task2 = new Task("First Task");
-            var task3 = new Task("Third Task");
+            var task1 = new TodoTask("Second Task");
+            var task2 = new TodoTask("First Task");
+            var task3 = new TodoTask("Third Task");
             _todoList.AddATask(task1);
             _todoList.AddATask(task2);
             _todoList.AddATask(task3);
@@ -99,9 +99,9 @@ namespace tdd_todo_list.CSharp.Test
         public void TaskDescendingOrderAndReturnsTasksInDescendingOrder()
         {
             // Setup
-            var task1 = new Task("Second Task");
-            var task2 = new Task("First Task");
-            var task3 = new Task("Third Task");
+            var task1 = new TodoTask("Second Task");
+            var task2 = new TodoTask("First Task");
+            var task3 = new TodoTask("Third Task");
             _todoList.AddATask(task1);
             _todoList.AddATask(task2);
             _todoList.AddATask(task3);
@@ -117,9 +117,9 @@ namespace tdd_todo_list.CSharp.Test
         public void GetIncompleteTaskAndReturnsOnlyIncompleteTasks()
         {
             // Setup
-            var task1 = new Task("The complete Task");
+            var task1 = new TodoTask("The complete Task");
             task1.ChangeTask(true);
-            var task2 = new Task("The incomplete Task");
+            var task2 = new TodoTask("The incomplete Task");
             _todoList.AddATask(task1);
             _todoList.AddATask(task2);
             // Execute
