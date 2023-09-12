@@ -35,5 +35,12 @@ namespace tdd_todo_list.CSharp.Test
 
             Assert.IsTrue(task.Name == tasks[index]);
         }
+
+        [Test]
+        public void GetTaskWithNonExistingIdTest()
+        {
+            TodoListExtension todoList = arrange();
+            Assert.IsNull(todoList.GetTask(46));
+        }
     }
 }
