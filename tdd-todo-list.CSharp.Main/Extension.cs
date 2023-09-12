@@ -31,7 +31,7 @@ namespace tdd_todo_list.CSharp.Main
 
         public int Id { get => _id; }
         public string Name { get => _name; set => _name = value; }
-        public bool IsComplete { get => _isComplete; }
+        public bool IsComplete { get => _isComplete; set => _isComplete = value; }
     }
 
     public class TodoListExtension
@@ -58,7 +58,10 @@ namespace tdd_todo_list.CSharp.Main
 
         public bool ChangeTaskStatus(int taskId, bool isComplete)
         {
-            throw new NotImplementedException();
+            TaskItem task = GetTask(taskId);
+            if (task == null) return false;
+            task.IsComplete = isComplete;
+            return true;
         }
 
         public string GetTaskDates()
