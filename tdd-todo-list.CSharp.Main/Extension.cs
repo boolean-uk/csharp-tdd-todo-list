@@ -8,14 +8,14 @@ namespace tdd_todo_list.CSharp.Main
 {
     public class TaskItem
     {
-        private int _taskId;
+        private int _id;
         private string _name;
         private bool _isComplete;
         private string _dateTime;
 
         public TaskItem()
         {
-            _taskId = 0;
+            _id = 0;
             _name = "write some more code";
             _isComplete = false;
             _dateTime = DateTime.Now.ToString("dddd, dd MMMM yyyy hh:mm tt");
@@ -23,13 +23,13 @@ namespace tdd_todo_list.CSharp.Main
 
         public TaskItem(int taskId, string name, bool isComplete)
         {
-            _taskId = taskId;
+            _id = taskId;
             _name = name;
             _isComplete = isComplete;
             _dateTime = DateTime.Now.ToString("dddd, dd MMMM yyyy hh:mm tt");
         }
 
-        public int TaskId { get => _taskId; }
+        public int Id { get => _id; }
         public string Name { get => _name; }
         public bool IsComplete { get => _isComplete; }
     }
@@ -45,7 +45,7 @@ namespace tdd_todo_list.CSharp.Main
 
         public TaskItem GetTask(int taskId)
         {
-            throw new NotImplementedException();
+            return _list.Find(t => t.Id == taskId);
         }
 
         public bool UpdateTaskName(int taskId, string name)
