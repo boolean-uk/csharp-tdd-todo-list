@@ -54,22 +54,4 @@ namespace tdd_todo_list.CSharp.Main
             return Tasks.OrderByDescending(t => t.Title).ToList();
         }
     }
-
-    public class TodoTask
-    {
-        public int Id { get; set; } //id for every task
-        public string Title { get; set; } // title of task
-        public bool IsCompleted { get; set; } // status of task
-
-        public TodoTask(string title) // constructor for starting task
-        {
-            Title = title;
-            IsCompleted = false;
-        }
-
-        public void ChangeTask (bool isComplete)
-        {
-            IsCompleted = isComplete;
-        }
-    }
 }
