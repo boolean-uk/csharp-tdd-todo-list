@@ -30,10 +30,10 @@ namespace tdd_todo_list.CSharp.Test
         {
             TodoListExtension todoList = arrange();
 
-            int index = 0;
-            TaskItem task = todoList.GetTask(index);
+            int taskId = 0;
+            TaskItem task = todoList.GetTask(taskId);
 
-            Assert.IsTrue(task.Name == tasks[index]);
+            Assert.IsTrue(task.Name == tasks[taskId]);
         }
 
         [Test]
@@ -50,10 +50,10 @@ namespace tdd_todo_list.CSharp.Test
 
             string taskName = "drink coffee";
 
-            int index = 0;
-            Assert.IsTrue(todoList.UpdateTaskName(index, taskName));
+            int taskId = 0;
+            Assert.IsTrue(todoList.UpdateTaskName(taskId, taskName));
 
-            TaskItem task = todoList.GetTask(index);
+            TaskItem task = todoList.GetTask(taskId);
             Assert.IsTrue(task.Name == taskName);
         }
 
@@ -62,13 +62,30 @@ namespace tdd_todo_list.CSharp.Test
         {
             TodoListExtension todoList = arrange();
             string taskName = "drink coffee";
-            int index = 3;
+            int taskId = 63;
 
-            Assert.IsTrue(todoList.UpdateTaskName(index, taskName));
-
-            TaskItem task = todoList.GetTask(index);
-            Assert.IsTrue(task.Name == taskName);
+            Assert.IsFalse(todoList.UpdateTaskName(taskId, taskName));
         }
 
+        [Test]
+        public void ChangeTaskStatusWithExistingIdTest()
+        {
+            TodoListExtension todoList = arrange();
+            int taskId = 0;
+
+            Assert.IsTrue(todoList.ChangeTaskStatus(taskId, true));
+            
+            TaskItem task = todoList.GetTask(taskId);
+            Assert.IsTrue(task.IsComplete);
+        }
+
+        [Test]
+        public void ChangeTaskStatusWithNonExistingIdTest()
+        {
+            TodoListExtension todoList = arrange();
+            int taskId = 20;
+
+            Assert.IsFalse(todoList.ChangeTaskStatus(taskId, true));
+        }
     }
 }
