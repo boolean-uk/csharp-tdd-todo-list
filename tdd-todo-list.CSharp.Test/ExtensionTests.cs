@@ -19,7 +19,7 @@ namespace tdd_todo_list.CSharp.Test
 
             for (int i = 0; i < tasks.Length; ++i)
             {
-                todoList.Add(new TaskItem(i, tasks[i], false));
+                todoList.Add(new TaskItem(i, tasks[i], false, DateTime.Now.ToString("dddd, dd MMMM yyyy hh:mm tt")));
             }
 
             return todoList;
@@ -86,6 +86,17 @@ namespace tdd_todo_list.CSharp.Test
             int taskId = 20;
 
             Assert.IsFalse(todoList.ChangeTaskStatus(taskId, true));
+        }
+
+        [Test]
+        public void GetTaskDatesTest()
+        {
+            TodoListExtension todoList = arrange();
+            
+            string result = todoList.GetTaskDates();
+            // Console.WriteLine(result);
+
+            Assert.IsTrue(result.Length > 0);
         }
     }
 }

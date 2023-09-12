@@ -11,22 +11,27 @@ namespace tdd_todo_list.CSharp.Main
         private int _id;
         private string _name;
         private bool _isComplete;
-        private string _dateTime;
+        private string _date;
 
         public TaskItem()
         {
             _id = 0;
             _name = "write some more code";
             _isComplete = false;
-            _dateTime = DateTime.Now.ToString("dddd, dd MMMM yyyy hh:mm tt");
+            _date = DateTime.Now.ToString("dddd, dd mm yyyy hh:mm tt");
         }
 
-        public TaskItem(int taskId, string name, bool isComplete)
+        public TaskItem(int taskId, string name, bool isComplete, string date)
         {
             _id = taskId;
             _name = name;
             _isComplete = isComplete;
-            _dateTime = DateTime.Now.ToString("dddd, dd MMMM yyyy hh:mm tt");
+            _date = date;
+        }
+
+        public string ToString()
+        {
+            return $"Task #{_id}: {_name} ({(_isComplete ? "complete" : "incomplete")}) {_date}";
         }
 
         public int Id { get => _id; }
@@ -66,7 +71,11 @@ namespace tdd_todo_list.CSharp.Main
 
         public string GetTaskDates()
         {
-            throw new NotImplementedException();
+            StringBuilder sb = new StringBuilder();
+
+            _list.ForEach(task => sb.Append(task.ToString() + '\n'));
+
+            return sb.ToString();
         }
     }
 }
