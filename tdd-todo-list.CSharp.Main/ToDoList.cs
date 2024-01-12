@@ -8,5 +8,16 @@ namespace tdd_todo_list.CSharp.Main
 {
     public class TodoList
     {
+        Dictionary<string, bool> items = new Dictionary<string, bool>();
+        public bool Add(string task) 
+        {
+            throw new NotImplementedException();
+        }
+
+        public Dictionary<string, bool> ListTasks() 
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }
