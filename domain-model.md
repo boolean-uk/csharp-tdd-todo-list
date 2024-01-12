@@ -2,7 +2,7 @@
 
 |  Classes  |  Members           | Methods                            | Returns              |
 |-----------|--------------------|------------------------------------|--------------------- |
-|ToDoList   | List<Task>         | Add(string description)            |(adds to the list)    |
+|ToDoList   | List\<Task\>       | Add(string description)            |(adds to the list)    |
 |           |                    | ListAll                            | List of tasks        |
 |           |                    | MarkAsComplete(string desc)        |(marks as complete)   |
 |           |                    | MarkAsIncomplete(string desc)      |(marks as incomplete) |
@@ -17,5 +17,5 @@
 |           |                    | Descending()                       |(sorts tasks desc.    |
 |           |                    |                                    | alphabetically)      |
 |-----------|--------------------|------------------------------------|----------------------|
-|Task       | bool done          |                                    |                      |
+|TodoTask   | bool done          |                                    |                      |
 |           | string description |                                    |                      |
