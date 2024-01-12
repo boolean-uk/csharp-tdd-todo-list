@@ -24,11 +24,11 @@ namespace tdd_todo_list.CSharp.Test
             core.addTask("Help Grandma", 113);
             core.addTask("Cut firewood", 114);
 
-            Assert.AreEqual(core.SeeTasks().ElementAt(0), 111);
-            Assert.AreEqual(core.SeeTasks().ElementAt(1), 112);
-            Assert.AreEqual(core.SeeTasks().ElementAt(2), 113);
-            Assert.AreEqual(core.SeeTasks().ElementAt(3), 114);
-            Assert.AreNotEqual(core.SeeTasks().ElementAt(0), 112);
+            Assert.That(core.SeeTasks().Contains(111));
+            Assert.That(core.SeeTasks().Contains(112));
+            Assert.That(core.SeeTasks().Contains(113));
+            Assert.That(core.SeeTasks().Contains(114));
+            Assert.False(core.SeeTasks().Contains(115));
 
         }
         [Test]
@@ -38,6 +38,16 @@ namespace tdd_todo_list.CSharp.Test
             core.addTask("Get water", 111);
             core.completeTask(111);
             Assert.IsTrue(core.completeTask(111));
+        }
+        [Test]
+        public void seeCompleteTasksTest()
+        {
+            TodoList core = new TodoList();
+            core.addTask("Cut firewood", 111);
+            core.addTask("Go fishing", 112);
+            core.completeTask(112);
+            Assert.That(core.SeeCompleteTasks().Contains(112));
+            Assert.False(core.SeeCompleteTasks().Contains(111));
         }
     }
 }

@@ -45,6 +45,20 @@ namespace tdd_todo_list.CSharp.Main
             }
             return result;
         }
+        public List<int> SeeCompleteTasks()
+        {
+            List<int> result = new List<int>();
+            Console.WriteLine("Complete tasks:");
+            foreach (var task in toDo)
+            {
+                if (task._status == true)
+                {
+                    Console.WriteLine($"{task._name}\t");
+                    result.Add(task._id);
+                }
+            }
+            return result;
+        }
         public bool completeTask(int id)
         {
             foreach (var task in toDo)
