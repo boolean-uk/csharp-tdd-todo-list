@@ -9,27 +9,32 @@ namespace tdd_todo_list.CSharp.Main
     public class TodoList
     {
         Dictionary<string, bool> items = new Dictionary<string, bool>();
-        public bool Add(string task) 
+        public bool Add(string task)
         {
             throw new NotImplementedException();
         }
 
-        public Dictionary<string, bool> ListTasks() 
+        public Dictionary<string, bool> ListTasks()
         {
             throw new NotImplementedException();
         }
 
-        public bool SetTaskStatus(int index, bool completeStatus) 
+        public bool SetTaskStatus(int index, bool completeStatus)
         {
             throw new NotImplementedException();
         }
 
-        public Dictionary<string, bool> GetCompleteTasks() 
+        public Dictionary<string, bool> GetCompleteTasks()
         {
             throw new NotImplementedException();
         }
 
         public Dictionary<string, bool> GetIncompleteTasks()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string FindTask(string text, out int index) 
         {
             throw new NotImplementedException();
         }
