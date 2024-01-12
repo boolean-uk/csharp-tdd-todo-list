@@ -1,0 +1,21 @@
+﻿class TaskExtension
+PROPERTIES:
+
+    public Guid Id;
+    public string Name;
+    public bool IsComplete;
+    public DateTime CreatedAt;
+
+METHODS:
+    public TaskExtension(string name); // Constructor that initializes properties
+
+class TodoListExtension
+PROPERTIES:
+    public List<TaskExtension> tasks;
+
+METHODS:
+    public TodoListExtension(); // Constructor that initializes tasks
+    void AddTask(string name); // Adds a task to the todo list
+    TaskExtension GetTaskById(Guid id); // Gets a task by a unique ID
+    void UpdateTaskName(Guid id, string newName); // Updates the name of a task by providing its ID and a new name
+    void ChangeTaskStatus(Guid id, bool isComplete); // Changes the status of a task by providing its ID
