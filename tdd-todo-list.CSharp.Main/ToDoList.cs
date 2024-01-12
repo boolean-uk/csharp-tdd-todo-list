@@ -19,5 +19,9 @@ namespace tdd_todo_list.CSharp.Main
             throw new NotImplementedException();
         }
 
+        public bool SetTaskStatus(int index, bool completeStatus) 
+        {
+            throw new NotImplementedException();
+        }
     }
 }

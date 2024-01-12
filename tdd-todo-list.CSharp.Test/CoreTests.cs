@@ -58,5 +58,24 @@ namespace tdd_todo_list.CSharp.Test
             Assert.That(res3[1], Is.EqualTo(true));
             Assert.That(res3[2], Is.EqualTo(true));
         }
+
+        [Test]
+        [TestCase(true)]
+        [TestCase(false)]
+        public void SetTaskStatus(bool status) 
+        {
+            // Arrange
+            string todoString = "Hello, this is a string";
+            _core.Add(todoString);
+
+            // Act
+            bool res = _core.SetTaskStatus(0, status); // Should return true
+            bool res2 = _core.SetTaskStatus(999, status); // Should return false
+
+            // Assert
+            Assert.That(res, Is.EqualTo(true));
+            Assert.That(res2, Is.EqualTo(false));
+
+        }
     }
 }
