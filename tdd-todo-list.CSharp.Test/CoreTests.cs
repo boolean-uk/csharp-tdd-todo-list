@@ -134,5 +134,27 @@ namespace tdd_todo_list.CSharp.Test
             Assert.That(0, Is.EqualTo(index2));
 
         }
+
+        [Test]
+        public void RemoveTask() 
+        {
+            // Arrange
+            string string1 = "This should remain";
+            string string2 = "This should be removed";
+            string string3 = "Dont mind this string";
+            _core.Add(string1);
+            _core.Add(string2);
+            _core.Add(string3);
+
+
+            // Act
+            bool res1 = _core.RemoveTask(string2);
+            bool res2 = _core.RemoveTask("This string does not exist");
+
+            // Assert
+            Assert.That(res1, Is.EqualTo(true));
+            Assert.That(res2, Is.EqualTo(false));
+
+        }
     }
 }

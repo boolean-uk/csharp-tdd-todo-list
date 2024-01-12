@@ -34,7 +34,12 @@ namespace tdd_todo_list.CSharp.Main
             throw new NotImplementedException();
         }
 
-        public string FindTask(string text, out int index) 
+        public string FindTask(string text, out int index)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool RemoveTask(string text) 
         {
             throw new NotImplementedException();
         }
