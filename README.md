@@ -14,8 +14,8 @@ It may be beneficial to work in groups during the design phase of this exercise.
 
 1. Create domain models based on the requirements outlined below. It's recommended that you put a good effort into this step, it'll make the next steps much easier.
 2. Add your domain model to either a file named `domain-model.md` or as a screenshot.
-3. There is an empty class named `TodoList` in `./tdd-todo-list.CSharp.Main/Core.cs`, you should write your source code in here after you open the `tdd-todo-list.sln` with Visual Studio 2022
-4. There is an almost empty test class for the `TodoList` class in `./tdd-todo-list.CSharp.Test/CoreTests.cs`, you should write your tests in here. There is an example test to help you with the format, use the tests in previous exercises to help guide you in using the `Assertions` class
+3. There is an empty class named `TodoList` in `./tdd-todo-list.CSharp.Main/TodoList.cs`, you should write your source code in here after you open the `tdd-todo-list.sln` with Visual Studio
+4. There is an almost empty test class in `./tdd-todo-list.CSharp.Test/CoreTests.cs`, you should write your tests in here. There is an example test to help you with the format, use the tests in previous exercises to help guide you in using the `Assertions` class
 5. For each requirement below, use the Red Green Refactor approach to create a single test and then make it pass by writing source code. It's important to practice writing the test first, don't rob yourself of learning this vital skill.
 
 ## Core Requirements
