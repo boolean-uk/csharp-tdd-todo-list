@@ -156,5 +156,29 @@ namespace tdd_todo_list.CSharp.Test
             Assert.That(res2, Is.EqualTo(false));
 
         }
+        [Test]
+        public void TestSorter()
+        {
+            // Arrange
+            string stringA = "abc";
+            string stringB = "def";
+            string stringC = "ghi";
+            _core.Add(stringB);
+            _core.Add(stringA);
+            _core.Add(stringC);
+
+            Dictionary<string, bool> List = _core.ListTasks();
+
+            // Act
+            Dictionary<string, bool> resAsc = TodoSorter.SortAscending(List);
+            Dictionary<string, bool> resDesc = TodoSorter.SortDescending(List);
+
+            // Assert
+            Assert.That(stringA, Is.EqualTo(resAsc.First().Key));
+            Assert.That(stringC, Is.EqualTo(resAsc.Last().Key));
+
+            Assert.That(stringC, Is.EqualTo(resDesc.First().Key));
+            Assert.That(stringA, Is.EqualTo(resDesc.Last().Key));
+        }
     }
 }

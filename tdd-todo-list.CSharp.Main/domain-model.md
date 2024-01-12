@@ -18,5 +18,5 @@
 | | | Find task that does not exist | string |
 | | `RemoveTask(string text)` | Remove a task based on text | true |
 | |  | Can't find the provided text | false |
-| `TodoSorter` | `SortAscending(Dictionary<string, bool> items)` | Sort list in ascending order | Dictionary<string, bool> |
-| | `SortDescending(Dictionary<string, bool> items)` | Sort list in descending order | Dictionary<string, bool>| 
+| `TodoSorter` | `static SortAscending(Dictionary<string, bool> items)` | Sort list in ascending order | Dictionary<string, bool> |
+| | `static SortDescending(Dictionary<string, bool> items)` | Sort list in descending order | Dictionary<string, bool>| 

@@ -44,4 +44,17 @@ namespace tdd_todo_list.CSharp.Main
             throw new NotImplementedException();
         }
     }
+
+    public class TodoSorter() 
+    {
+        public static Dictionary<string, bool> SortAscending(Dictionary<string, bool> items) 
+        {
+            throw new NotImplementedException();
+        }
+
+        public static Dictionary<string, bool> SortDescending(Dictionary<string, bool> items)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }
