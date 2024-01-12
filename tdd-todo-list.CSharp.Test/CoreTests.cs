@@ -77,5 +77,32 @@ namespace tdd_todo_list.CSharp.Test
             Assert.That(res2, Is.EqualTo(false));
 
         }
+
+        [Test]
+        public void RetrieveCorrectStatusLists() 
+        {
+            // Arrange
+            string todoString = "This task is complete";
+            string todoString2 = "This task is also complete";
+
+            string todoString3 = "This task is not complete";
+            string todoString4 = "This task is also not complete";
+
+            _core.Add(todoString);
+            _core.Add(todoString2);
+            _core.Add(todoString3);
+            _core.Add(todoString4);
+
+            _core.SetTaskStatus(0, true);
+            _core.SetTaskStatus(1, true);
+
+            // Act
+            Dictionary<string, bool> complete = _core.GetCompleteTasks();
+            Dictionary<string, bool> incomplete = _core.GetIncompleteTasks();
+
+            // Assert
+            Assert.That(complete.All(t => t.Value == true));
+            Assert.That(incomplete.All(t => t.Value == false));
+        }
     }
 }

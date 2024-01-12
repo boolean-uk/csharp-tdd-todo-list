@@ -23,5 +23,15 @@ namespace tdd_todo_list.CSharp.Main
         {
             throw new NotImplementedException();
         }
+
+        public Dictionary<string, bool> GetCompleteTasks() 
+        {
+            throw new NotImplementedException();
+        }
+
+        public Dictionary<string, bool> GetIncompleteTasks()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
