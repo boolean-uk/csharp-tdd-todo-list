@@ -2,6 +2,10 @@
 
 TodoList core = new TodoList();
 core.addTask("Cut firewood", 111);
-core.addTask("Go fishing",112);
-core.completeTask(112);
-core.SeeCompleteTasks();
+core.addTask("Get water", 112);
+core.addTask("Help grandma", 113);
+core.addTask("Plant potatoes",114);
+core.addTask("Make soup", 115);
+core.addTask("Fix hole in roof", 116);
+core.addTask("Go to market", 117);
+core.printAlphabeticalRev();
