@@ -1,6 +1,8 @@
 ﻿using tdd_todo_list.CSharp.Main;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
+using System.IO;
+using System.Xml.Linq;
 
 namespace tdd_todo_list.CSharp.Test
 {
@@ -66,14 +68,26 @@ namespace tdd_todo_list.CSharp.Test
         [Test]
         public void ListTasks()
         {
+            var stringWriter = new StringWriter();
+            Console.SetOut(stringWriter);
+
             toDoList.Add("Make a todolist");
             toDoList.Add("Make a cake");
 
-            Assert.AreSame(toDoList._tasks[0]._description, "Make a todolist");
-            Assert.AreSame(toDoList._tasks[1]._description, "Make a cake");
+            // I want to see all the tasks in my todo list
+            List<TodoTask> retrList = toDoList.ListAll();
 
-            Assert.IsFalse(toDoList._tasks[0]._done);
-            Assert.IsFalse(toDoList._tasks[1]._done);
+            Assert.AreSame(retrList[0]._description, "Make a todolist");
+            Assert.AreSame(retrList[1]._description, "Make a cake");
+
+            Assert.IsFalse(retrList[0]._done);
+            Assert.IsFalse(retrList[1]._done);
+
+            // console writelines are correct
+            var outputLines = stringWriter.ToString().Split(Environment.NewLine, StringSplitOptions.RemoveEmptyEntries);
+
+            Assert.AreEqual("Make a todolist, completion status: False", outputLines[0]);
+            Assert.AreEqual("Make a cake, completion status: False", outputLines[1]);
 
         }
 

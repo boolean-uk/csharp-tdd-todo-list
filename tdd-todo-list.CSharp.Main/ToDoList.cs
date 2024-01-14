@@ -37,6 +37,10 @@ namespace tdd_todo_list.CSharp.Main
 
         public List<TodoTask> ListAll()
         {
+            foreach (TodoTask task in _tasks)
+            {
+                Console.WriteLine($"{task._description}, completion status: {task._done}");
+            }
             return _tasks;
         }
 
