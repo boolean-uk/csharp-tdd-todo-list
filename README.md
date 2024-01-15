@@ -1,5 +1,5 @@
 # Todo List
-[Personal ](.tdd-todo-list.CSharp.Main/Solution/domain-model.md)
+[Personal ](/tdd-todo-list.CSharp.Main/Solution/domain-model.md)
 /domain-model.md]
 ## Learning Objectives
 - Use user stories to create a domain model
