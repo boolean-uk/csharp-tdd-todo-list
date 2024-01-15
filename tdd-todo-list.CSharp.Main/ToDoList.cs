@@ -31,7 +31,15 @@ namespace tdd_todo_list.CSharp.Main
 
         public int PrintComplete()
         {
-            return 0;
+            int count = 0;
+            foreach (var item in _toDoList)
+            {
+                if (item.Value)
+                {
+                    count++;
+                }
+            }
+            return count;
         }
     }
 }
