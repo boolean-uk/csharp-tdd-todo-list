@@ -14,8 +14,8 @@
 | | | Provided task was not valid, no task status changed | false |
 | | `GetCompleteTasks()` | Retrieve all tasks with complete status | Dictionary<string, bool> | 
 | | `GetIncompleteTasks()` | Retrieve all task with incomplete status | Dictionary<string, bool> | 
-| | `FindTask(string text)` | Find task by text | string | 
-| | | Find task that does not exist | string |
+| | `FindTask(string text)` | Find task by text | true | 
+| | | Find task that does not exist | false |
 | | `RemoveTask(string text)` | Remove a task based on text | true |
 | |  | Can't find the provided text | false |
 | `TodoSorter` | `static SortAscending(Dictionary<string, bool> items)` | Sort list in ascending order | Dictionary<string, bool> |
