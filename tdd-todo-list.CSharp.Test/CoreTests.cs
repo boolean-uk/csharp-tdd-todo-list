@@ -290,9 +290,9 @@ namespace tdd_todo_list.CSharp.Test
         }
 
         [Test]
-        [TestCase("Laundry", 3)]
-        [TestCase("Do dishes", 1)]
-        [TestCase("Hoover", 2)]
+        [TestCase("Laundry", 2)]
+        [TestCase("Do dishes", 0)]
+        [TestCase("Hoover", 1)]
         public void Test8(string task, int expectedOrder)
         {
             //  Arrange - set up test values
@@ -311,6 +311,8 @@ namespace tdd_todo_list.CSharp.Test
             {
                 core.Add(kv.Key, kv.Value);
             }
+
+            result = core.PrintAlpha();
 
             result = core.PrintAlpha();
             //  Assert - check the results

@@ -96,7 +96,11 @@ namespace tdd_todo_list.CSharp.Main
 
         public List<string> PrintAlpha()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            //var newList = _toDoList.Select(x => x.Key).ToList();
+            //newList.Sort((x,y)=> string.Compare(x,y));
+            //return newList;
+            return _toDoList.OrderBy(x => x.Key).Select(x => x.Key).ToList();
         }
     }
 }
