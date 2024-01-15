@@ -107,5 +107,30 @@ namespace tdd_todo_list.CSharp.Test
             //  Assert - check the results
             Assert.IsTrue(result == 1);
         }
+
+        [Test]
+        public void Test4()
+        {
+            //  Arrange - set up test values
+            TodoList core = new TodoList();
+            Dictionary<string, bool> keyValuePairs = new Dictionary<string, bool>()
+            {
+                {"Laundry", false },
+                {"Do dishes", true },
+                {"Hoover", false }
+            };
+
+            int result = 0;
+
+            //  Act - use the fucntion we want to test
+            foreach (var kv in keyValuePairs)
+            {
+                core.Add(kv.Key, kv.Value);
+            }
+
+            result = core.PrintComplete();
+            //  Assert - check the results
+            Assert.IsTrue(result == 2);
+        }
     }
 }
