@@ -8,10 +8,74 @@ namespace tdd_todo_list.CSharp.Test
     {
 
         [Test]
-        public void FirstTest()
+        public void CreateTaskAndGetter()
         {
-            TodoList core = new TodoList();
-            Assert.Pass();
+            // Setup and execute
+            Main.Task t = new ("Feed the cat", false);
+
+            // Verify
+            StringAssert.Contains(t.description, "Feed the cat");
+            Assert.IsFalse(t.completed);
+        }
+        [Test]
+        public void ShouldSetTask()
+        {
+            Main.Task task = new("Feed the cat", false);
+            // Setter
+            task.description = "Feed the dog";
+            StringAssert.Contains(task.description, "Feed the dog");
+        }
+        [Test]
+        public void ShouldAddTaskToList() {
+            TodoList todolist = new TodoList();
+            Main.Task task = new("Feed the cat", false);
+
+            todolist.addTaskToList(task);
+            //Index might be wrong to use
+            Assert.That(todolist.tasks != null && todolist.tasks[0].description == "Feed the cat");
+        }
+        [Test]
+        public void ShouldRemoveTaskFromList()
+        {
+            TodoList todolist = new TodoList();
+            Main.Task task = new("Feed the cat", false);
+            
+            todolist.addTaskToList(task);
+            todolist.removeTaskFromList(task);
+
+            Assert.That(todolist.tasks.Count == 0);
+        }
+        [Test]
+        public void ShouldReturnListWithCompletedTasks()
+        {
+            TodoList todolist = new TodoList();
+            Main.Task task = new("Feed the cat", false);
+            Main.Task task2 = new("Feed the dog", true);
+
+            todolist.addTaskToList(task);
+            todolist.addTaskToList(task2);
+            List<Main.Task> completed = todolist.completedTasks();
+
+            Assert.AreEqual(1, completed.Count);
+            // Check content in returned list
+            Assert.That(completed.Contains(task2));
+        }
+        [Test]
+        public void ShouldReturnListWithUncompletedTasks()
+        {
+            TodoList todolist = new TodoList();
+            Main.Task task = new("Feed the cat", false);
+            Main.Task task2 = new("Feed the dog", true);
+            Main.Task task3 = new("Feed the fish", false);
+
+            todolist.addTaskToList(task);
+            todolist.addTaskToList(task2);
+            todolist.addTaskToList(task3);
+            List<Main.Task> uncompleted = todolist.uncompletedTasks();
+
+            Assert.AreEqual(2, uncompleted.Count);
+            // Check content in returned list
+            Assert.That(uncompleted.Contains(task));
         }
     }
 }
