@@ -2,7 +2,7 @@
 |------------------------------------|------------------------------------|-------------------------|
 | AddTask(string task)               | provided task                      | TRUE                    |
 |                                    | empty string                       | FALSE                   |
-| PrintTodoList()                    | Dictionary isnt empty              | Dictionary<String,Bool> |
+| getList()                    | Dictionary isnt empty              | Dictionary<String,Bool> |
 |                                    | Dictionary is empty                | null                    |
 | EditTask(string task, bool status) | task exists                        | TRUE                    |
 |                                    | task doesnt exist                  | FALSE                   |
@@ -16,5 +16,5 @@
 |                                    | task doesnt exist                  | FALSE                   |
 | SortAlphIncrement()                | Dictionary isnt empty              | Dictionary<String,Bool> |
 |                                    | Dictionary is empty                | null                    |
-| SortAlphIncrement()                | Dictionary isnt empty              | Dictionary<String,Bool> |
+| SortAlphUnincrement()                | Dictionary isnt empty              | Dictionary<String,Bool> |
 |                                    | Dictionary is empty                | null                    |
