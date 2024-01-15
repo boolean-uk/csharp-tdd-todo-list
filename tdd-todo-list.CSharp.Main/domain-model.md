@@ -28,3 +28,19 @@
 |            |                            | `Task does not exist`      | `Returns a message that task does not exist`          |
 |            | `OrderAscending()`         |                            | `Orders the tasks alphabetically in ascending order`  |
 |            | `OrderDescending()`        |                            | `Orders the tasks alphabetically in descending order` |
+
+## Extension Requirements
+
+- I want to be able to get a task by a unique ID.
+- I want to update the name of a task by providing its ID and a new name.
+- I want to be able to change the status of a task by providing its ID.
+- I want to be able to see the date and time that I created each task.
+
+| `Classes`  | `Methods`           | `Scenario`                    | `Outputs`                                        |
+|------------|---------------------|-------------------------------|--------------------------------------------------|
+| `Todolist` | `GetTask(id)`       | `Task with ID exists`         | `Returns the task`                               |
+|            |                     | `Task with ID does not exist` | `Returns a message that the task does not exist` |
+|            | `Update(ID, name)`  | `Task with ID exists`         | `Name of the task is changed`                    |
+|            |                     | `Task with ID does not exist` | `Returns a message that the task does not exist` |
+|            | `Change status(ID)` | `Task with ID exists`         | `Status of the task is updated`                  |
+|            |                     | `Task with ID does not exist` | `Returns a message that the task does not exist` |
