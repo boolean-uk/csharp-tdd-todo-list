@@ -19,7 +19,7 @@ namespace tdd_todo_list.CSharp.Main
             return _items.ToDictionary(a => a.Key, a => a.Value );
         }
 
-        public bool SetTaskStatus(int index, bool completeStatus)
+        public bool SetTaskStatus(string task, bool completeStatus)
         {
             throw new NotImplementedException();
         }

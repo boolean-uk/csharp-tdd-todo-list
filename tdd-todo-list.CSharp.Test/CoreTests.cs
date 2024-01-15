@@ -68,11 +68,12 @@ namespace tdd_todo_list.CSharp.Test
         {
             // Arrange
             string todoString = "Hello, this is a string";
+            string notAddedString = "This should not be in the todolist";
             _core.Add(todoString);
 
             // Act
-            bool res = _core.SetTaskStatus(0, status); // Should return true
-            bool res2 = _core.SetTaskStatus(999, status); // Should return false
+            bool res = _core.SetTaskStatus(todoString, status); // Should return true
+            bool res2 = _core.SetTaskStatus(notAddedString, status); // Should return false
 
             // Assert
             Assert.That(res, Is.EqualTo(true));
@@ -95,8 +96,8 @@ namespace tdd_todo_list.CSharp.Test
             _core.Add(todoString3);
             _core.Add(todoString4);
 
-            _core.SetTaskStatus(0, true);
-            _core.SetTaskStatus(1, true);
+            _core.SetTaskStatus(todoString, true);
+            _core.SetTaskStatus(todoString2, true);
 
             // Act
             Dictionary<string, bool> complete = _core.GetCompleteTasks();

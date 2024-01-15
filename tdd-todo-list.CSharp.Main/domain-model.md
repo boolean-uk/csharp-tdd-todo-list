@@ -10,8 +10,8 @@
 |-|-|-|-|
 | `TodoList` | `Add(string task)` | Add task to the list | bool |
 | | `ListTasks()` | See all tasks in list | Dictionary<string, bool> |
-| | `SetTaskStatus(int index, bool completeStatus)` | Change task status based on task index | true |
-| | | Provided index was not valid, no task status changed | false |
+| | `SetTaskStatus(string task, bool completeStatus)` | Change task status based on task text | true |
+| | | Provided task was not valid, no task status changed | false |
 | | `GetCompleteTasks()` | Retrieve all tasks with complete status | Dictionary<string, bool> | 
 | | `GetIncompleteTasks()` | Retrieve all task with incomplete status | Dictionary<string, bool> | 
 | | `FindTask(string text, out int index)` | Find task by text | string | 
