@@ -81,5 +81,10 @@ namespace tdd_todo_list.CSharp.Main
             Console.WriteLine($"The task \"{s}\" has been removed!");
             return true;
         }
+
+        public bool ChangeStatus(string s)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

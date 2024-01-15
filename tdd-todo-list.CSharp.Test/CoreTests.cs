@@ -236,5 +236,57 @@ namespace tdd_todo_list.CSharp.Test
             //  Assert - check the results
             Assert.IsTrue(result);
         }
+
+        [Test]
+        public void Test7A()
+        {
+            //  Arrange - set up test values
+            TodoList core = new TodoList();
+            Dictionary<string, bool> keyValuePairs = new Dictionary<string, bool>()
+            {
+                {"Laundry", false },
+                {"Do dishes", true },
+                {"Hoover", false }
+            };
+
+            bool result = false;
+
+            //  Act - use the fucntion we want to test
+            foreach (var kv in keyValuePairs)
+            {
+                core.Add(kv.Key, kv.Value);
+            }
+
+            result = core.ChangeStatus("Shopping");
+
+            //  Assert - check the results
+            Assert.IsFalse(result);
+        }
+
+        [Test]
+        public void Test7B()
+        {
+            //  Arrange - set up test values
+            TodoList core = new TodoList();
+            Dictionary<string, bool> keyValuePairs = new Dictionary<string, bool>()
+            {
+                {"Laundry", false },
+                {"Do dishes", true },
+                {"Hoover", false }
+            };
+
+            bool result = false;
+
+            //  Act - use the fucntion we want to test
+            foreach (var kv in keyValuePairs)
+            {
+                core.Add(kv.Key, kv.Value);
+            }
+
+            result = core.ChangeStatus("Hoover");
+
+            //  Assert - check the results
+            Assert.IsTrue(result);
+        }
     }
 }
