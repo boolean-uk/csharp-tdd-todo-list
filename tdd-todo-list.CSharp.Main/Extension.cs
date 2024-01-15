@@ -89,7 +89,6 @@ namespace tdd_todo_list.CSharp.Main
                 taskAndTimeStamps.Add(task[0] + ":" + task[2]);
             }
 
-            taskAndTimeStamps.Sort();
 
             return taskAndTimeStamps.ToArray();
 
