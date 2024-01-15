@@ -8,7 +8,7 @@
 |                                    | task doesnt exist                  | FALSE                   |
 | GetCompleteTasks()               | tasks with bool = true exist       | Dictionary<String,Bool> |
 |                                    | tasks with bool = true dont exist  | null                    |
-| GetcompleteTasks()             | tasks with bool = false exist      | Dictionary<String,Bool> |
+| GetIncompleteTasks()             | tasks with bool = false exist      | Dictionary<String,Bool> |
 |                                    | tasks with bool = false dont exist | null                    |
 | Search(string task)                | task exists                        | TRUE                    |
 |                                    | task doesnt exist                  | FALSE                   |
