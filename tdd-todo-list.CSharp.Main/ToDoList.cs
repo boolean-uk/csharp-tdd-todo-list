@@ -2,9 +2,11 @@
 
 
 
+using System.Collections;
+
 namespace tdd_todo_list.CSharp.Main
 {
-    public class TodoList()
+    public class TodoList() : IEnumerable<ToDoTask>
     {
         private readonly List<ToDoTask> _tasks = new();
 
@@ -41,6 +43,8 @@ namespace tdd_todo_list.CSharp.Main
             return _tasks;
         }
 
+        
+
         public ToDoTask? Search(string id)
         {
             ToDoTask task = _tasks.FirstOrDefault(t => t.Id == id)
@@ -58,6 +62,16 @@ namespace tdd_todo_list.CSharp.Main
         public void Remove(int index)
         {
             _tasks.RemoveAt(index);
+        }
+
+        public IEnumerator<ToDoTask> GetEnumerator()
+        {
+            return _tasks.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
 
         public int Count { get { return _tasks.Count; } }

@@ -13,5 +13,6 @@ namespace tdd_todo_list.CSharp.Main
         public string Id { get; } = Guid.NewGuid().ToString();
         public string Name { get; set; } = name;
         public Status Status { get; set; } = status;
+        public DateTime DateCreated { get; } = DateTime.Now;
     }
 }

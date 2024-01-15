@@ -10,6 +10,11 @@ I want to search for a task and receive a message that says it wasn't found if i
 I want to remove tasks from my list.
 I want to see all the tasks in my list ordered alphabetically in ascending order.
 I want to see all the tasks in my list ordered alphabetically in descending order.
+
+I want to be able to get a task by a unique ID.
+I want to update the name of a task by providing its ID and a new name.
+I want to be able to change the status of a task by providing its ID.
+I want to be able to see the date and time that I created each task.
 ```
 <table>
 	<thead>
@@ -26,7 +31,7 @@ I want to see all the tasks in my list ordered alphabetically in descending orde
 	</tbody>
 	<tbody>
 		<td></td>
-		<td><code>View(Enum OrderAlphabetical ascending)</code></td>
+		<td><code>View(Sorting sorting)</code></td>
 		<td>View all tasks in the ToDoList ordered alphabetically, 
 		ascending or descending</td>
 		<td>void</td>
@@ -65,6 +70,22 @@ I want to see all the tasks in my list ordered alphabetically in descending orde
 		<td></td>
 		<td><code>Remove(int index)</code></td>
 		<td>Remove a task from the ToDoList by index</td>
+		<td>void</td>
+	</tbody>
+	<tbody>
+		<td></td>
+		<td><code>UpdateTask(string id, string name)</code></td>
+		<td>Change name of a task given by its id</td>
+		<td>void</td>
+	</tbody>
+		<td></td>
+		<td><code>UpdateTask(string id, Status status)</code></td>
+		<td>Change the status of a task given by its id</td>
+		<td>void</td>
+	</tbody>
+		<td></td>
+		<td><code>ViewTaskCreationDates()</code></td>
+		<td>Get and view the date and time each task was created</td>
 		<td>void</td>
 	</tbody>
 	<tbody>
