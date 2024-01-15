@@ -12,27 +12,27 @@ namespace tdd_todo_list.CSharp.Main
 
         public int getID(string name)
         {
-            throw new NotImplementedException();
+            return IDToTask.FirstOrDefault(x => x.Value == name).Key;
         }
 
-        public string getTaskByID(int iD)
+        public string getTaskByID(int ID)
         {
-            throw new NotImplementedException();
+            return IDToTask[ID];
         }
 
-        public void updateName(int iD, string v)
+        public void updateName(int ID, string v)
         {
-            throw new NotImplementedException();
+            IDToTask[ID] = v;
         }
 
-        public void updateStatus(int iD, string v)
+        public void updateStatus(int ID, string v)
         {
-            throw new NotImplementedException();
+            IDToInfo[ID] = ((IDToInfo[ID].status == "incomplete" ? "complete" : "incomplete"), IDToInfo[ID].time);
         }
 
-        public DateTime whenCreated(int iD)
+        public DateTime whenCreated(int ID)
         {
-            throw new NotImplementedException();
+            return IDToInfo[ID].time;
         }
     }
 }

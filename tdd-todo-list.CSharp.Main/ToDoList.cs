@@ -9,12 +9,10 @@ namespace tdd_todo_list.CSharp.Main
 {
     public class TodoList
     {
-        private SortedDictionary<string, string> toDo = new SortedDictionary<string, string>();
+        internal Dictionary<int, string> IDToTask = new Dictionary<int, string>();
+        internal Dictionary<int, (string status, DateTime time)> IDToInfo= new Dictionary<int, (string, DateTime)>();
 
-        private Dictionary<int, string> IDToTask = new Dictionary<int, string>();
-        private Dictionary<int, (string, DateTime)> IDToInfo= new Dictionary<int, (string, DateTime)>();
-
-        private int counter = 0;
+        internal int counter = 0;
 
         public void addTask(string v)
         {
@@ -25,9 +23,9 @@ namespace tdd_todo_list.CSharp.Main
         public bool changeStatus(string v)
         {
             if (!IDToTask.ContainsValue(v)) return false;
-            int ID = IDToTask.First(x => x.Value == v).Key;
+            int ID = IDToTask.FirstOrDefault(x => x.Value == v).Key;
 
-            IDToInfo[ID] = ((IDToInfo[ID].Item1 == "incomplete" ? "complete" : "incomplete"), IDToInfo[ID].Item2);
+            IDToInfo[ID] = ((IDToInfo[ID].status == "incomplete" ? "complete" : "incomplete"), IDToInfo[ID].time);
             return true;
         }
 
@@ -53,7 +51,7 @@ namespace tdd_todo_list.CSharp.Main
                     list = new List<string>();
                     foreach( var elm in IDToInfo )
                     {
-                        if ( elm.Value.Item1 == status ) list.Add( IDToTask[elm.Key] );
+                        if ( elm.Value.status == status ) list.Add( IDToTask[elm.Key] );
                     }
                     break;
                 default:
