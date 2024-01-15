@@ -41,7 +41,18 @@ namespace tdd_todo_list.CSharp.Main
         public Dictionary<string,bool> getCompleteTasks()
         {
             var result = todoList.Where(i => i.Value.Equals(true))
-.           ToDictionary(i => i.Key, i => i.Value);
+            .ToDictionary(i => i.Key, i => i.Value);
+
+            if (result.Count > 0)
+            {
+                return result;
+            }
+            return null;
+        }
+        public Dictionary<string, bool> getIncompleteTasks()
+        {
+            var result = todoList.Where(i => i.Value.Equals(false))
+            .ToDictionary(i => i.Key, i => i.Value);
 
             if (result.Count > 0)
             {
