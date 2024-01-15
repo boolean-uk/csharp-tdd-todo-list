@@ -12,8 +12,8 @@
 |                                    | tasks with bool = false dont exist | <Empty>                    |
 | Search(string task)                | task exists                        | TRUE                    |
 |                                    | task doesnt exist                  | FALSE                   |
-| Remove(string task)                | task exists                        | TRUE                    |
-|                                    | task doesnt exist                  | FALSE                   |
+| Remove(string task)                | task exists                        | Task                    |
+|                                    | task doesnt exist                  | Null                   |
 | SortAlphIncrement()                | Dictionary isnt empty              | List<Task> |
 |                                    | Dictionary is empty                | <Empty>                    |
 | SortAlphUnincrement()                | Dictionary isnt empty              | List<Task> |
