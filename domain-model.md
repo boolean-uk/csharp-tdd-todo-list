@@ -6,9 +6,9 @@
 |                                    | Dictionary is empty                | null                    |
 | EditTask(string task, bool status) | task exists                        | TRUE                    |
 |                                    | task doesnt exist                  | FALSE                   |
-| PrintCompleteTasks()               | tasks with bool = true exist       | Dictionary<String,Bool> |
+| GetCompleteTasks()               | tasks with bool = true exist       | Dictionary<String,Bool> |
 |                                    | tasks with bool = true dont exist  | null                    |
-| PrintUncompleteTasks()             | tasks with bool = false exist      | Dictionary<String,Bool> |
+| GetcompleteTasks()             | tasks with bool = false exist      | Dictionary<String,Bool> |
 |                                    | tasks with bool = false dont exist | null                    |
 | Search(string task)                | task exists                        | TRUE                    |
 |                                    | task doesnt exist                  | FALSE                   |
