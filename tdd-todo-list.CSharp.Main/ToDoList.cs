@@ -93,5 +93,10 @@ namespace tdd_todo_list.CSharp.Main
             Console.WriteLine($"The status of task \"{s}\" has been changed!");
             return true;
         }
+
+        public List<string> PrintAlpha()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
