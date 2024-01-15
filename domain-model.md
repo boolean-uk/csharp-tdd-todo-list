@@ -37,7 +37,7 @@ I want to be able to see the date and time that I created each task.
 | Classes         | Methods                                     | Scenario                  | Outputs                       |
 |-----------------|---------------------------------------------|---------------------------|-------------------------------|
 | `Todo`          | `getTaskById(string Id)`                    | If task exists	        | Task task                     |
-|                 |                                             | If task doesn not exist   | []                            |
+|                 |                                             | If task doesn not exist   | null                            |
 | `Todo`          | `updateTaskName(string Id)`                 | If task exists	        | bool true                     |
 |                 |                                             | If task doesn't exist     | bool false                    |
 | `Todo`          | `changeTaskStatus(string Id)`               | If task exists	        | bool true                     |
