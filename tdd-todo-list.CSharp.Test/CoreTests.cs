@@ -8,8 +8,8 @@ namespace tdd_todo_list.CSharp.Test
     [TestFixture]
     public class CoreTests
     {
-        private TodoList core; 
-        private List<Task> tasks; 
+        private TodoList? core;
+        
         [SetUp] 
         public void SetUp() {
             core = new TodoList();
