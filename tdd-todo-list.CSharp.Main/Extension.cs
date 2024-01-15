@@ -11,7 +11,7 @@ namespace tdd_todo_list.CSharp.Main
     {
         Dictionary<string, ToDoItem> _items = new Dictionary<string, ToDoItem>();
 
-        public bool Add(string task) 
+        public bool Add(string task, out string ID) 
         {
             throw new NotImplementedException();
         }

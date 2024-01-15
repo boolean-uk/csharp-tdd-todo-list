@@ -30,7 +30,7 @@
 
 | Classes | Methods | Scenario | Outputs |
 |-|-|-|-|
-| Extension | `Add(string task)` | Added todotask to list | true |
+| Extension | `Add(string task, out string ID)` | Added todotask to list | true |
 | | | Failed to add todotask to list | false|
 | | `RetrieveTask(string ID)` | Get task by unique ID | ToDoItem |
 | | `UpdateTaskName(string ID, string newName)` | Update the ToDoItem name associated with the provided ID | true |
