@@ -66,5 +66,21 @@ namespace tdd_todo_list.CSharp.Main
         {
             throw new NotImplementedException();
         }
+
+        public List<TodoTask> Tasks {  get { return _tasks; } }
+
+        public override string ToString()
+        {
+            if (Tasks.Count == 0 )
+            {
+                return "No tasks found.";
+            }
+            StringBuilder output = new StringBuilder();
+            foreach ( var task in Tasks )
+            {
+                output.AppendLine(task.ToString() );
+            }
+            return output.ToString();
+        }
     }
 }

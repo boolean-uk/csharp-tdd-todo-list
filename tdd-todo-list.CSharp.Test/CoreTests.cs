@@ -104,6 +104,5 @@ namespace tdd_todo_list.CSharp.Test
             Assert.That(itemsWithBread.Count == 2);
             Assert.That(itemsWithNachos.Count == 0);
             Assert.That(resultsForNachos.Contains("No results"));
-        }
     }
 }
