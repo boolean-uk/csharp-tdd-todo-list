@@ -24,22 +24,27 @@ namespace tdd_todo_list.CSharp.Main
 
         public IdTask Get(string id)
         {
-            return new IdTask("");
+            return _tasks.ToList().Where(i => i.Id == id).First();
         } 
 
         public void Rename(string id, string name)
         {
-
+            _tasks.ToList().Where(i => i.Id == id).First().Name = name;
         }
 
         public void Complete(string id)
         {
-
+            _tasks.ToList().Where(i => i.Id == id).First().Completed = true;
         }
 
         public string PrintCreated()
         {
-            return "";
+            StringBuilder sb = new StringBuilder();
+            foreach (IdTask task in _tasks)
+            {
+                sb.Append($"{task.Name} {task.Created.ToString("MM/dd/yyyy HH:mm")}");
+            }
+            return sb.ToString();
         }
     }
 }
