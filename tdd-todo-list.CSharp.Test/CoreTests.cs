@@ -6,12 +6,48 @@ namespace tdd_todo_list.CSharp.Test
     [TestFixture]
     public class CoreTests
     {
-
         [Test]
-        public void FirstTest()
+        public void AddTestTrue()
         {
+            //Arrange
             TodoList core = new TodoList();
-            Assert.Pass();
+            //Act
+      
+            //Assess
+            Assert.IsTrue(core.AddTask("test1"));
         }
+        [Test]
+        public void AddTestFalse()
+        {
+            //Arrange
+            TodoList core = new TodoList();
+            //Act
+
+            //Assess
+            Assert.IsFalse(core.AddTask(""));
+        }
+        [Test]
+        public void getList()
+        {
+            //Arrange
+            TodoList core = new TodoList();
+            //Act
+            core.AddTask("Test1");
+            core.AddTask("Test2");
+            var result = core.GetList();
+            //Assess
+            Assert.NotNull(result);
+        }
+        [Test]
+        public void getListNull()
+        {
+            //Arrange
+            TodoList core = new TodoList();
+            //Act
+            var result = core.GetList();
+            //Assess
+            Assert.Null(result);
+        }
+
     }
 }
