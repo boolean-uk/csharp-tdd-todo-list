@@ -318,5 +318,35 @@ namespace tdd_todo_list.CSharp.Test
             //  Assert - check the results
             Assert.IsTrue(core.PrintAlpha().ToArray()[expectedOrder] == task);
         }
+
+        [Test]
+        [TestCase("Laundry", 0)]
+        [TestCase("Do dishes", 2)]
+        [TestCase("Hoover", 1)]
+        public void Test9(string task, int expectedOrder)
+        {
+            //  Arrange - set up test values
+            TodoList core = new TodoList();
+            Dictionary<string, bool> keyValuePairs = new Dictionary<string, bool>()
+            {
+                {"Laundry", false },
+                {"Do dishes", false },
+                {"Hoover", false }
+            };
+
+            List<string> result = new List<string>();
+
+            //  Act - use the fucntion we want to test
+            foreach (var kv in keyValuePairs)
+            {
+                core.Add(kv.Key, kv.Value);
+            }
+
+            result = core.PrintDeAlpha();
+
+            result = core.PrintDeAlpha();
+            //  Assert - check the results
+            Assert.IsTrue(core.PrintAlpha().ToArray()[expectedOrder] == task);
+        }
     }
 }
