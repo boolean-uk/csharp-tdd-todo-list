@@ -98,13 +98,13 @@ namespace tdd_todo_list.CSharp.Main
             return true;
         }
 
-        public Dictionary<string, bool> Ascending(Dictionary<string, bool> myList)
+        public Dictionary<string, bool> AllTasksAsc(Dictionary<string, bool> myList)
         {
             var listAsc = myList.OrderBy(x => x.Key).ThenBy(x => x.Value)
                 .ToDictionary(x => x.Key, x => x.Value);
             return listAsc;
         }
-        public Dictionary<string, bool> Descending(Dictionary<string, bool> myList)
+        public Dictionary<string, bool> AllTasksDsc(Dictionary<string, bool> myList)
         {
             var listDsc = myList.OrderByDescending(x => x.Key).ThenBy(x => x.Value)
                 .ToDictionary(x => x.Key, x => x.Value);

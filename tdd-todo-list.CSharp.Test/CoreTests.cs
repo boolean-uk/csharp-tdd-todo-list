@@ -122,7 +122,7 @@ namespace tdd_todo_list.CSharp.Test
             core.myList.Add("Feed the cats", true);
             //act
             core.myList.Add("Assemble the table", true);
-            Dictionary<string, bool> sorted = core.Ascending(core.myList);
+            Dictionary<string, bool> sorted = core.AllTasksAsc(core.myList);
             int index = Array.IndexOf(sorted.Keys.ToArray(), "Assemble the table");
             //assert
             Assert.AreEqual(0, index);
@@ -137,7 +137,7 @@ namespace tdd_todo_list.CSharp.Test
             core.myList.Add("Feed the cats", true);
             //act
             core.myList.Add("Assemble the table", true);
-            Dictionary<string, bool> sorted = core.Descending(core.myList);
+            Dictionary<string, bool> sorted = core.AllTasksDsc(core.myList);
             int index = Array.IndexOf(sorted.Keys.ToArray(), "Assemble the table");
             //assert
             Assert.AreEqual(3, index);
