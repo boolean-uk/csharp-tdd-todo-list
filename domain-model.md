@@ -43,9 +43,28 @@ public List<srting> GetIncompleteTasks(); returns a list of incompleated tasks.
 -put incompleated tasks in a new list.
 -return new list.
 
+
 public string searchForTask(int taskId); looks for task with the ID.
 -returns name of task and compleation status if found.
 -send message if not found.
+
+--------------------------------------------------------------------------------------------------------
+
+
+I want to remove tasks from my list.
+I want to see all the tasks in my list ordered alphabetically in ascending order.
+I want to see all the tasks in my list ordered alphabetically in descending order.
+
+
+Public string RemoveTask(int taskID); looks for task with ID.
+-returns message "Task: taskName was removed from todolist.
+-returns message "TaskID was not on todolist"
+
+Public List<string> SortAlphabeticallyAssending(); 
+-returns list sorted alphabetically in assending order.
+
+Public List<string> SortAlphabeticallyDescening(); 
+-returns list sorted alphabetically in descending order.
 
 
 

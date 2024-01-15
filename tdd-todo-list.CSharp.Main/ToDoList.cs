@@ -70,18 +70,97 @@ namespace tdd_todo_list.CSharp.Main
 
         public List<string> GetCompleatedTasks()
         {
-            throw new NotImplementedException();
+            List<string> strings = new List<string>();
+            foreach (var task in todoList)
+            {
+                if (task.Value.complete)
+                {
+                    strings.Add(task.Value.taskTitle);
+
+                }
+
+            }
+
+            return strings; 
         }
 
         public List<string> GetIncompleatedTasks()
         {
-            throw new NotImplementedException();
+            List<string> strings = new List<string>();
+            foreach (var task in todoList)
+            {
+                if (!task.Value.complete)
+                {
+                    strings.Add(task.Value.taskTitle);
+
+                }
+
+            }
+
+            return strings;
         }
 
         public string SearchForTask(int taskId)
         {
-            throw new NotSupportedException();
+            if (todoList.ContainsKey(taskId))
+            {
+                string status = "complete";
+
+                if (todoList[taskId].complete != true)
+                {
+                    status = "incomplete";
+                }
+                
+                return new string($"Task: {todoList[taskId].taskTitle}, Status: {status}");
+            }
+            else
+            {
+                return new string("TaskID not in todolist");
+            }
         }
+
+        public string RemoveTask(int taskID)
+        {
+
+            if (todoList.ContainsKey(taskID))
+            {   
+                Task temp = todoList[taskID];
+                todoList.Remove(taskID);
+                return new string($"Task: {temp.taskTitle}, was removed from todolist");
+            }
+            else
+            {
+                return new string("TaskID not in todolist");
+            }
+        }
+
+        public List<string> SortAlphabeticallyAssending()
+        {
+            List<string> strings = new List<string> ();
+            foreach (var task in todoList)
+            {
+                strings.Add (task.Value.taskTitle);
+            }
+
+            strings.Sort();
+            return strings ;
+        }
+
+        public List<string> SortAlphabeticallyDescening()
+        {
+            List<string> strings = new List<string>();
+            
+            foreach (var task in todoList)
+            {
+                strings.Add(task.Value.taskTitle);
+            }
+
+            strings.Sort();
+
+            strings.Reverse();
+            return strings;
+        }
+
 
 
     }
