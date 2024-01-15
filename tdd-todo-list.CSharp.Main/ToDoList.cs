@@ -59,7 +59,14 @@ namespace tdd_todo_list.CSharp.Main
 
         public bool SearchTask(string s)
         {
-            throw new NotImplementedException();
+            if (!_toDoList.ContainsKey(s))
+            {
+                Console.WriteLine("The list does not contain the task, did you write it correctly?");
+                return false;
+            }
+            Console.WriteLine($"The list contains the task: \"{s}\" and its status is : {_toDoList[s]}\"");
+            return true;
+
         }
     }
 }
