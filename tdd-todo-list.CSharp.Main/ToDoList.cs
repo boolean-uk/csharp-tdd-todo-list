@@ -84,7 +84,14 @@ namespace tdd_todo_list.CSharp.Main
 
         public bool ChangeStatus(string s)
         {
-            throw new NotImplementedException();
+            if (!_toDoList.ContainsKey(s))
+            {
+                Console.WriteLine("The list does not contain the task, did you write it correctly?");
+                return false;
+            }
+            _toDoList[s] = !_toDoList[s];
+            Console.WriteLine($"The status of task \"{s}\" has been changed!");
+            return true;
         }
     }
 }
