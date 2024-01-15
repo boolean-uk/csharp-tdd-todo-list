@@ -65,65 +65,99 @@ namespace tdd_todo_list.CSharp.Test
             var result1 = core.getCompleted();
 
             //Assess
-            Assert.NotNull(result1);
+            Assert.IsNotEmpty(result1);
             Assert.IsEmpty(result2);
 
         }
-        /*
-        [Test]
-        public void getCompleteFalse()
-        {
-            //Arrange
-            TodoList core = new TodoList();
-            //Act
-            core.AddTask("Test1");
-            core.AddTask("t2");
-            var result = core.getCompleteTasks();
-
-            //Assess
-            Assert.IsNull(result);
-        }
+        
         [Test]
         public void getIncomplete()
         {
             //Arrange
             TodoList core = new TodoList();
             //Act
-            core.AddTask("t1");
-            core.AddTask("t2");
-            core.EditTask("t1", true);
-            var result = core.getIncompleteTasks();
+            core.addTask("t1");
+            core.addTask("t2");
+            var result1 = core.getIncompleted();
+            core.editTask("t1", true);
+            core.editTask("t2", true);
+
+            var result2 = core.getIncompleted();
 
             //Assess
-            Assert.IsTrue(result.ContainsKey("t2"));
+            Assert.IsNotEmpty(result1);
+            Assert.IsEmpty(result2);
         }
-        [Test]
-        public void getIncompleteFalse()
-        {
-            //Arrange
-            TodoList core = new TodoList();
-            //Act
-            core.AddTask("t1");
-            core.EditTask("t1", true);
-
-            var result = core.getIncompleteTasks();
-
-            //Assess
-            Assert.IsNull(result);
-        }
+        
         [Test]
         public void Search()
         {
             //Arrange
             TodoList core = new TodoList();
             //Act
-            core.AddTask("t1");
+            core.addTask("t1");
 
-            var result = core.Search("t1");
+            var result1 = core.search("t1");
+            var result2 = core.search("t2");
 
             //Assess
-            Assert.IsTrue(result);
-        }*/
+            Assert.IsNotNull(result1);
+            Assert.IsNull(result2);
+        }
+        [Test]
+        public void SortAlphabetInc()
+        {
+            //Arrange
+            TodoList core = new TodoList();
+            List<pTask> Correct = new List<pTask>()
+            {
+                new pTask { ptask = "a", isComplete = false },
+                new pTask { ptask = "b", isComplete = false },
+                new pTask { ptask = "c", isComplete = false }
+            };
+            //Act
+            core.addTask("b");
+            core.addTask("a");
+            core.addTask("c");
+
+            var result = core.sortAplhabetInc();
+
+            //Assess
+            Assert.AreEqual(Correct.Count, result.Count);
+
+            for (int i = 0; i < Correct.Count; i++)
+            {
+                Assert.AreEqual(Correct[i].ptask, result[i].ptask);
+                Assert.AreEqual(Correct[i].isComplete, result[i].isComplete);
+            }
+        }
+        [Test]
+        public void SortAlphabetDesc()
+        {
+            //Arrange
+            TodoList core = new TodoList();
+            List<pTask> Correct = new List<pTask>()
+            {
+                new pTask { ptask = "c", isComplete = false },
+                new pTask { ptask = "b", isComplete = false },
+                new pTask { ptask = "a", isComplete = false }
+            };
+            //Act
+            core.addTask("b");
+            core.addTask("a");
+            core.addTask("c");
+
+            var result = core.sortAplhabetInc();
+
+            //Assess
+            Assert.AreEqual(Correct.Count, result.Count);
+
+            for (int i = 0; i < Correct.Count; i++)
+            {
+                Assert.AreEqual(Correct[i].ptask, result[i].ptask);
+                Assert.AreEqual(Correct[i].isComplete, result[i].isComplete);
+            }
+        }
 
     }
 }

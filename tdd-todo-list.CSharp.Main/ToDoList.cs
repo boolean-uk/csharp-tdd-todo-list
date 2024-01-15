@@ -43,6 +43,19 @@ namespace tdd_todo_list.CSharp.Main
         {
             return todoList.Where(t=> t.isComplete==true).ToList();
         }
+        public List<pTask> getIncompleted()
+        {
+            return todoList.Where(t => t.isComplete == false).ToList();
+        }
+        public pTask search(string query)
+        {
+            return todoList.Find(item => item.ptask == query);
+        }
+        public List<pTask> sortAplhabetInc()
+        {
+            var list = todoList.OrderByDescending(item=>item.ptask);
+            return list.ToList();
+        }
 
     }
 }

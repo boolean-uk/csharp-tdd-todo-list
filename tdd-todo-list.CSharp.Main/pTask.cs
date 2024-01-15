@@ -15,6 +15,9 @@ namespace tdd_todo_list.CSharp.Main
        { 
         
        }
-
+        public pTask(string ptask)
+        {
+            this.ptask = ptask;
+        }
     }
 }
