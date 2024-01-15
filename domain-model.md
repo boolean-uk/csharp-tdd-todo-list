@@ -11,22 +11,22 @@ I want to see all the tasks in my list ordered alphabetically in descending orde
 
 | Classes         | Methods                                     | Scenario                  | Outputs                               |
 |-----------------|---------------------------------------------|---------------------------|---------------------------------------|
-| `Todo`          | `getTasks()`                                | If tasks not empty	    | List<Task> tasks                      |
-                                                                | If tasks empty            | []                                    |
-| `Todo`	      | `addTask(Task task)`                        | any			            | void			                        |
-| `Todo`	      | `setTaskStatus(Task task)`                  | If task exists            | bool true			                    |
-                                                                | If task doesn't exist     | bool false                            |
-| `Todo`	      | `getCompleteTasks(Task task)`               | If complete tasks         | List<Task> completeTasks       	    |
-                                                                | If complete tasks empty   | []                                    |
-| `Todo`	      | `getInCompleteTasks(Task task)`             | If complete tasks         | List<Task> incompleteTasks            |
-                                                                | If incomplete tasks empty | []       	                            |
-| `Todo`	      | `searchForTask(Task task)`                  | If found			        | Task task			                    |
-                                                                | If not found			    | returns null, prints "Task not found" |
-| `Todo`	      | `getTasksAscending()`                       | If tasks                  | List<Task> ascendingTasks             |
-| `Todo`	      | `clearTodo()`                               | any                       | void       	                        |
-                                                                | If no tasks               | []                                    |
-| `Todo`	      | `getTasksDescending()`                      | If tasks                  | List<Task> descendingTasks            |
-                                                                | If no tasks               | []                                    |
+| `Todo`          | `getTasks()`                                | If tasks not empty	      | List<Task> tasks                      |
+|                 |                                             | If tasks empty            | []                                    |
+| `Todo`	        | `addTask(Task task)`                        | any			                  | void			                            |
+| `Todo`	        | `setTaskStatus(Task task)`                  | If task exists            | bool true			                        |
+|                 |                                             | If task doesn't exist     | bool false                            |
+| `Todo`	        | `getCompleteTasks(Task task)`               | If complete tasks         | List\<Task\> completeTasks       	      |
+|                 |                                             | If complete tasks empty   | []                                    |
+| `Todo`	        | `getInCompleteTasks(Task task)`             | If complete tasks         | List\<Task\> incompleteTasks            |
+|                 |                                             | If incomplete tasks empty | []       	                            |
+| `Todo`	        | `searchForTask(Task task)`                  | If found			            | bool true 			                        |
+|                 |                                             | If not found			        | bool false, prints "Task not found" |
+| `Todo`	        | `getTasksAscending()`                       | If tasks                  | List\<Task\> ascendingTasks             |
+|                 |                                             | If no tasks               | []                                    |
+| `Todo`	        | `clearTodo()`                               | any                       | void, prints "Tasks cleared"            |
+| `Todo`	        | `getTasksDescending()`                      | If tasks                  | List\<Task\> descendingTasks            |
+|                 |                                             | If no tasks               | []                                    |
 
 
 # Extension
@@ -37,10 +37,10 @@ I want to be able to see the date and time that I created each task.
 | Classes         | Methods                                     | Scenario                  | Outputs                       |
 |-----------------|---------------------------------------------|---------------------------|-------------------------------|
 | `Todo`          | `getTaskById(string Id)`                    | If task exists	        | Task task                     |
-                                                                | If task doesn not exist   | []                            |
+|                 |                                             | If task doesn not exist   | []                            |
 | `Todo`          | `updateTaskName(string Id)`                 | If task exists	        | bool true                     |
-                                                                | If task doesn't exist     | bool false                    |
+|                 |                                             | If task doesn't exist     | bool false                    |
 | `Todo`          | `changeTaskStatus(string Id)`               | If task exists	        | bool true                     |
-                                                                | If task doesn't exist     | bool false                    |
+|                 |                                             | If task doesn't exist     | bool false                    |
 | `Todo`          | `getCreationTime(string Id)`                | If task exists	        | Date/Time createdAt           |
-                                                                | If task doesn't exist     | null                          |
+|                 |                                             | If task doesn't exist     | null                          |
