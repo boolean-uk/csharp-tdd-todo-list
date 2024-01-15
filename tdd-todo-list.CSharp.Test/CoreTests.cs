@@ -19,29 +19,23 @@ namespace tdd_todo_list.CSharp.Test
             Assert.IsTrue(core.addTask("t2"));
 
         }
-        /*
+        
         [Test]
         public void getList()
         {
             //Arrange
             TodoList core = new TodoList();
             //Act
-            core.AddTask("Test1");
-            core.AddTask("Test2");
-            var result = core.GetList();
+            var result2 = core.getList(); //empty list
+            core.addTask("Test1");
+            core.addTask("Test2");
+            var result = core.getList();
             //Assess
             Assert.NotNull(result);
+            Assert.Null(result2);
         }
-        [Test]
-        public void getListNull()
-        {
-            //Arrange
-            TodoList core = new TodoList();
-            //Act
-            var result = core.GetList();
-            //Assess
-            Assert.Null(result);
-        }
+        /*
+        
         [Test]
         public void Edit()
         {

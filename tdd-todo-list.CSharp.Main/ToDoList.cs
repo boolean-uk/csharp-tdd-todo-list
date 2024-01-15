@@ -23,6 +23,14 @@ namespace tdd_todo_list.CSharp.Main
             }
             return false;
         }
+        public List<pTask> getList()
+        {
+            if (todoList.Count > 0)
+            {
+                return todoList;
+            }
+            return null;
+        }
 
     }
 }
