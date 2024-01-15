@@ -16,7 +16,7 @@ namespace tdd_todo_list.CSharp.Main
 
         public Dictionary<string, bool> ListTasks()
         {
-            return _items.ToDictionary(a => a.Key, a => a.Value );
+            return _items.ToDictionary(a => a.Key, a => a.Value);
         }
 
         public bool SetTaskStatus(string task, bool completeStatus)
@@ -40,22 +40,31 @@ namespace tdd_todo_list.CSharp.Main
 
         public Dictionary<string, bool> GetCompleteTasks()
         {
-            throw new NotImplementedException();
+            return _items.Where(t => t.Value == true).ToDictionary<string, bool>();
         }
 
         public Dictionary<string, bool> GetIncompleteTasks()
         {
-            throw new NotImplementedException();
+            return _items.Where(t => t.Value == false).ToDictionary<string, bool>();
         }
 
-        public string FindTask(string text, out int index)
+        public bool FindTask(string text)
         {
-            throw new NotImplementedException();
+            KeyValuePair<string, bool> retrievedTask = _items
+                .FirstOrDefault(t => t.Key == text, new KeyValuePair<string, bool>("Invalid", true));
+            if (retrievedTask.Key == "Invalid")
+            {
+                return false;
+            }
+            else 
+            {
+                return true;
+            }
         }
 
         public bool RemoveTask(string text) 
         {
-            throw new NotImplementedException();
+            return _items.Remove(text);
         }
     }
 
@@ -63,12 +72,12 @@ namespace tdd_todo_list.CSharp.Main
     {
         public static Dictionary<string, bool> SortAscending(Dictionary<string, bool> items) 
         {
-            throw new NotImplementedException();
+            return items.OrderBy(t => t.Key).ToDictionary();
         }
 
         public static Dictionary<string, bool> SortDescending(Dictionary<string, bool> items)
         {
-            throw new NotImplementedException();
+            return items.OrderByDescending(t => t.Key).ToDictionary();
         }
     }
 }
