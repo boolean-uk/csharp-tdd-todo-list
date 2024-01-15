@@ -158,6 +158,24 @@ namespace tdd_todo_list.CSharp.Test
                 Assert.AreEqual(Correct[i].isComplete, result[i].isComplete);
             }
         }
+        [Test]
+        public void Delete()
+        {
+            TodoList core = new TodoList();
+            core.addTask("a");
+            core.addTask("b");
+            core.addTask("c");
+
+            // Act
+            bool removalResult = core.remove("b");
+
+            // Assert
+            Assert.IsTrue(removalResult);
+            Assert.AreEqual(2, core.todoList.Count);
+
+            // Verify that "b" is not in the list anymore
+            Assert.IsFalse(core.todoList.Any(task => task.ptask == "b"));
+        }
 
     }
 }

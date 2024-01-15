@@ -8,5 +8,8 @@ namespace tdd_todo_list.CSharp.Main
 {
     public class TodoListExtension
     {
+        public List<pTask> todoList = new List<pTask>();
+
+        public TodoListExtension() { }
     }
 }

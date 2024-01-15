@@ -56,6 +56,15 @@ namespace tdd_todo_list.CSharp.Main
             var list = todoList.OrderByDescending(item=>item.ptask);
             return list.ToList();
         }
+        public bool remove(string name)
+        {
+            var taskToRemove = todoList.FirstOrDefault(task => task.ptask == name);
+            if(taskToRemove != null)
+            {
+                todoList.Remove(taskToRemove); return true;
+            }
+            return false;
+        }
 
     }
 }
