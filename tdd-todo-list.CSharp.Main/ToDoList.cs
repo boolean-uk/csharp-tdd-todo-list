@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,47 +11,57 @@ namespace tdd_todo_list.CSharp.Main
     {
         private SortedDictionary<string, string> toDo = new SortedDictionary<string, string>();
 
+        private Dictionary<int, string> IDToTask = new Dictionary<int, string>();
+        private Dictionary<int, (string, DateTime)> IDToInfo= new Dictionary<int, (string, DateTime)>();
+
+        private int counter = 0;
+
         public void addTask(string v)
         {
-            toDo.Add(v, "incomplete");
+            IDToTask.Add(counter, v);
+            IDToInfo.Add(counter++, ("incomplete", DateTime.Now));
         }
 
         public bool changeStatus(string v)
         {
-            if (!toDo.ContainsKey(v)) return false;
+            if (!IDToTask.ContainsValue(v)) return false;
+            int ID = IDToTask.First(x => x.Value == v).Key;
 
-            toDo[v] = (toDo[v] == "incomplete" ? "complete" : "incomplete");
+            IDToInfo[ID] = ((IDToInfo[ID].Item1 == "incomplete" ? "complete" : "incomplete"), IDToInfo[ID].Item2);
             return true;
         }
 
         public bool findTask(string v)
         {
-            return toDo.ContainsKey(v);
+            return IDToTask.ContainsValue(v);
         }
 
         public void removeTask(string v)
         {
-            toDo.Remove(v);
+            int ID = IDToTask.FirstOrDefault(x => x.Value == v).Key;
+            IDToInfo.Remove(ID);
+            IDToTask.Remove(ID);
         }
 
         public List<string> viewTasks(string order = "alphabetical", string status = "all")
         {
             List<string> list;
-            switch ( status)
+            switch ( status )
             {
                 case "incomplete":
                 case "complete":
                     list = new List<string>();
-                    foreach( var elm in toDo)
+                    foreach( var elm in IDToInfo )
                     {
-                        if ( elm.Value == status ) list.Add(elm.Key);
+                        if ( elm.Value.Item1 == status ) list.Add( IDToTask[elm.Key] );
                     }
                     break;
                 default:
-                    list = new List<string>(toDo.Keys);
+                    list = new List<string>(IDToTask.Values);
                     break;
             }
 
+            list.Order();
             if ( order != "alphabetical")
             {
                 list.Reverse();
