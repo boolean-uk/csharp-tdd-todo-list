@@ -59,6 +59,17 @@ namespace tdd_todo_list.CSharp.Test
             //Assess
             Assert.IsTrue(core.todoList["Test1"] == true);
         }
+        [Test]
+        public void EditNonExistant()
+        {
+            //Arrange
+            TodoList core = new TodoList();
+            //Act
+            core.AddTask("Test10000");
+            
+            //Assess
+            Assert.IsFalse(core.EditTask("Test1", true));
+        }
 
     }
 }
