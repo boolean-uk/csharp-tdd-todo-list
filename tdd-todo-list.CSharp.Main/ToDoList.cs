@@ -8,7 +8,7 @@ namespace tdd_todo_list.CSharp.Main
 {
     public class TodoList
     {
-        private SortedDictionary<string, string> toDo = new SortedDictionary<string, string>();
+        internal SortedDictionary<string, string> toDo = new SortedDictionary<string, string>();
 
         public void addTask(string v)
         {

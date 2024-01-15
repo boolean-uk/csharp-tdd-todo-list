@@ -23,8 +23,51 @@ namespace tdd_todo_list.CSharp.Test
         [Test]
         public void IDTest()
         {
-            TodoList core = new TodoListExtension();
+            TodoListExtension core = new TodoListExtension();
             core.addTask("name");
+            int ID = core.getID("name");
+            Assert.Pass();
+        }
+
+        [Test]
+        public void getTaskByIDTest()
+        {
+            TodoListExtension core = new TodoListExtension();
+            core.addTask("name");
+            int ID = core.getID("name");
+            Assert.IsTrue(core.getTaskByID(ID) == "name");
+        }
+
+        [Test]
+        public void updateNameTest()
+        {
+            TodoListExtension core = new TodoListExtension();
+            core.addTask("name");
+            int ID = core.getID("name");
+            core.updateName(ID, "newName");
+            Assert.IsTrue(core.getTaskByID(ID) == "newName");
+        }
+
+        [Test]
+        public void changeStatusByIDTest()
+        {
+            TodoListExtension core = new TodoListExtension();
+            core.addTask("name");
+            int ID = core.getID("name");
+            core.updateStatus(ID);
+            Assert.IsTrue(core.viewTasks("", "complete").SequenceEqual(
+                new List<string>() { "name" })
+                );
+        }
+
+        [Test]
+        public void whenCreatedTest()
+        {
+            TodoListExtension core = new TodoListExtension();
+            core.addTask("name");
+            DateTime time = DateTime.Now;
+            int ID = core.getID("name");
+            Assert.Pass();
         }
     }
 }
