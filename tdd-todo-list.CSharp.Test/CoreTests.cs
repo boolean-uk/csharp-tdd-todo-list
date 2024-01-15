@@ -31,8 +31,8 @@ namespace tdd_todo_list.CSharp.Test
             core.addTask("Test2");
             var result = core.getList();
             //Assess
-            Assert.NotNull(result);
-            Assert.Null(result2);
+            Assert.IsNotEmpty(result);
+            Assert.IsEmpty(result2);
         }
         
         [Test]
@@ -47,20 +47,10 @@ namespace tdd_todo_list.CSharp.Test
             //Assess
             Assert.IsTrue(result);
             Assert.IsFalse(result2);
-            //Assert.IsTrue()
+            Assert.IsTrue(core.todoList.FirstOrDefault(p => p.ptask == "Test1").isComplete);
+
         }
-        /*
-        [Test]
-        public void EditNonExistant()
-        {
-            //Arrange
-            TodoList core = new TodoList();
-            //Act
-            core.AddTask("Test10000");
-            
-            //Assess
-            Assert.IsFalse(core.EditTask("Test1", true));
-        }
+        
 
         [Test]
         public void getComplete()
@@ -68,14 +58,18 @@ namespace tdd_todo_list.CSharp.Test
             //Arrange
             TodoList core = new TodoList();
             //Act
-            core.AddTask("t1");
-            core.AddTask("t2");
-            core.EditTask("t1", true);
-            var result = core.getCompleteTasks();
+            core.addTask("t1");
+            core.addTask("t2");
+            var result2 = core.getCompleted();
+            core.editTask("t1", true);
+            var result1 = core.getCompleted();
 
             //Assess
-            Assert.IsTrue(result.ContainsKey("t1"));
+            Assert.NotNull(result1);
+            Assert.IsEmpty(result2);
+
         }
+        /*
         [Test]
         public void getCompleteFalse()
         {

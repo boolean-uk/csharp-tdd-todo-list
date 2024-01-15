@@ -25,11 +25,9 @@ namespace tdd_todo_list.CSharp.Main
         }
         public List<pTask> getList()
         {
-            if (todoList.Count > 0)
-            {
-                return todoList;
-            }
-            return null;
+            
+            return todoList.ToList();
+            
         }
         public bool editTask(string task,bool status) 
         {
@@ -40,6 +38,10 @@ namespace tdd_todo_list.CSharp.Main
                 return true;
             }
             return false;
+        }
+        public List<pTask> getCompleted()
+        {
+            return todoList.Where(t=> t.isComplete==true).ToList();
         }
 
     }
