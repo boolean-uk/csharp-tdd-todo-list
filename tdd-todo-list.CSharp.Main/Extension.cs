@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace tdd_todo_list.CSharp.Main
+﻿namespace tdd_todo_list.CSharp.Main
 {
     public class TodoListExtension
     {
+        public List<TodoTask> tasks { get; set; }
+        public TodoListExtension()
+        {
+            tasks = new();
+        }
     }
 }

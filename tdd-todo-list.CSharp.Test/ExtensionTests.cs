@@ -1,18 +1,83 @@
-﻿using tdd_todo_list.CSharp.Main;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using NUnit.Framework;
+using tdd_todo_list.CSharp.Main;
 
 namespace tdd_todo_list.CSharp.Test
 {
+    [TestFixture]
     public class ExtensionTests
     {
-        private TodoListExtension _extension;
-        public ExtensionTests()
+        [Test]
+        public void TestGetTaskById()
         {
-            _extension = new TodoListExtension();
+            //setup
+            TodoListExtension ext = new();
+            TodoTask task = new("TaskName");
+            TodoTask task2 = new("TaskName2");
+            string taskId = task.Id;
+            ext.addTask(task);
+            ext.addTask(task2);
+
+            //execute
+            Task result = ext.getTaskById(taskId);
+
+            //verify
+            Assert.AreEqual(task, result);
+        }
+
+        [Test]
+        public void TestUpdateTaskByIdAndName()
+        {
+            //setup
+            TodoListExtension ext = new();
+            TodoTask task = new("TaskName");
+            string taskId = task.Id;
+            ext.addTask(task);
+
+            //execute
+            bool hasUpdatedName = ext.updateTaskName(taskId, "New name");
+
+            //verify
+            Assert.IsTrue(hasUpdatedName);
+            Assert.AreEqual(ext.getTaskById(taskId).Name, "New name");
+        }
+
+        [Test]
+        public void TestChangeTaskStatusById()
+        {
+            //setup
+            TodoListExtension ext = new();
+            TodoTask task = new("TaskName");
+            string taskId = task.Id;
+            ext.addTask(task);
+
+            //execute
+            bool hasToggledStatus = ext.changeTaskStatus(taskId);
+
+            //verify
+            Assert.IsTrue(hasToggledStatus);
+            Assert.IsTrue(ext.getTaskById(taskId).IsComplete);
+        }
+
+        [Test]
+        public void TesteGetCreationTime()
+        {
+            //setup
+            DateTime before = DateTime.Now;
+            TodoListExtension ext = new();
+            TodoTask task = new("TaskName");
+            string taskId = task.Id;
+            ext.addTask(task);
+
+            //execute
+            DateTime dt = ext.getCreationTime(taskId);
+
+            //verify
+            Assert.NotNull(dt);
+            Assert.True(dt > before);
+            Assert.True(dt < DateTime.Now);
+            Assert.NotNull(dt.Date);
+            Assert.NotNull(dt.Millisecond);
         }
     }
 }
+
