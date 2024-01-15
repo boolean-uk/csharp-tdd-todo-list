@@ -10,10 +10,11 @@ namespace tdd_todo_list.CSharp.Main
 {
         public string ptask { get; set; }
         public bool isComplete { get; set; }
+        public Guid taskID { get; set; }
 
         public pTask() 
        { 
-        
+            taskID = Guid.NewGuid();
        }
         public pTask(string ptask)
         {

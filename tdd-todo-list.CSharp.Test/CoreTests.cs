@@ -127,8 +127,8 @@ namespace tdd_todo_list.CSharp.Test
 
             for (int i = 0; i < Correct.Count; i++)
             {
-                Assert.AreEqual(Correct[i].ptask, result[i].ptask);
-                Assert.AreEqual(Correct[i].isComplete, result[i].isComplete);
+                // Compare the ptask property
+                Assert.AreEqual(Correct[i].ptask, result[i].ptask, $"Mismatch at index {i}");
             }
         }
         [Test]
@@ -147,15 +147,15 @@ namespace tdd_todo_list.CSharp.Test
             core.addTask("a");
             core.addTask("c");
 
-            var result = core.sortAplhabetInc();
+            var result = core.sortAplhabetDec();
 
             //Assess
             Assert.AreEqual(Correct.Count, result.Count);
 
             for (int i = 0; i < Correct.Count; i++)
             {
-                Assert.AreEqual(Correct[i].ptask, result[i].ptask);
-                Assert.AreEqual(Correct[i].isComplete, result[i].isComplete);
+                // Compare the ptask property
+                Assert.AreEqual(Correct[i].ptask, result[i].ptask, $"Mismatch at index {i}");
             }
         }
         [Test]

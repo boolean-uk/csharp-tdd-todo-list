@@ -53,7 +53,12 @@ namespace tdd_todo_list.CSharp.Main
         }
         public List<pTask> sortAplhabetInc()
         {
-            var list = todoList.OrderByDescending(item=>item.ptask);
+            var list = todoList.OrderBy(item=>item.ptask);
+            return list.ToList();
+        }
+        public List<pTask> sortAplhabetDec()
+        {
+            var list = todoList.OrderByDescending(item => item.ptask);
             return list.ToList();
         }
         public bool remove(string name)
