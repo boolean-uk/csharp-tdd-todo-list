@@ -127,13 +127,13 @@ namespace tdd_todo_list.CSharp.Test
             string ID = taskIDs[index];
 
             // Act
-            string res = _extension.RetrieveTask(ID).RetrieveDateTime();
-            int resYear = int.Parse(res.Substring(0, 4));
-            int resMonth = int.Parse(res.Substring(5, 2));
-            int resDay = int.Parse(res.Substring(8, 2));
+            string res = _extension.RetrieveTask(ID).RetrieveDateTime(); // value in format "YYYY-MM-DD HH:mm:ss"
+            int resYear = int.Parse(res.Substring(0, 4)); // YYYY
+            int resMonth = int.Parse(res.Substring(5, 2)); // MM
+            int resDay = int.Parse(res.Substring(8, 2)); // DD
 
-            int resHour = int.Parse(res.Substring(11, 2));
-            int resMinute = int.Parse(res.Substring(14, 2));
+            int resHour = int.Parse(res.Substring(11, 2)); // HH
+            int resMinute = int.Parse(res.Substring(14, 2)); // mm
 
             // Assert
             Assert.That(res, Is.TypeOf<string>());

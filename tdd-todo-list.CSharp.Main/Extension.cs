@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -65,6 +66,7 @@ namespace tdd_todo_list.CSharp.Main
             List<KeyValuePair<string, ToDoItem>> items = _items.OrderBy(i => i.Value.RetrieveDateTime()).ToList();
             foreach (KeyValuePair<string, ToDoItem> pair in items) 
             {
+                // Debug.WriteLine($"{pair.Value.RetrieveDateTime()}\t{pair.Value.Name}"); // For debug mode to check how it actually would look
                 Console.WriteLine($"{pair.Value.RetrieveDateTime()}\t{pair.Value.Name}");
             }
         }
