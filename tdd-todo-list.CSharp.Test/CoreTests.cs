@@ -58,6 +58,7 @@ namespace tdd_todo_list.CSharp.Test
             Assert.True(!result);
         }
 
+        [Test]
         public void Test2()
         {
             //  Arrange - set up test values

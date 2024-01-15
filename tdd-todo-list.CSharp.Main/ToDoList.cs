@@ -19,5 +19,14 @@ namespace tdd_todo_list.CSharp.Main
             }
             return false;
         }
+
+        public int PrintTasks()
+        {
+            foreach (var item in _toDoList)
+            {
+                Console.WriteLine($"Task: {item.Key}, Complete?: {item.Value}");
+            }
+            return _toDoList.Count();
+        }
     }
 }
