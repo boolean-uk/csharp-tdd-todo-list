@@ -16,5 +16,5 @@
 |                                    | task doesnt exist                  | FALSE                   |
 | SortAlphIncrement()                | Dictionary isnt empty              | Dictionary<String,Bool> |
 |                                    | Dictionary is empty                | null                    |
-| SortAlphIncrement()                | Dictionary isnt empty              | Dictionary<String,Bool> |
+| SortAlphUnincrement()                | Dictionary isnt empty              | Dictionary<String,Bool> |
 |                                    | Dictionary is empty                | null                    |
