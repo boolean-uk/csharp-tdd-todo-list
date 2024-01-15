@@ -8,16 +8,27 @@ namespace tdd_todo_list.CSharp.Main
 {
     public class ToDoItem
     {
-        string name { get; set; }
-        bool status { get { return status; } set { status = false; } }
+        string _name;
+        bool _status;
 
         DateTime _creationDate;
         string _creationTime;
 
+        public string Name 
+        {
+            get { return _name; } 
+            set { _name = value; }
+        }
+
+        public bool Status 
+        {
+            get { return _status; } 
+            set { _status = value; }
+        }
 
         public ToDoItem(string taskName) 
         {
-            name = taskName;
+            _name = taskName;
         }
 
         public string RetrieveDateTime() 
