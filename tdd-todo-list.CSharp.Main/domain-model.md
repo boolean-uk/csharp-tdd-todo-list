@@ -28,30 +28,3 @@
 |            |                            | `Task does not exist`      | `Returns a message that task does not exist`          |
 |            | `OrderAscending()`         |                            | `Orders the tasks alphabetically in ascending order`  |
 |            | `OrderDescending()`        |                            | `Orders the tasks alphabetically in descending order` |
-
-## Extension Requirements
-
-- I want to be able to get a task by a unique ID.
-- I want to update the name of a task by providing its ID and a new name.
-- I want to be able to change the status of a task by providing its ID.
-- I want to be able to see the date and time that I created each task.
-
-| `Classes`  | `Methods`                  | `Scenario`                 | `Outputs`                                             |
-|------------|----------------------------|----------------------------|-------------------------------------------------------|
-| `Todolist` | `Add()`                    | `Task is added`            | `True`                                                |
-|            | `Tasks()`                  |                            | `Returns all tasks in list`                           |
-|            | `GetTask(int ID)`          | `The task exists`          | `Returns the task and date and time`                                    |
-|            |                            | `The task does not exist`  | `Returns a message the task does not exist`           |
-|            | `Change status(Task/ID)`   | `The task exists`          | `Changes status of task`                              |
-|            |                            | `The task is incomplete`   | `Changes task to complete`                            |
-|            |                            | `The task is complete`     | `Changes task to incomplete`                          |
-|            | `Update(ID, name)`         | `The task exists`          | `Updates the name of the task`                        |
-|            |                            | `The task does not exist`  | `Returns a message that the task does not exist`      |
-|            | `GetTasks(bool status)`    | `The status is complete`   | `Returns all complete tasks`                          |
-|            |                            | `The status is incomplete` | `Returns all incomplete tasks`                        |
-|            | `Search(Task task)`        | `Task exists`              | `Returns task`                                        |
-|            |                            | `Task does not exist`      | `Returns a message that task does not exist`          |
-|            | `Remove(Task task)`        | `Task exists`              | `Removes a task from the list`                        |
-|            |                            | `Task does not exist`      | `Returns a message that task does not exist`          |
-|            | `OrderAscending()`         |                            | `Orders the tasks alphabetically in ascending order`  |
-|            | `OrderDescending()`        |                            | `Orders the tasks alphabetically in descending order` |
