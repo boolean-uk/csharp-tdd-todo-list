@@ -37,5 +37,9 @@ namespace tdd_todo_list.CSharp.Main
             }
             return false;
         }
+        public Dictionary<string,bool> getCompleteTasks()
+        {
+            return null;
+        }
     }
 }

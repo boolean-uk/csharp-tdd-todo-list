@@ -71,5 +71,33 @@ namespace tdd_todo_list.CSharp.Test
             Assert.IsFalse(core.EditTask("Test1", true));
         }
 
+        [Test]
+        public void getComplete()
+        {
+            //Arrange
+            TodoList core = new TodoList();
+            //Act
+            core.AddTask("Test1");
+            core.AddTask("t2");
+            core.EditTask("test1", true);
+            var result = core.getCompleteTasks();
+
+            //Assess
+            Assert.IsTrue(result.ContainsKey("Test1"));
+        }
+        [Test]
+        public void getCompleteFalse()
+        {
+            //Arrange
+            TodoList core = new TodoList();
+            //Act
+            core.AddTask("Test1");
+            core.AddTask("t2");
+            var result = core.getCompleteTasks();
+
+            //Assess
+            Assert.IsNull(result);
+        }
+
     }
 }
