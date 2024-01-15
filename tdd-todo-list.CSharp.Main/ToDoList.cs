@@ -16,47 +16,69 @@ namespace tdd_todo_list.CSharp.Main
 
         public Task Add(string name) 
         {
-            return null;
+            Task task = new Task(name);
+            _tasks.Add(task);
+            return task;
         }
 
         public string PrintAll()
         {
-            return "";
+            StringBuilder temp = new StringBuilder();
+            foreach(Task task in _tasks)
+            {
+                temp.Append($"{task.Name}\n{task.Completed}\n");
+            }
+            return temp.ToString();
         }
 
         public Task Complete(Task task)
         {
+            task.Completed = true;
             return task;
         }
 
         public List<Task> GetComplete()
         {
-            return new List<Task>();
+            List<Task> tasks = _tasks.ToList().Where(task => task.Completed).ToList();
+
+            return tasks;
         }
 
         public List<Task> GetIncomplete()
         {
-            return new List<Task>();
+            List<Task> tasks = _tasks.ToList().Where(task => !task.Completed).ToList();
+
+            return tasks;
         }
 
         public Task Search(string name)
         {
-            return new Task("");
+            Task task = _tasks.ToList().Where(task => task.Name == name).ToList()[0];
+            return task;
         }
 
         public bool Remove(Task task)
         {
+            if (_tasks.Remove(task)) return true;
             return false;
         }
 
         public string PrintOrderASC()
         {
-            return "";
+            StringBuilder temp = new StringBuilder();
+            List<Task> tasks = _tasks.ToList().OrderBy(task => task.Name).ToList();
+            foreach(Task task in tasks)
+                temp.Append($"{task.Name}\n{task.Completed}\n");
+            return temp.ToString();
         }
 
         public string PrintOrderDESC()
         {
-            return "";
+            StringBuilder temp = new StringBuilder();
+            List<Task> tasks = _tasks.ToList().OrderByDescending(task => task.Name).ToList();
+            foreach (Task task in tasks)
+                temp.Append($"{task.Name}\n{task.Completed}\n");
+            return temp.ToString();
         }
     }
 }

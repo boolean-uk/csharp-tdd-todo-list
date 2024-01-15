@@ -25,7 +25,7 @@ namespace tdd_todo_list.CSharp.Test
 
             core.Add("test");
 
-            Assert.IsTrue("test\nFalse" == core.PrintAll());
+            Assert.IsTrue("test\nFalse\n" == core.PrintAll());
         }
 
         [Test]
@@ -46,10 +46,11 @@ namespace tdd_todo_list.CSharp.Test
             TodoList core = new TodoList();
             core.Add("test");
             Task testTask = core.Add("test2");
-            
             core.Complete(testTask);
 
-            Assert.IsTrue(core.Tasks.Count == 1 && core.Tasks[0] == testTask);
+            List<Task> tasks = core.GetComplete();
+
+            Assert.IsTrue(tasks.Count == 1 && tasks[0] == testTask);
         }
 
         [Test]
@@ -57,11 +58,12 @@ namespace tdd_todo_list.CSharp.Test
         {
             TodoList core = new TodoList();
             Task testTask = core.Add("test");
-            core.Add("test2");
-
             core.Complete(testTask);
+            testTask = core.Add("test2");
 
-            Assert.IsTrue(core.Tasks.Count == 1 && core.Tasks[0] == testTask);
+            List<Task> tasks = core.GetIncomplete();
+
+            Assert.IsTrue(tasks.Count == 1 && tasks[0] == testTask);
         }
 
         [Test]
@@ -95,7 +97,7 @@ namespace tdd_todo_list.CSharp.Test
             core.Add("a");
             core.Add("g");
 
-            Assert.IsTrue("a\nFalse\nb\nFalse\ng\nFalse\nz\nFalse" == core.PrintOrderASC());
+            Assert.IsTrue("a\nFalse\nb\nFalse\ng\nFalse\nz\nFalse\n" == core.PrintOrderASC());
         }
 
         [Test]
@@ -108,7 +110,7 @@ namespace tdd_todo_list.CSharp.Test
             core.Add("a");
             core.Add("g");
 
-            Assert.IsTrue("z\nFalse\ng\nFalse\nb\nFalse\na\nFalse" == core.PrintOrderDESC());
+            Assert.IsTrue("z\nFalse\ng\nFalse\nb\nFalse\na\nFalse\n" == core.PrintOrderDESC());
         }
     }
 }
