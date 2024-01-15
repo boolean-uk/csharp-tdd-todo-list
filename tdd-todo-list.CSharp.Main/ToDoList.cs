@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace tdd_todo_list.CSharp.Main
@@ -39,6 +40,13 @@ namespace tdd_todo_list.CSharp.Main
         }
         public Dictionary<string,bool> getCompleteTasks()
         {
+            var result = todoList.Where(i => i.Value.Equals(true))
+.           ToDictionary(i => i.Key, i => i.Value);
+
+            if (result.Count > 0)
+            {
+                return result;
+            }
             return null;
         }
     }

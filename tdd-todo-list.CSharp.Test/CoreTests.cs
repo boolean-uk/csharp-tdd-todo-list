@@ -77,13 +77,13 @@ namespace tdd_todo_list.CSharp.Test
             //Arrange
             TodoList core = new TodoList();
             //Act
-            core.AddTask("Test1");
+            core.AddTask("t1");
             core.AddTask("t2");
-            core.EditTask("test1", true);
+            core.EditTask("t1", true);
             var result = core.getCompleteTasks();
 
             //Assess
-            Assert.IsTrue(result.ContainsKey("Test1"));
+            Assert.IsTrue(result.ContainsKey("t1"));
         }
         [Test]
         public void getCompleteFalse()
