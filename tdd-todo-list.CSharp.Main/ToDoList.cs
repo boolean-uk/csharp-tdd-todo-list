@@ -8,47 +8,47 @@
         {
             tasks = new();
         }
-        public void addTask(TodoTask task)
+        public void AddTask(TodoTask task)
         {
             tasks.Add(task);
         }
 
-        public void clearTodo()
+        public void ClearTodo()
         {
             tasks.Clear();
         }
 
-        public List<TodoTask> getCompleteTasks()
+        public List<TodoTask> GetCompleteTasks()
         {
             return tasks.Where(x => x.IsComplete).ToList();
         }
 
-        public List<TodoTask> getInCompleteTasks()
+        public List<TodoTask> GetInCompleteTasks()
         {
             return tasks.Where(x => !x.IsComplete).ToList();
         }
 
-        public List<TodoTask> getTasks()
+        public List<TodoTask> GetTasks()
         {
             return tasks;
         }
 
-        public List<TodoTask> getTasksAscending()
+        public List<TodoTask> GetTasksAscending()
         {
             return tasks.OrderBy(x => x.Name).ToList();
         }
 
-        public List<TodoTask> getTasksDescending()
+        public List<TodoTask> GetTasksDescending()
         {
             return tasks.OrderByDescending(x => x.Name).ToList();
         }
 
-        public bool searchForTask(TodoTask task)
+        public bool SearchForTask(TodoTask task)
         {
             return tasks.Contains(task);
         }
 
-        public bool toggleTaskStatus(TodoTask task)
+        public bool ToggleTaskStatus(TodoTask task)
         {
             if (tasks.Contains(task))
             {

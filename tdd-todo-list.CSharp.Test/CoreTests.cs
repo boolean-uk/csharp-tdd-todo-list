@@ -18,7 +18,7 @@ namespace tdd_todo_list.CSharp.Test
         public void TestGetTasks()
         {
             TodoList todo = new TodoList();
-            Assert.NotNull(todo.getTasks());
+            Assert.NotNull(todo.GetTasks());
         }
 
         [Test]
@@ -29,10 +29,10 @@ namespace tdd_todo_list.CSharp.Test
             TodoTask task = new("TaskName");
 
             //execute
-            todo.addTask(task);
+            todo.AddTask(task);
 
             //verify
-            Assert.AreEqual(todo.getTasks().Count, 1);
+            Assert.AreEqual(todo.GetTasks().Count, 1);
         }
 
         [Test]
@@ -41,10 +41,10 @@ namespace tdd_todo_list.CSharp.Test
             //setup
             TodoList todo = new TodoList();
             TodoTask task = new("TaskName");
-            todo.addTask(task);
+            todo.AddTask(task);
 
             //execute
-            List<TodoTask> tasks = todo.getTasks();
+            List<TodoTask> tasks = todo.GetTasks();
 
             //verify
             Assert.NotNull(tasks);
@@ -57,14 +57,14 @@ namespace tdd_todo_list.CSharp.Test
             //setup
             TodoList todo = new TodoList();
             TodoTask task = new("TaskName");
-            todo.addTask(task);
+            todo.AddTask(task);
 
             //execute
-            bool changedTaskStatus = todo.toggleTaskStatus(task);
+            bool changedTaskStatus = todo.ToggleTaskStatus(task);
 
             //verify
             Assert.IsTrue(changedTaskStatus);
-            Assert.IsTrue(todo.getTasks()[0].IsComplete);
+            Assert.IsTrue(todo.GetTasks()[0].IsComplete);
         }
 
         [Test]
@@ -74,12 +74,12 @@ namespace tdd_todo_list.CSharp.Test
             TodoList todo = new TodoList();
             TodoTask task = new("TaskName");
             TodoTask task2 = new("TaskName2");
-            todo.addTask(task);
-            todo.addTask(task2);
-            todo.toggleTaskStatus(task2);
+            todo.AddTask(task);
+            todo.AddTask(task2);
+            todo.ToggleTaskStatus(task2);
 
             //execute
-            List<TodoTask> completeTasks = todo.getCompleteTasks();
+            List<TodoTask> completeTasks = todo.GetCompleteTasks();
 
             //verify
             Assert.That(!completeTasks.Contains(task));
@@ -93,12 +93,12 @@ namespace tdd_todo_list.CSharp.Test
             TodoList todo = new TodoList();
             TodoTask task = new("TaskName");
             TodoTask task2 = new("TaskName2");
-            todo.addTask(task);
-            todo.addTask(task2);
-            todo.toggleTaskStatus(task2);
+            todo.AddTask(task);
+            todo.AddTask(task2);
+            todo.ToggleTaskStatus(task2);
 
             //execute
-            List<TodoTask> incompleteTasks = todo.getInCompleteTasks();
+            List<TodoTask> incompleteTasks = todo.GetInCompleteTasks();
 
             //verify
             Assert.That(incompleteTasks.Contains(task));
@@ -112,11 +112,11 @@ namespace tdd_todo_list.CSharp.Test
             TodoList todo = new TodoList();
             TodoTask task = new("TaskName");
             TodoTask task2 = new("TaskName2");
-            todo.addTask(task);
+            todo.AddTask(task);
 
             //execute
-            bool foundTask = todo.searchForTask(task);
-            bool shouldNotBeFound = todo.searchForTask(task2);
+            bool foundTask = todo.SearchForTask(task);
+            bool shouldNotBeFound = todo.SearchForTask(task2);
 
             //verify
             Assert.IsTrue(foundTask);
@@ -131,12 +131,12 @@ namespace tdd_todo_list.CSharp.Test
             TodoTask task = new("B");
             TodoTask task2 = new("A");
             TodoTask task3 = new("H");
-            todo.addTask(task);
-            todo.addTask(task2);
-            todo.addTask(task3);
+            todo.AddTask(task);
+            todo.AddTask(task2);
+            todo.AddTask(task3);
 
             //execute
-            List<TodoTask> ascendingTasks = todo.getTasksAscending();
+            List<TodoTask> ascendingTasks = todo.GetTasksAscending();
 
             //verify
             Assert.AreEqual(ascendingTasks[0], task2);
@@ -152,12 +152,12 @@ namespace tdd_todo_list.CSharp.Test
             TodoTask task = new("B");
             TodoTask task2 = new("A");
             TodoTask task3 = new("H");
-            todo.addTask(task);
-            todo.addTask(task2);
-            todo.addTask(task3);
+            todo.AddTask(task);
+            todo.AddTask(task2);
+            todo.AddTask(task3);
 
             //execute
-            List<TodoTask> ascendingTasks = todo.getTasksDescending();
+            List<TodoTask> ascendingTasks = todo.GetTasksDescending();
 
             //verify
             Assert.AreEqual(ascendingTasks[0], task3);
@@ -173,15 +173,15 @@ namespace tdd_todo_list.CSharp.Test
             TodoTask task = new("B");
             TodoTask task2 = new("A");
             TodoTask task3 = new("H");
-            todo.addTask(task);
-            todo.addTask(task2);
-            todo.addTask(task3);
+            todo.AddTask(task);
+            todo.AddTask(task2);
+            todo.AddTask(task3);
 
             //execute
-            todo.clearTodo();
+            todo.ClearTodo();
 
             //verify
-            Assert.AreEqual(todo.getTasks().Count, 0);
+            Assert.AreEqual(todo.GetTasks().Count, 0);
         }
     }
 }

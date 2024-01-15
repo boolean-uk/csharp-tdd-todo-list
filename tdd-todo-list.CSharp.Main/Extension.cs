@@ -10,17 +10,17 @@ namespace tdd_todo_list.CSharp.Main
             tasks = new();
         }
 
-        public void addTask(TodoTask task)
+        public void AddTask(TodoTask task)
         {
             tasks.Add(task.Id, task);
         }
 
-        public TodoTask? getTaskById(string taskId)
+        public TodoTask? GetTaskById(string taskId)
         {
             return tasks.TryGetValue(taskId, out TodoTask? value) ? value : null;
         }
 
-        public bool updateTaskName(string taskId, string v)
+        public bool UpdateTaskName(string taskId, string v)
         {
             if (tasks.TryGetValue(taskId, out _))
             {
@@ -30,7 +30,7 @@ namespace tdd_todo_list.CSharp.Main
             else return false;
         }
 
-        public bool changeTaskStatus(string taskId)
+        public bool ChangeTaskStatus(string taskId)
         {
             if (tasks.TryGetValue(taskId, out TodoTask? _))
             {
@@ -40,7 +40,7 @@ namespace tdd_todo_list.CSharp.Main
             else return false;
         }
 
-        public DateTime? getCreationTime(string taskId)
+        public DateTime? GetCreationTime(string taskId)
         {
             return tasks.TryGetValue(taskId, out TodoTask? value) ? value.creationTime : null;
         }

@@ -14,11 +14,11 @@ namespace tdd_todo_list.CSharp.Test
             TodoTask task = new("TaskName");
             TodoTask task2 = new("TaskName2");
             string taskId = task.Id;
-            ext.addTask(task);
-            ext.addTask(task2);
+            ext.AddTask(task);
+            ext.AddTask(task2);
 
             //execute
-            TodoTask? result = ext.getTaskById(taskId);
+            TodoTask? result = ext.GetTaskById(taskId);
 
             //verify
             Assert.NotNull(result);
@@ -32,14 +32,14 @@ namespace tdd_todo_list.CSharp.Test
             TodoListExtension ext = new();
             TodoTask task = new("TaskName");
             string taskId = task.Id;
-            ext.addTask(task);
+            ext.AddTask(task);
 
             //execute
-            bool hasUpdatedName = ext.updateTaskName(taskId, "New name");
+            bool hasUpdatedName = ext.UpdateTaskName(taskId, "New name");
 
             //verify
             Assert.IsTrue(hasUpdatedName);
-            Assert.AreEqual(ext.getTaskById(taskId)!.Name, "New name");
+            Assert.AreEqual(ext.GetTaskById(taskId)!.Name, "New name");
         }
 
         [Test]
@@ -49,14 +49,14 @@ namespace tdd_todo_list.CSharp.Test
             TodoListExtension ext = new();
             TodoTask task = new("TaskName");
             string taskId = task.Id;
-            ext.addTask(task);
+            ext.AddTask(task);
 
             //execute
-            bool hasToggledStatus = ext.changeTaskStatus(taskId);
+            bool hasToggledStatus = ext.ChangeTaskStatus(taskId);
 
             //verify
             Assert.IsTrue(hasToggledStatus);
-            Assert.IsTrue(ext.getTaskById(taskId)!.IsComplete);
+            Assert.IsTrue(ext.GetTaskById(taskId)!.IsComplete);
         }
 
         [Test]
@@ -67,10 +67,10 @@ namespace tdd_todo_list.CSharp.Test
             TodoListExtension ext = new();
             TodoTask task = new("TaskName");
             string taskId = task.Id;
-            ext.addTask(task);
+            ext.AddTask(task);
 
             //execute
-            DateTime? dt = ext.getCreationTime(taskId);
+            DateTime? dt = ext.GetCreationTime(taskId);
 
             //verify
             Assert.NotNull(dt);
