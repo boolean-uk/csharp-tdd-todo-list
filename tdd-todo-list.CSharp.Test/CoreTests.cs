@@ -128,7 +128,7 @@ namespace tdd_todo_list.CSharp.Test
                 core.Add(kv.Key, kv.Value);
             }
 
-            result = core.PrintComplete();
+            result = core.PrintInomplete();
             //  Assert - check the results
             Assert.IsTrue(result == 2);
         }

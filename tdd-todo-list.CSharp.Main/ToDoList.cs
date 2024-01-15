@@ -36,6 +36,7 @@ namespace tdd_todo_list.CSharp.Main
             {
                 if (item.Value)
                 {
+                    Console.WriteLine($"Task: {item.Key}");
                     count++;
                 }
             }
@@ -45,6 +46,14 @@ namespace tdd_todo_list.CSharp.Main
         public int PrintInomplete()
         {
             int count = 0;
+            foreach (var item in _toDoList)
+            {
+                if (!item.Value)
+                {
+                    Console.WriteLine($"Task: {item.Key}");
+                    count++;
+                }
+            }
             return count;
         }
     }
