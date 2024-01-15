@@ -44,6 +44,7 @@ namespace tdd_todo_list.CSharp.Main
         public void Add(string name)
         {
             Tasks.Add(new Task(nrTasks, name));
+            nrTasks++;
         }
 
         public Task GetByID(int id)
