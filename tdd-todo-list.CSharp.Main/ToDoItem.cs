@@ -11,8 +11,12 @@ namespace tdd_todo_list.CSharp.Main
         string _name;
         bool _status;
 
-        DateTime _creationDate;
-        string _creationTime;
+        private DateTime _creationDate = DateTime.Now;
+
+        public ToDoItem(string taskName)
+        {
+            _name = taskName;
+        }
 
         public string Name 
         {
@@ -26,14 +30,11 @@ namespace tdd_todo_list.CSharp.Main
             set { _status = value; }
         }
 
-        public ToDoItem(string taskName) 
-        {
-            _name = taskName;
-        }
 
-        public string RetrieveDateTime() 
+
+        public string RetrieveDateTime()
         {
-            throw new NotImplementedException();
+            return $"{_creationDate.ToString("yyyy-MM-dd")} {_creationDate.ToString("HH:mm:ss")}";
         }
     }
 }

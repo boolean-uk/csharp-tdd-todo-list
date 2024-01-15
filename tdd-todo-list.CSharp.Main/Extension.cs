@@ -13,27 +13,60 @@ namespace tdd_todo_list.CSharp.Main
 
         public bool Add(string task, out string ID) 
         {
-            throw new NotImplementedException();
+            ID = GenerateID();
+            return _items.TryAdd(ID, new ToDoItem(task));
+        }
+
+        private string GenerateID() 
+        {
+            long time = DateTime.Now.Ticks;
+            int random = new Random().Next();
+            // Combine to make the unique timestamp
+            return $"{time}-{random}";
         }
 
         public ToDoItem RetrieveTask(string ID) 
         {
-            throw new NotImplementedException();
+            return _items.Where(i => i.Key == ID)
+                .FirstOrDefault(new KeyValuePair<string, ToDoItem>("1", new ToDoItem("invalid")))
+                .Value;
         }
 
         public bool UpdateTaskName(string ID, string newName) 
         {
-            throw new NotImplementedException();
+            ToDoItem item = RetrieveTask(ID);
+            if (item.Name == "invalid")
+            {
+                return false;
+            } else
+            {
+                item.Name = newName;
+                return true;
+            }
         }
 
         public bool ChangeTaskStatus(string ID) 
         {
-            throw new NotImplementedException();
+            ToDoItem item = RetrieveTask(ID);
+            if (item.Name == "invalid") 
+            {
+                return false;
+            } 
+            else 
+            {
+                item.Status = !item.Status;
+                return true;
+            }
+            
         }
 
         public void RetrieveTaskDate() 
         {
-            throw new NotImplementedException();
+            List<KeyValuePair<string, ToDoItem>> items = _items.OrderBy(i => i.Value.RetrieveDateTime()).ToList();
+            foreach (KeyValuePair<string, ToDoItem> pair in items) 
+            {
+                Console.WriteLine($"{pair.Value.RetrieveDateTime()}\t{pair.Value.Name}");
+            }
         }
     }
 }
