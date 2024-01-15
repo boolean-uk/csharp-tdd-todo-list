@@ -9,56 +9,20 @@ namespace tdd_todo_list.CSharp.Main
 {
     public class TodoList
     {
-        public Dictionary<string, bool> todoList = new Dictionary<string, bool>();
+        //public Dictionary<string, bool> todoList = new Dictionary<string, bool>();
+        public List<pTask> todoList = new List<pTask>();
         
         public TodoList() { }
 
-        public bool AddTask(string task)
+        public bool addTask(string task)
         {
-            if (!todoList.ContainsKey(task) && task != "") {
-                todoList.Add(task, false);
-                return true;
+            //Check if name exists, if there is no duplicate, add it
+            if (todoList.Where(item => item.ptask == task).ToList().Count() == 0) {
+                todoList.Add(new pTask() {ptask=task,isComplete=false });
+                return true; 
             }
             return false;
         }
-        public Dictionary<string, bool> GetList() 
-        {
-            if (todoList.Count > 0)
-            {
-                return todoList;
-            }
-            return null;
-        }
-        public bool EditTask(string task, bool status)
-        {
-            if (todoList.ContainsKey(task))
-            {
-                todoList[task] = status;
-                return true;
-            }
-            return false;
-        }
-        public Dictionary<string,bool> getCompleteTasks()
-        {
-            var result = todoList.Where(i => i.Value.Equals(true))
-            .ToDictionary(i => i.Key, i => i.Value);
 
-            if (result.Count > 0)
-            {
-                return result;
-            }
-            return null;
-        }
-        public Dictionary<string, bool> getIncompleteTasks()
-        {
-            var result = todoList.Where(i => i.Value.Equals(false))
-            .ToDictionary(i => i.Key, i => i.Value);
-
-            if (result.Count > 0)
-            {
-                return result;
-            }
-            return null;
-        }
     }
 }

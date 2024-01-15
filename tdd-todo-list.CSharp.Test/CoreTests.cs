@@ -7,25 +7,19 @@ namespace tdd_todo_list.CSharp.Test
     public class CoreTests
     {
         [Test]
-        public void AddTestTrue()
-        {
-            //Arrange
-            TodoList core = new TodoList();
-            //Act
-      
-            //Assess
-            Assert.IsTrue(core.AddTask("test1"));
-        }
-        [Test]
-        public void AddTestFalse()
+        public void AddTest()
         {
             //Arrange
             TodoList core = new TodoList();
             //Act
 
             //Assess
-            Assert.IsFalse(core.AddTask(""));
+            Assert.IsTrue(core.addTask("t1"));
+            Assert.IsFalse(core.addTask("t1"));
+            Assert.IsTrue(core.addTask("t2"));
+
         }
+        /*
         [Test]
         public void getList()
         {
@@ -126,6 +120,19 @@ namespace tdd_todo_list.CSharp.Test
             //Assess
             Assert.IsNull(result);
         }
+        [Test]
+        public void Search()
+        {
+            //Arrange
+            TodoList core = new TodoList();
+            //Act
+            core.AddTask("t1");
+
+            var result = core.Search("t1");
+
+            //Assess
+            Assert.IsTrue(result);
+        }*/
 
     }
 }
