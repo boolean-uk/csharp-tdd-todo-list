@@ -3,6 +3,8 @@ classes	 | Members												| Methods																																						 |
 Task	 | string title, string description, bool isComplete	| ToggleStatus(); ToString();                                                                                                                                    |
 ---------|------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 ToDoList | List <Dictionary<string, object>> tasks				| AddTask(string title); RemoveTask(string title); GetAllTasks(); GetCompletedTasks(); GetIncompleteTasks(); SearchTask(string title); OrderByTitleAscending(); OrderByTitleDescending();|
+		 |														|
+		 |														| ChangeStatus(); CreationDateTime(); GetId(); NameChange();
 ---------|------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 
 
