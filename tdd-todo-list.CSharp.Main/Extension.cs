@@ -76,8 +76,10 @@ namespace tdd_todo_list.CSharp.Main
                 if (task.ID == id)
                 {
                     task.Completed = !task.Completed;
+                    return;
                 }
             }
+            throw new Exception("Task does not exist");
         }
 
     }
