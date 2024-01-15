@@ -17,7 +17,7 @@ namespace tdd_todo_list.CSharp.Main
         public bool addTask(string task)
         {
             //Check if name exists, if there is no duplicate, add it
-            if (todoList.Where(item => item.ptask == task).ToList().Count() == 0) {
+            if (!todoList.Any(item => item.ptask == task)) {
                 todoList.Add(new pTask() {ptask=task,isComplete=false });
                 return true; 
             }
@@ -30,6 +30,16 @@ namespace tdd_todo_list.CSharp.Main
                 return todoList;
             }
             return null;
+        }
+        public bool editTask(string task,bool status) 
+        {
+            pTask t = todoList.FirstOrDefault(item => item.ptask == task);
+            if (t != null) 
+            {
+                t.isComplete = status;
+                return true;
+            }
+            return false;
         }
 
     }

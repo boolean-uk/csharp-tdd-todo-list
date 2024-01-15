@@ -34,7 +34,6 @@ namespace tdd_todo_list.CSharp.Test
             Assert.NotNull(result);
             Assert.Null(result2);
         }
-        /*
         
         [Test]
         public void Edit()
@@ -42,11 +41,15 @@ namespace tdd_todo_list.CSharp.Test
             //Arrange
             TodoList core = new TodoList();
             //Act
-            core.AddTask("Test1");
-            core.EditTask("Test1",true);
+            core.addTask("Test1");
+            var result = core.editTask("Test1", true);
+            var result2 = core.editTask("t2", true);
             //Assess
-            Assert.IsTrue(core.todoList["Test1"] == true);
+            Assert.IsTrue(result);
+            Assert.IsFalse(result2);
+            //Assert.IsTrue()
         }
+        /*
         [Test]
         public void EditNonExistant()
         {
