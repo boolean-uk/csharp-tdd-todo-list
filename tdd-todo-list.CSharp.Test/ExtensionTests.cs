@@ -18,9 +18,10 @@ namespace tdd_todo_list.CSharp.Test
             ext.addTask(task2);
 
             //execute
-            TodoTask result = ext.getTaskById(taskId);
+            TodoTask? result = ext.getTaskById(taskId);
 
             //verify
+            Assert.NotNull(result);
             Assert.AreEqual(task, result);
         }
 
@@ -38,7 +39,7 @@ namespace tdd_todo_list.CSharp.Test
 
             //verify
             Assert.IsTrue(hasUpdatedName);
-            Assert.AreEqual(ext.getTaskById(taskId).Name, "New name");
+            Assert.AreEqual(ext.getTaskById(taskId)!.Name, "New name");
         }
 
         [Test]
@@ -55,7 +56,7 @@ namespace tdd_todo_list.CSharp.Test
 
             //verify
             Assert.IsTrue(hasToggledStatus);
-            Assert.IsTrue(ext.getTaskById(taskId).IsComplete);
+            Assert.IsTrue(ext.getTaskById(taskId)!.IsComplete);
         }
 
         [Test]
@@ -69,14 +70,14 @@ namespace tdd_todo_list.CSharp.Test
             ext.addTask(task);
 
             //execute
-            DateTime dt = ext.getCreationTime(taskId);
+            DateTime? dt = ext.getCreationTime(taskId);
 
             //verify
             Assert.NotNull(dt);
             Assert.True(dt > before);
             Assert.True(dt < DateTime.Now);
-            Assert.NotNull(dt.Date);
-            Assert.NotNull(dt.Millisecond);
+            Assert.NotNull(dt.Value.Date);
+            Assert.NotNull(dt.Value.Millisecond);
         }
     }
 }

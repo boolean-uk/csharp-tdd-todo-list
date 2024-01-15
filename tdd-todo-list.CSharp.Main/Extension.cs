@@ -4,7 +4,7 @@ namespace tdd_todo_list.CSharp.Main
 {
     public class TodoListExtension
     {
-        public List<TodoTask> tasks { get; set; }
+        public Dictionary<string, TodoTask> tasks { get; set; }
         public TodoListExtension()
         {
             tasks = new();
@@ -12,27 +12,37 @@ namespace tdd_todo_list.CSharp.Main
 
         public void addTask(TodoTask task)
         {
-            throw new NotImplementedException();
+            tasks.Add(task.Id, task);
         }
 
-        public TodoTask getTaskById(string taskId)
+        public TodoTask? getTaskById(string taskId)
         {
-            throw new NotImplementedException();
+            return tasks.TryGetValue(taskId, out TodoTask? value) ? value : null;
         }
 
         public bool updateTaskName(string taskId, string v)
         {
-            throw new NotImplementedException();
+            if (tasks.TryGetValue(taskId, out _))
+            {
+                tasks[taskId].Name = v;
+                return true;
+            }
+            else return false;
         }
 
         public bool changeTaskStatus(string taskId)
         {
-            throw new NotImplementedException();
+            if (tasks.TryGetValue(taskId, out TodoTask? _))
+            {
+                tasks[taskId].IsComplete = !tasks[taskId].IsComplete;
+                return true;
+            }
+            else return false;
         }
 
-        public DateTime getCreationTime(string taskId)
+        public DateTime? getCreationTime(string taskId)
         {
-            throw new NotImplementedException();
+            return tasks.TryGetValue(taskId, out TodoTask? value) ? value.creationTime : null;
         }
     }
 }
