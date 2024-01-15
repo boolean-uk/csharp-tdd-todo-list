@@ -75,11 +75,11 @@ namespace tdd_todo_list.CSharp.Test
         }
 
         [Test]
-        [TestCase(0)]
-        [TestCase(1)]
-        [TestCase(2)]
-        [TestCase(3)]
-        [TestCase(4)]
+        [TestCase(0, "New task 1")]
+        [TestCase(1, "Add more tasks")]
+        [TestCase(2, "Do the things")]
+        [TestCase(3, "Clean the dishes")]
+        [TestCase(4, "Take a shower")]
         public void changeTaskName(int IDindex, string newName)
         {
             // Arrange
@@ -97,7 +97,7 @@ namespace tdd_todo_list.CSharp.Test
         }
 
         [Test]
-        public void changeTaskID()
+        public void ChangeTaskStatus()
         {
             // Arrange
             string ID1 = taskIDs[0];
