@@ -21,7 +21,21 @@ namespace tdd_todo_list.CSharp.Main
 
         public bool SetTaskStatus(string task, bool completeStatus)
         {
-            throw new NotImplementedException();
+            KeyValuePair<string, bool> retrievedTask = _items.FirstOrDefault(t => t.Key == task, new KeyValuePair<string, bool>("Invalid", true));
+            if (retrievedTask.Key == "Invalid") 
+            {
+                return false;
+            }
+
+            _items.Remove(retrievedTask.Key);
+            if (_items.TryAdd(retrievedTask.Key, completeStatus))
+            {
+                return true;
+            } else 
+            {
+                _items.Add(retrievedTask.Key, retrievedTask.Value );
+                return false;
+            }
         }
 
         public Dictionary<string, bool> GetCompleteTasks()
