@@ -7,7 +7,8 @@
         public bool IsComplete { get; set; }
         public TodoTask(string taskName)
         {
-            throw new NotImplementedException();
+            Name = taskName;
+            IsComplete = false;
         }
     }
 }

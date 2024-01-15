@@ -2,49 +2,60 @@
 {
     public class TodoList
     {
+        public List<TodoTask> tasks;
+
+        public TodoList()
+        {
+            tasks = new();
+        }
         public void addTask(TodoTask task)
         {
-            throw new NotImplementedException();
+            tasks.Add(task);
         }
 
         public void clearTodo()
         {
-            throw new NotImplementedException();
+            tasks.Clear();
         }
 
         public List<TodoTask> getCompleteTasks()
         {
-            throw new NotImplementedException();
+            return tasks.Where(x => x.IsComplete).ToList();
         }
 
         public List<TodoTask> getInCompleteTasks()
         {
-            throw new NotImplementedException();
+            return tasks.Where(x => !x.IsComplete).ToList();
         }
 
         public List<TodoTask> getTasks()
         {
-            throw new NotImplementedException();
+            return tasks;
         }
 
         public List<TodoTask> getTasksAscending()
         {
-            throw new NotImplementedException();
+            return tasks.OrderBy(x => x.Name).ToList();
         }
 
         public List<TodoTask> getTasksDescending()
         {
-            throw new NotImplementedException();
+            return tasks.OrderByDescending(x => x.Name).ToList();
         }
 
         public bool searchForTask(TodoTask task)
         {
-            throw new NotImplementedException();
+            return tasks.Contains(task);
         }
 
         public bool toggleTaskStatus(TodoTask task)
         {
-            throw new NotImplementedException();
+            if (tasks.Contains(task))
+            {
+                task.IsComplete = !task.IsComplete;
+                return true;
+            }
+            return false;
         }
     }
 }
