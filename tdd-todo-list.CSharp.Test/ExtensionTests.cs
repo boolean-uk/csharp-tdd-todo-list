@@ -14,12 +14,11 @@ namespace tdd_todo_list.CSharp.Test
         private TodoListExtension _extension;
         private string[] taskIDs;
         private string[] tasks;
-        DateTime time;
+        private DateTime time = DateTime.Now;
 
         public ExtensionTests()
         {
             _extension = new TodoListExtension();
-            time = new DateTime();
             taskIDs = new string[] { };
             tasks = new string[] { };
         }
