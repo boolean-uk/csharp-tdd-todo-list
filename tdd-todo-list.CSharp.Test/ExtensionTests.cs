@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NUnit.Framework;
 
 namespace tdd_todo_list.CSharp.Test
 {
@@ -14,5 +15,18 @@ namespace tdd_todo_list.CSharp.Test
         {
             _extension = new TodoListExtension();
         }
+
+        [TestCase(2)]
+        public void GetTask(int id)
+        {
+            //Arreng
+            TodoListExtension ext = new TodoListExtension();
+
+            //Act 
+            ext.getTaskById(id);
+
+            //Assert
+            
+        }   
     }
 }
