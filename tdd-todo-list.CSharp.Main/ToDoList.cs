@@ -72,7 +72,14 @@ namespace tdd_todo_list.CSharp.Main
 
         public bool RemoveTask(string s)
         {
-            throw new NotImplementedException();
+            if (!_toDoList.ContainsKey(s))
+            {
+                Console.WriteLine("The list does not contain the task, did you write it correctly?");
+                return false;
+            }
+            _toDoList.Remove(s);
+            Console.WriteLine($"The task \"{s}\" has been removed!");
+            return true;
         }
     }
 }
