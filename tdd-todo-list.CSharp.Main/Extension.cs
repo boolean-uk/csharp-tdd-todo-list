@@ -11,15 +11,15 @@ namespace tdd_todo_list.CSharp.Main
         public string Name { get; set; }
         public bool IsCompleted { get; set; }
         public int ID { get; set; }
-        public string Date { get; set; }
+        public string DateTime { get; set; }
 
 
-        public TaskExtend(int id, string name, string date)
+        public TaskExtend(int id, string name, string datetime)
         {
             Name = name;
             ID = id;
             IsCompleted = false;
-            Date = date;
+            DateTime = datetime;
         }
         public void setName(string name)
         {
@@ -37,10 +37,10 @@ namespace tdd_todo_list.CSharp.Main
             Tasks = new List<TaskExtend>();
         }
 
-        public bool addTask(int id, string taskName, string date)
+        public bool addTask(int id, string taskName, string datetime)
         {
 
-            Tasks.Add(new TaskExtend(id,taskName,date));
+            Tasks.Add(new TaskExtend(id,taskName,datetime));
 
             return true;
         }
@@ -62,22 +62,62 @@ namespace tdd_todo_list.CSharp.Main
         public bool updateName(int id, string newName)
         {
             bool result = false;
-
+            string tempDateTime = "";
+            TaskExtend oldTask = new TaskExtend();
             foreach(TaskExtend task in Tasks)
             {
                 if(task.ID == id)
                 {
-                    string tempDate = task.Date;
-                    Tasks.Remove(task);
-                    Tasks.Add(new TaskExtend(id, newName, tempDate));
+                    oldTask = task;
+                    tempDateTime = task.DateTime;
                     result = true;
                 }
             }
 
-            Console.WriteLine(result);
+            if(result == true)
+            {
+                Tasks.Remove(oldTask);
+                oldTask.Name = newName;
+                Tasks.Add(oldTask);
+            }
+
             return result;
         }
+        public bool changeCompletion(int id)
+        {
+            TaskExtend temp = new TaskExtend();
+            bool result = false;
+            foreach (TaskExtend task in Tasks)
+            {
+                if(task.ID == id)
+                {
+                    temp = task;
+                    result = true;
+                }
+            }
 
+            if(result == true)
+            {
+                Tasks.Remove(temp);
+                temp.IsCompleted = true;
+                Tasks.Add(temp);
+            }
+
+
+            return result;
+        }
+        public List<string> dateTimeTasks()
+        {
+            List<string> result = new List<string>();
+
+            foreach (TaskExtend task in Tasks)
+            {
+                result.Add(task.ID.ToString()+" Created on the:"+task.DateTime);
+            }
+
+
+            return result;
+        }
 
 
 
