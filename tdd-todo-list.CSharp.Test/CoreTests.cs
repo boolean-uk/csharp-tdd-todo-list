@@ -1,5 +1,6 @@
 ﻿using tdd_todo_list.CSharp.Main;
 using NUnit.Framework;
+using Task = tdd_todo_list.CSharp.Main.Task;
 
 namespace tdd_todo_list.CSharp.Test
 {
@@ -11,7 +12,103 @@ namespace tdd_todo_list.CSharp.Test
         public void FirstTest()
         {
             TodoList core = new TodoList();
-            Assert.Pass();
+
+            core.Add("test");
+
+            Assert.IsTrue(core.Tasks.Count > 0);
+        }
+
+        [Test] 
+        public void SecondTest() 
+        {
+            TodoList core = new TodoList();
+
+            core.Add("test");
+
+            Assert.IsTrue("test\nFalse" == core.PrintAll());
+        }
+
+        [Test]
+        public void ThirdTest()
+        {
+            TodoList core = new TodoList();
+
+            Task testTask = core.Add("test");
+            core.Complete(testTask);
+
+            Assert.IsTrue(testTask.Completed);
+            
+        }
+
+        [Test]
+        public void FourthTest()
+        {
+            TodoList core = new TodoList();
+            core.Add("test");
+            Task testTask = core.Add("test2");
+            
+            core.Complete(testTask);
+
+            Assert.IsTrue(core.Tasks.Count == 1 && core.Tasks[0] == testTask);
+        }
+
+        [Test]
+        public void FifthTest()
+        {
+            TodoList core = new TodoList();
+            Task testTask = core.Add("test");
+            core.Add("test2");
+
+            core.Complete(testTask);
+
+            Assert.IsTrue(core.Tasks.Count == 1 && core.Tasks[0] == testTask);
+        }
+
+        [Test]
+        public void SixthTest()
+        {
+            TodoList core = new TodoList();
+            core.Add("test1");
+            Task testTask = core.Add("test2");
+            core.Add("test3");
+
+            Assert.IsTrue(testTask == core.Search("test2"));
+        }
+
+        [Test]
+        public void SeventhTest()
+        {
+            TodoList core = new TodoList();
+            Task testTask = core.Add("test1");
+            core.Remove(testTask);
+
+            Assert.IsTrue(core.Tasks.Count == 0 && !core.Remove(testTask));
+        }
+
+        [Test]
+        public void EightTest()
+        {
+            TodoList core = new TodoList();
+
+            core.Add("b");
+            core.Add("z");
+            core.Add("a");
+            core.Add("g");
+
+            Assert.IsTrue("a\nFalse\nb\nFalse\ng\nFalse\nz\nFalse" == core.PrintOrderASC());
+        }
+
+        [Test]
+        public void NinthTest()
+        {
+            TodoList core = new TodoList();
+
+            core.Add("b");
+            core.Add("z");
+            core.Add("a");
+            core.Add("g");
+
+            Assert.IsTrue("z\nFalse\ng\nFalse\nb\nFalse\na\nFalse" == core.PrintOrderDESC());
         }
     }
 }
