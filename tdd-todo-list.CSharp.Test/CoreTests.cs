@@ -48,6 +48,17 @@ namespace tdd_todo_list.CSharp.Test
             //Assess
             Assert.Null(result);
         }
+        [Test]
+        public void Edit()
+        {
+            //Arrange
+            TodoList core = new TodoList();
+            //Act
+            core.AddTask("Test1");
+            core.EditTask("Test1",true);
+            //Assess
+            Assert.IsTrue(core.todoList["Test1"] == true);
+        }
 
     }
 }

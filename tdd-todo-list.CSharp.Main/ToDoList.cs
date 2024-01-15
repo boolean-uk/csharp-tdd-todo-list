@@ -8,7 +8,7 @@ namespace tdd_todo_list.CSharp.Main
 {
     public class TodoList
     {
-        private Dictionary<string, bool> todoList = new Dictionary<string, bool>();
+        public Dictionary<string, bool> todoList = new Dictionary<string, bool>();
         
         public TodoList() { }
 
@@ -27,6 +27,15 @@ namespace tdd_todo_list.CSharp.Main
                 return todoList;
             }
             return null;
+        }
+        public bool EditTask(string task, bool status)
+        {
+            if (todoList.ContainsKey(task))
+            {
+                todoList[task] = status;
+                return true;
+            }
+            return false;
         }
     }
 }
