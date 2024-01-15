@@ -41,5 +41,11 @@ namespace tdd_todo_list.CSharp.Main
             }
             return count;
         }
+
+        public int PrintInomplete()
+        {
+            int count = 0;
+            return count;
+        }
     }
 }
