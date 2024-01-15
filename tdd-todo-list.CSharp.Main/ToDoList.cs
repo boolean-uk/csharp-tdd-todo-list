@@ -28,5 +28,10 @@ namespace tdd_todo_list.CSharp.Main
             }
             return _toDoList.Count();
         }
+
+        public int PrintComplete()
+        {
+            return 0;
+        }
     }
 }
