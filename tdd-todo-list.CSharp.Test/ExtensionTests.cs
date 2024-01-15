@@ -149,7 +149,26 @@ namespace tdd_todo_list.CSharp.Test
         [Test]
         public void retrieveTaskDates() 
         {
-            
+            // Arrange
+            TextWriter originalConsoleOut = Console.Out;
+            StringWriter sw = new StringWriter();
+            Console.SetOut(sw); // Have sw catch console output
+
+            // Act
+            _extension.RetrieveTaskDate();
+            string output = sw.ToString();
+
+            // Assert
+            StringAssert.Contains(tasks[0], output);
+            StringAssert.Contains(tasks[1], output);
+            StringAssert.Contains(tasks[2], output);
+            StringAssert.Contains(tasks[3], output);
+            StringAssert.Contains(tasks[4], output);
+            StringAssert.Contains(time.Year.ToString(), output);
+            StringAssert.Contains(time.Month.ToString(), output);
+            StringAssert.Contains(time.Day.ToString(), output);
+            // Restore normal console operation
+            Console.SetOut(originalConsoleOut);
         }
     }
 }
