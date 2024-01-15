@@ -43,7 +43,6 @@ namespace tdd_todo_list.CSharp.Test
             Dictionary<string, bool> keyValuePairs = new Dictionary<string, bool>()
             {
                 {"Laundry", false },
-                {"Laundry", false },
                 {"Do dishes", false },
                 {"Hoover", false }
             };
@@ -52,15 +51,11 @@ namespace tdd_todo_list.CSharp.Test
             foreach (var kv in keyValuePairs)
             {
                 result = core.Add(kv.Key, kv.Value);
-                if (!result)
-                {
-                    break;
-                }
             }
+            result = core.Add("Laundry", false);
+
             //  Assert - check the results
             Assert.True(!result);
         }
-
-
     }
 }
