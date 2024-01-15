@@ -27,7 +27,8 @@ namespace tdd_todo_list.CSharp.Main
 
         public List<Task> completedTasks()
         {
-            return _tasks.Where(t => t.completed == true).ToList();
+            List<Task> completed = _tasks.Where(t => t.completed == true).ToList();
+            return completed;
         }
 
         public List<Task> uncompletedTasks()
@@ -37,22 +38,45 @@ namespace tdd_todo_list.CSharp.Main
 
         public void displayList()
         {
-            Console.WriteLine("TODO list");
-        }
 
+            _tasks.ForEach(t => { Console.WriteLine($"Task: {t.description} [{boolToString(t.completed)}]"); });
+        }
+        private string boolToString(bool completed)
+        {
+            return completed ? "X" : " ";
+        }
         public string search(string s)
         {
-            return "";
+            Task t = _tasks.FirstOrDefault(t => t.description == s);
+            if (t != null)
+            {
+                return $"{t.description}";
+            }
+            return "Task does not exist";
         }
 
         public List<Task> orderByAscending()
         {
+            _tasks = _tasks.OrderBy(t => t.description).ToList();
             return _tasks;
         }
 
         public List<Task> orderByDescending()
         {
+            _tasks = orderByAscending();
+            _tasks.Reverse();
             return _tasks;
+        }
+
+        public void changeCompleteStatus(Task t)
+        {
+            if (t.completed == true)
+            {
+                t.completed = false;
+            } if (t.completed == false)
+            {
+                t.completed = true;
+            }
         }
 
         public List<Task> tasks

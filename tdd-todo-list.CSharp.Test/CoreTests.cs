@@ -22,8 +22,8 @@ namespace tdd_todo_list.CSharp.Test
         {
             Main.Task task = new("Feed the cat", false);
             // Setter
-            task.description = "Feed the dog";
-            StringAssert.Contains(task.description, "Feed the dog");
+            task.completed = true;
+            Assert.IsTrue(task.completed);
         }
         [Test]
         public void ShouldAddTaskToList() {
@@ -72,10 +72,72 @@ namespace tdd_todo_list.CSharp.Test
             todolist.addTaskToList(task2);
             todolist.addTaskToList(task3);
             List<Main.Task> uncompleted = todolist.uncompletedTasks();
-
+            
             Assert.AreEqual(2, uncompleted.Count);
             // Check content in returned list
             Assert.That(uncompleted.Contains(task));
+        }
+        [Test]
+        public void ShouldReturnMessageWithTaskIfExist()
+        {
+            TodoList todolist = new TodoList();
+            Main.Task task = new("Feed the cat", false);
+            todolist.addTaskToList(task);
+
+            string response = todolist.search("Feed the cat");
+
+            Assert.AreEqual(response, task.description);
+        }
+        [Test]
+        public void ShouldReturnErrorIfTaskDoesNotExist()
+        {
+            TodoList todolist = new TodoList();
+            Main.Task task = new("Feed the cat", false);
+            todolist.addTaskToList(task);
+
+            string response = todolist.search("Feed the dog");
+
+            Assert.AreEqual(response, "Task does not exist");
+        }
+        [Test]
+        public void shouldReturnListInAscendingOrder()
+        {
+            TodoList todolist = new TodoList();
+            Main.Task task = new("Feed the dog", false);
+            Main.Task task2 = new("Feed the cat", false);
+            todolist.addTaskToList(task);
+            todolist.addTaskToList(task2);
+
+            List<Main.Task> ascendingOrder = todolist.orderByAscending();
+
+            Assert.AreEqual(ascendingOrder[0], task2);
+        }
+        [Test]
+        public void shouldReturnListInDescendingOrder()
+        {
+            TodoList todolist = new TodoList();
+            Main.Task task = new("Feed the cat", false);
+            Main.Task task2 = new("Feed the dog", false);
+            Main.Task task3 = new("Feed the elephant", false);
+            Main.Task task4 = new("Feed the fish", false);
+            todolist.addTaskToList(task);
+            todolist.addTaskToList(task2);
+            todolist.addTaskToList(task3);
+            todolist.addTaskToList(task4);
+
+            List<Main.Task> ascendingOrder = todolist.orderByDescending();
+
+            Assert.AreEqual(ascendingOrder[2], task2);
+        }
+        [Test]
+        public void shouldChangeCompletedStatusFromCurrent()
+        {
+            TodoList todolist = new TodoList();
+            Main.Task task = new("Feed the cat", false);
+
+            todolist.changeCompleteStatus(task);
+
+            Assert.IsTrue(task.completed);
         }
     }
 }
