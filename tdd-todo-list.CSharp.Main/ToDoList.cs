@@ -56,5 +56,10 @@ namespace tdd_todo_list.CSharp.Main
             }
             return count;
         }
+
+        public bool SearchTask(string s)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
