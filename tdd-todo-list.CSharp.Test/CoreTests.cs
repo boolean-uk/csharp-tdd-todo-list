@@ -10,9 +10,8 @@ namespace tdd_todo_list.CSharp.Test
         TodoList _core = new TodoList();
 #pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         [SetUp]
-        public void Setup() 
+        public void SetUp() 
         {
-            TodoList _core = new TodoList();
         }
 
         
@@ -25,7 +24,7 @@ namespace tdd_todo_list.CSharp.Test
         public void AddTaskToList(string task)
         {
             // Arrange
-
+            _core = new TodoList();
             // Act
             bool res = _core.Add(task);
 
@@ -37,6 +36,7 @@ namespace tdd_todo_list.CSharp.Test
         public void RetrieveAllTasks()
         {
             // Arrange
+            _core = new TodoList();
             string string1 = "Hello world";
             string string2 = "Goodbye world";
             string string3 = "What to write there?";
@@ -67,6 +67,7 @@ namespace tdd_todo_list.CSharp.Test
         public void SetTaskStatus(bool status) 
         {
             // Arrange
+            _core = new TodoList();
             string todoString = "Hello, this is a string";
             string notAddedString = "This should not be in the todolist";
             _core.Add(todoString);
@@ -85,6 +86,7 @@ namespace tdd_todo_list.CSharp.Test
         public void RetrieveCorrectStatusLists() 
         {
             // Arrange
+            _core = new TodoList();
             string todoString = "This task is complete";
             string todoString2 = "This task is also complete";
 
@@ -112,6 +114,7 @@ namespace tdd_todo_list.CSharp.Test
         public void FindTask() 
         {
             // Arrange
+            _core = new TodoList();
             string task1 = "What?";
             string task2 = "Why?";
             string task3 = "Find this";
@@ -138,6 +141,7 @@ namespace tdd_todo_list.CSharp.Test
         public void RemoveTask() 
         {
             // Arrange
+            _core = new TodoList();
             string string1 = "This should remain";
             string string2 = "This should be removed";
             string string3 = "Dont mind this string";
@@ -159,6 +163,7 @@ namespace tdd_todo_list.CSharp.Test
         public void TestSorter()
         {
             // Arrange
+            _core = new TodoList();
             string stringA = "abc";
             string stringB = "def";
             string stringC = "ghi";
