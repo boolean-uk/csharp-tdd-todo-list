@@ -9,8 +9,7 @@ namespace tdd_todo_list.CSharp.Main
 {
     public class TodoList
     {
-        internal Dictionary<int, string> IDToTask = new Dictionary<int, string>();
-        internal Dictionary<int, (string status, DateTime time)> IDToInfo= new Dictionary<int, (string, DateTime)>();
+        internal SortedDictionary<string, string> toDo = new SortedDictionary<string, string>();
 
         internal int counter = 0;
 

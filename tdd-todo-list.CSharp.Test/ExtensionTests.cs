@@ -54,7 +54,7 @@ namespace tdd_todo_list.CSharp.Test
             TodoListExtension core = new TodoListExtension();
             core.addTask("name");
             int ID = core.getID("name");
-            core.updateStatus(ID, "complete");
+            core.updateStatus(ID);
             Assert.IsTrue(core.viewTasks("", "complete").SequenceEqual(
                 new List<string>() { "name" })
                 );
