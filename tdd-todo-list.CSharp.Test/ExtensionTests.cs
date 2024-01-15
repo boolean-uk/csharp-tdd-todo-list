@@ -18,7 +18,7 @@ namespace tdd_todo_list.CSharp.Test
             ext.addTask(task2);
 
             //execute
-            Task result = ext.getTaskById(taskId);
+            TodoTask result = ext.getTaskById(taskId);
 
             //verify
             Assert.AreEqual(task, result);
