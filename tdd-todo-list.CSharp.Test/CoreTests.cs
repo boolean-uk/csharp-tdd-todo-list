@@ -7,7 +7,7 @@ namespace tdd_todo_list.CSharp.Test
     public class CoreTests
     {
 #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
-        private TodoList _core;
+        TodoList _core = new TodoList();
 #pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         [SetUp]
         public void Setup() 
@@ -44,19 +44,21 @@ namespace tdd_todo_list.CSharp.Test
             _core.Add(string2);
             _core.Add(string3);
 
+            Dictionary<string, bool> expected = new Dictionary<string, bool>();
+            expected.Add(string1, false);
+            expected.Add(string2, false);    
+            expected.Add(string3, false);
+
             // Act
             Dictionary<string, bool> res = _core.ListTasks();
             string[] res2 = res.Keys.ToArray();
             bool[] res3 = res.Values.ToArray();
 
             // Assert
-            Assert.That(string1, Is.SubsetOf(res2));
-            Assert.That(string2, Is.SubsetOf(res2));
-            Assert.That(string3, Is.SubsetOf(res2));
+            CollectionAssert.AreEquivalent(expected, res);
+            Assert.That(res2, Contains.Item(string1).And.Contains(string2).And.Contains(string3));
+            Assert.That(res3, Is.All.False);
 
-            Assert.That(res3[0], Is.EqualTo(true));
-            Assert.That(res3[1], Is.EqualTo(true));
-            Assert.That(res3[2], Is.EqualTo(true));
         }
 
         [Test]
