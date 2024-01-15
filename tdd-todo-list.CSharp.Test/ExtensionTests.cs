@@ -17,10 +17,7 @@ namespace tdd_todo_list.CSharp.Test
         {
             _extension = new TodoListExtension();
 
-            TestGetTaskById();
-            TestUpdateTaskName();
-            TestChangeTaskStatusById();
-            TestPrintTaskDetails();
+          
            
         }
         [Test]
@@ -39,9 +36,9 @@ namespace tdd_todo_list.CSharp.Test
         {
             _extension.AddTask("5", "Task5");
 
-            _extension.UpdateTaskName("6", "UpdatedTask");
+            _extension.UpdateTaskName("5", "UpdatedTask");
 
-            Assert.AreEqual("UpdatedTask", _extension.GetTaskById("6").Name);
+            Assert.AreEqual("UpdatedTask", _extension.GetTaskById("5").Name);
         }
 
         [Test]
