@@ -123,18 +123,14 @@ namespace tdd_todo_list.CSharp.Test
             _core.Add(task4);
 
             // Act
-            int index1 = 2;
-            string res1 = _core.FindTask(task3, out index1);
+            string res1 = _core.FindTask(task3);
 
-            int index2 = 0;
-            string res2 = _core.FindTask(notAdded, out index2);
+            string res2 = _core.FindTask(notAdded);
 
             // Assert
             Assert.That(task3, Is.EqualTo(res1));
-            Assert.That(2, Is.EqualTo(index1));
 
             Assert.That(notAdded, Is.EqualTo(res2));
-            Assert.That(0, Is.EqualTo(index2));
 
         }
 
