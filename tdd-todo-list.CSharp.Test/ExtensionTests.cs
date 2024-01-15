@@ -60,7 +60,7 @@ namespace tdd_todo_list.CSharp.Test
             var testTask = new ToDoTask("Z task", Status.Complete);
             _todoList.Add(testTask);
             List<DateTime> dates = _todoList.ViewTaskCreationDates();
-            Assert.That(dates.Contains(testTask.DateCreated));
+            Assert.That(dates.Contains(testTask.DateCreated), Is.True);
         }
     }
 }
