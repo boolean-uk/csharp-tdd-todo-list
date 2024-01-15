@@ -1,6 +1,6 @@
 # Todo List
-[Personal ](/tdd-todo-list.CSharp.Main/Solution/domain-model.md)
-/domain-model.md]
+[Personal](/tdd-todo-list.CSharp.Main/Solution/domain-model.md)
+
 ## Learning Objectives
 - Use user stories to create a domain model
 - Use the Red Green Refactor approach to create source code from tests
