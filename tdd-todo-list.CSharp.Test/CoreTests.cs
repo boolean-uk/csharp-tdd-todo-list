@@ -312,17 +312,14 @@ namespace tdd_todo_list.CSharp.Test
                 core.Add(kv.Key, kv.Value);
             }
 
-            result = core.PrintAlpha();
-
-            result = core.PrintAlpha();
             //  Assert - check the results
             Assert.IsTrue(core.PrintAlpha().ToArray()[expectedOrder] == task);
         }
 
         [Test]
         [TestCase("Laundry", 0)]
-        [TestCase("Do dishes", 2)]
         [TestCase("Hoover", 1)]
+        [TestCase("Do dishes", 2)]
         public void Test9(string task, int expectedOrder)
         {
             //  Arrange - set up test values
@@ -342,11 +339,8 @@ namespace tdd_todo_list.CSharp.Test
                 core.Add(kv.Key, kv.Value);
             }
 
-            result = core.PrintDeAlpha();
-
-            result = core.PrintDeAlpha();
             //  Assert - check the results
-            Assert.IsTrue(core.PrintAlpha().ToArray()[expectedOrder] == task);
+            Assert.IsTrue(core.PrintDeAlpha().ToArray()[expectedOrder] == task);
         }
     }
 }
