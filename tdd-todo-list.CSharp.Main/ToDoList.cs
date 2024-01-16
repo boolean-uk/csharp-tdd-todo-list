@@ -8,11 +8,11 @@ namespace tdd_todo_list.CSharp.Main
 {
     public class TodoList
     {
-        private List<Task> _tasks = new List<Task>();
+        protected List<Task> _tasks = new List<Task>();
 
         public TodoList()
         {
-
+            
         }
 
         public void addTaskToList(Task t)

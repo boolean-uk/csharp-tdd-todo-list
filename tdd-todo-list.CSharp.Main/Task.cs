@@ -8,16 +8,16 @@ namespace tdd_todo_list.CSharp.Main
 {
     public class Task
 {
-        private string _description;
-        private bool _completed;
+        public string Description;
+        public bool Completed;
 
         public Task(string description, bool completed)
         {
-            _description = description;
-            _completed = completed;
+            Description = description;
+            Completed = completed;
         }
 
-        public string description { get { return _description; } set { _description = value; } }
-        public bool completed { get { return _completed; } set { _completed = value; }  }
+        public string description { get { return Description; } set { Description = value; } }
+        public bool completed { get { return Completed; } set { Completed = value; }  }
     }
 }
