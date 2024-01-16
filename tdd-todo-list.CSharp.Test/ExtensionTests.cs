@@ -14,12 +14,13 @@ namespace tdd_todo_list.CSharp.Test
         
         private TodoListExtension _extension;
 
-        public ExtensionTests()
+        [SetUp]
+        public void setup()
         {
             _extension = new TodoListExtension();
 
         }
-
+        
         // Test getID method
         [Test]
         public void getTaskByIDTest() 
@@ -55,7 +56,7 @@ namespace tdd_todo_list.CSharp.Test
             Assert.AreEqual(expectedArray[0], actualArray[0]);
 
         }
-
+        
         // Test UpdateTaskStatus method
         [Test]
         public void updateTaskStatusByIDTest() 
@@ -76,25 +77,26 @@ namespace tdd_todo_list.CSharp.Test
 
             Assert.AreEqual(actualArray[3], "0");
         }
-
+        
         // Test ShowTimeStamp Function
         [Test]
-        public void showTimeStampsTest() 
+        public void showTimeStampsTest()
         {
             string currentTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm");
 
             _extension.addTask("task1", "0");
-            _extension.addTask("task2", "1");
-            _extension.addTask("task3", "0");
+            _extension.addTask("task2", "0");
+            _extension.addTask("task3", "1");
 
-            string[] taskAndTimeStamps = 
+            string [] expectedArray = 
                 {
-                "task1:" + currentTime,
+                "task1:" + currentTime, 
                 "task2:" + currentTime,
                 "task3:" + currentTime
                 };
 
-            Assert.AreEqual(taskAndTimeStamps, _extension.showTimeStamps());
+            Assert.AreEqual(expectedArray, _extension.showTimeStamps());
         }
+        
     }
 }
