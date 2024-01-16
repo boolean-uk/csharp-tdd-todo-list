@@ -67,6 +67,7 @@ namespace tdd_todo_list.CSharp.Test
             core.addTask("name");
             DateTime time = DateTime.Now;
             int ID = core.getID("name");
+            string timeCreated = core.whenCreated(ID);
             Assert.Pass();
         }
     }

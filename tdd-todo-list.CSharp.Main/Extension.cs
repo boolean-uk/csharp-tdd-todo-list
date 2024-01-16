@@ -52,5 +52,11 @@ namespace tdd_todo_list.CSharp.Main
             string task = getTaskByID(iD);
             base.changeStatus(task);
         }
+
+        public string whenCreated(int ID)
+        {
+            string name = getTaskByID(ID);
+            return $"This task was created {taskToInfo[name].time.ToString("de-DE")}";
+        }
     }
 }

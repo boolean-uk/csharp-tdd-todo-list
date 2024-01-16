@@ -47,7 +47,7 @@ namespace tdd_todo_list.CSharp.Main
                     }
                     break;
                 default:
-                    list = new List<string>(toDo.Keys);
+                    list = toDo.Keys.ToList();
                     break;
             }
 
