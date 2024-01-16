@@ -103,6 +103,9 @@ namespace tdd_todo_list.CSharp.Main
             return true;
         }
 
+
+
+
     }
 
     public class TOTask
@@ -110,16 +113,20 @@ namespace tdd_todo_list.CSharp.Main
         public string name { get; set; }
         public bool status;
         public int id;
+        public DateTime creationTime;
 
-        public TOTask(string name, int id)
+        public TOTask(string name, int id,  DateTime time = default(DateTime))
         {
             this.name = name;
             this.id = id;
+            this.creationTime = time == default(DateTime) ? DateTime.Now : time;
         }
 
         public void toggleStatus()
         {
             status = !status;
         }
+
+
     }
 }

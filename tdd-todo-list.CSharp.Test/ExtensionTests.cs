@@ -14,6 +14,7 @@ namespace tdd_todo_list.CSharp.Test
 
 
         TodoListExtension core;
+        TOTask TODOtask;
 
         [SetUp]
         public void SetUp()
@@ -217,7 +218,20 @@ namespace tdd_todo_list.CSharp.Test
 
         }
 
+        [Test]
 
+        public void giveTodoCreationTime() {
+        
+        DateTime timeNow = DateTime.Now;
+
+            
+        TOTask task = new  TOTask("test", 1, timeNow);
+            
+            
+        Assert.That(timeNow, Is.EqualTo(task.creationTime));
+        
+        
+        }
 
 
 
