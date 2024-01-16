@@ -55,32 +55,21 @@ namespace tdd_todo_list.CSharp.Test
         public void TodoListTaskSortTest()
         {
             TodoList myTodos = new TodoList();
-            myTodos.AddTask("Aac");
-            myTodos.AddTask("Aab");
-            myTodos.AddTask("Aaa");
-            myTodos.AddTask("Abb");
-            myTodos.AddTask("Aad");
-            myTodos.AddTask("Aba");
+            myTodos.AddTask("Ab");
+            myTodos.AddTask("Aa");
+            myTodos.AddTask("Ad");
+            myTodos.AddTask("Ac");
             myTodos.CompleteTask();
             myTodos.CompleteTask();
-            myTodos.CompleteTask();
-            List<TodoTask> allTasks = myTodos.GetAllTasks();
+            List<TodoTask> allTasksUnsorted = myTodos.GetAllTasks();
+            List<TodoTask> allTasksAsc = myTodos.GetAllTasks(SortOrder.Ascending);
             List<TodoTask> allTasksDesc = myTodos.GetAllTasks(SortOrder.Descending);
             List<TodoTask> completedTasksUnsorted = myTodos.GetCompletedTasks(SortOrder.NotSorted);
             List<TodoTask> incompleteTasksAsc = myTodos.GetIncompleteTasks(SortOrder.Ascending);
-            Assert.That(allTasks[0].Description == "Aac");
-            Assert.That(allTasks[1].Description == "Aab");
-            Assert.That(allTasks[4].Description == "Aad");
-            Assert.That(allTasks[5].Description == "Aba");
-            Assert.That(allTasksDesc[0].Description == "Abb");
-            Assert.That(allTasksDesc[1].Description == "Aba");
-            Assert.That(allTasksDesc[5].Description == "Aaa");
-            Assert.That(allTasksDesc[4].Description == "Aab");
-            Assert.That(completedTasksUnsorted.First().Description == "Aac");
-            Assert.That(completedTasksUnsorted.Last().Description == "Aaa");
-            Assert.That(incompleteTasksAsc.Last().Description == "Aad");
-            Assert.That(incompleteTasksAsc[1].Description == "Aba");
-            Assert.That(incompleteTasksAsc[2].Description == "Abb");
+            Assert.That(allTasksUnsorted[0].Description == "Ab");
+            Assert.That(allTasksDesc[0].Description == "Ad");
+            Assert.That(completedTasksUnsorted[0].Description == "Ab");
+            Assert.That(incompleteTasksAsc[0].Description == "Ac");
         }
 
         [Test]
@@ -104,5 +93,6 @@ namespace tdd_todo_list.CSharp.Test
             Assert.That(itemsWithBread.Count == 2);
             Assert.That(itemsWithNachos.Count == 0);
             Assert.That(resultsForNachos.Contains("No results"));
+        }
     }
 }

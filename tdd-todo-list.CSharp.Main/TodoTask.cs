@@ -14,16 +14,17 @@ namespace tdd_todo_list.CSharp.Main
 
         public TodoTask(string description)
         {
-            throw new NotImplementedException();
+            _description = description;
+            _isCompleted = false;
         }
 
         public void Complete()
         {
-            throw new NotImplementedException();
+            _isCompleted = true;
         }
         public void Incomplete()
         {
-            throw new NotImplementedException();
+            _isCompleted = false;
         }
         public bool IsCompleted { get { return _isCompleted; } }
 
@@ -32,7 +33,7 @@ namespace tdd_todo_list.CSharp.Main
         public override string ToString()
         {
             if (IsCompleted) return $"[\u2713] {Description}";
-            return $"[ ] {Description}";
+            return $"[  ] {Description}";
         }
 
     }

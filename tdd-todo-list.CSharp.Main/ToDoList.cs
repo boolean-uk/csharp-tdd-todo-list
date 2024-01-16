@@ -24,47 +24,64 @@ namespace tdd_todo_list.CSharp.Main
 
         public void AddTask(string description)
         {
-            throw new NotImplementedException();
+            Tasks.Add(new TodoTask(description));
         }
 
         public void RemoveTask(int index = -1)
         {
-            throw new NotImplementedException();
+            Tasks.RemoveAt(EnsureValidTaskIndex(index));
         }
 
         public void CompleteTask(int index = -1)
         {
-            throw new NotImplementedException();
+            if (index <= -1) Tasks[FirstIncompleteTaskIndex()].Complete();
+            else Tasks[EnsureValidTaskIndex(index)].Complete();
         }
 
         public void IncompleteTask(int index = -1)
         {
-            throw new NotImplementedException();
+            if (index <= -1) Tasks[FirstCompleteTaskIndex()].Incomplete();
+            else Tasks[EnsureValidTaskIndex(index)].Incomplete();
         }
 
         public List<TodoTask> GetAllTasks(SortOrder sortOrder = SortOrder.NotSorted)
         {
-            throw new NotImplementedException();
+            return SortTasksByDescription(Tasks, sortOrder);
         }
 
         public List<TodoTask> GetCompletedTasks(SortOrder sortOrder = SortOrder.NotSorted)
         {
-            throw new NotImplementedException();
+            List<TodoTask> completedTasks = Tasks.Where(task => task.IsCompleted).ToList();
+            return SortTasksByDescription(completedTasks, sortOrder);
         }
 
         public List<TodoTask> GetIncompleteTasks(SortOrder sortOrder = SortOrder.NotSorted)
         {
-            throw new NotImplementedException();
+            List<TodoTask> incompleteTasks = Tasks.Where(task => !task.IsCompleted).ToList();
+            return SortTasksByDescription(incompleteTasks, sortOrder);
         }
 
         public List<TodoTask> GetTasksWithSubstring(string substr, SortOrder sortOrder = SortOrder.NotSorted)
         {
-            throw new NotImplementedException();
+            List<TodoTask> tasksWithSubstring = Tasks.Where(task => task.Description.ToLower().Contains(substr.ToLower())).ToList();
+            return SortTasksByDescription(tasksWithSubstring, sortOrder);
         }
 
         public string SearchTasks(string substr, SortOrder sortOrder = SortOrder.NotSorted)
         {
-            throw new NotImplementedException();
+            List<TodoTask> tasksWithSubstring = GetTasksWithSubstring(substr, sortOrder);
+            if (tasksWithSubstring.Count > 0) return TaskListToString(tasksWithSubstring);
+            return "No results.";
+        }
+
+        public string TaskListToString(List<TodoTask> tasks)
+        {
+            StringBuilder output = new StringBuilder();
+            for (int i = 0; i < tasks.Count; i++)
+            {
+                output.AppendLine(tasks[i].ToString());
+            }
+            return output.ToString();
         }
 
         public List<TodoTask> Tasks {  get { return _tasks; } }
@@ -75,12 +92,50 @@ namespace tdd_todo_list.CSharp.Main
             {
                 return "No tasks found.";
             }
-            StringBuilder output = new StringBuilder();
-            foreach ( var task in Tasks )
-            {
-                output.AppendLine(task.ToString() );
-            }
-            return output.ToString();
+            return TaskListToString(Tasks);
         }
+
+        private int EnsureValidTaskIndex(int index)
+        {
+            if (index <= -1)
+            {
+                return Tasks.Count - 1;
+            }
+            else if (index >= Tasks.Count) throw new IndexOutOfRangeException();
+            else return index;
+        }
+
+        private int FirstIncompleteTaskIndex()
+        {
+            for (int i = 0; i < Tasks.Count; i++)
+            {
+                if (!Tasks[i].IsCompleted) return i;
+            }
+            return 0;
+        }
+
+        private int FirstCompleteTaskIndex()
+        {
+            for (int i = 0; i < Tasks.Count; i++)
+            {
+                if (Tasks[i].IsCompleted) return i;
+            }
+            return 0;
+        }
+
+        private List<TodoTask> SortTasksByDescription(List<TodoTask> tasks, SortOrder sortOrder)
+        {
+            switch (sortOrder)
+            {
+                case SortOrder.Ascending:
+                    return tasks.OrderBy(t => t.Description, StringComparer.InvariantCultureIgnoreCase).ToList();
+                case SortOrder.Descending:
+                    return tasks.OrderByDescending(t => t.Description, StringComparer.InvariantCultureIgnoreCase).ToList();
+                default:
+                    return tasks;
+            }
+        }
+
+
     }
 }
