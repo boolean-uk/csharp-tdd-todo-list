@@ -1,6 +1,5 @@
-﻿using tdd_todo_list.CSharp.Main;
-using NUnit.Framework;
-using System.Runtime.CompilerServices;
+﻿using NUnit.Framework;
+using tdd_todo_list.CSharp.Main;
 
 namespace tdd_todo_list.CSharp.Test
 {
@@ -18,13 +17,13 @@ namespace tdd_todo_list.CSharp.Test
 
             Todo createdTask = todoList.tasks[0];
             // check that desc == testInput
-            Assert.That(createdTask.description, Is.EqualTo(testInput));
+            Assert.That(createdTask.Description, Is.EqualTo(testInput));
 
             // check that status == false
-            Assert.That(createdTask.done, Is.EqualTo(false));
+            Assert.That(createdTask.Done, Is.EqualTo(false));
 
             // check that id == 1
-            Assert.That(createdTask.id, Is.EqualTo(1));
+            Assert.That(createdTask.Id, Is.EqualTo(1));
             // Check that 1 task has been added to todoList
             Assert.AreEqual(1, todoList.tasks.Count);
         }
@@ -50,17 +49,17 @@ namespace tdd_todo_list.CSharp.Test
             todoList.Add("Test");
 
             int nrOfTodos = todoList.tasks.Count - 1;
-            int id = todoList.tasks[nrOfTodos].id;
+            int id = todoList.tasks[nrOfTodos].Id;
 
 
-            Assert.That(todoList.tasks[nrOfTodos].done, Is.False);
+            Assert.That(todoList.tasks[nrOfTodos].Done, Is.False);
             todoList.ChangeStatus(id);
 
-            Assert.That(todoList.tasks[nrOfTodos].done, Is.True);
+            Assert.That(todoList.tasks[nrOfTodos].Done, Is.True);
 
             //Change back to false and check
             todoList.ChangeStatus(id);
-            Assert.That(todoList.tasks[nrOfTodos].done, Is.False);
+            Assert.That(todoList.tasks[nrOfTodos].Done, Is.False);
 
         }
 
@@ -87,7 +86,7 @@ namespace tdd_todo_list.CSharp.Test
             completedTasks = todoList.CompletedTasks();
             foreach (Todo todo in completedTasks)
             {
-                Assert.That(todo.done, Is.True);
+                Assert.That(todo.Done, Is.True);
             }
 
             //Check that the list count is not 0
@@ -113,7 +112,7 @@ namespace tdd_todo_list.CSharp.Test
             incompleteTasks = todoList.IncompleteTasks();
             foreach (Todo todo in incompleteTasks)
             {
-                Assert.That(todo.done, Is.False);
+                Assert.That(todo.Done, Is.False);
             }
             //Check that the list count is not 0
             Assert.That(incompleteTasks.Count, Is.Not.EqualTo(0));
@@ -135,8 +134,9 @@ namespace tdd_todo_list.CSharp.Test
         }
 
         [Test]
-        public void TestRemove() {
-            
+        public void TestRemove()
+        {
+
             TodoList todoList = new TodoList();
             todoList.Add("1");
             todoList.Add("2");
@@ -152,7 +152,7 @@ namespace tdd_todo_list.CSharp.Test
             // Check that the specified id was removed
             for (int i = 0; i < todoList.tasks.Count; i++)
             {
-                Assert.That(todoList.tasks[i].id, Is.Not.EqualTo(1));
+                Assert.That(todoList.tasks[i].Id, Is.Not.EqualTo(1));
             }
 
         }
@@ -173,9 +173,9 @@ namespace tdd_todo_list.CSharp.Test
             string[] expectedStringArr = { "1", "2", "3", "a", "b", "c" };
             string[] acutallStringArr = new string[todoList.tasks.Count];
 
-            for (int i = 0; i < acutallStringArr.Length;i++)
+            for (int i = 0; i < acutallStringArr.Length; i++)
             {
-                acutallStringArr[i] = acendingTasks[i].description;
+                acutallStringArr[i] = acendingTasks[i].Description;
             }
 
             Assert.That(acutallStringArr, Is.EqualTo(expectedStringArr));
@@ -199,7 +199,7 @@ namespace tdd_todo_list.CSharp.Test
 
             for (int i = 0; i < acutallStringArr.Length; i++)
             {
-                acutallStringArr[i] = decendingTasks[i].description;
+                acutallStringArr[i] = decendingTasks[i].Description;
             }
 
             Assert.That(acutallStringArr, Is.EqualTo(expectedStringArr));

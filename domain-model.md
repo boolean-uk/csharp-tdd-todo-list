@@ -41,14 +41,13 @@ I want to be able to see the date and time that I created each task.
 
 
 ```
-public struct Todo
-	int id
-	string name
-	bool done
+public class Todo
+	public int id {get}
+	string Description {get}
+	bool done {get ; set}
 
 	//Extension
-	Date dateCreated
-	Time timeCreated
+	DateTime CreatedAt {get}
 	
 
 public class TodoList
@@ -70,6 +69,6 @@ public List<Todo> TasksDecending() // return list of tasks that is in decending 
 //Extension
 public Todo getTaskByID(int id)
 public void updateName(int id, string newDesc)
-public List<string> getDateTime() // return list of strings with $"Task {id} was created date:{date} and time:{time}"
+public List<string> getDateTime() // return list of DateTimes
 
 ```
