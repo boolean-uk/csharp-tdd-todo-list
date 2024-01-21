@@ -15,7 +15,7 @@ namespace tdd_todo_list.CSharp.Test
         private TodoListManager todoList;
 
         [SetUp]
-        private void SetUp()
+        public void SetUp()
         {
             todoList = new TodoListManager();
             TodoItem todo1 = new TodoItem("Set up the tests");
@@ -41,7 +41,7 @@ namespace tdd_todo_list.CSharp.Test
             TodoItem firstItem = todoList.GetAllTodoItems()[0];
             Assert.That(todoList.GetTodoItemById(firstItem.ID) == firstItem);
             List<int> allIDs = todoList.GetAllTodoItems().Select(item => item.ID).ToList();
-            Assert.That(allIDs == allIDs.Distinct().ToList());
+            Assert.That(allIDs.Count == allIDs.Distinct().ToList().Count);
         }
     }
 }

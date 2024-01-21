@@ -11,8 +11,8 @@
 #### Methods
 | Method            | Return Type | Description                                 |
 |-------------------|-------------|---------------------------------------------|
-| Complete          | void        | Marks this task as complete.                |
-| Incomplete        | void        | Marks this task as incomplete.              |
+| MarkDone          | void        | Marks this task as done.                |
+| MarkUndone        | void        | Marks this task as undone.              |
 
 ### TodoList
 | Field      | Type          | Description                                     |

@@ -10,6 +10,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Folder", "Solution Folder", "{32D448D5-2E68-4561-A324-C345FAB1D5A7}"
 	ProjectSection(SolutionItems) = preProject
 		domain-model.md = domain-model.md
+		extension-domain-model.md = extension-domain-model.md
 	EndProjectSection
 EndProject
 Global

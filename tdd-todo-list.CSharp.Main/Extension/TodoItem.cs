@@ -18,17 +18,20 @@ namespace tdd_todo_list.CSharp.Main.Extension
 
         public TodoItem(string description)
         {
-            throw new NotImplementedException();
+            this.creationTime = DateTime.Now;
+            this.id = nextID++;
+            this.description = description;
+            this.isDone = false;
         }
 
         public void MarkDone()
         {
-            throw new NotImplementedException();
+            isDone = true;
         }
 
         public void MarkUndone()
         {
-            throw new NotImplementedException();
+            isDone = false;
         }
 
         public string Description { get => description; set => description = value; }
