@@ -30,22 +30,22 @@ namespace tdd_todo_list.CSharp.Main.Extension
             throw new NotImplementedException();
         }
 
-        public List<TodoItem> GetAllTodoItems(SortOrder sortOrder)
+        public List<TodoItem> GetAllTodoItems(SortOrder sortOrder = SortOrder.NotSorted)
         {
             throw new NotImplementedException();
         }
 
-        public List<TodoItem> GetCompletedTodoItems(SortOrder sortOrder)
+        public List<TodoItem> GetCompletedTodoItems(SortOrder sortOrder = SortOrder.NotSorted)
         {
             throw new NotImplementedException();
         }
 
-        public List<TodoItem> GetIncompleteTodoItems(SortOrder sortOrder)
+        public List<TodoItem> GetIncompleteTodoItems(SortOrder sortOrder = SortOrder.NotSorted)
         {
             throw new NotImplementedException();
         }
 
-        public List<TodoItem> SearchTodoItems(string query, SortOrder sortOrder)
+        public List<TodoItem> SearchTodoItems(string query, SortOrder sortOrder = SortOrder.NotSorted)
         {
             throw new NotImplementedException();
         }

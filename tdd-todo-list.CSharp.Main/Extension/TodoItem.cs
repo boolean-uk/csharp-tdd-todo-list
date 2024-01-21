@@ -34,5 +34,6 @@ namespace tdd_todo_list.CSharp.Main.Extension
         public string Description { get => description; set => description = value; }
         public DateTime CreationTime { get => creationTime; }
         public bool IsDone { get => isDone; }
+        public int ID { get => id; set => id = value; }
     }
 }
