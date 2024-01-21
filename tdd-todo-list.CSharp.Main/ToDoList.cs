@@ -34,14 +34,14 @@ namespace tdd_todo_list.CSharp.Main
 
         public void CompleteTask(int index = -1)
         {
-            if (index <= -1) Tasks[FirstIncompleteTaskIndex()].Complete();
-            else Tasks[EnsureValidTaskIndex(index)].Complete();
+            if (index <= -1) Tasks[FirstIncompleteTaskIndex()].MarkDone();
+            else Tasks[EnsureValidTaskIndex(index)].MarkDone();
         }
 
         public void IncompleteTask(int index = -1)
         {
-            if (index <= -1) Tasks[FirstCompleteTaskIndex()].Incomplete();
-            else Tasks[EnsureValidTaskIndex(index)].Incomplete();
+            if (index <= -1) Tasks[FirstCompleteTaskIndex()].MarkUndone();
+            else Tasks[EnsureValidTaskIndex(index)].MarkUndone();
         }
 
         public List<TodoTask> GetAllTasks(SortOrder sortOrder = SortOrder.NotSorted)
@@ -51,13 +51,13 @@ namespace tdd_todo_list.CSharp.Main
 
         public List<TodoTask> GetCompletedTasks(SortOrder sortOrder = SortOrder.NotSorted)
         {
-            List<TodoTask> completedTasks = Tasks.Where(task => task.IsCompleted).ToList();
+            List<TodoTask> completedTasks = Tasks.Where(task => task.IsDone).ToList();
             return SortTasksByDescription(completedTasks, sortOrder);
         }
 
         public List<TodoTask> GetIncompleteTasks(SortOrder sortOrder = SortOrder.NotSorted)
         {
-            List<TodoTask> incompleteTasks = Tasks.Where(task => !task.IsCompleted).ToList();
+            List<TodoTask> incompleteTasks = Tasks.Where(task => !task.IsDone).ToList();
             return SortTasksByDescription(incompleteTasks, sortOrder);
         }
 
@@ -109,7 +109,7 @@ namespace tdd_todo_list.CSharp.Main
         {
             for (int i = 0; i < Tasks.Count; i++)
             {
-                if (!Tasks[i].IsCompleted) return i;
+                if (!Tasks[i].IsDone) return i;
             }
             return 0;
         }
@@ -118,7 +118,7 @@ namespace tdd_todo_list.CSharp.Main
         {
             for (int i = 0; i < Tasks.Count; i++)
             {
-                if (Tasks[i].IsCompleted) return i;
+                if (Tasks[i].IsDone) return i;
             }
             return 0;
         }

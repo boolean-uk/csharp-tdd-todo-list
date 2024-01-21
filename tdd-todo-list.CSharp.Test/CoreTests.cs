@@ -14,18 +14,18 @@ namespace tdd_todo_list.CSharp.Test
             string myFirstTodoDescription = "Make the first test";
             TodoTask myFirstTodo = new TodoTask(myFirstTodoDescription);
             Assert.That(myFirstTodo.Description == myFirstTodoDescription);
-            Assert.That(myFirstTodo.IsCompleted == false);
+            Assert.That(myFirstTodo.IsDone == false);
         }
 
         [Test]
         public void TodoTaskCompleteTest()
         {
             TodoTask myFirstTodo = new TodoTask("Test whether I can mark item as complete and incomplete");
-            Assert.That(myFirstTodo.IsCompleted == false);
-            myFirstTodo.Complete();
-            Assert.That(myFirstTodo.IsCompleted == true);
-            myFirstTodo.Incomplete();
-            Assert.That(myFirstTodo.IsCompleted == false);
+            Assert.That(myFirstTodo.IsDone == false);
+            myFirstTodo.MarkDone();
+            Assert.That(myFirstTodo.IsDone == true);
+            myFirstTodo.MarkUndone();
+            Assert.That(myFirstTodo.IsDone == false);
         }
 
         [Test]
@@ -47,8 +47,8 @@ namespace tdd_todo_list.CSharp.Test
             Assert.That(myTodos.GetCompletedTasks().First().Description == "Three");
             myTodos.CompleteTask();
             myTodos.CompleteTask();
-            Assert.That(myTodos.GetCompletedTasks().All(item => item.IsCompleted == true));
-            Assert.That(myTodos.GetIncompleteTasks().All(item => item.IsCompleted == false));
+            Assert.That(myTodos.GetCompletedTasks().All(item => item.IsDone == true));
+            Assert.That(myTodos.GetIncompleteTasks().All(item => item.IsDone == false));
         }
 
         [Test]

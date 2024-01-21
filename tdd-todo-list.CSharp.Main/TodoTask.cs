@@ -9,30 +9,30 @@ namespace tdd_todo_list.CSharp.Main
     public class TodoTask
     {
         private string _description;
-        private bool _isCompleted;
+        private bool _isDone;
 
 
         public TodoTask(string description)
         {
             _description = description;
-            _isCompleted = false;
+            _isDone = false;
         }
 
-        public void Complete()
+        public void MarkDone()
         {
-            _isCompleted = true;
+            _isDone = true;
         }
-        public void Incomplete()
+        public void MarkUndone()
         {
-            _isCompleted = false;
+            _isDone = false;
         }
-        public bool IsCompleted { get { return _isCompleted; } }
+        public bool IsDone { get { return _isDone; } }
 
         public string Description { get { return _description; } }
 
         public override string ToString()
         {
-            if (IsCompleted) return $"[\u2713] {Description}";
+            if (IsDone) return $"[\u2713] {Description}";
             return $"[  ] {Description}";
         }
 
