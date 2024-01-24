@@ -45,16 +45,19 @@ namespace tdd_todo_list.CSharp.Main
 
     public class TodoTaskExstension
     {
-        private bool _status = false;
+        private bool _status;
         private Guid _id;
         private string _name;
         private string _description;
-        private static DateTime _created = DateTime.Now;
+        private static DateTime _created;
 
         public TodoTaskExstension(string name, string description)
         {
+            _id = new Guid();
+            _status = false;
             _name = name;
             _description = description;
+            _created = DateTime.Now;
         }
 
         public void ToggleStatus()
