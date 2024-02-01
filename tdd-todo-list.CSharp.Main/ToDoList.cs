@@ -8,10 +8,8 @@ using System.Threading.Tasks;
 
 namespace tdd_todo_list.CSharp.Main
 {
-    public class TodoList
-    {
-       // private List<ToDoTask> tasks = new List<ToDoTask>;
-        public Dictionary<string, bool> Tasks { get; set; } = new Dictionary<string, bool>();
+    public class TodoList 
+    {        public Dictionary<string, bool> Tasks { get; set; } = new Dictionary<string, bool>();
 
         public TodoList()
         {
@@ -85,10 +83,6 @@ namespace tdd_todo_list.CSharp.Main
         {
             return Tasks.Keys.OrderByDescending(task => task).ToList();
         }
-
-        
-
-
 
     }
 }
