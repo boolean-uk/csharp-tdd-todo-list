@@ -1,73 +1,58 @@
 ﻿using tdd_todo_list.CSharp.Main;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace tdd_todo_list.CSharp.Test
 {
     [TestFixture]
     public class ExtensionTests
     {
-        TodoListExtension _extension = null;
-        TaskExtension _task = null;
-        
+        TodoListExtension _extension;        
+
         [SetUp]
         public void Setup()
         {
             _extension = new TodoListExtension();
-            _task = new TaskExtension();
+            _extension.AddTask("Task1");
+            _extension.AddTask("Task2");
         }
 
         [Test]
-
-        public void gettingTaskById()
+        public void addingTask()
         {
-            _task = _extension.GetTask(1);
-            Assert.AreEqual(_task, null);
+            _extension.AddTask("Task3");
+            List<TaskExtension> tasks = _extension.ListOfTasks();
+            Assert.That(tasks.Count, Is.EqualTo(3));
         }
 
         [Test]
-
         public void updatingTaskTitle()
         {
-            _task = _extension.AddTask("Test1");
-            _task = _extension.GetTask(1);
-            Assert.AreEqual(_extension.UpdateTask(1, "Test"), true);
+            Assert.That(_extension.UpdateTask(1, "Test"), Is.True);
         }
 
         [Test]
-
         public void updatingTaskTitleWithInvalidId()
         {
-            _task = _extension.GetTask(1);
             Assert.AreEqual(_extension.UpdateTask(2, "Test"), false);
         }
 
         [Test]
-        
         public void settingTaskCompleted()
         {
-            _task = _extension.GetTask(1);
-            Assert.AreEqual(_extension.SetTaskCompleted(1, true), true);
+            Assert.AreEqual(_extension.ChangeTaskStatus(1, true), true);
         }
 
         [Test]
-
         public void settingTaskCompletedWithInvalidId()
         {
-            _task = _extension.GetTask(1);
-            Assert.AreEqual(_extension.SetTaskCompleted(2, true), false);
+            Assert.AreEqual(_extension.ChangeTaskStatus(2, true), false);
         }
 
         [Test]
-
         public void gettingTaskCreatedAt()
         {
-            _task = _extension.GetTask(1);
-            Assert.AreEqual(_extension.GetTaskCreatedAt(1), null);
+            Assert.That(_extension.GetTaskCreatedAt(1), Is.Not.Null);
         }
     }
 }

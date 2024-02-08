@@ -48,45 +48,44 @@ namespace tdd_todo_list.CSharp.Main
 
     public class TaskExtension
     {
-        public int id;
-        public string title;
-        public bool isComplete;
-        public DateTime createdAt;
+        public int id { get; set; }
+        public string title { get; set; }
+        public bool isComplete { get; set; }
+        public DateTime createdAt { get; set; }
+    
+        public TaskExtension(int id, string title, bool isComplete, DateTime createdAt)
+        {
+            this.id = id;
+            this.title = title;
+            this.isComplete = isComplete;
+            this.createdAt = createdAt;
+        }
     }
+
+    
     public class TodoListExtension
     {
-        public List<TaskExtension> tasks;
-        public int lastUsedId;
-
+        private List<TaskExtension> tasks;
         public TodoListExtension()
         {
             tasks = new List<TaskExtension>();
-            lastUsedId = 0;
         }
 
-        public TaskExtension AddTask(string title)
+        public TaskExtension AddTask(string newtitle)
         {
-            if (title == "")
-            {
-                return null;
-            }
-            TaskExtension task = new TaskExtension();
-            task.id = lastUsedId++;
-            task.title = title;
-            task.isComplete = false;
-            task.createdAt = DateTime.Now;
+            TaskExtension task = new TaskExtension(tasks.Count, newtitle, false, DateTime.Now);
             tasks.Add(task);
             return task;
         }
 
-        public List<TaskExtension> Tasks()
+        public List<TaskExtension> ListOfTasks()
         {
             return tasks;
         }
 
-        public bool SetTaskCompleted(int taskId, bool isCompleted)
+        public bool ChangeTaskStatus(int taskId, bool isCompleted)
         {
-            TaskExtension task = tasks.Find(t => t.id == taskId);
+            TaskExtension? task = GetTaskById(taskId);
             if (task == null)
             {
                 return false;
@@ -105,18 +104,18 @@ namespace tdd_todo_list.CSharp.Main
             return tasks.FindAll(t => t.isComplete == false);
         }
 
-        public TaskExtension GetTask(int taskId)
+        private TaskExtension? GetTaskById(int taskId)
         {
             if (taskId < 0 || taskId >= tasks.Count || taskId != tasks[taskId].id)
             {
                 return null;
-            }
-            return tasks[taskId];
+            }  
+            return tasks.FirstOrDefault(t => t.id == taskId);
         }
 
         public bool UpdateTask(int taskId, string title)
         {
-            TaskExtension task = GetTask(taskId);
+            TaskExtension? task = GetTaskById(taskId);
             if (task == null)
             {
                 return false;
@@ -127,7 +126,7 @@ namespace tdd_todo_list.CSharp.Main
 
         public DateTime GetTaskCreatedAt(int taskId)
         {
-            TaskExtension task = GetTask(taskId);
+            TaskExtension? task = GetTaskById(taskId);
             if (task == null)
             {
                 return DateTime.MinValue;
