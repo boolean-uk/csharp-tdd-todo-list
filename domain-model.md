@@ -18,3 +18,11 @@ I want to see all the tasks in my list ordered alphabetically in descending orde
 |`ToDoList`| `Remove(string task)`                        | remove task from todo list      | bool             |
 |`ToDoList`| `AllTasksAsc(Dictionary myList)`             | list all tasks in todo list ascending | Dictionary listAsc |
 |`ToDoList`| `AllTasksDsc(Dictionary myList)`             | list all tasks in todo list descending | Dictionary listDsc |
+
+Extension
+| Classes           | Methods                               | Scenario                                    | Outputs          |
+|-------------------|---------------------------------------|---------------------------------------------|------------------|
+|`ToDoList` `Task`  | `FindById(int id)`                    | find a task by it's unique Id               | bool             |
+|`ToDoList` `Task`  | `updateTaskName(int id, string name)` | update name of task by id and provided name | Task             |
+|`ToDoList` `Task`  | `changeStatus(int id)`                | toggle task completion by Id                | bool             |
+|`ToDoList` `Task`  | `Created(Task task)`                  | find DateTime of when Task was created      | DateTime         |
