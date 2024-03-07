@@ -8,12 +8,12 @@
 	- public List <Task> tasks;
 
 	METHODS	
-	- addTask(Task task) add task to List<Task> tasks
-	- getAllTasks() returns a list of all taks of TodoList
-	- changeStatus() returns true when status is changed, return fals when task does not exist. 
+	- addTask(string taskName, bool isComplete) add task to List<string> _todos
+	- getAllTasks() returns a Dictionary of all taks of TodoList
+	- changeStatus() returns true when status is changed, return true with message of changed status.
 	- getCompletedTasks returns a list of tasks that are completed
 	- getIncompletedTasks returns a list of tasks that ar'nt completed
-	- searchTask(Task tasks) returns true if taks is found, return fals if taks does not exist. 
-	- removeTask(Task tasks) returns message when task is not found
-	- orderListAsc(Task tasks) returns list of tasks in Asc order.
-	- orderListDesc(Task tasks) returns list of tasks in Desc order.
+	- searchTask(string taskName) returns true if taks is found, return fals if taks does not exist. 
+	- removeTask(string taskName) returns message when task is not found
+	- orderListAsc(string taskName) returns list of tasks in Asc order.
+	- orderListDesc(string taskName) returns list of tasks in Desc order.
