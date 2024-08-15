@@ -29,8 +29,8 @@ terminal print in a very simple case, or to whatever UI the todo list might be u
 |                                      | `getIncomplete()`                 | get incomplete tasks      | list      |
 |                                      | `getTask(string task)`            | task was found            | name of task |
 |                                      |                                   | task was not found        | "not found"|
-|                                      | `remove(string task)`             | task was found            | true      |
-|                                      |                                   | task was not found        | false     |
+|                                      | `remove(string task)`             | task was found            | name of task |
+|                                      |                                   | task was not found        | "not found"|
 |                                      | `getTasksAscending()`             | ascending order of tasks  | SortedDictionary |
 |                                      | `getTasksDescending()`            | descending order of tasks | SortedDictionary |
 

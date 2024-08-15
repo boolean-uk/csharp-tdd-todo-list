@@ -65,6 +65,7 @@ namespace tdd_todo_list.CSharp.Test
         [Test]
         public void FifthTest()
         {
+            // testing getting a task
             TodoList core = new TodoList();
             string task = "Pet the dog";
             bool status = true;
@@ -72,6 +73,22 @@ namespace tdd_todo_list.CSharp.Test
 
             string result = core.getTask(task);
             string result2 = core.getTask("Feed the dog");
+
+            Assert.That(result.Equals("Pet the dog"));
+            Assert.That(result2.Equals("not found"));
+        }
+
+        [Test]
+        public void SixthTest()
+        {
+            // testing removing a task
+            TodoList core = new TodoList();
+            string task = "Pet the dog";
+            bool status = true;
+            core.add(task, status);
+
+            string result = core.remove(task);
+            string result2 = core.remove(task);
 
             Assert.That(result.Equals("Pet the dog"));
             Assert.That(result2.Equals("not found"));

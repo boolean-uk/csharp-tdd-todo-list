@@ -39,6 +39,15 @@ namespace tdd_todo_list.CSharp.Main
 
         public string getTask(string task)
         {
+            if (_todoList.ContainsKey(task))
+            {
+                return task;
+            }
+            return "not found";
+        }
+
+        public string remove(string task)
+        {
             throw new NotImplementedException();
         }
 
