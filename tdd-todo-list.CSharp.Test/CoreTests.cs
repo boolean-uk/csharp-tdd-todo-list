@@ -1,6 +1,7 @@
 ﻿using System.Text;
 using tdd_todo_list.CSharp.Main;
 using NUnit.Framework;
+using System.Threading.Tasks;
 
 namespace tdd_todo_list.CSharp.Test
 {
@@ -64,10 +65,33 @@ namespace tdd_todo_list.CSharp.Test
 
             //act
 
-            bool result = list1.changeStatus(task1);
+            bool result = list1.ChangeStatus(task1);
 
             //Assert
             Assert.IsTrue(expected == result);
+        }
+
+        [Test]
+        public void ListIncompleteTest()
+        {
+            TodoList list = new TodoList();
+
+            UserTask task1 = new UserTask();
+            UserTask task2 = new UserTask();
+            UserTask task3 = new UserTask();
+
+            list.Add(task1);
+            list.Add(task2);
+            list.Add(task3);
+
+            task2.isComplete = true;
+
+            string expected = task1.taskname +" "+ task3.taskname +" ";
+
+            string result = list.ListIncomplete();
+
+            Assert.IsTrue(expected == result);
+
 
         }
 

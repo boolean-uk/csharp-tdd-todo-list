@@ -38,7 +38,7 @@ namespace tdd_todo_list.CSharp.Main
             }
         }
 
-        public bool changeStatus(UserTask taskname)
+        public bool ChangeStatus(UserTask taskname)
         {
             int index = tasks.IndexOf(taskname);
             bool taskstatus = tasks[index].isComplete;
@@ -53,6 +53,11 @@ namespace tdd_todo_list.CSharp.Main
                 taskstatus = true;
                 return taskstatus;
             }
+        }
+
+        public string ListIncomplete()
+        {
+            return "Nothing";
         }
     }
 }
