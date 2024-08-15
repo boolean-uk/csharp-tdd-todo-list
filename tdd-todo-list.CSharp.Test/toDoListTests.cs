@@ -123,7 +123,7 @@ namespace tdd_todo_list.CSharp.Test
 
             //arrange
             TodoList list = new TodoList();
-            List<toDoTask> filteredList = list.getComplete(list.taskList);
+            List<toDoTask> filteredList = list.getComplete();
             bool filterComplete = true;
 
             //act
@@ -176,7 +176,7 @@ namespace tdd_todo_list.CSharp.Test
 
             //arrange 
             TodoList list = new TodoList();
-            List<toDoTask> ascendingList = list.getAscending(list.taskList);
+            List<toDoTask> ascendingList = list.getAscending();
             bool isAscending = true;
 
             //act
@@ -265,6 +265,7 @@ namespace tdd_todo_list.CSharp.Test
 
         public void checkUpdateStatusById()
         {
+            //arrange
             TodoList list = new TodoList();
             int testId = 3;
             bool newStatus = false;

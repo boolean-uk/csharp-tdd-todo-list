@@ -53,22 +53,16 @@ namespace tdd_todo_list.CSharp.Main
             return taskList;
         }
 
-        public List<toDoTask> getAscending(List<toDoTask> taskList)
+        public List<toDoTask> getAscending()
         {
             List<toDoTask> ascendingList = taskList.OrderBy(x => x.taskName).ToList();
             return ascendingList;
         }
 
-        public List<toDoTask> getComplete(List<toDoTask> taskList)
+        public List<toDoTask> getComplete()
         {
-            List<toDoTask> completedList = new List<toDoTask> ();
-            foreach (var item in taskList)
-            {
-                if (item.taskComplete == true)
-                {
-                    completedList.Add(item);
-                }
-            }
+            List<toDoTask> completedList = taskList.Where(x =>x.taskComplete==true).ToList();
+          
             return completedList;
         }
 
@@ -81,29 +75,15 @@ namespace tdd_todo_list.CSharp.Main
 
         public List<toDoTask> getInComplete(List<toDoTask> taskList)
         {
-            List<toDoTask> inCompleteList = new List<toDoTask>();
-            foreach (var item in taskList)
-            {
-                if (item.taskComplete == false)
-                {
-                    inCompleteList.Add(item);
-                }
-            }
+            List<toDoTask> inCompleteList = taskList.Where(x => x.taskComplete == false).ToList();
             return inCompleteList;
 
         }
 
         public string findById(int id)
         {
-            string name = null;
-            foreach (var item in taskList)
-            {
-                if (item.Id == id)
-                {
-                    name = item.taskName;
-                }
-            }
-            return name;
+            var task = taskList.FirstOrDefault(x => x.Id == id);
+            return task?.taskName;
         }
 
         public void changeNameById(int id, string name)
@@ -130,15 +110,8 @@ namespace tdd_todo_list.CSharp.Main
 
         public DateTime getDateTime(string taskToCheck)
         {
-            DateTime creationTime = DateTime.Now;
-            foreach (var item in taskList)
-            {
-                if (item.taskName == taskToCheck)
-                {
-                    creationTime = item.creationDate;
-                }
-            }
-            return creationTime;
+           var task = taskList.FirstOrDefault(x => x.taskName==taskToCheck);
+            return task.creationDate;
         }
 
         public void removeTask(string taskToRemove)
