@@ -8,6 +8,7 @@ namespace tdd_todo_list.CSharp.Main
     public class Todo
     {
         private Dictionary<string, bool> _todoList = [];
+        private Dictionary<string, DateTime> _todoCreation = [];
 
         public bool Add(string todo)
         {
@@ -27,6 +28,10 @@ namespace tdd_todo_list.CSharp.Main
             if (todo is null) return false;
             return _todoList.ContainsKey(todo);
         }
+        public bool SearchTodo(int todo)
+        {
+            throw new NotImplementedException();
+        }
         public List<string> TodoList() 
         {
             return _todoList.Keys.ToList();
@@ -39,6 +44,11 @@ namespace tdd_todo_list.CSharp.Main
                 return true;
             }
             return false;
+        }
+
+        public bool ChangeTodoStatus(int todo) 
+        {
+            throw new NotImplementedException();
         }
         public List<string> GetComplete() 
         {
@@ -63,6 +73,10 @@ namespace tdd_todo_list.CSharp.Main
                 }
             }
             return returnList;
+        }
+        public List<Tuple<string, DateTime>> GetCreationDateList()
+        {
+            throw new NotImplementedException();
         }
 
         public List<string> OrderByAscending() 
