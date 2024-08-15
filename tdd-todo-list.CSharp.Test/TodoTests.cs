@@ -1,5 +1,7 @@
 ﻿using tdd_todo_list.CSharp.Main;
 using NUnit.Framework;
+using static tdd_todo_list.CSharp.Main.TodoList;
+using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel;
 
 namespace tdd_todo_list.CSharp.Test
 {
@@ -33,6 +35,46 @@ namespace tdd_todo_list.CSharp.Test
             bool expected = !startingStatus;
 
             bool result = todo.ToogleTaskStatus(name);
+
+            Assert.That(result == expected);
+        }
+
+
+        [TestCase(TodoTaskStatus.Complete)]
+        [TestCase(TodoTaskStatus.InComplete)]
+        [TestCase(TodoTaskStatus.All)]
+        public void TestPrintingTasks(TodoTaskStatus status)
+        {
+            //arrange
+            TodoList todo = new TodoList();
+            string expected = "";
+            string taskName = "Watch Netflix episode ";
+            for(int i = 1; i < 11; i++)
+            {
+                bool stat = false;
+                if(i % 3 == 0)
+                {
+                    stat = true;
+                }
+                todo.AddTask(taskName + i.ToString(), stat);
+
+                if (status == TodoTaskStatus.InComplete)
+                {
+                    expected += taskName + i.ToString() + "\n";
+                }
+                else if( status == TodoTaskStatus.Complete)
+                {
+                    expected += taskName + i.ToString() + "\n";
+                }
+                else
+                {
+                    expected += taskName + i.ToString() + "\n";
+                }
+            }
+
+
+
+            string result = todo.PrintTasks(status);
 
             Assert.That(result == expected);
         }

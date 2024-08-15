@@ -9,6 +9,12 @@ namespace tdd_todo_list.CSharp.Main
     public class TodoList
     {
         Dictionary<string, bool> todo = new Dictionary<string, bool>();
+        public enum TodoTaskStatus
+        {
+            Complete,
+            InComplete,
+            All
+        }
 
         public void AddTask(string name, bool status)
         {
