@@ -8,6 +8,8 @@ namespace tdd_todo_list.CSharp.Main
 {
     public class TodoList
     {
+        private string _complete = " | Complete\n";
+        private string _incomplete = " | Incomplete\n";
         Dictionary<string, bool> tasks = new Dictionary<string, bool>();
         public bool Add(string task)
         {
@@ -15,13 +17,25 @@ namespace tdd_todo_list.CSharp.Main
             {
                 return false;
             }
-            tasks.Add(task, true);
+            tasks.Add(task, false);
             return true;
         }
 
         public string List()
         {
-            throw new NotImplementedException();
+            string output = string.Empty;
+            foreach (var task in tasks)
+            {
+                if (task.Value)
+                {
+                    output += task.Key + _complete;
+                }
+                else
+                {
+                    output += task.Key + _incomplete;
+                }
+            }
+            return output;
         }
     }
 }
