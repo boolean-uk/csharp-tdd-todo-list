@@ -38,9 +38,21 @@ namespace tdd_todo_list.CSharp.Main
             }
         }
 
-        public bool changeStatus()
+        public bool changeStatus(UserTask taskname)
         {
-            return false;
+            int index = tasks.IndexOf(taskname);
+            bool taskstatus = tasks[index].isComplete;
+
+            if (taskstatus == true) 
+            {
+                taskstatus = false;
+                return taskstatus;
+            }
+            else
+            {
+                taskstatus = true;
+                return taskstatus;
+            }
         }
     }
 }
