@@ -13,7 +13,8 @@ todolist.seeJobs();
 
 todolist.getJob(2);
 
+Console.WriteLine(test1.Status.ToString());
 todolist.changeStatus(1);
-todolist.removeJob(1);
+Console.WriteLine(test1.Status.ToString());
 todolist.seeJobs();
 

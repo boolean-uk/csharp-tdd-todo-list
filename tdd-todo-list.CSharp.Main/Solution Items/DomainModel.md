@@ -37,7 +37,7 @@ Task = job
 |               | GetJob(int id)                                     | User wants to find a task specified by its id                          | Job             |
 |               |                                                    | Task doesnt exist                                                      |                 |
 |               |                                                    |                                                                        |                 |
-|               | UpdateName(int id, string newName)                 | User uses id to find and rename existing task                          |                 |
+|               | UpdateName(int id, string newName)                 | User uses id to find and rename existing task                          | void            |
 |---------------|----------------------------------------------------|------------------------------------------------------------------------|-----------------|
 | `Job`         | Job(string name, int id, Status status, Date date) |                                                                        |                 |
 |               |                                                    |                                                                        |                 |

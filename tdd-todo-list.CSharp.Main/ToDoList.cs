@@ -99,8 +99,17 @@ namespace tdd_todo_list.CSharp.Main
             return jobs;
         }
 
-        public void updateName(int v1, string v2)
+        public void updateName(int id, string newName)
         {
+            Job job = getJob(id);
+            if (job == null)
+            {
+                Console.WriteLine($"Job {id} was not found.");
+                return;
+            }
+            job.Name = newName;
+            return;
+
             throw new NotImplementedException();
         }
     }

@@ -97,8 +97,16 @@ namespace tdd_todo_list.CSharp.Test
             TodoList todoList = new TodoList();
             Job job = new Job(1, "casting", Status.INCOMPLETE, DateTime.Now);
             todoList.addJob(job);
+
+            string expected = "shoot";
             todoList.updateName(1, "shoot");
+
+            Assert.That(job.Name == expected);
+
         }
+
+       
+
 
     }
 }
