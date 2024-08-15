@@ -16,7 +16,9 @@ namespace tdd_todo_list.CSharp.Main
         }
         public bool Remove(string todo)
         {
-            throw new NotImplementedException ();
+            if (todo is null ) return false;
+            if (todo.Length == 0 ) return false; 
+            return _todoList.Remove(todo);
         }
         public List<string> TodoList() 
         {
