@@ -34,15 +34,17 @@ namespace tdd_todo_list.CSharp.Test
 
 
 
+        
+
         [Test]
         public void getJobTest()
         {
             TodoList todoList = new TodoList();
             Job job = new Job(1, "shoot", Status.INCOMPLETE, DateTime.Now);
             todoList.addJob(job);
-            string expectedJob = $"{job.Name} was found";
-            string resultJob = todoList.getJob(1);
-            Assert.That(expectedJob == resultJob);
+            int expected = job.Id;
+            int result = todoList.getJob(1).Id; 
+            Assert.That(expected == result);
         }
         /*
         [Test]

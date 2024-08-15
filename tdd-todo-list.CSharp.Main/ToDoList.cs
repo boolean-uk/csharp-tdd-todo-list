@@ -24,18 +24,20 @@ namespace tdd_todo_list.CSharp.Main
             return true;
         }
 
-        public string getJob(int id)
+
+
+        public Job getJob(int id)
         {
             foreach (var job in jobs)
             {
                 if (job.Id == id)
                 {
                     Console.WriteLine("job found!");
-                    return $"{job.Name} was found";
+                    return job;
                 }
             }
             Console.WriteLine("job not found");
-            return "job not found";
+            return null;
 
         }
 
