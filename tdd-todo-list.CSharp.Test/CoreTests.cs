@@ -137,6 +137,24 @@ namespace tdd_todo_list.CSharp.Test
             //assert
             Assert.IsTrue(expected == computed);
         }
+        [TestCase("Ascend", new[] { "A", "B", "C" })]
+        [TestCase("Descend", new[] { "C", "B", "A" }))]
+        public void Sort(string order, string[] expected)
+        {
+            //init
+            TodoList core = new TodoList();
+            core.Add("B");
+            core.Add("C");
+            core.Add("A");
+            List<string> list = expected.ToList();
+
+            //run
+            List<string> sortedTasks = core.Sort(order);
+
+            //assert
+            Assert.IsTrue(list.SequenceEqual(sortedTasks));
+
+        }
 
     }
 }
