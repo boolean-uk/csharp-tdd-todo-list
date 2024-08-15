@@ -63,10 +63,18 @@ namespace tdd_todo_list.CSharp.Main
             {
                 return "Task was not found!";
             }
-            else
+            return "Task " + name + " exists!";
+            
+        }
+
+        public bool RemoveTask(string name)
+        {
+            if(todo.ContainsKey(name))
             {
-                return "Task " + name + " exists!";
+                todo.Remove(name);
+                return true;
             }
+            return false;
         }
     }
 }

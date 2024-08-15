@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using static tdd_todo_list.CSharp.Main.TodoList;
 using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel;
+using System.Xml.Linq;
 
 namespace tdd_todo_list.CSharp.Test
 {
@@ -104,16 +105,17 @@ namespace tdd_todo_list.CSharp.Test
             string result = todo.Search(name);
             Assert.That(result == expected);
         }
-    }
 
-    [TestCase("Write some code")]
-    [TestCase("Write some more code")]
-    [TestCase("Shop for groceries")]
-    [TestCase("Write a story about purchasing a debug rubber ducky")]
-    [TestCase("Code a new project")]
-    [TestCase("Get bored of new project")]
-    [TestCase("Code another new project")]
-    public void TestRemoveTask(string name)
+
+
+        [TestCase("Write some code")]
+        [TestCase("Write some more code")]
+        [TestCase("Shop for groceries")]
+        [TestCase("Write a story about purchasing a debug rubber ducky")]
+        [TestCase("Code a new project")]
+        [TestCase("Get bored of new project")]
+        [TestCase("Code another new project")]
+        public void TestRemoveTask(string name)
     {
         //arrange
         TodoList todo = new TodoList();
@@ -130,4 +132,7 @@ namespace tdd_todo_list.CSharp.Test
         bool result = todo.RemoveTask(name);
         Assert.That(result == expected);
     }
+    }
+
+    
 }
