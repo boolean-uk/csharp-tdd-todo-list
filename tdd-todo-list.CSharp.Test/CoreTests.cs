@@ -46,6 +46,16 @@ namespace tdd_todo_list.CSharp.Test
 
             Assert.That(result, Is.False);
         }
+        [Test]
+        public void AddNullTodo()
+        {
+            var todoList = new Todo();
+            string todo = null;
+
+            var result = todoList.Add(todo);
+
+            Assert.That(result, Is.False);
+        }
         //I want to see all the tasks in my todo list.
         //I want to change the status of a task between incomplete and complete.
         //I want to be able to get only the complete tasks.
