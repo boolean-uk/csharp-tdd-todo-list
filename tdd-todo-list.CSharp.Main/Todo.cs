@@ -1,4 +1,6 @@
 ﻿
+using NUnit.Framework;
+
 namespace tdd_todo_list.CSharp.Main
 {
     public class Todo
@@ -7,7 +9,8 @@ namespace tdd_todo_list.CSharp.Main
 
         public bool Add(string todo)
         {
-            throw new NotImplementedException();
+            _todoList.Add(todo, false);
+            return true;
         }
         public bool Remove(string todo)
         {

@@ -3,6 +3,7 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using System.Numerics;
 using System.Threading.Tasks;
+using System.Linq.Expressions;
 
 namespace tdd_todo_list.CSharp.Test
 {
@@ -30,7 +31,6 @@ namespace tdd_todo_list.CSharp.Test
 
             var result1 = todoList.Add(todo1);
             var result2 = todoList.Add(todo2);
-
 
             Assert.That(result1, Is.True);
             Assert.That(result2, Is.True);
