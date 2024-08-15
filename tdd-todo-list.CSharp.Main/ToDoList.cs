@@ -102,5 +102,10 @@ namespace tdd_todo_list.CSharp.Main
                 return "Task not found";
             }
         }
+
+        public string RemoveTask(UserTask taskname)
+        {
+            return "Nothing";
+        }
     }
 }

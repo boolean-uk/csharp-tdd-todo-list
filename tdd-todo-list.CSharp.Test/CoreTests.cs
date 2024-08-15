@@ -24,7 +24,7 @@ namespace tdd_todo_list.CSharp.Test
 
             //assert
             Assert.IsTrue(expected == result);
-            
+
         }
 
         [Test]
@@ -41,7 +41,7 @@ namespace tdd_todo_list.CSharp.Test
             list1.Add(task2);
             list1.Add(task3);
 
-            string expected = task1.taskname+" "+task2.taskname+" "+task3.taskname+" ";
+            string expected = task1.taskname + " " + task2.taskname + " " + task3.taskname + " ";
 
             //act
             string result = list1.ListAll();
@@ -86,7 +86,7 @@ namespace tdd_todo_list.CSharp.Test
 
             task2.isComplete = true;
 
-            string expected = task1.taskname +" "+ task3.taskname +" ";
+            string expected = task1.taskname + " " + task3.taskname + " ";
 
             string result = list.ListIncomplete();
 
@@ -108,7 +108,7 @@ namespace tdd_todo_list.CSharp.Test
 
             task2.isComplete = true;
 
-            string expected = task2.taskname +" ";
+            string expected = task2.taskname + " ";
 
             string result = list.ListComplete();
 
@@ -128,6 +128,22 @@ namespace tdd_todo_list.CSharp.Test
 
 
             string result = list.FindTask(task5);
+
+            Assert.IsTrue(expected == result);
+        }
+
+        [TestCase("task1")] 
+        public void RemoveTaskTest(string taskname)
+        {
+            TodoList list = new TodoList();
+            UserTask task1 = new UserTask();
+            task1.taskname = "Dishes";
+
+            list.Add(task1);
+
+            string expected = "Task named: " + task1.taskname + ", has been removed";
+
+            string result = list.RemoveTask(task1);
 
             Assert.IsTrue(expected == result);
         }
