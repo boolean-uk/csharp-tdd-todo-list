@@ -18,7 +18,7 @@ namespace tdd_todo_list.CSharp.Main
 
         public void ChangeStatus(string task, bool isComplete)
         {
-            throw new NotImplementedException();
+            _taskList[task] = isComplete;
         }
 
         public Dictionary<string, bool> GetCompleteTasks()
