@@ -51,5 +51,27 @@ namespace tdd_todo_list.CSharp.Test
             Assert.IsTrue(task.Name == newName);
         }
 
+        public void UpdateTaskStatusToTrue()
+        {
+            _extension.AddTask("Sweep", 20);
+            TaskItemExtension task = _extension.GetTask(20);
+
+            _extension.UpdateTaskStatus(20); 
+
+            Assert.IsTrue(task.IsComplete);
+        }
+
+        public void UpdateTaskStatusToFalse()
+        {
+            _extension.AddTask("Sweep", 20);
+            TaskItemExtension task = _extension.GetTask(20);
+            task.IsComplete = true;
+
+            _extension.UpdateTaskStatus(20);
+
+            Assert.IsFalse(task.IsComplete);
+        }
+
+
     }
 }
