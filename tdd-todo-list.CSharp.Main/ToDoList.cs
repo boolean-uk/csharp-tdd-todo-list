@@ -50,7 +50,15 @@ namespace tdd_todo_list.CSharp.Main
 
         public string ListCompleteTasks()
         {
-            throw new NotImplementedException();
+            string output = string.Empty;
+            foreach(var task in tasks)
+            {
+                if (task.Value)
+                {
+                    output += task.Key + _complete;
+                }
+            }
+            return output;
         }
     }
 }
