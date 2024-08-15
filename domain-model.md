@@ -8,9 +8,6 @@ to store the task (just the name), and a boolean for seeing if it is complete or
 There is also no requirement of wanting to store several tasks of the same name, so it is fine to assume that
 you cannot add several tasks of the same name.
 
-For wanting to add more properties about a task, you could add a dictionary as a value, with string task being
-the key, or create a TodoTask class and create objects out of it, though the former might be more performance efficient.
-
 However, the task requires you to see tasks ordered in an ascending or descending order, dictionaries can't do
 this by default, but we can use a SortedDictionary class just for this purpose. It could also make sense
 to just store the todo list as a SortedDictionary to begin with, though it will not be as fast as a regular dict
@@ -52,9 +49,9 @@ I guess it's fine to just use a new data structure.
 Since every task is supposed to be callable by ID it could make sense to use a dictionary, as this has quite
 fast lookup on ID. The ID key could then point to a tuple with information about the task.
 
-We'll create a new domain model just for the extension requirements. In a real world scenario, you would be looking
-into modifying your data structure (by using a Class hopefully), and you would want to make sure that all
-the old methods work with the extension as well.
+We'll create a new domain model just for the extension requirements, based on the user stories, but we might
+fetch some of the old methods from the previous program as well, and assume that they magically work...! 
+(such as add(), which takes in new arguments, as the data structure is also changed)
 
 The 4th requirement for wanting to see the date and time for each task means, as I see it, that the user wants
 this data to be stored, and callable afterwards, not that they want a function for listing up the date and time
