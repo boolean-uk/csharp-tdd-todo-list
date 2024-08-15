@@ -50,5 +50,23 @@ namespace tdd_todo_list.CSharp.Main
 
             return resultInfo;
         }
+
+    
+
+        public string UpdateTaskName(int id, string name)
+        {
+            string result = "A file with that name does not exist!";
+            foreach (var entry in todo)
+            {
+                if (entry.Key == id)
+                {
+                    TaskInfo newInfo = new TaskInfo(name, entry.Value.status, entry.Value.timeStamp);
+                    todo[id] = newInfo;
+                    result = "new";
+                    break;
+                }
+            }
+            return result;
+        }
     }
 }

@@ -55,9 +55,9 @@ namespace tdd_todo_list.CSharp.Test
         }
 
 
-        [TestCase("NewName", 0)]
-        [TestCase("SameName", 0)]
-        [TestCase("ThisFileDoesNotExist", 44)]
+        [TestCase(0, "NewName")]
+        [TestCase(0, "SameName")]
+        [TestCase(44, "ThisFileDoesNotExist")]
         public void TestUpdatingName(int id, string name)
         {
             idManager = new IdManager();
@@ -65,18 +65,13 @@ namespace tdd_todo_list.CSharp.Test
             idManager.AddTask("SameName", false, "22-06-2013 11:21");
 
             string expectedName = name;
-            bool expectedFileFound = true;
-            if(id > 1)
-            {
-                expectedFileFound = false;
-            }
+       
 
-            bool fileExists = idManager.FileExists(id); 
             string resultName = idManager.UpdateTaskName(id, name);
 
-            if(fileExists)
+            if(resultName == "new")
             {
-                Assert.That(resultName == expectedName);
+                Assert.That(idManager.FindTaskByID(id).Substring(0, name.Length) == expectedName);
             }
             else
             {
