@@ -29,7 +29,7 @@ namespace tdd_todo_list.CSharp.Main
 
         public string TaskTimeAndDate(int taskID)
         {
-            return "";
+            return tasks[taskID].DateAndTimeCreated;
         }
 
         public void UpdateTask(int taskID, string description)
