@@ -29,7 +29,8 @@ namespace tdd_todo_list.CSharp.Main
 
         public bool ChangeStatus(bool newStatus)
         {
-            return false;
+            this._complete = newStatus;
+            return true;
         }
     }
 }
