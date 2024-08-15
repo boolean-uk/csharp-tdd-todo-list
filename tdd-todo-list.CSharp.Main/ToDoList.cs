@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.ExceptionServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -25,7 +26,14 @@ namespace tdd_todo_list.CSharp.Main
 
         public List<string> GetTaskList()
         {
-            throw new NotImplementedException();
+            List<string> tasks = new List<string>();
+
+            foreach (string task in taskList.Keys)
+            {
+                tasks.Add(task);
+            }
+            
+            return tasks;
         }
     }
 }
