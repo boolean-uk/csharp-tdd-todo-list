@@ -44,5 +44,74 @@ namespace tdd_todo_list.CSharp.Test
             Assert.That(isDeleted == expected);
 
         }
+
+
+        [Test]
+        public void TestGetAllTasks()
+        {
+            TodoList core = new TodoList();
+
+            // Creates and adds a base of two tasks 
+            TodoTask t1 = new TodoTask("Clean the car");
+            TodoTask t2 = new TodoTask("Vacuum the shower");
+            core.AddTask(t1);
+            core.AddTask(t2);
+
+            List<TodoTask> allTasks = core.GetAllTasks();
+
+            Assert.That(allTasks.Count, Is.EqualTo(2));
+            Assert.That(allTasks[0], Is.EqualTo(t1));
+            Assert.That(allTasks[0], Is.EqualTo(t2));
+              
+        }
+
+        [Test]
+        public void TestGetCompleteTasks()
+        {
+            TodoList core = new TodoList();
+
+            // Creates and adds four tasks, two complete, and two incomplete
+            TodoTask t1 = new TodoTask("Clean the car", Status.Incomplete);
+            TodoTask t2 = new TodoTask("Vacuum the shower", Status.Incomplete);
+            TodoTask t3 = new TodoTask("Grocery shopping", Status.Complete);
+            TodoTask t4 = new TodoTask("Change motoroil on the car", Status.Complete);
+            core.AddTask(t1);
+            core.AddTask(t2);
+            core.AddTask(t3);
+            core.AddTask(t4);
+
+            List<TodoTask> completedTasks = core.GetCompleteTasks();
+
+            Assert.That(completedTasks.Contains(t1), Is.False);
+            Assert.That(completedTasks.Contains(t2), Is.False);
+            Assert.That(completedTasks.Contains(t3), Is.True);
+            Assert.That(completedTasks.Contains(t4), Is.True);
+
+        }
+
+        [Test]
+        public void TestGetIncompleteTasks()
+        {
+            TodoList core = new TodoList();
+
+            // Creates and adds four tasks, two complete, and two incomplete
+            TodoTask t1 = new TodoTask("Clean the car", Status.Incomplete);
+            TodoTask t2 = new TodoTask("Vacuum the shower", Status.Incomplete);
+            TodoTask t3 = new TodoTask("Grocery shopping", Status.Complete);
+            TodoTask t4 = new TodoTask("Change motoroil on the car", Status.Complete);
+            core.AddTask(t1);
+            core.AddTask(t2);
+            core.AddTask(t3);
+            core.AddTask(t4);
+
+            List<TodoTask> completedTasks = core.GetCompleteTasks();
+
+            Assert.That(completedTasks.Contains(t1), Is.True);
+            Assert.That(completedTasks.Contains(t2), Is.True);
+            Assert.That(completedTasks.Contains(t3), Is.False);
+            Assert.That(completedTasks.Contains(t4), Is.False);
+        }
+
+
     }
 }

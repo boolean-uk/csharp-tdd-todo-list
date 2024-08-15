@@ -16,6 +16,11 @@ namespace tdd_todo_list.CSharp.Main
             this._taskName = taskName;
             this._status = Status.Incomplete;
         }
+        public TodoTask(string taskName, Status s)
+        {
+            this._taskName=taskName;
+            this._status = s;
+        }
 
         public string Taskname { get => _taskName; set => _taskName = value; }
         public Status Status { get => _status; set => _status = value; }
