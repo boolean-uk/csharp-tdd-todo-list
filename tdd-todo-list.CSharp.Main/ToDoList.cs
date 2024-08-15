@@ -11,9 +11,9 @@ namespace tdd_todo_list.CSharp.Main
         private Dictionary<string, bool> _taskList = new Dictionary<string, bool>();
         public Dictionary<string, bool> TaskList { get { return this._taskList; } }
 
-        public void Add(string task)
+        public void Add(string task, bool isComplete)
         {
-            _taskList.Add(task, false);
+            _taskList.Add(task, isComplete);
         }
 
         public void ChangeStatus(string task, bool isComplete)
@@ -23,7 +23,12 @@ namespace tdd_todo_list.CSharp.Main
 
         public Dictionary<string, bool> GetCompleteTasks()
         {
-            throw new NotImplementedException();
+            return _taskList.Where(task => task.Value == true).ToDictionary();
+        }
+
+        public Dictionary<string, bool> GetIncompleteTasks()
+        {
+            return _taskList.Where(task => task.Value == false).ToDictionary();
         }
 
         public Dictionary<string, bool> GetList()
