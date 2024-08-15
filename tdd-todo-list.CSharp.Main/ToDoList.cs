@@ -70,12 +70,14 @@ namespace tdd_todo_list.CSharp.Main
         public List<TodoTaskObj> getOrderedTasks()
         {
             List<TodoTaskObj> SortedList = taskList.OrderBy(obj => obj.ContentText).ToList();
+            
             return SortedList;
         }
 
-        public void getOrderedTasksReversed()
+        public List<TodoTaskObj> getOrderedTasksReversed()
         {
-            throw new NotImplementedException();
+            List<TodoTaskObj> SortedList = taskList.OrderByDescending(obj => obj.ContentText).ToList();
+            return SortedList;
         }
 
         public void removeTask(TodoTaskObj obj)

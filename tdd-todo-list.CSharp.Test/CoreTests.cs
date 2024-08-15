@@ -110,7 +110,7 @@ namespace tdd_todo_list.CSharp.Test
             core.AddTaskToList(task1);
             core.AddTaskToList(task2);
             core.AddTaskToList(task3);
-            var list = core.getOrderedTasks();
+            var list = core.getOrderedTasksReversed();
             Assert.That(list[2].Equals(task3));
             Assert.That(list[1].Equals(task1));
             Assert.That(list[0].Equals(task2));
