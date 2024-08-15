@@ -28,7 +28,7 @@ namespace tdd_todo_list.CSharp.Main
 
         public List<Job> GetJobs(bool completed)
         {
-            return new List<Job>();
+            return Jobs.Where(job => job.Complete.Equals(completed)).ToList();
         }
 
         public bool PrintJobs(List<Job> jobs) 
