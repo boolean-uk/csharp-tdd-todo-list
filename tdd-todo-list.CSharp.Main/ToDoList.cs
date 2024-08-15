@@ -10,32 +10,39 @@ namespace tdd_todo_list.CSharp.Main
     public class TodoList
     {
 
-        private List<toDoTask> _taskList = new List<toDoTask>() {
+        private List<toDoTask> _taskList;
 
-                new toDoTask("exercise", true),
-                new toDoTask("cook", false),
-                new toDoTask("work", true),
-                new toDoTask("eat", true),
-                new toDoTask("sleep", false),
-                new toDoTask("read", false)
-
-            };
         public List<toDoTask> taskList { get { return _taskList; } }
+
+        public TodoList()
+        {
+            _taskList = new List<toDoTask>()
+        {
+            new toDoTask("cook", false),
+            new toDoTask("work", true),
+            new toDoTask("eat", true),
+            new toDoTask("sleep", false),
+            new toDoTask("read", false),
+            new toDoTask("exercise", true),
+        };
+        }
 
         public void addTask(toDoTask toDoTask)
         {
             
             _taskList.Add(toDoTask);
+            Console.WriteLine(toDoTask);
 
         }
 
-        public void changeStatus(string taskName, bool status)
+        public void changeStatus(string name, bool status)
         {
             foreach (var item in taskList)
             {
-                if (item.taskName == taskName)
+                if (item.taskName == name)
                 {
-                    item.taskComplete= status;
+                    item.taskComplete = status;
+                    break;
                 }
             }
         }

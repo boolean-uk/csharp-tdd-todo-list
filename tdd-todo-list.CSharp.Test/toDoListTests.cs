@@ -40,6 +40,7 @@ namespace tdd_todo_list.CSharp.Test
 
             //act
             List<toDoTask> returnedList = list.getAll();
+            Console.Write(returnedList);
 
             //assert
 
@@ -54,19 +55,21 @@ namespace tdd_todo_list.CSharp.Test
         {
             //arrange
             TodoList list = new TodoList();
-            bool changeTo = false;
             string taskToChange = "exercise";
+            bool changeTo = false;
             bool statusChanged = false;
+            
+
             //act
+            
             list.changeStatus(taskToChange, changeTo);
             foreach (var item in list.taskList)
             {
                 if (item.taskName==taskToChange)
                 {
-                    if (item.taskComplete == changeTo)
-                    {
-                        statusChanged = true;
-                    }
+                    item.taskComplete = changeTo;
+                    statusChanged = true;
+                    break;
                   
                 }
             }

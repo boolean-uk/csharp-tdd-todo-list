@@ -14,7 +14,12 @@ namespace tdd_todo_list.CSharp.Main
         public bool taskComplete { get; set; }
 
 
-        public toDoTask(string taskName, bool taskSatus) { }
+        public toDoTask(string TaskName, bool TaskComplete) {
+
+            taskName = TaskName;
+            taskComplete=TaskComplete;
+        
+        }
 
 }
 }
