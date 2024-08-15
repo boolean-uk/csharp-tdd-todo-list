@@ -11,6 +11,7 @@ namespace tdd_todo_list.CSharp.Main
         public int taskCount { get { return _todoList.Count; } }
 
         private Dictionary<string, bool> _todoList { get; set; } = new Dictionary<string, bool>();
+
         public bool Add(string task)
         {
             //I assume a task is initially not completed
