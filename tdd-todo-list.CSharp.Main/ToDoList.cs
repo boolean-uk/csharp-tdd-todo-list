@@ -8,29 +8,29 @@ namespace tdd_todo_list.CSharp.Main
 {
     public class TodoList
     {
-        private Dictionary <string, string> ToDoList = new Dictionary<string, string> ();
+        private Dictionary<string, string> ToDoList = new Dictionary<string, string>();
 
         public bool AddTask(string task)
         {
             string defaultTaskStatus = "incomplete";
 
-            if (!ToDoList.ContainsKey(task)) 
+            if (!ToDoList.ContainsKey(task))
             {
                 ToDoList.Add(task, defaultTaskStatus);
                 return true;
             }
             return false;
-            
+
         }
 
-        public string ChangeTaskStatus(string task, string taskStatus) 
+        public string ChangeTaskStatus(string task, string taskStatus)
         {
             if (!ToDoList.ContainsKey(task)) return "Task does not exist";
             else
             {
                 return ToDoList[task] = taskStatus;
             }
-                
+
         }
 
         public string SearchList(string task)
@@ -48,7 +48,7 @@ namespace tdd_todo_list.CSharp.Main
             }
 
             return SearchMessage;
-            
+
         }
 
         public bool RemoveTask(string task)
@@ -63,6 +63,7 @@ namespace tdd_todo_list.CSharp.Main
 
         public Dictionary<string, string> ViewToDoList { get { return ToDoList; } }
 
-        public Dictionary<string, string> ViewCompleteTasksList { get { return ToDoList; } }
+        public Dictionary<string, string> ViewCompleteTasksList { get { return ToDoList.Where(task => task.Value == "complete").ToDictionary(); } }
+
     }
 }

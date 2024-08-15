@@ -83,6 +83,7 @@ namespace tdd_todo_list.CSharp.Test
             string taskStatus1 = "complete";
             string task2 = "helloworld";
             string taskStatus2 = "complete";
+            string task3 = "fix bugs";
             Dictionary<string, string> expectedList = new Dictionary<string, string>
             {
                 { task1, taskStatus1 },
@@ -92,6 +93,9 @@ namespace tdd_todo_list.CSharp.Test
             TodoList todoList = new TodoList();
             todoList.AddTask(task1);
             todoList.AddTask(task2);
+            todoList.AddTask(task3);
+            todoList.ChangeTaskStatus(task1, taskStatus1);
+            todoList.ChangeTaskStatus(task2, taskStatus2);
 
             Dictionary<string, string> actualList = todoList.ViewCompleteTasksList;
 
