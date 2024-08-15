@@ -13,7 +13,7 @@ namespace tdd_todo_list.CSharp.Main
 
         public struct StatusAndID
         {
-            public int ID;
+            public int ID = 0;
             public string date = string.Empty;
             public string time = string.Empty;
             public bool state = false;
@@ -163,18 +163,16 @@ namespace tdd_todo_list.CSharp.Main
             return _List(tasks.OrderByDescending(x => x.Key).ToDictionary());
         }
 
-        public Dictionary<string, StatusAndID> Get(int id)
+        public KeyValuePair<string, StatusAndID> Get(int id)
         {
-            Dictionary<string, StatusAndID> output = new Dictionary<string, StatusAndID>();
             foreach (var task in tasks)
             {
                 if (task.Value.ID == id)
                 {
-                    output.Add(task.Key, task.Value);
-                    return output;
+                    return task;
                 }
             }
-            return output;
+            return new KeyValuePair<string, StatusAndID>();
         }
     }
 }

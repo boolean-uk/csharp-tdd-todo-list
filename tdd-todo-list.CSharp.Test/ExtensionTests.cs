@@ -16,24 +16,23 @@ namespace tdd_todo_list.CSharp.Test
         {
             //arrange
             TodoListExtension tasks = new TodoListExtension();
-            int expectedEmptyDictionary = 0;
+            KeyValuePair<string, TodoListExtension.StatusAndID> expectedEmptyKeyValuePair = new KeyValuePair<string, TodoListExtension.StatusAndID>();
             int ID = 0;
 
             //act
-            Dictionary<string, TodoListExtension.StatusAndID> result = tasks.Get(ID);
+            KeyValuePair<string, TodoListExtension.StatusAndID> result = tasks.Get(ID);
 
             //assert
-            Assert.That(result.Count, Is.EqualTo(expectedEmptyDictionary));
+            Assert.That(result.Key, Is.EqualTo(expectedEmptyKeyValuePair.Key));
 
             //arrange
             tasks.Add(task);
-            int expectedSingleDictionaryElement = 1;
 
             //act
             result = tasks.Get(ID);
 
             //assert
-            Assert.That(result.Count, Is.EqualTo(expectedSingleDictionaryElement));
+            Assert.That(result.Key, Is.EqualTo(task));
         }
     }
 }
