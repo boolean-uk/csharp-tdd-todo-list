@@ -23,8 +23,8 @@ terminal print in a very simple case, or to whatever UI the todo list might be u
 | Members                              | Methods                           | Scenario                  | Output    |
 |--------------------------------------|-----------------------------------|---------------------------|-----------|
 | `SortedDictionary<string, bool> todoList`  | `add(string task, bool status)`   | adding task to the list   | nothing   |
-|  ***string task***                   | `toDoList.get()` ***property***   | get the todo list         | SortedDictionary |
-|  ***bool status***                   | `change(string task, bool status)`| change status of task     | nothing   |
+|                                      | `toDoList.get()` ***property***   | get the todo list         | SortedDictionary |
+|                                      | `change(string task, bool status)`| change status of task     | nothing   |
 |                                      | `getComplete()`                   | get complete tasks        | list      |
 |                                      | `getIncomplete()`                 | get incomplete tasks      | list      |
 |                                      | `getTask(string task)`            | task was found            | name of task |
