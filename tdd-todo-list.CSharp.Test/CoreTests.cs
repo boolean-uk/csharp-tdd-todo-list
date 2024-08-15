@@ -101,5 +101,34 @@ namespace tdd_todo_list.CSharp.Test
             //assert
             Assert.That(result, Is.EqualTo(expectedString));
         }
+
+        [TestCase("Feed Pet", "Go Shopping", "Eat Dinner")]
+        public void ListIncompleteTasksTest(string task1, string task2, string task3)
+        {
+            //arrange
+            TodoList tasks = new TodoList();
+            tasks.Add(task1);
+            tasks.Add(task2);
+            tasks.Add(task3);
+            tasks.ChangeStatus(task3, true);
+            string expectedString = "Feed Pet | Incomplete\nGo Shopping | Incomplete\n";
+
+            //act
+            string result = tasks.ListIncompleteTasks();
+
+            //assert
+            Assert.That(result, Is.EqualTo(expectedString));
+
+            //arrange
+            tasks.ChangeStatus(task1, true);
+            tasks.ChangeStatus(task2, true);
+            string expectedEmptyString = string.Empty;
+
+            //act
+            result = tasks.ListIncompleteTasks();
+
+            //assert
+            Assert.That(result, Is.EqualTo(expectedEmptyString));
+        }
     }
 }
