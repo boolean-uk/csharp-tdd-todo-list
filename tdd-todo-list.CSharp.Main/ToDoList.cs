@@ -31,6 +31,11 @@ namespace tdd_todo_list.CSharp.Main
                 return added;
         }
 
+        public void allJobsSorted(string orderAsc)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool changeJobStatus(int jobId)
         {
             bool changed = true;

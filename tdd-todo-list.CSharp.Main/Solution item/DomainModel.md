@@ -14,6 +14,9 @@ I want to update the name of a task by providing its ID and a new name.
 I want to be able to change the status of a task by providing its ID.
 I want to be able to see the date and time that I created each task.
 
+Ï just read all the requirements and not the whole task description, therefore i have not done the Core task first, but i have combined the Core and Extenstion requirements in my code. 
+Hope that it is okay, next time i will read the assignment correctly:)!
+
 Task == Job, because of the Task.cs already existing
 
 | Classes         | Methods                                     | Scenario											 | Outputs   |

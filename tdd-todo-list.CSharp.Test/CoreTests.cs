@@ -116,15 +116,35 @@ namespace tdd_todo_list.CSharp.Test
         [Test]
         public void AllJobsSortedTest()
         {
-            TodoList todoList = new TodoList();
+            TodoList todoListUnsorted = new TodoList();
 
             Job job1 = new Job(1, "Kode", Status.INCOMPLETE, DateTime.Now);
             Job job2 = new Job(2, "Teste", Status.COMPLETE, DateTime.Now);
+            Job job3 = new Job(3, "Handle", Status.COMPLETE, DateTime.Now);
+            Job job4 = new Job(4, "Poker", Status.COMPLETE, DateTime.Now);
 
-            todoList.addJob(job1);
-            todoList.addJob(job2);
+            todoListUnsorted.addJob(job1);
+            todoListUnsorted.addJob(job2);
+            todoListUnsorted.addJob(job3);
+            todoListUnsorted.addJob(job4);
 
-            Assert.Fail();
+            TodoList todoListSortedAsc = new TodoList();
+
+            todoListSortedAsc.addJob(job3);
+            todoListSortedAsc.addJob(job1);
+            todoListSortedAsc.addJob(job4);
+            todoListSortedAsc.addJob(job2);
+
+            List<Job> expectedAsc = todoListSortedAsc.getAllJobs();
+            string orderAsc = "ascending";
+            //string orderDesc = "descending";
+
+            todoListUnsorted.allJobsSorted(orderAsc);
+           // todoListUnsorted.allJobsSorted(orderDesc);
+
+            List<Job> resultAsc = todoListUnsorted.getAllJobs();
+
+            Assert.That(expectedAsc.SequenceEqual(resultAsc));
         }
 
         [Test]
