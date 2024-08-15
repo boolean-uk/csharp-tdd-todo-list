@@ -35,7 +35,7 @@ namespace tdd_todo_list.CSharp.Main
             return false;
         }
 
-        public List<Todo> fetchTasks(bool complete) { return todoList; } //return based on bool
+        public IEnumerable<Todo> fetchTasks(bool complete) { return todoList.Where(item => item.Complete).OrderBy(item => item.Complete); } //return based on bool
 
         public Todo searchTask(int id) { return todoList[id]; }
 

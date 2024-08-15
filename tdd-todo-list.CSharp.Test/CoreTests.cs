@@ -72,5 +72,41 @@ namespace tdd_todo_list.CSharp.Test
             Assert.IsTrue(list.First().Complete);
         }
 
+        [Test]
+        public void FetchCompleteTasksTest()
+        {
+            TodoList core = new TodoList();
+            bool result1 = core.add("Walk the dog");
+            bool result2 = core.add("Walk the cat?");
+            List<Todo> list = core.listTasks();
+            int listSize = core.listTasks().Count;
+
+            Assert.IsFalse(list.First().Complete);
+
+            core.taskStatus(1);
+
+            Assert.IsTrue(result1);
+            Assert.IsTrue(result2);
+            Assert.That(listSize == 2); // check if list increased in size by 1
+            Assert.That(list.First().id == 1);
+            Assert.IsTrue(list.First().Complete);
+
+            IEnumerable<Todo> sortedList = core.fetchTasks(true);
+
+            Assert.That(sortedList.Count, Is.EqualTo(1));
+            Assert.IsTrue(sortedList.First().Complete);
+
+            core.taskStatus(2);
+
+            Assert.IsTrue(list.Last().Complete);
+
+            sortedList = core.fetchTasks(true);
+            Assert.That(sortedList.Count, Is.EqualTo(2));
+            Assert.That(sortedList.First().id == 1);
+            Assert.That(sortedList.Last().id == 2);
+            Assert.IsTrue(sortedList.First().Complete);
+            Assert.IsTrue(sortedList.Last().Complete);
+        }
+
     }
 }
