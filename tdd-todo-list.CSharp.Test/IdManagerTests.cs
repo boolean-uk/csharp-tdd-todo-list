@@ -63,21 +63,19 @@ namespace tdd_todo_list.CSharp.Test
             idManager = new IdManager();
             idManager.AddTask("ThisIsAName", false, "22-06-2023 11:21");
             idManager.AddTask("SameName", false, "22-06-2013 11:21");
-
             string expectedName = name;
-       
 
-            string resultName = idManager.UpdateTaskName(id, name);
+            bool result = idManager.UpdateTaskName(id, name);
 
-            if(resultName == "new")
+            if(result)
             {
                 Assert.That(idManager.FindTaskByID(id).Substring(0, name.Length) == expectedName);
             }
             else
             {
-                Assert.That(resultName == "A file with that name does not exist!");
+                Assert.That(idManager.FindTaskByID(id) == "404 task not found!");
             }
-            
+
         }
     }
 }
