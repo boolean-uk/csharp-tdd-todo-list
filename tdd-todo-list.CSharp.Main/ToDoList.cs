@@ -28,5 +28,16 @@ namespace tdd_todo_list.CSharp.Main
             return _list;
         }
 
+        public void changeStatus(string task1, bool status)
+        {
+            _list[task1] = status;
+        }
+
+        
+
+
+
+
+
     }
 }

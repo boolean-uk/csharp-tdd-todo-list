@@ -47,6 +47,23 @@ namespace tdd_todo_list.CSharp.Test
             Assert.IsTrue(dictionary1.ContainsKey(task1) & dictionary1.ContainsKey(task2));
 
         }
+        [Test]
+        public void TestCompleteOrNot()
+        {
+            //arrange
+            TodoList todoList = new TodoList();
+
+            string task1 = "making food";
+            string task2 = "washing clothes";
+
+            todoList.addTask(task1, false);
+            todoList.changeStatus(task1, true);
+
+
+            //assert
+            Assert.IsTrue(todoList.List[task1]);
+
+        }
         
     }
 }
