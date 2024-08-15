@@ -76,13 +76,11 @@ namespace tdd_todo_list.CSharp.Main
 
         public string CheckCreated(int id)
         {
-            string concat = "";
             foreach (UserTask task in tasks)
             {
                 if (task.id == id)
                 {
-                    concat += task.created.ToString();
-                    return concat;
+                    return task.created.ToString();
                 }
                 else
                 {
