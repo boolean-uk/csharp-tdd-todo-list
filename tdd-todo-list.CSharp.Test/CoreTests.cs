@@ -7,11 +7,16 @@ namespace tdd_todo_list.CSharp.Test
     public class CoreTests
     {
 
-        [Test]
-        public void FirstTest()
+        [TestCase("solve three gods problem")]
+        public void AddTaskTest(string task)
         {
+            //init
             TodoList core = new TodoList();
-            Assert.Pass();
+
+            //run
+            bool result = core.Add(task);
+
+            //assert
         }
     }
 }
