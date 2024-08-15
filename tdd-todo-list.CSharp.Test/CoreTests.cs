@@ -29,13 +29,22 @@ namespace tdd_todo_list.CSharp.Test
         {
             //arrange
             TodoList tasks = new TodoList();
+            string expectedEmptyString = string.Empty;
+
+            //act
+            string result = tasks.List();
+
+            //assert
+            Assert.That(result, Is.EqualTo(expectedEmptyString));
+
+            //arrange
             tasks.Add(task1);
             tasks.Add(task2);
             tasks.Add(task3);
             string expectedString = "Feed Pet | Incomplete\nGo Shopping | Incomplete\nEat Dinner | Incomplete\n";
 
             //act
-            string result = tasks.List();
+            result = tasks.List();
 
             //assert
             Assert.That(result , Is.EqualTo(expectedString));
