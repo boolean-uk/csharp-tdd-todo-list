@@ -42,5 +42,25 @@ namespace tdd_todo_list.CSharp.Test
             Assert.IsTrue(result == expected);
             
         }
+
+        [TestCase(1, "Supertest")]
+        public void ChangeTaskNameTest(int id, string taskname)
+        {
+            TodoListExtension list = new TodoListExtension();
+            UserTask task1 = new UserTask(24);
+            task1.taskname = "correct one";
+            UserTask task2 = new UserTask(99);
+            task2.taskname = "not this one mate";
+
+            list.Add(task1);
+            list.Add(task2);
+
+            //act
+            string expected = "Test ID: "+id.ToString() + " is now called: " + taskname;
+
+            string result = list.ChangeTaskName(id, taskname);
+
+            Assert.IsTrue(result == expected);
+        }
     }
 }
