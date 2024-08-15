@@ -88,8 +88,29 @@ namespace tdd_todo_list.CSharp.Test
 
             List<TaskItem> incompleteTasks = todoList.GetIncompleteTasks();
 
-
             Assert.IsTrue(incompleteTasks[0].Name == "Run");
+        }
+
+        [Test]
+        public void SearchTaskSuccess()
+        {
+            TodoList todoList = new TodoList();
+            todoList.AddTask("Study");
+
+            bool taskIsFound = todoList.SearchTask("Study");
+
+            Assert.IsTrue(taskIsFound);
+        }
+
+        [Test]
+        public void SearchTaskFail()
+        {
+            TodoList todoList = new TodoList();
+            todoList.AddTask("Study");
+
+            bool taskIsFound = todoList.SearchTask("Run");
+
+            Assert.IsFalse(taskIsFound);
         }
     }
 }
