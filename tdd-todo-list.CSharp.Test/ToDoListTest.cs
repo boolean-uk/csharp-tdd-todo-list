@@ -4,11 +4,11 @@ using NUnit.Framework;
 namespace tdd_todo_list.CSharp.Test
 {
     [TestFixture]
-    public class CoreTests
+    public class ToDoListTest
     {
 
         [Test]
-        public void FirstTest()
+        public void TestaddTask()
         {
             TodoList core = new TodoList();
             Assert.Pass();
