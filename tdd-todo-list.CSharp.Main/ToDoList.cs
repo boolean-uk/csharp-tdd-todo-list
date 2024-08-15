@@ -63,5 +63,10 @@ namespace tdd_todo_list.CSharp.Main
 
             return messageComplete;
         }
+
+        public bool RemoveJob(string name)
+        {
+            return false;
+        }
     }
 }

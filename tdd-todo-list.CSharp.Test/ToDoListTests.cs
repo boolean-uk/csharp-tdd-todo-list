@@ -100,5 +100,21 @@ namespace tdd_todo_list.CSharp.Test
 
             Assert.That(actualJob, Is.EqualTo(expectedJob));
         }
+
+        [Test]
+        public void TestRemoveJob()
+        {
+            TodoList list = new TodoList();
+            Job job1 = new Job("Do the dishes", "The dishes shall be clean, but i dont like doing the work");
+            Job job2 = new Job("Go for a run", "Run 1 km, its hard, but its good for you!");
+            list.AddToList(job1);
+            list.AddToList(job2);
+
+            bool expectedResult = true;
+
+            bool actualResult = list.RemoveJob("Do the dishes");
+
+            Assert.That(actualResult, Is.EqualTo(expectedResult));
+        }
     }
 }
