@@ -16,9 +16,16 @@ namespace tdd_todo_list.CSharp.Main
             _taskList.Add(task, isComplete);
         }
 
-        public void ChangeStatus(string task, bool isComplete)
+        public bool ChangeStatus(string task, bool isComplete)
         {
-            _taskList[task] = isComplete;
+            if (_taskList.ContainsKey(task))
+            {
+                _taskList[task] = isComplete;
+
+                return true;
+            }
+
+            return false;
         }
 
         public Dictionary<string, bool> GetCompleteTasks()
@@ -46,9 +53,16 @@ namespace tdd_todo_list.CSharp.Main
             throw new NotImplementedException();
         }
 
-        public void Remove(string task)
+        public bool Remove(string task)
         {
-            throw new NotImplementedException();
+            if (_taskList.ContainsKey(task))
+            {
+                _taskList.Remove(task);
+                return true;
+            } else
+            {
+                return false;
+            }
         }
 
         public Dictionary<string, bool> SearchFor(string task)

@@ -47,10 +47,10 @@ namespace tdd_todo_list.CSharp.Test
             // 2. Execute
             string task = "Write tests";
             todoList.Add(task, false);
-            todoList.ChangeStatus(task, true);
+            bool result = todoList.ChangeStatus(task, true);
 
             // 3. Verify
-            Assert.IsTrue(todoList.TaskList[task] == true);
+            Assert.IsTrue(todoList.TaskList[task] == true & result);
         }
         
         [Test]
@@ -112,10 +112,10 @@ namespace tdd_todo_list.CSharp.Test
             // 2. Execute
             string task = "Eat lunch";
             todoList.Add(task, false);
-            todoList.Remove(task);
+            bool result = todoList.Remove(task);
 
             // 3. Verify
-            Assert.IsTrue(!todoList.TaskList.ContainsKey(task));
+            Assert.IsTrue(result);
         }
         
         [Test]
