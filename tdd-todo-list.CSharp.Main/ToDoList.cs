@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -47,7 +48,10 @@ namespace tdd_todo_list.CSharp.Main
         }
         public void ChangeStatus(string task)
         {
-            throw new NotImplementedException();
+            if (_toDoList.ContainsKey(task))            
+                _toDoList[task] = "complete";
+            
+            
         }
     }
 }
