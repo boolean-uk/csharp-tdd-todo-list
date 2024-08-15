@@ -113,5 +113,37 @@ namespace tdd_todo_list.CSharp.Test
 
         }
 
+        [Test]
+        public void AllJobsSortedTest()
+        {
+            TodoList todoList = new TodoList();
+
+            Job job1 = new Job(1, "Kode", Status.INCOMPLETE, DateTime.Now);
+            Job job2 = new Job(2, "Teste", Status.COMPLETE, DateTime.Now);
+
+            todoList.addJob(job1);
+            todoList.addJob(job2);
+
+            Assert.Fail();
+        }
+
+        [Test]
+        public void GetJobByIdTest()
+        {
+            TodoList todoList = new TodoList();
+
+            Job job1 = new Job(1, "Kode", Status.INCOMPLETE, DateTime.Now);
+            Job job2 = new Job(2, "Teste", Status.COMPLETE, DateTime.Now);
+
+            todoList.addJob(job1);
+            todoList.addJob(job2);
+
+            Job expected = job1;
+
+            Job result = todoList.getJobById(job1.Id);
+
+            Assert.That(expected == result);
+        }
+
     }
 }
