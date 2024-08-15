@@ -49,7 +49,8 @@ namespace tdd_todo_list.CSharp.Main
             while (true)
             {
                 bool unique = true;
-                foreach (var task in tasks.Values) {
+                foreach (var task in tasks.Values)
+                {
                     if (task.ID == uniqueID)
                     {
                         unique = false;
@@ -180,7 +181,7 @@ namespace tdd_todo_list.CSharp.Main
             int index = 0;
             bool found = false;
             string key = string.Empty;
-            foreach(var task in tasks)
+            foreach (var task in tasks)
             {
                 if (task.Value.ID == id) //Found ID
                 {
@@ -205,7 +206,7 @@ namespace tdd_todo_list.CSharp.Main
 
         public bool ChangeStatus(int id, bool status)
         {
-            foreach(var task in tasks)
+            foreach (var task in tasks)
             {
                 if (task.Value.ID == id)
                 {
@@ -218,7 +219,19 @@ namespace tdd_todo_list.CSharp.Main
 
         public string ListFull()
         {
-            throw new NotImplementedException();
+            string output = string.Empty;
+            foreach (var task in tasks)
+            {
+                if (task.Value.state)
+                {
+                    output += task.Key + " | ID: " + task.Value.ID + " | " + task.Value.date + " | " + task.Value.time + _complete;
+                }
+                else
+                {
+                    output += task.Key + " | ID: " + task.Value.ID + " | " + task.Value.date + " | " + task.Value.time + _incomplete;
+                }
+            }
+            return output;
         }
     }
 }
