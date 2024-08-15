@@ -57,6 +57,21 @@ namespace tdd_todo_list.CSharp.Test
         }
 
         [Test]
+        public void SearchListTest()
+        {
+            string task = "clean";
+            string task2 = "shopping";
+            string expected = "shopping";
+            TodoList todoList = new TodoList();
+            todoList.AddTask(task);
+            todoList.AddTask(task2);
+
+            string actualSearchMessage = todoList.SearchList(task2);
+
+            Assert.AreEqual(expected, actualSearchMessage);
+        }
+
+        [Test]
         public void TaskDoesNotExistTest()
         {
             string noTask = "join zoom";
@@ -71,5 +86,7 @@ namespace tdd_todo_list.CSharp.Test
 
             Assert.AreEqual(expected, actualSearchMessage);
         }
+
+        
     }
 }
