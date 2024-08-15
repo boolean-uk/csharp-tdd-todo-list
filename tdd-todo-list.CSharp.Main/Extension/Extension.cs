@@ -12,9 +12,9 @@ namespace Extension
     {
         public List<TaskItemExtension> Tasks { get; set; } = new List<TaskItemExtension>();
 
-        public bool AddTask(string taskName, int id)
+        public bool AddTask(string taskName, int id, string dateTime)
         {
-            TaskItemExtension task = new TaskItemExtension(taskName, id);
+            TaskItemExtension task = new TaskItemExtension(taskName, id, dateTime);
             Tasks.Add(task);
             return true;
         }

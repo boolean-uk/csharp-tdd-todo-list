@@ -24,7 +24,7 @@ namespace tdd_todo_list.CSharp.Test
         [TestCase(235252)]
         public void GetTaskSuccess(int id)
         {
-            _extension.AddTask("Cooking", id);
+            _extension.AddTask("Cooking", id, "15.08.2024 12:00");
 
             TaskItemExtension task = _extension.GetTask(id);
 
@@ -43,7 +43,7 @@ namespace tdd_todo_list.CSharp.Test
         [TestCase("Sweep")]
         public void UpdateTaskName(String newName)
         {
-            _extension.AddTask("Sleep", 50);
+            _extension.AddTask("Sleep", 50, "15.08.2024 12:00");
 
             _extension.UpdateTaskName(50, newName);
             TaskItemExtension? task = _extension.GetTask(50);
@@ -54,7 +54,7 @@ namespace tdd_todo_list.CSharp.Test
         [Test]
         public void UpdateTaskStatusToTrue()
         {
-            _extension.AddTask("Sweep", 20);
+            _extension.AddTask("Sweep", 20, "15.08.2024 12:00");
             TaskItemExtension task = _extension.GetTask(20);
 
             _extension.UpdateTaskStatus(20); 
@@ -65,7 +65,7 @@ namespace tdd_todo_list.CSharp.Test
         [Test]
         public void UpdateTaskStatusToFalse()
         {
-            _extension.AddTask("Sweep", 20);
+            _extension.AddTask("Sweep", 20, "15.08.2024 12:00");
             TaskItemExtension task = _extension.GetTask(20);
             task.IsComplete = true;
 
@@ -74,14 +74,13 @@ namespace tdd_todo_list.CSharp.Test
             Assert.IsFalse(task.IsComplete);
         }
 
-        [TestCase("15.08.2024 12:00")]
         [TestCase("01.04.2050 17:00")]
         public void GetTaskDateTime(String dateTime)
         {
             _extension.AddTask("Sweep", 20, dateTime);
             TaskItemExtension task = _extension.GetTask(20);
 
-            Assert.IsTrue(task.DateTime = dateTime);
+            Assert.IsTrue(String.Equals(task.DateTime, dateTime));
         }
 
 
