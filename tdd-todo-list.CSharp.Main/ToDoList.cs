@@ -7,8 +7,6 @@ using System.Threading.Tasks;
 namespace tdd_todo_list.CSharp.Main
 {
 
-
-
     public class TodoList
     {
         private List<TodoTask> _tasks;

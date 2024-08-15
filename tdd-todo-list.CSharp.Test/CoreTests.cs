@@ -103,7 +103,7 @@ namespace tdd_todo_list.CSharp.Test
             core.AddTask(t2);
             core.AddTask(t3);
             core.AddTask(t4);
-
+            
             List<TodoTask> incompletedTasks = core.GetIncompleteTasks();
 
             Assert.That(incompletedTasks.Contains(t1), Is.True);

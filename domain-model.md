@@ -11,20 +11,20 @@ I want to see all the tasks in my list ordered alphabetically in descending orde
 
 | Classes       | Methods			     					 |  Scenario								 | Outputs			|
 | ------------- | -------------	     						 |  ------------							 | -----------		|
-| `TodoList`    | AddTask(string taskname)					 |  Adds task to todo list					 | true				|
+| `TodoList`    | AddTask(TodoTask t)						 |  Adds task to todo list					 | true				|
 |				| 											 |  Task could not be added					 | false			|
 |				|										     |											 |      			|
-| `TodoList`    | GetAllTasks()	     					     |  Finds all tasks from todo list			 | List<Task>		|
+| `TodoList`    | GetAllTasks()	     					     |  Finds all tasks from todo list			 | List<TodoTask>	|
 |               |				    						 |											 |					|
-| `TodoList`    | ChangeTaskStatus(Task t, Status new)	     |  Changes status of task					 | Status		    |
+| `TodoList`    | ChangeTaskStatus(TodoTask t, Status new)   |  Changes status of task					 | Status		    |
 |               |				    						 |											 |					|
-| `TodoList`    | GetCompleteTasks()						 |  Get all complete tasks					 | List<Task>		|
-| `TodoList`    | GetIncompleteTasks()						 |  Get all incomplete tasks				 | List<Task>		|
+| `TodoList`    | GetCompleteTasks()						 |  Get all complete tasks					 | List<TodoTask>	|
+| `TodoList`    | GetIncompleteTasks()						 |  Get all incomplete tasks				 | List<TodoTask>	|
 |               |				    						 |											 |					|
-| `TodoList`    | FindTask(string task)						 |  Find if task exist or not				 | string			|
+| `TodoList`    | FindTask(string task)						 |  Check if task exists or not				 | string			|
 |               |				    						 |											 |					|
-| `TodoList`    | DeleteTask(string task)					 |  Delete task from todo list				 | true				|
-|               |				    						 |	 Task does not exist in todo list		 | false			|
+| `TodoList`    | RemoveTask(TodoTask t)					 |  Delete task from todo list				 | true				|
+|               |				    						 |	Task does not exist in todo list		 | false			|
 |               |				    						 |											 |					|
-| `TodoList`    | GetSortedTasksAsc()						 |  Get all tasks sorted ascending			 | List<Task>		|
-| `TodoList`    | GetSortedTasksDesc()						 |  Get all tasks sorted descending			 | List<Task>		|
+| `TodoList`    | GetSortedTasksAsc()						 |  Get all tasks sorted ascending			 | List<TodoTask>	|
+| `TodoList`    | GetSortedTasksDesc()						 |  Get all tasks sorted descending			 | List<TodoTask>	|
