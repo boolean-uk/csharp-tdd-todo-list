@@ -35,5 +35,22 @@ namespace tdd_todo_list.CSharp.Main
                 return "Woopsie, no such task found";
             }
         }
+
+        public string ChangeTaskName(int id, string taskname)
+        {
+            foreach (UserTask task in tasks) 
+            {
+                if (task.id == id) 
+                {
+                    task.taskname = taskname;
+                    return "Task ID: " + id.ToString() + " is now called: " + taskname;
+                }
+                else
+                {
+                    return "Error";
+                }
+            }
+            return "Error";
+        }
     }
 }

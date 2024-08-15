@@ -43,7 +43,7 @@ namespace tdd_todo_list.CSharp.Test
             
         }
 
-        [TestCase(1, "Supertest")]
+        [TestCase(24, "Supertest")]
         public void ChangeTaskNameTest(int id, string taskname)
         {
             TodoListExtension list = new TodoListExtension();
@@ -56,7 +56,7 @@ namespace tdd_todo_list.CSharp.Test
             list.Add(task2);
 
             //act
-            string expected = "Test ID: "+id.ToString() + " is now called: " + taskname;
+            string expected = "Task ID: "+id.ToString() + " is now called: " + taskname;
 
             string result = list.ChangeTaskName(id, taskname);
 
