@@ -74,6 +74,16 @@ namespace tdd_todo_list.CSharp.Test
             Assert.IsFalse(task.IsComplete);
         }
 
+        [TestCase("15.08.2024 12:00")]
+        [TestCase("01.04.2050 17:00")]
+        public void GetTaskDateTime(String dateTime)
+        {
+            _extension.AddTask("Sweep", 20, dateTime);
+            TaskItemExtension task = _extension.GetTask(20);
+
+            Assert.IsTrue(task.DateTime = dateTime);
+        }
+
 
     }
 }
