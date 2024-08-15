@@ -154,5 +154,29 @@ namespace tdd_todo_list.CSharp.Test
             //assert
             Assert.That(result, Is.EqualTo(expectedFound));
         }
+
+        [TestCase("Feed Pet")]
+        public void RemoveTest(string task)
+        {
+            //arrange
+            TodoList tasks = new TodoList();
+            bool expectedFailure = false;
+
+            //act
+            bool result = tasks.Remove(task);
+
+            //assert
+            Assert.That(result, Is.EqualTo(!expectedFailure));
+
+            //arrange
+            tasks.Add(task);
+            bool expectedSuccess = true;
+
+            //act
+            result = tasks.Remove(task);
+
+            //assert
+            Assert.That(result, Is.EqualTo(expectedSuccess));
+        }
     }
 }
