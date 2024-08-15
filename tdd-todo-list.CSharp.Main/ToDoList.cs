@@ -8,13 +8,14 @@ namespace tdd_todo_list.CSharp.Main
 {
     public class TodoList
     {
-        private Dictionary<string,string> _ToDoList;
+        private Dictionary<string,string> _toDoList = new Dictionary<string, string>();
 
-        public Dictionary<string, string> ToDoList { get => _ToDoList;  }
+        public Dictionary<string, string> ToDoList { get => _toDoList;  }
 
-        public bool Add(string task)
+        public void Add(string task)
         {
-            throw new NotImplementedException();
+            string status = "incomplete";
+            _toDoList.Add(task, status);
         }
     }
 }

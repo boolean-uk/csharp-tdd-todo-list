@@ -15,7 +15,7 @@ namespace tdd_todo_list.CSharp.Test
             TodoList core = new TodoList();
 
             //run
-            bool result = core.Add(task);
+            core.Add(task);
 
             //assert
             Assert.Contains(task, core.ToDoList.Keys);
