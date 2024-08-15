@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace tdd_todo_list.CSharp.Main
 {
-    public class TodoListExtension
+    public enum Status
     {
+        Complete, Incomplete
     }
 }
