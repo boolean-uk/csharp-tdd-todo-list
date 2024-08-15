@@ -51,6 +51,11 @@ namespace tdd_todo_list.CSharp.Main
             
         }
 
+        public bool RemoveTask(string task)
+        {
+            throw new NotImplementedException();
+        }
+
         public Dictionary<string, string> ViewToDoList { get { return ToDoList; } }
 
 

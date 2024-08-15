@@ -20,6 +20,18 @@ namespace tdd_todo_list.CSharp.Test
         }
 
         [Test]
+        public void RemoveTaskTest()
+        {
+            string task = "shopping";
+            bool expected = true;
+            TodoList todoList = new TodoList();
+
+            bool taskRemoved = todoList.RemoveTask(task);
+
+            Assert.AreEqual(expected, taskRemoved);
+        }
+
+        [Test]
         public void ViewToDoListTest()
         {
 
