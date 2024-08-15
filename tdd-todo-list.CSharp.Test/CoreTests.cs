@@ -91,5 +91,14 @@ namespace tdd_todo_list.CSharp.Test
             Assert.That(expected == result);
         }
 
+        [Test]
+        public void changeNameOfJobTest()
+        {
+            TodoList todoList = new TodoList();
+            Job job = new Job(1, "casting", Status.INCOMPLETE, DateTime.Now);
+            todoList.addJob(job);
+            todoList.updateName(1, "shoot");
+        }
+
     }
 }
