@@ -12,12 +12,14 @@ I want to see all the tasks in my list ordered alphabetically in descending orde
 
 | **Classes** | **Members** | **Methods** | **Scenario** | **Outputs** |
 |:--:|:--:|:--:|:--:|:--:|
-| `ToDoList` | `List<Task>` | `AddToList(Task)` | Add task to ToDoList | `bool` |
-| `ToDoList` | `List<Task>` | `PrintTasks()` | View all tasks in ToDoList | `Console` |
-| `Task` | `Complete` | `ChangeStatus(status)` | Changing status of task to complete | `Console` |
-| `Task` | `Complete` | `ChangeStatus(status)` | Changing status of task to incomplete | `Console` |
-| `ToDoList` | `List<Task>` | `GetTasks(status)` | Get tasks that is complete | `List<Task>` |
-| `ToDoList` | `List<Task>` | `GetTasks(status)` | Get tasks that is incomplete | `List<Task>` |
-| `ToDoList` | `List<Task>` | `GetTask(name)` | Get existing task specified by name | `Task` |
-| `ToDoList` | `List<Task>` | `RemoveTask(name)` | Remove existing task from ToDoList | `bool` |
-| `ToDoList` | `List<Task>` | `RemoveTask(name)` | Remove non existing task from ToDoList | `bool` |
+| `ToDoList` | `List<Job>` | `AddToList(Job)` | Add task to ToDoList | `true` |
+| `ToDoList` | `List<Job>` | `PrintTasks()` | View all tasks in ToDoList | `Console` |
+| `Job` | `Complete` | `ChangeStatus(status)` | Changing status of task to complete | `Console` |
+| `Job` | `Complete` | `ChangeStatus(status)` | Changing status of task to incomplete | `Console` |
+| `ToDoList` | `List<Job>` | `GetTasks(status)` | Get tasks that is complete | `Console` |
+| `ToDoList` | `List<Job>` | `GetTasks(status)` | Get tasks that is incomplete | `Console` |
+| `ToDoList` | `List<Job>` | `GetTask(name)` | Get existing task specified by name | `Console` |
+| `ToDoList` | `List<Job>` | `RemoveTask(name)` | Remove existing task from ToDoList | `true` |
+| `ToDoList` | `List<Job>` | `RemoveTask(name)` | Remove non existing task from ToDoList | `false` |
+| `ToDoList` | `List<Job>` | `GetTasksOrdered(ascending)` | Get tasks in ascending order | `Console` |
+| `ToDoList` | `List<Job>` | `GetTasksOrdered(ascending)` | Get tasks in descending order | `Console` |
