@@ -8,6 +8,7 @@ I want to remove tasks from my list.
 I want to see all the tasks in my list ordered alphabetically in ascending order.
 I want to see all the tasks in my list ordered alphabetically in descending order.
 
+Core
 
 | Classes       | Methods			     					 |  Scenario								 | Outputs			|
 | ------------- | -------------	     						 |  ------------							 | -----------		|
@@ -28,3 +29,16 @@ I want to see all the tasks in my list ordered alphabetically in descending orde
 |               |				    						 |											 |					|
 | `TodoList`    | GetSortedTasksAsc()						 |  Get all tasks sorted ascending			 | List<TodoTask>	|
 | `TodoList`    | GetSortedTasksDesc()						 |  Get all tasks sorted descending			 | List<TodoTask>	|
+|               |				    						 |	Task does not exist in todo list		 | false			|
+
+Extension
+
+| Classes				| Methods			     			 |  Scenario								 | Outputs			|
+| -------------			| -------------	    				 |  ------------							 | -----------		|
+| `TodoListExtended`    | GetTaskById(int id)				 |  Get specific task by id					 | TodoTaskExtended	|
+|						|				     				 |											 |					|
+| `TodoListExtended`	| UpdateTask(int id, string newname) |  Update task by id, with new name		 | true				|
+|						|									 |  Task with given id not found			 | false			|
+|						|				     				 |											 |					|
+| `TodoListExtended`	| ChangeTaskStatus(int id, Status s) |  Update status on task with given id 	 | true				|
+|						|									 |  Task with given id not found			 | false			|

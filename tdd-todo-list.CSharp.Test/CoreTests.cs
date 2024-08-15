@@ -27,7 +27,7 @@ namespace tdd_todo_list.CSharp.Test
 
             // Creates and adds a base of two tasks 
             TodoTask t1 = new TodoTask("Clean the car");
-            TodoTask t2 = new TodoTask("Vacuum the shower");
+            TodoTask t2 = new TodoTask("Vacuum the house");
             core.AddTask(t1);
             core.AddTask(t2);
 
@@ -53,7 +53,7 @@ namespace tdd_todo_list.CSharp.Test
 
             // Creates and adds a base of two tasks 
             TodoTask t1 = new TodoTask("Clean the car");
-            TodoTask t2 = new TodoTask("Vacuum the shower");
+            TodoTask t2 = new TodoTask("Vacuum the house");
             core.AddTask(t1);
             core.AddTask(t2);
 
@@ -72,9 +72,9 @@ namespace tdd_todo_list.CSharp.Test
 
             // Creates and adds four tasks, two complete, and two incomplete
             TodoTask t1 = new TodoTask("Clean the car", Status.Incomplete);
-            TodoTask t2 = new TodoTask("Vacuum the shower", Status.Incomplete);
+            TodoTask t2 = new TodoTask("Vacuum the house", Status.Incomplete);
             TodoTask t3 = new TodoTask("Grocery shopping", Status.Complete);
-            TodoTask t4 = new TodoTask("Change motoroil on the car", Status.Complete);
+            TodoTask t4 = new TodoTask("Change oil", Status.Complete);
             core.AddTask(t1);
             core.AddTask(t2);
             core.AddTask(t3);
@@ -98,7 +98,7 @@ namespace tdd_todo_list.CSharp.Test
             TodoTask t1 = new TodoTask("Clean the car", Status.Incomplete);
             TodoTask t2 = new TodoTask("Vacuum the shower", Status.Incomplete);
             TodoTask t3 = new TodoTask("Grocery shopping", Status.Complete);
-            TodoTask t4 = new TodoTask("Change motoroil on the car", Status.Complete);
+            TodoTask t4 = new TodoTask("Change oil", Status.Complete);
             core.AddTask(t1);
             core.AddTask(t2);
             core.AddTask(t3);
