@@ -10,6 +10,7 @@ namespace tdd_todo_list.CSharp.Test
         [Test]
         public void FirstTest()
         {
+            // Testing adding of new task
             TodoList core = new TodoList();
             string task = "Walk the dog";
             bool status = false;
@@ -21,6 +22,7 @@ namespace tdd_todo_list.CSharp.Test
         [Test]
         public void SecondTest()
         {
+            // Testing retrieval of todo list
             TodoList core = new TodoList();
             string task = "Walk the dog";
             bool status = false;
@@ -32,6 +34,7 @@ namespace tdd_todo_list.CSharp.Test
         [Test]
         public void ThirdTest()
         {
+            // Testing changing of status on task
             TodoList core = new TodoList();
             string task = "Walk the dog";
             bool status = false;
@@ -43,6 +46,7 @@ namespace tdd_todo_list.CSharp.Test
         [Test]
         public void FourthTest()
         {
+            // Testing getting complete and incomplete tasks
             TodoList core = new TodoList();
             string task = "Walk the dog";
             bool status = false;
@@ -56,7 +60,21 @@ namespace tdd_todo_list.CSharp.Test
 
             Assert.That(complete[0] == "Pet the dog");
             Assert.That(incomplete[0] == "Walk the dog");
+        }
 
+        [Test]
+        public void FifthTest()
+        {
+            TodoList core = new TodoList();
+            string task = "Pet the dog";
+            bool status = true;
+            core.add(task, status);
+
+            string result = core.getTask(task);
+            string result2 = core.getTask("Feed the dog");
+
+            Assert.That(result.Equals("Pet the dog"));
+            Assert.That(result2.Equals("not found"));
         }
     }
 }

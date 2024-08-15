@@ -25,10 +25,19 @@ namespace tdd_todo_list.CSharp.Main
 
         public List<string> getIncomplete()
         {
-            throw new NotImplementedException();
+            List<string> result = new List<string>();
+            result = _todoList.Where(pair => pair.Value.Equals(false)).Select(pair => pair.Key).ToList();
+            return result;
         }
 
         public List<string> getComplete()
+        {
+            List<string> result = new List<string>();
+            result = _todoList.Where(pair => pair.Value.Equals(true)).Select(pair => pair.Key).ToList();
+            return result;
+        }
+
+        public string getTask(string task)
         {
             throw new NotImplementedException();
         }
