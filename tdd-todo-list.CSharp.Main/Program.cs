@@ -12,3 +12,7 @@ todolist.addJob(test2);
 todolist.seeJobs();
 
 todolist.getJob(2);
+
+todolist.changeStatus(1);
+
+todolist.seeJobs();

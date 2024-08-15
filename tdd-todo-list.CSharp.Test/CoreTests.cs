@@ -48,6 +48,7 @@ namespace tdd_todo_list.CSharp.Test
         }
         
 
+        
         [Test]
         public void changeStatusTest()
         {
@@ -58,8 +59,9 @@ namespace tdd_todo_list.CSharp.Test
             todoList.changeStatus(1);
             Assert.That(expected == job.Status);
 
-
         }
+        
+        
 
 
     }

@@ -26,7 +26,24 @@ namespace tdd_todo_list.CSharp.Main
 
         public void changeStatus(int id)
         {
-            throw new NotImplementedException();
+            Job job = getJob(id);
+            if (job == null)
+            {
+                Console.WriteLine($"Job {id} was not found.");
+                return;
+            }
+            Console.WriteLine(job.Status.ToString());
+            
+            if (job.Status == Status.COMPLETE)
+            {
+                job.Status = Status.INCOMPLETE;
+            }
+            else if (job.Status == Status.INCOMPLETE)
+            {
+                job.Status = Status.COMPLETE;
+            }
+            Console.WriteLine($"Job {id}'s status was changed to {job.Status.ToString()}");
+
         }
 
         public Job getJob(int id)

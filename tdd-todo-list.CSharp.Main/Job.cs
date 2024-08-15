@@ -27,9 +27,9 @@ namespace tdd_todo_list.CSharp.Main
             this.date = date;
         }
 
-        public int Id { get { return id; } }
-        public string Name { get { return name; } }
-        public Status Status { get { return status; } }
-        public DateTime Date { get { return date; } }
+        public int Id { get { return id; } set { id = value; } }
+        public string Name { get { return name; } set { name = value;  } }
+        public Status Status { get { return status; } set { status = value; } }
+        public DateTime Date { get { return date; } set { date = value; } }
     }
 }
