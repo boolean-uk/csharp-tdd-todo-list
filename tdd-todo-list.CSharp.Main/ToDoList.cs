@@ -42,8 +42,9 @@ namespace tdd_todo_list.CSharp.Main
             return this._tasks;
         }
         public Status ChangeTaskStatus(TodoTask t, Status newstatus) 
-        { 
-            throw new NotImplementedException();
+        {
+            t.Status = newstatus;
+            return newstatus;
         }
         public List<TodoTask> GetCompleteTasks()
         {
