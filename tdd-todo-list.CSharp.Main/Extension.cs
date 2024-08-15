@@ -175,9 +175,28 @@ namespace tdd_todo_list.CSharp.Main
             return new KeyValuePair<string, StatusAndID>();
         }
 
-        public bool ChangeName(int id, string task2)
+        public bool ChangeName(int id, string newName)
         {
-            throw new NotImplementedException();
+            int index = 0;
+            bool found = false;
+            string key = string.Empty;
+            foreach(var task in tasks)
+            {
+                if (task.Value.ID == id)
+                {
+                    key = task.Key;
+                    found = true;
+                    break;
+                }
+                index++;
+            }
+            if (found)
+            {
+                tasks.Add(newName, tasks[key]);
+                tasks.Remove(key);
+                return true;
+            }
+            return false;
         }
     }
 }
