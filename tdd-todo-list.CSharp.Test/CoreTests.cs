@@ -70,5 +70,23 @@ namespace tdd_todo_list.CSharp.Test
 
         }
 
+        [Test]
+        public void SearchJobByNameTest()
+        {
+            TodoList todoList = new TodoList();
+
+            Job job1 = new Job(1, "Kode", Status.INCOMPLETE, DateTime.Now);
+            Job job2 = new Job(2, "Teste", Status.COMPLETE, DateTime.Now);
+
+            todoList.addJob(job1);
+            todoList.addJob(job2);
+
+            string expected = $"Job with name {job1.Name} not found!";
+
+            string result = todoList.searchJobByName(job1.Name);
+
+            Assert.That(expected == result);
+        }
+
     }
 }

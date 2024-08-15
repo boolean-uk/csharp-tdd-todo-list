@@ -28,7 +28,7 @@ Task == Job, because of the Task.cs already existing
 |                 |                                             |                       				             |           |
 |                 | `GetJobByStatus(Status status)`             | User can get all jobs based on the job status      | List<Job> |
 |                 |                                             |                       				             |           |
-|                 | `Search(string jobName)`                    | User can search for a job based on the jobName     | string    |
+|                 | `SearchJobByName(string jobName)`           | User can search for a job based on the jobName     | string    |
 |                 |                                             | Searched job does not exist					     | string    |
 |                 |                                             |                       				             |           |
 |                 | `RemoveJob(int jobId)`                      | User can remove a job object from the todo list    | void      |
