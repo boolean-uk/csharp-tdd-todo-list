@@ -13,7 +13,16 @@ namespace tdd_todo_list.CSharp.Main
 
         public bool addJob(Job job)
         {
-            throw new NotImplementedException();
+            bool added = true;
+
+            if (todoList.Contains(job))
+            {
+                return !added;
+            }
+
+            todoList.Add(job);
+            return added;
         }
+
     }
 }
