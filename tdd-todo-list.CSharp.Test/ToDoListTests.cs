@@ -12,10 +12,13 @@ namespace tdd_todo_list.CSharp.Test
         {
             // 1. Setup
             TodoList todoList = new TodoList();
+            
             // 2. Execute
+            string task = "Eat cream-cheese bagel";
+            todoList.Add(task);
 
             // 3. Verify
-            Assert.Fail();
+            Assert.IsTrue(todoList.TaskList.ContainsKey(task));
         }
         
         [Test]
@@ -23,10 +26,16 @@ namespace tdd_todo_list.CSharp.Test
         {
             // 1. Setup
             TodoList todoList = new TodoList();
+            
             // 2. Execute
+            string task = "Run 500m";
+            string task2 = "Eat avocado cream-cheese bagel with smoked salmon";
+            todoList.Add(task);
+            todoList.Add(task2);
+            Dictionary<string, bool> taskList = todoList.GetList();
 
             // 3. Verify
-            Assert.Fail();
+            Assert.IsTrue(taskList.ContainsKey(task) & taskList.ContainsKey(task2));
         }
         
         [Test]
@@ -34,10 +43,14 @@ namespace tdd_todo_list.CSharp.Test
         {
             // 1. Setup
             TodoList todoList = new TodoList();
+            
             // 2. Execute
+            string task = "Write tests";
+            todoList.Add(task);
+            todoList.ChangeStatus(task, true);
 
             // 3. Verify
-            Assert.Fail();
+            Assert.IsTrue(todoList.TaskList[task] == true);
         }
         
         [Test]
@@ -45,10 +58,16 @@ namespace tdd_todo_list.CSharp.Test
         {
             // 1. Setup
             TodoList todoList = new TodoList();
+            
             // 2. Execute
+            string completeTask = "This task is completed";
+            string incompleteTask = "This task is incomplete";
+            todoList.Add(completeTask);
+            todoList.Add(incompleteTask);
+            Dictionary<string, bool> taskList = todoList.GetCompleteTasks();
 
             // 3. Verify
-            Assert.Fail();
+            Assert.IsTrue(taskList.ContainsKey(completeTask) & !taskList.ContainsKey(incompleteTask));
         }
         
         [Test]
@@ -56,10 +75,16 @@ namespace tdd_todo_list.CSharp.Test
         {
             // 1. Setup
             TodoList todoList = new TodoList();
+           
             // 2. Execute
+            string completeTask = "This task is completed";
+            string incompleteTask = "This task is incomplete";
+            todoList.Add(completeTask);
+            todoList.Add(incompleteTask);
+            Dictionary<string, bool> taskList = todoList.GetCompleteTasks();
 
             // 3. Verify
-            Assert.Fail();
+            Assert.IsTrue(taskList.ContainsKey(incompleteTask) & !taskList.ContainsKey(completeTask));
         }
         
         [Test]
@@ -67,10 +92,16 @@ namespace tdd_todo_list.CSharp.Test
         {
             // 1. Setup
             TodoList todoList = new TodoList();
+            
             // 2. Execute
+            string task = "Write source code";
+            string task2 = "Walk for 15m";
+            todoList.Add(task);
+            todoList.Add(task2);
+            Dictionary<string, bool> taskList = todoList.SearchFor("Walk");
 
             // 3. Verify
-            Assert.Fail();
+            Assert.IsTrue(taskList.ContainsKey(task2) & !taskList.ContainsKey(task));
         }
         
         [Test]
@@ -79,9 +110,12 @@ namespace tdd_todo_list.CSharp.Test
             // 1. Setup
             TodoList todoList = new TodoList();
             // 2. Execute
+            string task = "Eat lunch";
+            todoList.Add(task);
+            todoList.Remove(task);
 
             // 3. Verify
-            Assert.Fail();
+            Assert.IsTrue(!todoList.TaskList.ContainsKey(task));
         }
         
         [Test]
@@ -89,10 +123,20 @@ namespace tdd_todo_list.CSharp.Test
         {
             // 1. Setup
             TodoList todoList = new TodoList();
+
             // 2. Execute
+            Dictionary<string, bool> sortedList = new Dictionary<string, bool>();
+            sortedList.Add("A - I am first", false);
+            sortedList.Add("B - I am second", false);
+
+            string task2 = "B - I am second";
+            string task1 = "A - I am first";
+            todoList.Add(task1);
+            todoList.Add(task2);
+            Dictionary<string, bool> sortedListFromTODOList = todoList.GetListInAscendingOrder();
 
             // 3. Verify
-            Assert.Fail();
+            Assert.IsTrue(sortedList == sortedListFromTODOList);
         }
         
         [Test]
@@ -100,10 +144,20 @@ namespace tdd_todo_list.CSharp.Test
         {
             // 1. Setup
             TodoList todoList = new TodoList();
+
             // 2. Execute
+            Dictionary<string, bool> sortedList = new Dictionary<string, bool>();
+            sortedList.Add("B - I am first", false);
+            sortedList.Add("A - I am second", false);
+
+            string task1 = "A - I am second";
+            string task2 = "B - I am first";
+            todoList.Add(task1);
+            todoList.Add(task2);
+            Dictionary<string, bool> sortedListFromTODOList = todoList.GetListInDescendingOrder();
 
             // 3. Verify
-            Assert.Fail();
+            Assert.IsTrue(sortedList == sortedListFromTODOList);
         }
     }
 }
