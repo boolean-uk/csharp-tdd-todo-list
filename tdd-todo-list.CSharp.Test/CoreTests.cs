@@ -141,7 +141,6 @@ namespace tdd_todo_list.CSharp.Test
             Job expected = job1;
 
             Job result = todoList.getJobById(job1.Id);
-
             Assert.That(expected == result);
         }
 

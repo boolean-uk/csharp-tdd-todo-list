@@ -67,21 +67,35 @@ namespace tdd_todo_list.CSharp.Main
             return todoList;
         }
 
+        public Job getJobById(int jobId)
+        {
+            Job job = todoList.Where(x => x.Id == jobId).First();
+            if (job == null)
+            {
+                return null;
+            }
+
+            return job;
+        }
+
         public List<Job> getJobByStatus(Status status)
         {
             return todoList.Where(j => j.Status == status).ToList();
              
         }
 
-        public void removeJob(int jobId)
+        public bool removeJob(int jobId)
         {
+
+            bool removed = true;
             Job job = todoList.Where(x => x.Id == jobId).First();
             if (job == null)
             {
-                return;
+                return !removed;
             }
 
             todoList.Remove(job);
+            return removed;
         }
 
         public string searchJobByName(string name)

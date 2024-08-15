@@ -31,7 +31,7 @@ Task == Job, because of the Task.cs already existing
 |                 | `SearchJobByName(string jobName)`           | User can search for a job based on the jobName     | string    |
 |                 |                                             | Searched job does not exist					     | string    |
 |                 |                                             |                       				             |           |
-|                 | `RemoveJob(int jobId)`                      | User can remove a job object from the todo list    | void      |
+|                 | `RemoveJob(int jobId)`                      | User can remove a job object from the todo list    | bool      |
 |                 |                                             | based on the jobs unique id                        |           |
 |                 |                                             |                       				             |           |
 |                 | `AllJobSorted(string order)`                | User can get all jobs sorted alphabetically based  | List<Job> |
