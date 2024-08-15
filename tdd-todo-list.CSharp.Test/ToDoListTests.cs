@@ -24,12 +24,21 @@ namespace tdd_todo_list.CSharp.Test
         {
 
             string task = "clean";
-            string expected = "clean";
+            string taskStatus = "Incomplete";
+            string task2 = "shopping";
+            Dictionary<string, string> expectedList = new Dictionary<string, string>
+            {
+                { task, taskStatus },
+                { task2, taskStatus }
+            };
+
             TodoList todoList = new TodoList();
+            todoList.AddTask(task);
+            todoList.AddTask(task2);
 
-            string actualList = todoList.ViewTodoList();
+            Dictionary<string, string> actualList = todoList.ViewToDoList;
 
-            Assert.AreEqual(expected, actualList);
+            Assert.AreEqual(expectedList, actualList);
 
         }
     }
