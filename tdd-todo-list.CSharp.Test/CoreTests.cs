@@ -14,7 +14,28 @@ namespace tdd_todo_list.CSharp.Test
         public void AddSingleTodo() 
         {
             var todoList = new Todo();
-            var todo = "Walk the turlte";
+            var todo = "Walk the turtle";
+
+            var result = todoList.Add(todo);
+            
+            Assert.That(result, Is.True);
+        }
+
+        [Test]
+        public void AddSeveralTodo()
+        {
+            var todoList = new Todo();
+            var todo1 = "Walk the turtle";
+            var todo2 = "Practice backflipping";
+
+            var result1 = todoList.Add(todo1);
+            var result2 = todoList.Add(todo2);
+
+
+            Assert.That(result1, Is.True);
+            Assert.That(result2, Is.True);
+
+
         }
         //I want to see all the tasks in my todo list.
         //I want to change the status of a task between incomplete and complete.
