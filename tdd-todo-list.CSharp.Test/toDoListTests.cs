@@ -50,18 +50,20 @@ namespace tdd_todo_list.CSharp.Test
 
 
         [Test]
-        public void checkIfTaskStatusChanged(toDoTask task1,bool status)
+        public void checkIfTaskStatusChanged()
         {
             //arrange
             TodoList list = new TodoList();
+            bool changeTo = false;
+            string taskToChange = "exercise";
             bool statusChanged = false;
-
             //act
+            list.changeStatus(taskToChange, changeTo);
             foreach (var item in list.taskList)
             {
-                if (item == task1)
+                if (item.taskName==taskToChange)
                 {
-                    if (item.taskComplete == status)
+                    if (item.taskComplete == changeTo)
                     {
                         statusChanged = true;
                     }
@@ -140,7 +142,7 @@ namespace tdd_todo_list.CSharp.Test
             bool isAscending = true;
 
             //act
-            for (int i = 0; i < ascendingList.Count; i++)
+            for (int i = 0; i < ascendingList.Count-1; i++)
             {
                 string word1 = ascendingList[i].taskName;
                 string word2 = ascendingList[i+1].taskName;
@@ -165,7 +167,7 @@ namespace tdd_todo_list.CSharp.Test
             bool isDescending = true;
 
             //act
-            for (int i = 0; i < descendingList.Count; i++)
+            for (int i = 0; i < descendingList.Count-1; i++)
             {
                 string word1 = descendingList[i].taskName;
                 string word2 = descendingList[i + 1].taskName;

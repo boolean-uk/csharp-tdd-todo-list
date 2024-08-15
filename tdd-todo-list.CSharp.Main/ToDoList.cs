@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -28,6 +29,17 @@ namespace tdd_todo_list.CSharp.Main
 
         }
 
+        public void changeStatus(string taskName, bool status)
+        {
+            foreach (var item in taskList)
+            {
+                if (item.taskName == taskName)
+                {
+                    item.taskComplete= status;
+                }
+            }
+        }
+
         public List<toDoTask> getAll()
         {
             return taskList;
@@ -35,7 +47,8 @@ namespace tdd_todo_list.CSharp.Main
 
         public List<toDoTask> getAscending(List<toDoTask> taskList)
         {
-            throw new NotImplementedException();
+            List<toDoTask> ascendingList = taskList.OrderBy(x => x.taskName).ToList();
+            return ascendingList;
         }
 
         public List<toDoTask> getComplete(List<toDoTask> taskList)
@@ -53,12 +66,23 @@ namespace tdd_todo_list.CSharp.Main
 
         public List<toDoTask> getDescending(List<toDoTask> taskList)
         {
-            throw new NotImplementedException();
+            List<toDoTask> descendingList = taskList.OrderByDescending(x => x.taskName).ToList();
+            return descendingList;
+            
         }
 
         public List<toDoTask> getInComplete(List<toDoTask> taskList)
         {
-            throw new NotImplementedException();
+            List<toDoTask> inCompleteList = new List<toDoTask>();
+            foreach (var item in taskList)
+            {
+                if (item.taskComplete == false)
+                {
+                    inCompleteList.Add(item);
+                }
+            }
+            return inCompleteList;
+
         }
     }
 }
