@@ -33,7 +33,20 @@ namespace tdd_todo_list.CSharp.Test
 
             List<Job> result = todoList.getAllJobs();
 
-            Assert.That(expected == result);
+            Assert.That(expected.SequenceEqual(result));
+        }
+
+
+         [Test]
+         public void ChangeJobStatusTest()
+        {
+            TodoList todoList = new TodoList();
+            Job job = new Job(1, "Vaske", Status.INCOMPLETE, DateTime.Now);
+
+            todoList.addJob(job);
+
+
+
         }
     }
 }

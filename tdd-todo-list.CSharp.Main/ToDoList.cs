@@ -15,18 +15,21 @@ namespace tdd_todo_list.CSharp.Main
         {
             bool added = true;
 
-            if (todoList.Contains(job))
+            foreach (var exJob in todoList)
             {
-                return !added;
+                if (job == exJob)
+                {
+                    Console.WriteLine("This job already exists");
+                    return !added;
+                }
             }
-
-            todoList.Add(job);
-            return added;
+                todoList.Add(job);
+                return added;
         }
 
         public List<Job> getAllJobs()
         {
-            throw new NotImplementedException();
+            return todoList;
         }
     }
 }
