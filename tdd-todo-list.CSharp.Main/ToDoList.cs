@@ -76,7 +76,11 @@ namespace tdd_todo_list.CSharp.Main
 
         public string Search(string task)
         {
-            throw new NotImplementedException();
+            if(tasks.ContainsKey(task))
+            {
+                return "Task found!";
+            }
+            return "Task does not exist!";
         }
     }
 }
