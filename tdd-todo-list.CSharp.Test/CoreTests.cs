@@ -49,5 +49,29 @@ namespace tdd_todo_list.CSharp.Test
             //assert
             Assert.That(result , Is.EqualTo(expectedString));
         }
+
+        [TestCase("Feed Pet")]
+        public void ChangeStatusTest(string task)
+        {
+            //arrange
+            TodoList tasks = new TodoList();
+            bool expectedFailure = false;
+
+            //act
+            bool result = tasks.ChangeStatus(task, true);
+
+            //assert
+            Assert.That(result, Is.EqualTo(expectedFailure));
+
+            //arrange
+            bool expectedSuccess = true;
+            tasks.Add(task);
+
+            //act
+            result = tasks.ChangeStatus(task, true);
+
+            //assert
+            Assert.That(result, Is.EqualTo(expectedSuccess));
+        }
     }
 }

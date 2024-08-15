@@ -21,6 +21,11 @@ namespace tdd_todo_list.CSharp.Main
             return true;
         }
 
+        public bool ChangeStatus(string task, bool v)
+        {
+            throw new NotImplementedException();
+        }
+
         public string List()
         {
             string output = string.Empty;
