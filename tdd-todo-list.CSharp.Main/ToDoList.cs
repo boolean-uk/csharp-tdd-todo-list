@@ -58,12 +58,12 @@ namespace tdd_todo_list.CSharp.Main
         {
             foreach (TodoTaskObj obj in taskList)
             {
-                if (obj.ContentText.Contains(search))
+                if (obj.ContentText == search)
                 {
                     return obj;
                 }
             }
-            throw new NotImplementedException();
+            throw new KeyNotFoundException();
         }
 
 
