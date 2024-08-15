@@ -116,9 +116,15 @@ namespace tdd_todo_list.CSharp.Main
             }
         }
 
-        public string listAlphabetically()
+        public string ListAlphabetically()
         {
-            return "Nothing";
+            string concat = "";
+            tasks.Sort();
+            foreach (UserTask task in tasks)
+            {
+                concat += task.taskname+" ";
+            }
+            return concat;
         }
     }
 }

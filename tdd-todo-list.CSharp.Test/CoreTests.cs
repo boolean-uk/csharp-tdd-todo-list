@@ -152,15 +152,19 @@ namespace tdd_todo_list.CSharp.Test
         {
             TodoList list = new TodoList();
 
-            UserTask taskA = new UserTask();
-            UserTask taskB = new UserTask();
-            UserTask taskC = new UserTask();
+            UserTask program = new UserTask();
+            program.taskname = "program";
+            UserTask little = new UserTask();
+            little.taskname = "little";
+            UserTask big = new UserTask();
+            big.taskname = "big";
 
-            list.Add(taskA);
-            list.Add(taskB);
-            list.Add(taskC);
 
-            string expected = taskA.taskname + " " + taskB.taskname + " " + taskC.taskname + " ";
+            list.Add(program);
+            list.Add(little);
+            list.Add(big);
+
+            string expected = big.taskname+" "+little.taskname+" " +program.taskname + " ";
 
             string result = list.ListAlphabetically();
 
