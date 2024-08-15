@@ -85,6 +85,7 @@ namespace tdd_todo_list.CSharp.Test
             //assert
             Assert.IsTrue(core.ToDoDict[task] == status);
         }
+        [TestCase (new[] { "1", "3" }, "notComplete")]
         [TestCase(new[] { "1", "3" }, "complete")]
         public void ShowTest(string[] expected, string status)
         {
@@ -93,8 +94,8 @@ namespace tdd_todo_list.CSharp.Test
             core.Add("1");
             core.Add("2");
             core.Add("3");
-            core.ChangeStatus("1");
-            core.ChangeStatus("3");
+            core.ChangeStatus("2");
+            
             List<string> expectedList = expected.ToList();
 
             //run
