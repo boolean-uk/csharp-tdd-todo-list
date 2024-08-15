@@ -67,5 +67,8 @@ namespace tdd_todo_list.CSharp.Main
 
         public Dictionary<string, string> ViewIncompleteTasksList { get { return ToDoList.Where(task => task.Value == "incomplete").ToDictionary(); } }
 
+        public Dictionary<string, string> AscendingList { get { return ToDoList.OrderBy(x => x.Key).ToDictionary(); } }
+
+        public Dictionary<string, string> DescendingList { get { return ToDoList.OrderByDescending(x => x.Key).ToDictionary(); } }
     }
 }

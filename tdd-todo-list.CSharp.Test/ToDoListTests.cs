@@ -167,19 +167,50 @@ namespace tdd_todo_list.CSharp.Test
         [Test]
         public void AscendingTodoListTest()
         {
+            string task1 = "fix bug";
+            string task2 = "add test";
+            string task3 = "run";
+            string taskstatus = "incomplete";
+            Dictionary<string, string> expectedList = new Dictionary<string, string>
+            {
+                { task2, taskstatus},
+                { task1, taskstatus },
+                { task3, taskstatus }
+            };
 
-            Dictionary<string, string> expectedList = new Dictionary<string, string>();
+            TodoList todoList = new TodoList();
+            todoList.AddTask(task1);
+            todoList.AddTask(task2);
+            todoList.AddTask(task3);
 
-            Dictionary<string, string> actualList = new Dictionary<string, string>();
+            Dictionary<string, string> actualList = todoList.AscendingList;
 
-            Assert.Equals(expectedList.First(), actualList.First());
+            Assert.AreEqual(expectedList.First(), actualList.First());
         }
 
         //9. I want to see all the tasks in my list ordered alphabetically in descending order.
         [Test]
         public void DescendingTodoListTest()
         {
-            Assert.That(false);
+            string task1 = "fix bug";
+            string task2 = "add test";
+            string task3 = "run";
+            string taskstatus = "incomplete";
+            Dictionary<string, string> expectedList = new Dictionary<string, string>
+            {
+                { task3, taskstatus},
+                { task1, taskstatus },
+                { task2, taskstatus }
+            };
+
+            TodoList todoList = new TodoList();
+            todoList.AddTask(task1);
+            todoList.AddTask(task2);
+            todoList.AddTask(task3);
+
+            Dictionary<string, string> actualList = todoList.DescendingList;
+
+            Assert.AreEqual(expectedList.First(), actualList.First());
         }
 
     }
