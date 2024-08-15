@@ -54,7 +54,7 @@ namespace tdd_todo_list.CSharp.Test
             Assert.That(list.Last().id == 3);
         }
 
-        [Test]
+        [Test] //changes the bool from false to true or vice versa
         public void CompleteTaskTest()
         {
             TodoList core = new TodoList();
@@ -72,8 +72,8 @@ namespace tdd_todo_list.CSharp.Test
             Assert.IsTrue(list.First().Complete);
         }
 
-        [Test]
-        public void FetchCompleteTasksTest()
+        [Test] // Fetches all tasks based on if they are completed or not, dictaded by the arg passed
+        public void FetchCompleteTasksTest()  
         {
             TodoList core = new TodoList();
             bool result1 = core.add("Walk the dog");
@@ -121,7 +121,7 @@ namespace tdd_todo_list.CSharp.Test
             Assert.IsFalse(sortedList.Last().Complete);
         }
 
-        [Test]
+        [Test] //returns todo object from id search
         public void SearchForTaskTest()
         {
             TodoList core = new TodoList();
@@ -144,7 +144,7 @@ namespace tdd_todo_list.CSharp.Test
             Assert.Null(todo2);
         }
 
-        [Test]
+        [Test]  // removes todo object based on id
         public void RemoveTaskTest()
         {
             TodoList core = new TodoList();
@@ -178,7 +178,7 @@ namespace tdd_todo_list.CSharp.Test
             Assert.That(list.Last().id == 3);
         }
 
-        [Test]
+        [Test]  //sorts list
         public void SortListByDescending()
         {
             TodoList core = new TodoList();
@@ -210,8 +210,57 @@ namespace tdd_todo_list.CSharp.Test
             Assert.That(listOrdered[0].id, Is.EqualTo(1));
             Assert.That(listOrdered[1].id, Is.EqualTo(2));
             Assert.That(listOrdered[2].id, Is.EqualTo(3));
+        }
 
+        [Test] // updates task content and checks functionality
+        public void UpdateTaskTest()
+        {
+            TodoList core = new TodoList();
 
+            bool result1 = core.add("aaa");
+            bool result2 = core.add("bbb");
+            bool result3 = core.add("ccc");
+            List<Todo> list = core.listTasks();
+            int listSize = core.listTasks().Count;
+
+            Assert.IsTrue(result1);
+            Assert.IsTrue(result2);
+            Assert.IsTrue(result3);
+            Assert.That(listSize == 3); // check if list increased in size by 1
+            Assert.That(list.First().id == 1);
+            Assert.That(list.Last().id == 3);
+
+            bool result4  = core.updateTask(1, "ddd");
+            bool result5 = core.updateTask(2, "eee");
+
+            list = core.listTasks();
+
+            Assert.IsTrue(result4);
+            Assert.IsTrue(result5);
+
+            Assert.That(list[0].task == "ddd");
+            Assert.That(list[1].task == "eee");
+        }
+
+        [Test] //checks that the datetime and timespan attributes work
+        public void CheckTimeOfCreation()
+        {
+            TodoList core = new TodoList();
+
+            bool result1 = core.add("aaa");
+            bool result2 = core.add("bbb");
+            bool result3 = core.add("ccc");
+            List<Todo> list = core.listTasks();
+            int listSize = core.listTasks().Count;
+
+            Assert.IsTrue(result1);
+            Assert.IsTrue(result2);
+            Assert.IsTrue(result3);
+            Assert.That(listSize == 3); // check if list increased in size by 1
+            Assert.That(list.First().id == 1);
+            Assert.That(list.Last().id == 3);
+
+            Console.WriteLine(list[0].DateOfCreation.ToString());
         }
 
     }

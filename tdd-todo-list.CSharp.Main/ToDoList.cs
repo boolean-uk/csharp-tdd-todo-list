@@ -56,7 +56,18 @@ namespace tdd_todo_list.CSharp.Main
             return todoList.OrderBy(item => item.task).ToList();
             
 
-        } //add sort  
+        }
+
+        public bool updateTask(int id, string name)
+        {
+            Todo todo = todoList.FirstOrDefault(item => item.id == id);
+            if (todo != null)
+            {
+                todo.task = name;
+                return true;
+            }
+            return false;
+        }
 
     }
 }
