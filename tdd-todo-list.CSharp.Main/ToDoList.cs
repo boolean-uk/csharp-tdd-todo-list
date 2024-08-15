@@ -8,7 +8,9 @@ namespace tdd_todo_list.CSharp.Main
 {
     public class TodoList
     {
-        private Dictionary<string, bool> _todoList = new Dictionary<string, bool>();
+        public int taskCount { get { return _todoList.Count; } }
+
+        private Dictionary<string, bool> _todoList { get; set; } = new Dictionary<string, bool>();
         public bool Add(string task)
         {
             //I assume a task is initially not completed
@@ -30,5 +32,13 @@ namespace tdd_todo_list.CSharp.Main
             }
             return false;
         }
+
+        public List<string> getCompletedTasks()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<string> showAllTasks(){ return _todoList.Keys.ToList(); }
+
     }
 }

@@ -43,5 +43,39 @@ namespace tdd_todo_list.CSharp.Test
 
             Assert.That(result, Is.False);
         }
+
+        [Test]
+        public void showAllTasks()
+        {
+            TodoList todoList = new TodoList();
+            string task1 = "a";
+            string task2 = "b";
+            int expectedCount = 2;
+
+            todoList.Add(task1);
+            todoList.Add(task2);
+            List<string> tasks = todoList.showAllTasks();
+            int result = tasks.Count;
+
+            Assert.That(result, Is.EqualTo(expectedCount));
+
+        }
+
+        public void getAllCompletedTasks()
+        {
+            TodoList todoList = new TodoList();
+            string task1 = "walk the dog";
+            string task2 = "eat";
+            string task3 = "run";
+            int expectedCount = 2;
+
+            todoList.Add(task1);
+            todoList.Add(task2);
+            todoList.Add(task3);
+            todoList.ChangeTask(task1);
+            todoList.ChangeTask(task2);
+
+            List<string> tasks = todoList.getCompletedTasks();
+        }
     }
 }
