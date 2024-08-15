@@ -360,6 +360,19 @@ namespace tdd_todo_list.CSharp.Test
             Assert.That(!todoList.TodoList().Contains(newName));
         }
         //I want to be able to change the status of a task by providing its ID.
+        [Test]
+        public void ChangeStatusByID() 
+        {
+            var todoList = new Todo();
+            string todo = "Backflip";
+            int hash = todo.GetHashCode();
+
+            todoList.Add(todo);
+            var result = todoList.ChangeTodoStatus(hash);
+
+            Assert.That(result);
+            Assert.That(todoList.GetComplete().Contains(todo));
+        }
         //I want to be able to see the date and time that I created each task.
     }
 }
