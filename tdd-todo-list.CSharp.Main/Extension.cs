@@ -26,6 +26,14 @@ namespace tdd_todo_list.CSharp.Main
                 state = false;
             }
 
+            public StatusAndID(StatusAndID existingValue)
+            {
+                this.ID = existingValue.ID;
+                this.date = existingValue.date;
+                this.time = existingValue.time;
+                this.state = existingValue.state;
+            }
+
             public void SetState(bool newState)
             {
                 this.state = newState;
@@ -155,9 +163,18 @@ namespace tdd_todo_list.CSharp.Main
             return _List(tasks.OrderByDescending(x => x.Key).ToDictionary());
         }
 
-        public Dictionary<string, StatusAndID> Get(int iD)
+        public Dictionary<string, StatusAndID> Get(int id)
         {
-            throw new NotImplementedException();
+            Dictionary<string, StatusAndID> output = new Dictionary<string, StatusAndID>();
+            foreach (var task in tasks)
+            {
+                if (task.Value.ID == id)
+                {
+                    output.Add(task.Key, task.Value);
+                    return output;
+                }
+            }
+            return output;
         }
     }
 }
