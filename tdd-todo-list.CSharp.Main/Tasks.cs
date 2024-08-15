@@ -11,7 +11,7 @@ namespace tdd_todo_list.CSharp.Main
         private string _name;
 
         private bool _status = false;
-        public string name { get { return _name; } }
+        public string name { get { return _name; } set { _name = value; } }
 
         public bool status { get { return _status; } }
 

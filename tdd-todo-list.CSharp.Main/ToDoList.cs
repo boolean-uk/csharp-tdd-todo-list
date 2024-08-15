@@ -67,6 +67,8 @@ namespace tdd_todo_list.CSharp.Main
 
         public List<Tasks> GetIncompleted()
         {
+
+            //List<Tasks> tasks = _tasks.GroupBy(task => task.status).ToList();
             List<Tasks> tasks = new List<Tasks>();
             foreach (Tasks task in _tasks)
             {

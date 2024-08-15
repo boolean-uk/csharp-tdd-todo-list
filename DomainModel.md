@@ -25,3 +25,21 @@
 |-------------|---------------------------|-----------------------------------------------|---------------|
 | `TodoList`  | `SortDescending()`		  | Sorts the tasks in descending order			  | List_Task	  |
 |-------------|---------------------------|-----------------------------------------------|---------------|
+
+
+##Extended DomainModel##
+
+
+| Classes     | Method				      | Scenario									  | Output		  |
+|-------------|---------------------------|-----------------------------------------------|---------------|
+|`ExtTodoList`| `GetTask(int Id)`		  | returns the task with the assigned Id		  | Task		  |
+|-------------|---------------------------|-----------------------------------------------|---------------|
+|`ExtTodoList`|`UpdateName(int id, str n)`| updates the name of the task with the Id	  | true		  |
+|			  |							  |												  |				  |
+|			  |							  |	Unable to update the name		    		  | false		  |
+|-------------|---------------------------|-----------------------------------------------|---------------|
+| `ExtTask`	  | `ChangeStatus()`		  | Changes the status to whatever it isnt		  | true		  |
+|`ExtTodoList`|`ChangeStatus(int id)`	  | Changes the status of given task			  | Task.ChangeStatus()|
+|-------------|---------------------------|-----------------------------------------------|---------------|
+|`ExtTodoList`| `GetDateTime(int id)`	  | gets the DateTime of the task matching the Id | DateTime	  |
+|-------------|---------------------------|-----------------------------------------------|---------------|
