@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,13 @@ namespace tdd_todo_list.CSharp.Main
             Complete,
             InComplete,
             All
+        }
+
+        public enum Order
+        {
+            Ascending,
+            Descending,
+            AnyOrder
         }
 
         public void AddTask(string name, bool status)
@@ -36,9 +44,12 @@ namespace tdd_todo_list.CSharp.Main
             return todo[name];
         }
 
-        public string PrintTasks(TodoTaskStatus status)
+        public string PrintTasks(TodoTaskStatus status, Order order)
         {
             string tasks = string.Empty;
+            
+
+
             foreach (var task in todo)
             {
                 if (status == TodoTaskStatus.InComplete && task.Value == false)

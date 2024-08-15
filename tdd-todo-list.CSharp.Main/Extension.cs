@@ -8,5 +8,14 @@ namespace tdd_todo_list.CSharp.Main
 {
     public class TodoListExtension
     {
+
+        Dictionary<string, bool> todo = new Dictionary<string, bool>();
+        public enum TodoTaskStatus
+        {
+            Complete,
+            InComplete,
+            All
+        }
+
     }
 }
