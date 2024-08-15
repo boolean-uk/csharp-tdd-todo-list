@@ -44,14 +44,17 @@ namespace tdd_todo_list.CSharp.Main
                 return keys;
 
             }
-            
+
         }
         public void ChangeStatus(string task)
         {
-            if (_toDoList.ContainsKey(task))            
+            if (_toDoList.ContainsKey(task))
                 _toDoList[task] = "complete";
-            
-            
+        }
+
+        public List<string> Show(string status)
+        {
+            throw new NotImplementedException();
         }
     }
 }
