@@ -31,5 +31,31 @@ namespace tdd_todo_list.CSharp.Test
             Console.WriteLine($"expected {expected}\nresult {result}");
             Assert.True(expected.SequenceEqual(result));
         }
+
+
+
+        [Test]
+        public void getJobTest()
+        {
+            TodoList todoList = new TodoList();
+            Job job = new Job(1, "shoot", Status.INCOMPLETE, DateTime.Now);
+            Job expected = job;
+            Job result = todoList.getJob(1);
+            Assert.That(expected == result);
+        }
+        /*
+        [Test]
+        public void changeStatusTest()
+        {
+            TodoList todoList = new TodoList();
+            Job job = new Job(1, "shoot", Status.INCOMPLETE, DateTime.Now);
+            todoList.addJob(job);
+            Status expected = Status.COMPLETE;
+            //todoList.changeStatus(int id);
+
+
+        }
+
+        */
     }
 }

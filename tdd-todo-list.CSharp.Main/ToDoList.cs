@@ -12,9 +12,21 @@ namespace tdd_todo_list.CSharp.Main
         public List<Job> jobs = new List<Job>();
         public bool addJob(Job job)
         {
-            if(jobs.Contains(job)) return false;
+            foreach (var existingJob in jobs)
+            {
+                if (existingJob.Id == job.Id)
+                {
+                    Console.WriteLine("job already exists!");
+                    return false;
+                }
+            }
             jobs.Add(job);
             return true;
+        }
+
+        public Job getJob(int v)
+        {
+            throw new NotImplementedException();
         }
 
         public List<Job> seeJobs()
@@ -25,5 +37,7 @@ namespace tdd_todo_list.CSharp.Main
             }
             return jobs;
         }
+
+
     }
 }
