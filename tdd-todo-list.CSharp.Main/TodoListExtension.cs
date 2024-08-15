@@ -11,6 +11,8 @@ namespace tdd_todo_list.CSharp.Main
         private int _idCounter = 0;
         private Dictionary<int, TodoTask> _todoList { get; set; } = new Dictionary<int, TodoTask>();
 
+        public Dictionary<string, DateTime> dateList { get { return _todoList.Values.ToDictionary(x => x._name, x => x._date); } }
+
         public void Add(string taskName)
         {
             TodoTask task = new TodoTask(taskName);
@@ -42,8 +44,6 @@ namespace tdd_todo_list.CSharp.Main
             }
             return false;
         }
-
-        public Dictionary<string, DateTime> getDates() => _todoList.Values.ToDictionary(x => x._name, x => x._date);
 
         public string GetTask(int v) => _todoList[v]._name;
 

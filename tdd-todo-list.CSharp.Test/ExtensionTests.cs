@@ -104,7 +104,7 @@ namespace tdd_todo_list.CSharp.Test
             todo.Add(task1);
             todo.Add(task2);
             todo.Add(task3);
-            Dictionary<string, DateTime> taskWithDates = todo.getDates();
+            Dictionary<string, DateTime> taskWithDates = todo.dateList;
             int result = taskWithDates.Count;
 
             Assert.That(result, Is.EqualTo(expectedCount));
