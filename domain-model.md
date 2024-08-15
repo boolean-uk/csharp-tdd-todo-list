@@ -19,7 +19,7 @@ Extension requirements
 | Classes  | Methods                                | Scenario                                       | Output                         |
 |----------|----------------------------------------|------------------------------------------------|--------------------------------|
 | TodoList | List\<TaskItem> Tasks {get; set;}       | Store and get tasks                            | List\<TaskItem> tasks           |
-|          | AddTask(String taskName)               | Add a new task to Task List                    | bool                           |
+|          | AddTask(String taskName, int id, String dateTime)               | Add a new task to Task List                    | bool                           |
 |          | GetCompleteTasks()                     | Filter the tasks to show only complete         | List\<TaskItem> completeTasks   |
 |          | GetIncompleteTasks()                   | Filter tasks to find only incomplete           | List\<TaskItem> incompleteTasks |
 |          | SearchTask(String name)                | Search for a specific task                     | bool                           |
@@ -29,6 +29,6 @@ Extension requirements
 |          | UpdateTaskName(int Id, String newName) | Update a task with a new name                  | bool                           |
 |          | UpdateTaskStatus(int Id)               | Updates the isComplete property                | bool                           |
 | TaskItem | String Name {get; set;}                | store and get name of task                     | String name                    |
-|          | bool isComplete {get; set;} = false;   | check completion status                        | bool                           |
+|          | bool IsComplete {get; set;} = false;   | check completion status                        | bool                           |
 |          | int Id {get; set;}                     | store unique id for tasks                      | int id                         |
 |          | DateTime Date {get; set;}              | store date of task creation                    | DateTime date                  |
