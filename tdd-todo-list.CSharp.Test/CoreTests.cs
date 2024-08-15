@@ -155,5 +155,53 @@ namespace tdd_todo_list.CSharp.Test
             Assert.That(expected == result);
         }
 
+        [Test]
+        public void AscendingTest()
+        {
+            //arrange
+            TodoList list = new TodoList();
+            list.Add("Grocery Shopping", 0);
+            list.Add("Vacuum", 1);
+            //list.Add("Answer questions", 0);
+            list.Add("task4", 1);
+            list.Add("task5", 0);
+
+            string expected = "Grocery Shopping";
+
+            //act
+            List<string> ascendingList = list.SortAscending();
+
+            string result = ascendingList.First();
+
+
+            //assert
+            Assert.That(expected == result);
+        }
+
+        [Test]
+        public void DescenidingTest()
+        {
+            //arrange
+            TodoList list = new TodoList();
+            list.Add("Grocery Shopping", 0);
+            list.Add("Vacuum", 1);
+            list.Add("Answer questions", 0);
+            list.Add("task4", 1);
+            list.Add("task5", 0);
+            list.Add("zoo visit", 0);
+
+
+            string expected = "zoo visit";
+
+            //act
+            List<string> descendingList = list.SortDescending();
+
+            string result = descendingList.First();
+
+
+            //assert
+            Assert.That(expected == result);
+        }
+
     }
 }

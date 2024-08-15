@@ -2,6 +2,8 @@
 
 
 
+
+
 namespace tdd_todo_list.CSharp.Main
 {
     public class TodoList
@@ -89,5 +91,14 @@ namespace tdd_todo_list.CSharp.Main
             return false;
         }
 
+        public List<string> SortAscending()
+        {
+            return taskList.Keys.OrderBy(task => task).ToList(); ;
+        }
+
+        public List<string> SortDescending()
+        {
+            return taskList.Keys.OrderByDescending(task => task).ToList(); ;
+        }
     }
 }
