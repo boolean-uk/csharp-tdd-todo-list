@@ -96,5 +96,10 @@ namespace tdd_todo_list.CSharp.Main
         {
             throw new NotImplementedException();
         }
+
+        public void changeNameById(int id, string name)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

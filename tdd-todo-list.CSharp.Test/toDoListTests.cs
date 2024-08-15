@@ -211,6 +211,17 @@ namespace tdd_todo_list.CSharp.Test
         {
 
             //arrange
+            TodoList list = new TodoList();
+            int testId = 2;
+            string newName = "visitation";
+
+
+            //act
+            list.changeNameById(testId, newName);
+            string actualName =list.findById(testId);
+
+            //assert
+            Assert.AreEqual(newName, actualName);
         }
 
     }
