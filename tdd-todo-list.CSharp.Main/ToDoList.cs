@@ -8,9 +8,19 @@ namespace tdd_todo_list.CSharp.Main
 {
     public class TodoList
     {
+        private Dictionary <string, string> ToDoList = new Dictionary<string, string> ();
+
         public bool AddTask(string task)
         {
-            throw new NotImplementedException();
+            string newTaskStatus = "Incomplete";
+
+            if (!ToDoList.ContainsKey(task)) 
+            {
+                ToDoList.Add(task, newTaskStatus);
+                return true;
+            }
+            return false;
+            
         }
     }
 }
