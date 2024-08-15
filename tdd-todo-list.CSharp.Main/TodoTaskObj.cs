@@ -48,6 +48,18 @@ namespace tdd_todo_list.CSharp.Main
                 complete = true;
             }
         }
+        override
+        public string ToString()
+        {
+            string status;
+            if (Complete) 
+            {
+                status = "Completed"; 
+            } else { 
+                status = "Inomplete"; 
+            }
+            return $"{this.contentText} => {status}"; 
+        }
     }
 }
 

@@ -87,5 +87,14 @@ namespace tdd_todo_list.CSharp.Main
         {
             return taskList.Count;
         }
+
+        override
+        public string ToString() 
+        {
+            string returnString = "Current Tasks: ";
+
+            foreach (TodoTaskObj obj in taskList) { returnString += obj.ToString() + ": "; }
+            return returnString;
+        }
     }
 }

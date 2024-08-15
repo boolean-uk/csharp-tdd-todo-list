@@ -1,5 +1,7 @@
 ﻿using tdd_todo_list.CSharp.Main;
 using NUnit.Framework;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace tdd_todo_list.CSharp.Test
 {
@@ -20,10 +22,12 @@ namespace tdd_todo_list.CSharp.Test
         public void seeAllTasktInList()
         {
             TodoList core = new TodoList();
-            TodoTaskObj task = new TodoTaskObj("First task");
-            core.AddTaskToList(task);
-            core.ToString();
-            Assert.Fail();
+            TodoTaskObj task1 = new TodoTaskObj("First task");
+            TodoTaskObj task2 = new TodoTaskObj("Second task");
+            core.AddTaskToList(task1);
+            core.AddTaskToList(task2);
+            string s = core.ToString();
+            Assert.That(s.Contains("First task => Inomplete: Second task => Inomplete:"));
         }
 
         [Test]
@@ -84,7 +88,6 @@ namespace tdd_todo_list.CSharp.Test
             core.getOrderedTasksReversed();
             Assert.Fail();
         }
-
 
 
 
