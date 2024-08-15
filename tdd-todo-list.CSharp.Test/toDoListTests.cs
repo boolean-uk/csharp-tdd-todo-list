@@ -177,7 +177,7 @@ namespace tdd_todo_list.CSharp.Test
             }
 
             //assert
-            Assert.IsTrue(i);
+            Assert.IsTrue(isDescending);
         }
 
 

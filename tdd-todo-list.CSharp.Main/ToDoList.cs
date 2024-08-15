@@ -9,12 +9,22 @@ namespace tdd_todo_list.CSharp.Main
     public class TodoList
     {
 
-        public List<toDoTask> taskList { get { return taskList; } }
+        private List<toDoTask> _taskList = new List<toDoTask>() {
+
+                new toDoTask("exercise", true),
+                new toDoTask("cook", false),
+                new toDoTask("work", true),
+                new toDoTask("eat", true),
+                new toDoTask("sleep", false),
+                new toDoTask("read", false)
+
+            };
+        public List<toDoTask> taskList { get { return _taskList; } }
 
         public void addTask(toDoTask toDoTask)
         {
             
-            taskList.Add(toDoTask);
+            _taskList.Add(toDoTask);
 
         }
 
