@@ -51,6 +51,25 @@ namespace tdd_todo_list.CSharp.Test
 
         }
 
+        [Test]
+
+        public void checkIfTaskRemoved()
+        {
+            //arrange 
+            string taskToRemove = "delete_this";
+            TodoList todoList = new TodoList();
+            bool removed = true;
+            toDoTask task = new toDoTask(10, taskToRemove, true, new DateTime(2024, 3, 18, 14, 30, 0));
+
+            //act
+            todoList.addTask(task);
+            todoList.removeTask(taskToRemove);
+
+
+            //
+            bool isTaskRemoved = !todoList.taskList.Any(task => task.taskName == taskToRemove);
+            Assert.IsTrue(isTaskRemoved);
+        }
 
         [Test]
         public void checkIfTaskStatusChanged()
@@ -242,7 +261,7 @@ namespace tdd_todo_list.CSharp.Test
 
 
             //Assert
-            Assert.IsTrue(expectedStatus);
+            Assert.AreEqual(newStatus ,expectedStatus);
         }
 
         [Test]
@@ -259,7 +278,7 @@ namespace tdd_todo_list.CSharp.Test
             DateTime date = list.getDateTime(taskToCheck);
 
             //assert
-            Assert.AreEqual((DateTime)date, DateTime.Now);
+            Assert.AreEqual((DateTime)date, new DateTime(2024, 3, 18, 14, 30, 0));
 
         }
     }

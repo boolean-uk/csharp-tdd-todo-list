@@ -139,5 +139,11 @@ namespace tdd_todo_list.CSharp.Main
             }
             return creationTime;
         }
+
+        public void removeTask(string taskToRemove)
+        {
+
+            taskList.RemoveAll(item => item.taskName == taskToRemove);
+        }
     }
 }
