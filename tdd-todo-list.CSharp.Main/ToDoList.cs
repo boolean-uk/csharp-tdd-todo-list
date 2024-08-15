@@ -16,5 +16,10 @@ namespace tdd_todo_list.CSharp.Main
             jobs.Add(job);
             return true;
         }
+
+        public List<Job> seeJobs()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
