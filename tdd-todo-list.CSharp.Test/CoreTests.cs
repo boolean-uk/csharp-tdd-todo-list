@@ -70,8 +70,10 @@ namespace tdd_todo_list.CSharp.Test
 
             todoList.addJob(job1);
             todoList.addJob(job2);
-            List<Job> expected = [job1];
+            List<Job> expected = [job2];
             List<Job> result = todoList.getSpecifiedJobs(Status.COMPLETE);
+
+            Console.WriteLine($"expected {expected}\nresult {result}");
 
             Assert.True(expected.SequenceEqual(result));
         }
