@@ -19,5 +19,29 @@ namespace tdd_todo_list.CSharp.Test
             bool result = todoList.Add(task);
             Assert.That(result, Is.True);
         }
+
+        [Test]
+        public void ChangeTaskTest()
+        {
+
+            TodoList todoList = new TodoList();
+            string task = "brush teeth";
+            todoList.Add(task);
+
+            bool result = todoList.ChangeTask(task);
+
+            Assert.That(result, Is.True);
+        }
+
+        [Test]
+        public void ChangeNonExistingTaskTest()
+        {
+            TodoList todoList = new TodoList();
+            string task = "go for walk";
+
+            bool result = todoList.ChangeTask(task);
+
+            Assert.That(result, Is.False);
+        }
     }
 }

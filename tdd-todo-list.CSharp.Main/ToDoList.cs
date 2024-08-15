@@ -15,5 +15,20 @@ namespace tdd_todo_list.CSharp.Main
             _todoList.Add(task, false);
             return true;
         }
+
+        public bool ChangeTask(string task)
+        {
+            if (_todoList.ContainsKey(task))
+            {
+                if (_todoList[task] == true)
+                {
+                    _todoList[task] = false;
+                    return true;
+                }
+                _todoList[task] = true;
+                return true;
+            }
+            return false;
+        }
     }
 }
