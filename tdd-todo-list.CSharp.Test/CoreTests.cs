@@ -60,8 +60,23 @@ namespace tdd_todo_list.CSharp.Test
             Assert.That(expected == job.Status);
 
         }
-        
-        
+
+        [Test]
+        public void getSpecifiedJobsTest()
+        {
+            TodoList todoList = new TodoList();
+            Job job1 = new Job(1, "casting", Status.INCOMPLETE, DateTime.Now);
+            Job job2 = new Job(2, "shoot", Status.COMPLETE, DateTime.Now);
+
+            todoList.addJob(job1);
+            todoList.addJob(job2);
+            List<Job> expected = [job1];
+            List<Job> result = todoList.getSpecifiedJobs(Status.COMPLETE);
+
+            Assert.True(expected.SequenceEqual(result));
+        }
+
+
 
 
     }

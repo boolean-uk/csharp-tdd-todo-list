@@ -61,6 +61,11 @@ namespace tdd_todo_list.CSharp.Main
 
         }
 
+        public List<Job> getSpecifiedJobs(Status cOMPLETE)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Job> seeJobs()
         {
             foreach (var job in jobs) 
