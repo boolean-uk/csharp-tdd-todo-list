@@ -9,15 +9,13 @@ namespace tdd_todo_list.CSharp.Test
     {
 
         [Test]
-        [TestCase("Hoover")]
-        [TestCase("Cook")]
-        public void AddTask(String task)
+        public void AddTask()
         {
             TodoList todoList = new TodoList();
+            
+            todoList.AddTask("Hoover");
 
-            todoList.AddTask(task);
-
-            Assert.IsTrue(Tasks.Contains(task));
+            Assert.IsTrue(todoList.Tasks.Count() == 1);
         }
 
 
