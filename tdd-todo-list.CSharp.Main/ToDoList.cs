@@ -52,44 +52,17 @@ namespace tdd_todo_list.CSharp.Main
 
         public List<TodoTask> GetCompleteTasks()
         {
-            List<TodoTask> completedTasks = new List<TodoTask>();
-
-            foreach(TodoTask t in this._tasks)
-            {
-                if(t.Status == Status.Complete)
-                {
-                    completedTasks.Add(t);
-                }
-            }
-
-            return completedTasks;
+            return this._tasks.Where((t) => t.Status == Status.Complete).ToList();
         }
 
         public List<TodoTask> GetIncompleteTasks() 
         {   
-            List<TodoTask> incompletedTasks = new List<TodoTask>();
-
-            foreach(TodoTask t in this._tasks)
-            {
-                if (t.Status == Status.Incomplete) 
-                {
-                    incompletedTasks.Add(t);
-                }
-            }
-
-            return incompletedTasks;
+            return this._tasks.Where((t) => t.Status == Status.Incomplete).ToList();
         }
 
         public string FindTask(string taskname)
         {
-            bool found = this._tasks.Any((t) => t.Taskname == taskname);
-
-            if (found)
-            {
-                return "This task was found";
-            }
-            return "This task was not found";
-        
+            return this._tasks.Any((t) => t.Taskname == taskname) ? "This task was found" : "This task was not found";
         }
 
         public List<TodoTask> GetSortedTasksAsc()
