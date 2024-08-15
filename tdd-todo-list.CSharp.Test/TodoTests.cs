@@ -47,7 +47,7 @@ namespace tdd_todo_list.CSharp.Test
         {
             //arrange
             TodoList todo = new TodoList();
-            string expected = "";
+            string expected = string.Empty;
             string taskName = "Watch Netflix episode ";
             for(int i = 1; i < 11; i++)
             {
@@ -58,11 +58,11 @@ namespace tdd_todo_list.CSharp.Test
                 }
                 todo.AddTask(taskName + i.ToString(), stat);
 
-                if (status == TodoTaskStatus.InComplete)
+                if (status == TodoTaskStatus.InComplete && stat == false)
                 {
                     expected += taskName + i.ToString() + "\n";
                 }
-                else if( status == TodoTaskStatus.Complete)
+                else if( status == TodoTaskStatus.Complete && stat == true)
                 {
                     expected += taskName + i.ToString() + "\n";
                 }

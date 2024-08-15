@@ -35,5 +35,26 @@ namespace tdd_todo_list.CSharp.Main
             todo[name] = !todo[name];
             return todo[name];
         }
+
+        public string PrintTasks(TodoTaskStatus status)
+        {
+            string tasks = string.Empty;    
+            foreach (var task in todo)
+            {
+                
+            }
+            if (status == TodoTaskStatus.InComplete)
+            {
+                
+            }
+            else if (status == TodoTaskStatus.Complete)
+            {
+                
+            }
+            else
+            {
+                
+            }
+        }
     }
 }
