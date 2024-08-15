@@ -42,6 +42,7 @@ namespace tdd_todo_list.CSharp.Test
             TodoList tl = new TodoList();
             TodoTask originalTask = new TodoTask(a, b);
 
+            tl.AddTask(originalTask);
             TodoTask foundTask = tl.FetchTask(a);
 
             Assert.That(foundTask, Is.EqualTo(originalTask));
@@ -55,6 +56,7 @@ namespace tdd_todo_list.CSharp.Test
         {
             TodoList tl = new TodoList();
             TodoTask newTask = new TodoTask("SomeTaskName", startStatus);
+            tl.AddTask(newTask);
 
             tl.ChangeStatus("SomeTaskName", endStatus);
             Assert.That(tl.FetchTask("SomeTaskName").status, Is.EqualTo(endStatus));
@@ -76,8 +78,8 @@ namespace tdd_todo_list.CSharp.Test
             Assert.That(tl.FetchTasksWithStatus(Status.COMPLETE).Count(), Is.EqualTo(amount));
         }
 
-        [TestCase("Task1", "Doesn't exist")]
-        [TestCase("Task2", "Does exist")]
+        [TestCase("Task1", "Does exist")]
+        [TestCase("Task2", "Doesn't exist")]
         public void DoesExistTest(string a, string b)
         {
             TodoList tl = new TodoList();
