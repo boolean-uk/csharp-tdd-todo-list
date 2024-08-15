@@ -15,7 +15,8 @@ namespace tdd_todo_list.CSharp.Test
     {
 
         [Test]
-        public void checkIfTaskAdded() {
+        public void checkIfTaskAdded()
+        {
 
             //arrange
             TodoList todoList = new TodoList();
@@ -59,19 +60,19 @@ namespace tdd_todo_list.CSharp.Test
             string taskToChange = "exercise";
             bool changeTo = false;
             bool statusChanged = false;
-            
+
 
             //act
-            
+
             list.changeStatus(taskToChange, changeTo);
             foreach (var item in list.taskList)
             {
-                if (item.taskName==taskToChange)
+                if (item.taskName == taskToChange)
                 {
                     item.taskComplete = changeTo;
                     statusChanged = true;
                     break;
-                  
+
                 }
             }
 
@@ -89,8 +90,8 @@ namespace tdd_todo_list.CSharp.Test
 
             //arrange
             TodoList list = new TodoList();
-            List <toDoTask> filteredList = list.getComplete(list.taskList);
-            bool filterComplete= true;
+            List<toDoTask> filteredList = list.getComplete(list.taskList);
+            bool filterComplete = true;
 
             //act
             foreach (var item in filteredList)
@@ -146,12 +147,12 @@ namespace tdd_todo_list.CSharp.Test
             bool isAscending = true;
 
             //act
-            for (int i = 0; i < ascendingList.Count-1; i++)
+            for (int i = 0; i < ascendingList.Count - 1; i++)
             {
                 string word1 = ascendingList[i].taskName;
-                string word2 = ascendingList[i+1].taskName;
+                string word2 = ascendingList[i + 1].taskName;
                 int result = String.Compare(word1, word2);
-                if(result == 1)
+                if (result == 1)
                 {
                     isAscending = false;
                 }
@@ -171,7 +172,7 @@ namespace tdd_todo_list.CSharp.Test
             bool isDescending = true;
 
             //act
-            for (int i = 0; i < descendingList.Count-1; i++)
+            for (int i = 0; i < descendingList.Count - 1; i++)
             {
                 string word1 = descendingList[i].taskName;
                 string word2 = descendingList[i + 1].taskName;
@@ -196,7 +197,7 @@ namespace tdd_todo_list.CSharp.Test
             string expectedTaskName = "cook";
 
             //act
-            string taskName= list.findById(id);
+            string taskName = list.findById(id);
 
 
             //assert
@@ -219,7 +220,7 @@ namespace tdd_todo_list.CSharp.Test
 
             //act
             list.changeNameById(testId, newName);
-            string actualName =list.findById(testId);
+            string actualName = list.findById(testId);
 
             //assert
             Assert.AreEqual(newName, actualName);
@@ -229,7 +230,8 @@ namespace tdd_todo_list.CSharp.Test
 
         [Test]
 
-        public void checkUpdateStatusById() {
+        public void checkUpdateStatusById()
+        {
             TodoList list = new TodoList();
             int testId = 3;
             bool newStatus = false;
@@ -241,7 +243,7 @@ namespace tdd_todo_list.CSharp.Test
 
             //Assert
             Assert.IsTrue(expectedStatus);
-    }
+        }
 
         [Test]
         public void checkCreationTime()
@@ -254,6 +256,11 @@ namespace tdd_todo_list.CSharp.Test
 
 
             //act
-            list.getDateTime(taskToCheck);
+            DateTime date = list.getDateTime(taskToCheck);
+
+            //assert
+            Assert.AreEqual((DateTime)date, DateTime.Now);
+
         }
+    }
 }

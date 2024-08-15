@@ -107,7 +107,7 @@ namespace tdd_todo_list.CSharp.Main
             throw new NotImplementedException();
         }
 
-        public void getDateTime(string taskToCheck)
+        public DateTime getDateTime(string taskToCheck)
         {
             throw new NotImplementedException();
         }
