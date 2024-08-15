@@ -34,5 +34,30 @@ namespace tdd_todo_list.CSharp.Test
             //assert
             Assert.That(result.Key, Is.EqualTo(task));
         }
+
+        [TestCase("Feed Pet", "Go Shopping")]
+        public void ChangeNameTest(string task1, string task2)
+        {
+            //arrange
+            TodoListExtension tasks = new TodoListExtension();
+            bool expectedFailure = false;
+            int ID = 0;
+
+            //act
+            bool result = tasks.ChangeName(ID, task2);
+
+            //assert
+            Assert.That(result, Is.EqualTo(expectedFailure));
+
+            //arrange
+            tasks.Add(task1);
+            bool expectedSuccess = true;
+
+            //act
+            result = tasks.ChangeName(ID, task2);
+
+            //assert
+            Assert.That(result, Is.EqualTo(expectedSuccess));
+        }
     }
 }

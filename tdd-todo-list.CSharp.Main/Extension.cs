@@ -174,5 +174,10 @@ namespace tdd_todo_list.CSharp.Main
             }
             return new KeyValuePair<string, StatusAndID>();
         }
+
+        public bool ChangeName(int id, string task2)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
