@@ -104,5 +104,21 @@ namespace tdd_todo_list.CSharp.Test
             //assert
             Assert.IsTrue(expected.SequenceEqual(computed));
         }
+        [TestCase("1", "Task is not found")]
+        public void SearchTest(string searchParameter, string computedMessage)
+        {
+            //init
+            TodoList core = new TodoList();
+            core.Add("task 1");
+            core.Add("task 2");
+            core.Add("task 3");
+
+            //run
+            string computed = core.Search(searchParameter);
+
+            //assert
+
+            Assert.That(computed, Is.EqualTo(computedMessage));
+        }
     }
 }

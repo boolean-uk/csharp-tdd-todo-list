@@ -66,5 +66,10 @@ namespace tdd_todo_list.CSharp.Main
             List<string> list = _toDoList.Where(x => x.Value == status).Select(x => x.Key).ToList();
             return list;
         }
+
+        public string Search(string message)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
