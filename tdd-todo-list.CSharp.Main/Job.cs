@@ -15,23 +15,19 @@ namespace tdd_todo_Slist.CSharp.Main
 
     public class Job
 {
-        private readonly int id;
-        private readonly string name;
-        private readonly Status status;
-        private readonly DateTime date;
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public Status Status { get; set; }
+        public DateTime Date { get; set; }
+
 
         public Job(int id, string name, Status status, DateTime date)
         {
-            this.id = id;
-            this.name = name;
-            this.status = status;
-            this.date = date;
+            this.Id = id;
+            this.Name = name;
+            this.Status = status;
+            this.Date = date;
         }
-
-        public int Id { get { return id; } } 
-        public string Name { get { return name; } }  
-        public Status Status { get { return status; } }
-        public DateTime Date { get { return date; } }
 
     }
 }

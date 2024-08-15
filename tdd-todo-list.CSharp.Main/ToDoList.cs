@@ -17,7 +17,7 @@ namespace tdd_todo_list.CSharp.Main
 
             foreach (var exJob in todoList)
             {
-                if (job == exJob)
+                if (job.Id == exJob.Id)
                 {
                     Console.WriteLine("This job already exists");
                     return !added;
@@ -29,11 +29,37 @@ namespace tdd_todo_list.CSharp.Main
 
         public bool changeJobStatus(int jobId)
         {
-            throw new NotImplementedException();
+            bool changed = true;
+
+            // Job job = todoList.Find(x => x.Id == jobId);
+            Job job = todoList.Where(x => x.Id == jobId).First();
+
+            if (job == null)
+            {
+                changed = false;
+            }
+
+            if (job.Status == Status.INCOMPLETE)
+            {
+                job.Status = Status.COMPLETE;
+                Console.WriteLine(job.Status);
+                return changed;
+            } 
+            else 
+            { 
+                job.Status = Status.INCOMPLETE;
+                Console.WriteLine(job.Status);
+                return changed;
+            }
         }
 
         public List<Job> getAllJobs()
         {
+            foreach (var job in todoList)
+            {
+                Console.WriteLine($"job: {job.Id}, name: {job.Name}, Status: {job.Status}, Date: {job.Date}");
+            }
+
             return todoList;
         }
     }
