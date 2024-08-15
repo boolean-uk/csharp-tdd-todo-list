@@ -182,9 +182,14 @@ namespace tdd_todo_list.CSharp.Test
         [Test]
         public void TestChangeJobNameWithID()
         {
+            TodoListExtension todoListExtension = new TodoListExtension();
             JobExtension job = new JobExtension("Go for a run", "Run 1 km, its hard, but its good for you!");
+            todoListExtension.AddToList(job);
 
             string expectedResult = "Dont go for a run";
+            string actualResult = todoListExtension.changeJobName(1, "Dont go for a run");
+
+            Assert.That(actualResult, Is.EqualTo(expectedResult));
         }
     }
 }

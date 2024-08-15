@@ -88,11 +88,11 @@ namespace tdd_todo_list.CSharp.Main
             return true;
         }
 
-        public bool changeJobName(int id, string newName)
+        public string changeJobName(int id, string newName)
         {
             JobExtension job = GetJob(id);
             job.Name = newName;
-            return true;
+            return job.Name;
         }
     }
 
