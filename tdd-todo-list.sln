@@ -9,6 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "tdd-todo-list.CSharp.Test",
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain models", "Domain models", "{74CCE061-7E68-48C2-B6AD-2787749AA54F}"
 	ProjectSection(SolutionItems) = preProject
+		DomainModelForToDoList.png = DomainModelForToDoList.png
 		model.md = model.md
 	EndProjectSection
 EndProject

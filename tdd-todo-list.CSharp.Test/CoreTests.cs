@@ -8,6 +8,7 @@ namespace tdd_todo_list.CSharp.Test
     [TestFixture]
     public class CoreTests
     {
+           
 
         [TestCase("solve three gods problem")]
         public void AddTaskTest(string task)
@@ -19,24 +20,25 @@ namespace tdd_todo_list.CSharp.Test
             core.Add(task);
 
             //assert
-            Assert.Contains(task, core.ToDoList.Keys);
+            Assert.Contains(task, core.ToDoDict.Keys);
         }
         [Test]
         public void TestPrint()
         {
+            //This test checks that method returns all of the tasks in the list
             //init
             TodoList core = new TodoList();
             core.Add("task");
             core.Add("task1");
+            core.Add("task2");
             core.Add("task3");
-            core.Add("task4");
 
             List<string> expected = new List<string>()
             {
+                "task",
                 "task1",
                 "task2",
-                "task3",
-                "task4"
+                "task3"
             };
 
             //run
@@ -44,7 +46,7 @@ namespace tdd_todo_list.CSharp.Test
 
 
             //assert
-            Assert.Contains(expected, resulted);
+            Assert.AreEqual(expected, resulted.ToList());
 
         }
     }
