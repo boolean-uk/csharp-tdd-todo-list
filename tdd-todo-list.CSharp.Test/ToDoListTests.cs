@@ -1,12 +1,13 @@
 ﻿using tdd_todo_list.CSharp.Main;
 using NUnit.Framework;
+using System.Threading.Tasks;
 
 namespace tdd_todo_list.CSharp.Test
 {
     [TestFixture]
     public class TodoListTests
     {
-
+        //1. I want to add tasks to my todo list.
         [Test]
         public void AddTaskTest()
         {
@@ -19,6 +20,7 @@ namespace tdd_todo_list.CSharp.Test
             Assert.AreEqual(expected, taskAdded);
         }
 
+        //7. I want to remove tasks from my list.
         [Test]
         public void RemoveTaskTest()
         {
@@ -34,6 +36,7 @@ namespace tdd_todo_list.CSharp.Test
             Assert.AreEqual(expected, taskRemoved);
         }
 
+        //2. I want to see all the tasks in my todo list.
         [Test]
         public void ViewToDoListTest()
         {
@@ -57,6 +60,7 @@ namespace tdd_todo_list.CSharp.Test
 
         }
 
+        //3. I want to change the status of a task between incomplete and complete.
         [Test]
         public void ChangeTaskStatusTest()
         {
@@ -71,6 +75,31 @@ namespace tdd_todo_list.CSharp.Test
             Assert.AreEqual(expected, actualStatus);
         }
 
+        //4. I want to be able to get only the complete tasks.
+        [Test]
+        public void GetCompleteTasksTest()
+        {
+            string task1 = "blabla";
+            string taskStatus1 = "complete";
+            string task2 = "helloworld";
+            string taskStatus2 = "complete";
+            Dictionary<string, string> expectedList = new Dictionary<string, string>
+            {
+                { task1, taskStatus1 },
+                { task2, taskStatus2 }
+            };
+
+            TodoList todoList = new TodoList();
+            todoList.AddTask(task1);
+            todoList.AddTask(task2);
+
+            Dictionary<string, string> actualList = todoList.ViewCompleteTasksList;
+
+            Assert.AreEqual(expectedList, actualList);
+
+        }
+
+        //6. I want to search for a task and receive a message that says it wasn't found if it doesn't exist.
         [Test]
         public void SearchListTest()
         {
@@ -103,5 +132,7 @@ namespace tdd_todo_list.CSharp.Test
         }
 
         
+
+
     }
 }

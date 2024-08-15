@@ -63,6 +63,6 @@ namespace tdd_todo_list.CSharp.Main
 
         public Dictionary<string, string> ViewToDoList { get { return ToDoList; } }
 
-
+        public Dictionary<string, string> ViewCompleteTasksList { get { return ToDoList; } }
     }
 }
