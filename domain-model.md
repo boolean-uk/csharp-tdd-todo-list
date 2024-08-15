@@ -12,14 +12,14 @@ I want to see all the tasks in my list ordered alphabetically in descending orde
 
 | **Classes** | **Members** | **Methods** | **Scenario** | **Outputs** |
 |:--:|:--:|:--:|:--:|:--:|
-| `ToDoList` | `List<Job>` | `AddToList(Job)` | Add task to ToDoList | `true` |
-| `ToDoList` | `List<Job>` | `PrintTasks()` | View all tasks in ToDoList | `Console` |
-| `Job` | `Complete` | `ChangeStatus(status)` | Changing status of task to complete | `Console` |
-| `Job` | `Complete` | `ChangeStatus(status)` | Changing status of task to incomplete | `Console` |
-| `ToDoList` | `List<Job>` | `GetTasks(status)` | Get tasks that is complete | `Console` |
-| `ToDoList` | `List<Job>` | `GetTasks(status)` | Get tasks that is incomplete | `Console` |
-| `ToDoList` | `List<Job>` | `GetTask(name)` | Get existing task specified by name | `Console` |
-| `ToDoList` | `List<Job>` | `RemoveTask(name)` | Remove existing task from ToDoList | `true` |
-| `ToDoList` | `List<Job>` | `RemoveTask(name)` | Remove non existing task from ToDoList | `false` |
-| `ToDoList` | `List<Job>` | `GetTasksOrdered(ascending)` | Get tasks in ascending order | `Console` |
-| `ToDoList` | `List<Job>` | `GetTasksOrdered(ascending)` | Get tasks in descending order | `Console` |
+| `ToDoList` | `List<Job>` | `AddToList(Job job)` | Add task to ToDoList | `true` |
+| `ToDoList` | `List<Job>` | `PrintJobs(List<Job> jobs)` | View all tasks in ToDoList | `true` |
+| `Job` | `Complete` | `ChangeStatus(bool status)` | Changing status of task to complete | `true` |
+| `Job` | `Complete` | `ChangeStatus(bool status)` | Changing status of task to incomplete | `true` |
+| `ToDoList` | `List<Job>` | `GetJobs(bool status)` | Get tasks that is complete | `List<Job>` |
+| `ToDoList` | `List<Job>` | `GetJobs(bool status)` | Get tasks that is incomplete | `List<Job>` |
+| `ToDoList` | `List<Job>` | `GetJob(string name)` | Get existing task specified by name | `Job` |
+| `ToDoList` | `List<Job>` | `RemoveJob(string name)` | Remove existing task from ToDoList | `true` |
+| `ToDoList` | `List<Job>` | `RemoveJob(string name)` | Remove non existing task from ToDoList | `false` |
+| `ToDoList` | `List<Job>` | `GetJobsOrdered(bool ascending)` | Get tasks in ascending order | `List<Job>` |
+| `ToDoList` | `List<Job>` | `GetJobsOrdered(bool ascending)` | Get tasks in descending order | `List<Job>` |

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,10 @@ namespace tdd_todo_list.CSharp.Main
         private string _description;
         private DateTime _created;
 
+        public bool Complete { get { return _complete; } }
         public string Name { get { return _name; } }
+        public string Description { get { return _description; } }
+        public string Created { get { return DateTime.Now.ToString(); } }
 
         public Job(string name, string description) 
         { 
