@@ -62,5 +62,11 @@ namespace tdd_todo_list.CSharp.Main
 
             return todoList;
         }
+
+        public List<Job> getJobByStatus(Status status)
+        {
+            return todoList.Where(j => j.Status == status).ToList();
+             
+        }
     }
 }

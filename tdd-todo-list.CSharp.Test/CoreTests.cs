@@ -53,7 +53,7 @@ namespace tdd_todo_list.CSharp.Test
 
         
         [Test]
-        public void GetJobByStatus(Status status)
+        public void GetJobByStatusTest()
         {
             TodoList todoList = new TodoList();
             Job job1 = new Job(1, "Kode", Status.INCOMPLETE, DateTime.Now);
@@ -64,10 +64,9 @@ namespace tdd_todo_list.CSharp.Test
 
             List<Job> expected = [job2];
 
-            List<Job> result = todoList.getJobByStatus(status);
+            List<Job> result = todoList.getJobByStatus(job2.Status);
 
             Assert.That(expected.SequenceEqual(result));
-
 
         }
 

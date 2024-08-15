@@ -26,7 +26,7 @@ Task == Job, because of the Task.cs already existing
 |                 | `ChangeJobStatus(int jobId)`                | Update/change the status of a job based on id      | bool      |
 |                 |                                             | If job does not exist           		             | bool      |
 |                 |                                             |                       				             |           |
-|                 | `GetJobByStatus(string status)`             | User can get all jobs based on the job status      | List<Job> |
+|                 | `GetJobByStatus(Status status)`             | User can get all jobs based on the job status      | List<Job> |
 |                 |                                             |                       				             |           |
 |                 | `Search(string jobName)`                    | User can search for a job based on the jobName     | string    |
 |                 |                                             | Searched job does not exist					     | string    |
