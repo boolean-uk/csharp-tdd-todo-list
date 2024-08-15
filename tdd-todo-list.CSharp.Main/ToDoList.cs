@@ -94,22 +94,50 @@ namespace tdd_todo_list.CSharp.Main
 
         public string findById(int id)
         {
-            throw new NotImplementedException();
+            string name = null;
+            foreach (var item in taskList)
+            {
+                if (item.Id == id)
+                {
+                    name = item.taskName;
+                }
+            }
+            return name;
         }
 
         public void changeNameById(int id, string name)
         {
-            throw new NotImplementedException();
+            foreach (var item in taskList)
+            {
+                if (item.Id == id)
+                {
+                    item.taskName = name;
+                }
+            }
         }
 
-        public void changeStatusById(int testId, bool newStatus)
+        public void changeStatusById(int id, bool newStatus)
         {
-            throw new NotImplementedException();
+            foreach (var item in taskList)
+            {
+                if (item.Id == id)
+                {
+                    item.taskComplete = newStatus;
+                }
+            }
         }
 
         public DateTime getDateTime(string taskToCheck)
         {
-            throw new NotImplementedException();
+            DateTime creationTime = DateTime.Now;
+            foreach (var item in taskList)
+            {
+                if (item.taskName == taskToCheck)
+                {
+                    creationTime = item.creationDate;
+                }
+            }
+            return creationTime;
         }
     }
 }

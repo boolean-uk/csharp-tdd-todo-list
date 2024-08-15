@@ -20,7 +20,7 @@ namespace tdd_todo_list.CSharp.Test
 
             //arrange
             TodoList todoList = new TodoList();
-            toDoTask task1 = new toDoTask("laundry", true);
+            toDoTask task1 = new toDoTask(7,"laundry", true, new DateTime(2024, 3, 18, 14, 30, 0));
             //act
             todoList.addTask(task1);
 
@@ -189,12 +189,12 @@ namespace tdd_todo_list.CSharp.Test
 
         [Test]
 
-        void checkIfCorrectId()
+        public void checkIfCorrectId()
         {
             //arrange
             TodoList list = new TodoList();
             int id = 2;
-            string expectedTaskName = "cook";
+            string expectedTaskName = "work";
 
             //act
             string taskName = list.findById(id);
@@ -250,7 +250,7 @@ namespace tdd_todo_list.CSharp.Test
         {
             //arrange
             TodoList list = new TodoList();
-            toDoTask newTask = new toDoTask("setTime", true);
+            toDoTask newTask = new toDoTask(9,"setTime", true, new DateTime(2024, 3, 18, 14, 30, 0));
             string taskToCheck = "setTime";
             list.addTask(newTask);
 
