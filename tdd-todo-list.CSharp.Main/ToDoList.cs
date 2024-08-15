@@ -10,16 +10,48 @@ namespace tdd_todo_list.CSharp.Main
     {
         public Dictionary<string, bool> tasks = new Dictionary<string, bool>();
 
-        public void addTask(string task)
+        public void addTask(string toDoItem)
         {
-            tasks.Add(task, false);     
+            tasks.Add(toDoItem, false);     
         }
 
-        public void changeStatus(string task)
+        public void changeStatus(string toDoItem)
         {
-            bool completed = !tasks[task];
+            bool completed = !tasks[toDoItem];
 
-            tasks[task] = completed;
+            tasks[toDoItem] = completed;
+        }
+
+        public List<string> getList(char completed = 'a')
+        {
+            if (completed == 'c')
+            {
+                List<string> completedTasks = new List<string>();
+
+                foreach (string toDoItem in tasks.Keys)
+                {
+                    if (tasks[toDoItem])
+                    {
+                        completedTasks.Add(toDoItem);
+                    }
+                }
+                return completedTasks;
+            }
+            if (completed == 'i')
+            {
+                List<string> incompleteTasks = new List<string>();
+
+                foreach (string toDoItem in tasks.Keys)
+                {
+                    if (!tasks[toDoItem])
+                    {
+                        incompleteTasks.Add(toDoItem);
+                    }
+                }
+                return incompleteTasks;
+            }
+
+            return new List<String>(tasks.Keys);
         }
     }
 }
