@@ -55,6 +55,7 @@ namespace tdd_todo_list.CSharp.Main
 
         public string ChangeStatus(int id)
         {
+            
             foreach (UserTask task in tasks)
             {
                 if (task.id == id)
@@ -67,8 +68,8 @@ namespace tdd_todo_list.CSharp.Main
                     {
                         task.isComplete = true;
                     }
+                    return "Task ID: " + id.ToString() + " changed completion status to: " + task.isComplete;
                 }
-                return "Task ID: " + id.ToString() + " changed completion status to: " + task.isComplete;
             }
             return "Error";
         }

@@ -69,18 +69,44 @@ namespace tdd_todo_list.CSharp.Test
         public void ChangeStatusTest(int id)
         {
             TodoListExtension list = new TodoListExtension();
+
             UserTask task1 = new UserTask(24);
             task1.taskname = "not me";
             task1.isComplete = false;
+
             UserTask task2 = new UserTask(99);
             task2.taskname = "change me";
             task2.isComplete = false;
 
-
             list.Add(task1);
             list.Add(task2);
 
-            string expected = "Task ID: " + id.ToString() + " changed completion status to: true"; // true here, but actual variable in extension class
+            string expected = "Task ID: " + id.ToString() + " changed completion status to: True"; // true here, but actual variable in extension class
+
+            string result = list.ChangeStatus(id);
+
+            Assert.IsTrue(result == expected);
         }
+
+        //[TestCase(1)]
+        //public void CheckCreatedTest(int id)
+        //{
+        //    TodoListExtension list = new TodoListExtension();
+        //    UserTask task1 = new UserTask(1);
+        //    UserTask task2 = new UserTask(2);
+        //    task1.created = DateTime.Now;
+        //    task1.created = DateTime.Now;
+
+        //    list.Add(task1);
+        //    list.Add(task2);
+
+        //    string expected = task1.created.ToString();
+
+        //    string result = list.CheckCreated(id);
+
+        //    Assert
+
+            
+        //}
     }
 }

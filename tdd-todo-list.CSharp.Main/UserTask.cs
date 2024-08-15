@@ -11,6 +11,7 @@ namespace tdd_todo_list.CSharp.Main
         public string taskname;
         public bool isComplete = false;
         public int id;
+        public DateTime created = DateTime.Now;
 
         public UserTask(int id)
         {
