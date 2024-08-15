@@ -38,23 +38,23 @@ namespace tdd_todo_list.CSharp.Main
 
         public string PrintTasks(TodoTaskStatus status)
         {
-            string tasks = string.Empty;    
+            string tasks = string.Empty;
             foreach (var task in todo)
             {
-                
+                if (status == TodoTaskStatus.InComplete && task.Value == false)
+                {
+                    tasks += task.Key + "\n";
+                }
+                else if (status == TodoTaskStatus.Complete && task.Value == true)
+                {
+                    tasks += task.Key + "\n";
+                }
+                else // all
+                {
+                    tasks += task.Key + "\n";
+                }
             }
-            if (status == TodoTaskStatus.InComplete)
-            {
-                
-            }
-            else if (status == TodoTaskStatus.Complete)
-            {
-                
-            }
-            else
-            {
-                
-            }
+            return tasks;
         }
     }
 }

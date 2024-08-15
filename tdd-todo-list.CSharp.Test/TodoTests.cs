@@ -66,7 +66,7 @@ namespace tdd_todo_list.CSharp.Test
                 {
                     expected += taskName + i.ToString() + "\n";
                 }
-                else
+                else // all
                 {
                     expected += taskName + i.ToString() + "\n";
                 }
