@@ -76,7 +76,14 @@ namespace tdd_todo_list.CSharp.Main
         }
         public string FindTask(string taskname)
         {
-            throw new NotImplementedException();
+            bool found = this._tasks.Any((t) => t.Taskname == taskname);
+
+            if (found)
+            {
+                return "This task was found";
+            }
+            return "This task was not found";
+        
         }
         public List<TodoTask> GetSortedTasksAsc()
         {
