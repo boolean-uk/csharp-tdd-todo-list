@@ -23,5 +23,11 @@ namespace tdd_todo_list.CSharp.Main
             }
             return false;
         }
+
+        public bool ToogleTaskStatus(string name)
+        {
+            todo[name] = !todo[name];
+            return todo[name];
+        }
     }
 }

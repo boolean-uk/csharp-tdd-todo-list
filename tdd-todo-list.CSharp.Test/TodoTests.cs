@@ -32,7 +32,7 @@ namespace tdd_todo_list.CSharp.Test
             todo.AddTask(name, startingStatus); 
             bool expected = !startingStatus;
 
-            bool result = ToogleTaskStatus(name);
+            bool result = todo.ToogleTaskStatus(name);
 
             Assert.That(result == expected);
         }
