@@ -12,7 +12,14 @@ namespace tdd_todo_list.CSharp.Main
 
         public void addTask(string task)
         {
-            return;
+            tasks.Add(task, false);     
+        }
+
+        public void changeStatus(string task)
+        {
+            bool completed = !tasks[task];
+
+            tasks[task] = completed;
         }
     }
 }

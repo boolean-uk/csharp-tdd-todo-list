@@ -1,7 +1,7 @@
 |Classes | Methods/Properties                               | Scenario                        | Output                                                  |
 |--------|--------------------------------------------------|---------------------------------|---------------------------------------------------------|
 |ToDoList| addTask(string task)                             |                                 |                                                         |
-|        | changeStatus(string task, bool completed)        |                                 |                                                         |
+|        | changeStatus(string task)                        |                                 |                                                         |
 |        | getList(char completed = 'a', char sorted = 'n') | no specification from user      | string list (full)                                      |
 |        |                                                  | completed parameter set by user | string list (only completed tasks, or only incompleted) |
 |        |                                                  | sorted parameter set by user    | string list (sorted in descending or ascending order)   |
