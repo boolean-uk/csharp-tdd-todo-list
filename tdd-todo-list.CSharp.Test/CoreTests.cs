@@ -37,15 +37,19 @@ namespace tdd_todo_list.CSharp.Test
             TodoTaskObj task = new TodoTaskObj("First task");
             core.AddTaskToList(task);
             core.ChangeObjStatus(task);
-            Assert.Fail();
+            Assert.True(core.getIndividualTasks("First task").Complete);
         }
         [Test]
         public void getCompleteTasks()
         {
             TodoList core = new TodoList();
-            TodoTaskObj task = new TodoTaskObj("First task");
-            core.getSomeTasks(true);
-            Assert.Fail();
+            TodoTaskObj task1 = new TodoTaskObj("First task");
+            TodoTaskObj task2 = new TodoTaskObj("Second task", true);
+            core.AddTaskToList(task1);
+            core.AddTaskToList(task2);
+            var list = core.getSomeTasks(true);
+            Assert.True(list.Contains(task2));
+            Assert.False(list.Contains(task1));
         }
 
         public void getInCompleteTasks()
