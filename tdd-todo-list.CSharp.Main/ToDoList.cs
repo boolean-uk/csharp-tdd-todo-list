@@ -9,7 +9,7 @@ namespace tdd_todo_list.CSharp.Main
     public class TodoList
     {
 
-        private List<TodoTask> _tasks = new List<TodoTask>();
+        private List<TodoTask> _tasks { get; set; } = new List<TodoTask>();
 
         public TodoList(List<TodoTask> tasks)
         {
@@ -18,22 +18,30 @@ namespace tdd_todo_list.CSharp.Main
 
         public bool AddTask(TodoTask task)
         {
-            throw new NotImplementedException();
+
+            _tasks.Add(task);
+            return true;
+ 
         }
 
-        public bool ChangeStatus(TodoTask task)
-        {
-            throw new NotImplementedException();
-        }
+            public void ChangeStatus(TodoTask task, bool completed)
+            {
+            task.Completed = completed;
+            }
 
-        public bool RemoveTask(TodoTask task)
-        {
-            throw new NotImplementedException();
-        }
+            public bool RemoveTask(TodoTask task)
+            {
+                if(!_tasks.Contains(task)) return false;
+                _tasks.Remove(task);
+                return true ;
+            }
 
-        public string SearchTask(TodoTask task)
-        {
-            throw new NotImplementedException();
-        }
+            public string SearchTask(TodoTask task)
+            {
+            if (_tasks.Contains(task)) return "Success";
+            return "Not found";
+            }
+        
     }
 }
+

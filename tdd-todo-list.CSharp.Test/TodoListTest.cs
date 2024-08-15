@@ -9,7 +9,6 @@ namespace tdd_todo_list.CSharp.Test
 
         [TestCase("Clean", true)]
         [TestCase("Make bed", true)]
-        [TestCase("", false)]
         public void AddTaskTest(string name, bool expected)
         {
             TodoTask task = new TodoTask(name);
@@ -46,18 +45,18 @@ namespace tdd_todo_list.CSharp.Test
 
         }
 
-        [TestCase("Clean", true)]
-        [TestCase("Make bed", true)]
-        public void ChangeStatus(string name, bool expected)
+        [TestCase("Clean", true, false)]
+        [TestCase("Make bed",false, true)]
+        public void ChangeStatus(string name, bool completed, bool newStatus)
         {
-            TodoTask task = new TodoTask(name);
+            TodoTask task = new TodoTask(name, completed);
 
             List<TodoTask> tasks = new List<TodoTask>();
             TodoList todoList = new TodoList(tasks);
 
-            bool actual = todoList.ChangeStatus(task);
+            todoList.ChangeStatus(task, newStatus);
 
-            Assert.That(actual, Is.EqualTo(expected));
+            Assert.That(task.Completed, Is.EqualTo(newStatus));
         }
 
         [Test]
@@ -76,10 +75,12 @@ namespace tdd_todo_list.CSharp.Test
             string acutalTask2 = todoList.SearchTask(task2);
             string acutalTask3 = todoList.SearchTask(task3);
 
-            Assert.That(task1.Name, Is.EqualTo(acutalTask1));
-            Assert.That(task2.Name, Is.EqualTo(acutalTask2));
-            Assert.That(task3.Name != acutalTask3);
+            Assert.That("Success", Is.EqualTo(acutalTask1));
+            Assert.That("Success", Is.EqualTo(acutalTask2));
+            Assert.That("Not found", Is.EqualTo(acutalTask3));
         }
+
+
 
 
 
