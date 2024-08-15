@@ -171,5 +171,30 @@ namespace tdd_todo_list.CSharp.Test
             Assert.IsTrue(expected == result);
 
         }
+
+        [Test]
+        public void ListReverseAlphabetically()
+        {
+            TodoList list = new TodoList();
+
+            UserTask program = new UserTask();
+            program.taskname = "program";
+            UserTask little = new UserTask();
+            little.taskname = "little";
+            UserTask big = new UserTask();
+            big.taskname = "big";
+
+
+            list.Add(program);
+            list.Add(little);
+            list.Add(big);
+
+            string expected = program.taskname + " " + little.taskname + " " + big.taskname + " ";
+
+            string result = list.ListReverseAlphabetically();
+
+            Assert.IsTrue(expected == result);
+
+        }
     }
 }
