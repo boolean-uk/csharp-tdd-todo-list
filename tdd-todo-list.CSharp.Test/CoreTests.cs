@@ -3,6 +3,7 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using System.Numerics;
 using System.Threading.Tasks;
+using NUnit.Framework.Constraints;
 
 namespace tdd_todo_list.CSharp.Test
 {
@@ -127,10 +128,57 @@ namespace tdd_todo_list.CSharp.Test
 
         }
 
-        //I want to change the status of a task between incomplete and complete.
         //I want to see all the tasks in my todo list.
+        [Test]
+        public void GetTodos()
+        {
+            var todoList = new Todo();
+            List<string> todos= ["Backlfip", "Test", "Cook", "Walk the turtle"];
+            foreach(var todo in todos) todoList.Add(todo);
+
+            var result = todoList.TodoList();
+
+            Assert.That(result.Count is 4);
+
+        }
+
+        [Test]
+        public void OneEntryTodoList()
+        {
+            var todoList = new Todo();
+            string todo = "Backflip";
+            todoList.Add(todo);
+
+            var result = todoList.TodoList();
+
+            Assert.That(result.Count is 1);
+
+        }
+
+        [Test]
+        public void EmptyTodoList()
+        {
+            var todoList = new Todo();
+
+            var result = todoList.TodoList();
+
+            Assert.That(result.Count is 0);
+
+        }
+
+        [Test]
+        public void NotNullTodoList()
+        {
+            var todoList = new Todo();
+
+            var result = todoList.TodoList();
+
+            Assert.That(result is not null);
+
+        }
         //I want to be able to get only the complete tasks.
         //I want to be able to get only the incomplete tasks.
+        //I want to change the status of a task between incomplete and complete.
         //I want to see all the tasks in my list ordered alphabetically in ascending order.
         //I want to see all the tasks in my list ordered alphabetically in descending order.
     }
