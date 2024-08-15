@@ -33,8 +33,8 @@
 |             |                                           | Cannot find a task with the given name                          | false  |
 |             | `ListCompleteTasks()`                     | List out all the complete tasks                                 | string |
 |             | `ListIncompleteTasks()`                   | List out all the incomplete tasks                               | string |
-|             | `Search(string name)`                     | Found the task user searched for                                | true   |
-|             |                                           | Task user seeks does not exist                                  | false  |
+|             | `Search(string name)`                     | Found the task user searched for                                | string |
+|             |                                           | Task user seeks does not exist                                  | string |
 |             | `Remove(string name)`                     | Remove selected task if it exists                               | true   |
 |             |                                           | Selected task does not exist                                    | false  |
 |             | `ListAscending()`                         | List out all the tasks in an alphabetically ascending order     | string |

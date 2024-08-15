@@ -130,5 +130,29 @@ namespace tdd_todo_list.CSharp.Test
             //assert
             Assert.That(result, Is.EqualTo(expectedEmptyString));
         }
+
+        [TestCase("Feed Pet")]
+        public void SearchTest(string task)
+        {
+            //arrange
+            TodoList tasks = new TodoList();
+            string expectedNotFound = "Task does not exist!";
+
+            //act
+            string result = tasks.Search(task);
+
+            //assert
+            Assert.That(result, Is.EqualTo(expectedNotFound));
+
+            //arrange
+            tasks.Add(task);
+            string expectedFound = "Task found!";
+
+            //act
+            result = tasks.Search(task);
+
+            //assert
+            Assert.That(result, Is.EqualTo(expectedFound));
+        }
     }
 }
