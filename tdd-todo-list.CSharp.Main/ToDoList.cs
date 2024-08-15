@@ -41,7 +41,47 @@ namespace tdd_todo_list.CSharp.Main
             if (_tasks.Contains(task)) return "Success";
             return "Not found";
             }
-        
+
+        public List<TodoTask> sortAsc(List<TodoTask> list)
+        {
+            list.Sort((a, b) => a.Name.CompareTo(b.Name));
+            return list;
+        }
+
+        public List<TodoTask> sortDesc(List<TodoTask> list)
+        {
+            list.Sort((a, b) => b.Name.CompareTo(a.Name));
+            return list;
+        }
+
+        public List<TodoTask> FindCompletedTodo()
+        {
+            List<TodoTask> todoTasks = _tasks.Where(t => t.Completed).ToList();
+            
+            return todoTasks;
+        }
+
+        public List<TodoTask> FindNotCompletedTodo()
+        {
+            List<TodoTask> todoTasks = _tasks.Where(t => !t.Completed).ToList();
+
+            return todoTasks;
+        }
+
+        public List<TodoTask> FindAllTodoSorted(bool asc)
+        {
+            List<TodoTask> sortedList = new List<TodoTask>();
+
+            if (asc)
+            {
+                sortAsc(sortedList);
+            } else
+            {
+                sortDesc(sortedList);
+            }
+            return sortedList;
+        }
     }
 }
+
 

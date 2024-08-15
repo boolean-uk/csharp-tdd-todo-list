@@ -80,6 +80,84 @@ namespace tdd_todo_list.CSharp.Test
             Assert.That("Not found", Is.EqualTo(acutalTask3));
         }
 
+        [Test]
+        public void FindCompleteTodoTest()
+        {
+            List<TodoTask> tasks = new List<TodoTask>();
+            TodoList todoList = new TodoList(tasks);
+            TodoTask task1 = new TodoTask("Clean", true);
+            TodoTask task2 = new TodoTask("Brush", true);
+            TodoTask task3 = new TodoTask("Wash", false);
+
+            todoList.AddTask(task3);
+            todoList.AddTask(task1);
+            todoList.AddTask(task2);
+
+            tasks = todoList.FindCompletedTodo();
+            todoList = new TodoList(tasks);
+
+            Assert.That(tasks.Count, Is.EqualTo(2));
+            
+        }
+
+        [Test]
+        public void FindNotCompletedTodoTest()
+        {
+            List<TodoTask> tasks = new List<TodoTask>();
+            TodoList todoList = new TodoList(tasks);
+            TodoTask task1 = new TodoTask("Clean", true);
+            TodoTask task2 = new TodoTask("Brush", true);
+            TodoTask task3 = new TodoTask("Wash", false);
+
+            todoList.AddTask(task3);
+            todoList.AddTask(task1);
+            todoList.AddTask(task2);
+
+            tasks = todoList.FindNotCompletedTodo();
+            todoList = new TodoList(tasks);
+
+            Assert.That(tasks.Count, Is.EqualTo(1));
+
+        }
+
+        [Test]
+        public void sortAscending()
+        {
+            List<TodoTask> tasks = new List<TodoTask>();
+           
+            TodoTask task1 = new TodoTask("Clean", true);
+            TodoTask task2 = new TodoTask("Brush", true);
+            TodoTask task3 = new TodoTask("Wash", false);
+            tasks.Add(task1);
+            tasks.Add(task2);
+            tasks.Add(task3);
+            TodoList todoList = new TodoList(tasks);
+
+            todoList.sortAsc(tasks);
+
+            Assert.That(tasks[0].Name, Is.EqualTo("Brush"));
+
+        }
+
+        [Test]
+        public void sortDescending()
+        {
+            List<TodoTask> tasks = new List<TodoTask>();
+
+            TodoTask task1 = new TodoTask("Clean", true);
+            TodoTask task2 = new TodoTask("Brush", true);
+            TodoTask task3 = new TodoTask("Wash", false);
+            tasks.Add(task1);
+            tasks.Add(task2);
+            tasks.Add(task3);
+            TodoList todoList = new TodoList(tasks);
+
+            todoList.sortDesc(tasks);
+
+            Assert.That(tasks[0].Name, Is.EqualTo("Wash"));
+
+
+        }
 
 
 

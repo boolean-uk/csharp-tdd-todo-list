@@ -38,3 +38,25 @@ I want to see all the tasks in my list ordered alphabetically in descending orde
 | `Task			` | `CreateTask()							`	| Creates Task						 |													|
 |                 |                                             |									 |													|
 |-----------------|---------------------------------------------|------------------------------------|--------------------------------------------------|
+
+
+
+I want to be able to get a task by a unique ID.
+I want to update the name of a task by providing its ID and a new name.
+I want to be able to change the status of a task by providing its ID.
+I want to be able to see the date and time that I created each task.
+
+| Classes         | Methods                                     | Scenario							 |			  Outputs								|
+|-----------------|---------------------------------------------|------------------------------------|--------------------------------------------------|
+| `Todo			` | `FindTask(int id)						`	| Find task by ID					 |(Task) Returns task if ID exists					|
+|                 |                                             |									 |													|
+|-----------------|---------------------------------------------|------------------------------------|--------------------------------------------------|
+| `Todo			` | `ChangeName(int id, string name)		`	| Updates name of task				 |(bool) Returns true if changed, otherwise false	|
+|                 |                                             |									 |													|
+|-----------------|---------------------------------------------|------------------------------------|--------------------------------------------------|
+| `Todo			` | `ChangeStatus(int id)					`	| Change status on task				 |(bool) Returns true if changed, false if not		|
+|                 |                                             |									 |													|
+|-----------------|---------------------------------------------|------------------------------------|--------------------------------------------------|
+| `Todo			` | `FindDateTime(int id)					`	| Finds date and time for task creati|(DateTime) Returns datetime of task creation		|
+|                 |                                             |									 |													|
+|-----------------|---------------------------------------------|------------------------------------|--------------------------------------------------|
