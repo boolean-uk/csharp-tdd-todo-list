@@ -112,6 +112,23 @@ namespace tdd_todo_list.CSharp.Test
             Assert.That(incompletedTasks.Contains(t4), Is.False);
         }
 
+        [TestCase(Status.Incomplete, Status.Complete)]
+        [TestCase(Status.Complete, Status.Incomplete)]
+        public void TestChangeTaskStatus(Status currentStatus, Status newStatus)
+        {
+            TodoList core = new TodoList();
+
+            // Creates and adds four tasks
+            TodoTask t1 = new TodoTask("Clean the car", currentStatus);
+            core.AddTask(t1);
+
+            core.ChangeTaskStatus(t1, newStatus);
+            Assert.That(t1.Status, Is.EqualTo(newStatus));
+
+
+
+        }
+
 
     }
 }
