@@ -21,5 +21,27 @@ namespace tdd_todo_list.CSharp.Test
             //assert
             Assert.That(expected == result);
         }
+        
+        [Test]
+        public void GetTasksTest()
+        {
+            //arrange
+
+            TodoList list = new TodoList();
+            list.Add("Grocery Shopping", 0);
+            list.Add("Vacuum", 0);
+            list.Add("Mow the lawn", 0);
+
+            int expected = 3;
+
+            //act
+            List<string> taskList = list.GetTaskList();
+            int result = taskList.Count;
+
+            //assert
+            Assert.That(expected == result);
+        }
+        
+
     }
 }
