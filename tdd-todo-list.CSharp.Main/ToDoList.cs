@@ -129,7 +129,14 @@ namespace tdd_todo_list.CSharp.Main
 
         public string ListReverseAlphabetically() 
         {
-            return "nothing";
+            string concat = "";
+            tasks.Sort();
+            tasks.Reverse();
+            foreach (UserTask task in tasks)
+            {
+                concat += task.taskname + " ";
+            }
+            return concat;
         }
     }
 }
