@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -144,6 +145,27 @@ namespace tdd_todo_list.CSharp.Main
         {
 
             taskList.RemoveAll(item => item.taskName == taskToRemove);
+        }
+
+        public string checkExists(string taskName)
+        {
+            string feedback = "";
+            foreach (var item in taskList)
+            {
+                
+                if (item.taskName == taskName)
+                {
+                    feedback = "Task Exists";
+                }
+                else
+                {
+                    feedback = "Task Doesnt Exist";
+                }
+            }
+            
+            return feedback;
+
+
         }
     }
 }

@@ -51,6 +51,20 @@ namespace tdd_todo_list.CSharp.Test
 
         }
 
+
+        [Test]
+        public void checkIfSearchWorks()
+        {
+            //arrange
+            TodoList list = new TodoList();
+            string taskName = "cooking";
+            string expectedMessage = "Task Doesnt Exist";
+
+            //act
+            string check = list.checkExists(taskName);
+            Assert.AreEqual(expectedMessage, check);
+
+        }
         [Test]
 
         public void checkIfTaskRemoved()
