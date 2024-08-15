@@ -4,14 +4,19 @@ using NUnit.Framework;
 namespace tdd_todo_list.CSharp.Test
 {
     [TestFixture]
-    public class ToDoListTests
+    public class TodoListTests
     {
 
         [Test]
-        public void FirstTest()
+        public void AddTaskTest()
         {
-            TodoList core = new TodoList();
-            Assert.Pass();
+            string task = "clean";
+            bool expected = true;
+            TodoList todoList = new TodoList();
+
+            bool taskAdded = todoList.AddTask(task);
+
+            Assert.AreEqual(expected, taskAdded);
         }
     }
 }

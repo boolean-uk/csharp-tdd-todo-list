@@ -8,5 +8,9 @@ namespace tdd_todo_list.CSharp.Main
 {
     public class TodoList
     {
+        public bool AddTask(string task)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
