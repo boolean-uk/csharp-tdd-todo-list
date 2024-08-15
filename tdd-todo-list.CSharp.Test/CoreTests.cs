@@ -46,7 +46,8 @@ namespace tdd_todo_list.CSharp.Test
             int result = todoList.getJob(1).Id; 
             Assert.That(expected == result);
         }
-        /*
+        
+
         [Test]
         public void changeStatusTest()
         {
@@ -54,11 +55,12 @@ namespace tdd_todo_list.CSharp.Test
             Job job = new Job(1, "shoot", Status.INCOMPLETE, DateTime.Now);
             todoList.addJob(job);
             Status expected = Status.COMPLETE;
-            //todoList.changeStatus(int id);
+            todoList.changeStatus(1);
+            Assert.That(expected == job.Status);
 
 
         }
 
-        */
+
     }
 }

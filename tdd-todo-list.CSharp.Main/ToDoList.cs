@@ -24,7 +24,10 @@ namespace tdd_todo_list.CSharp.Main
             return true;
         }
 
-
+        public void changeStatus(int id)
+        {
+            throw new NotImplementedException();
+        }
 
         public Job getJob(int id)
         {
