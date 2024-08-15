@@ -3,7 +3,6 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using System.Numerics;
 using System.Threading.Tasks;
-using System.Linq.Expressions;
 
 namespace tdd_todo_list.CSharp.Test
 {
@@ -36,6 +35,16 @@ namespace tdd_todo_list.CSharp.Test
             Assert.That(result2, Is.True);
 
 
+        }
+        [Test]
+        public void AddEmptyTodo()
+        {
+            var todoList = new Todo();
+            var todo = "";
+
+            var result = todoList.Add(todo);
+
+            Assert.That(result, Is.False);
         }
         //I want to see all the tasks in my todo list.
         //I want to change the status of a task between incomplete and complete.
