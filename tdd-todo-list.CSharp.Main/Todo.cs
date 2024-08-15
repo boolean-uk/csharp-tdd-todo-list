@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.VisualStudio.TestPlatform.ObjectModel;
 using System.Globalization;
 
 namespace tdd_todo_list.CSharp.Main
@@ -31,15 +32,36 @@ namespace tdd_todo_list.CSharp.Main
         }
         public bool ChangeTodoStatus(string todo) 
         {
-            throw new NotImplementedException();
+            if (_todoList.TryGetValue(todo, out var value))
+            {
+                _todoList[todo] = !value;
+                return true;
+            }
+            return false;
         }
         public List<string> GetComplete() 
         {
-            throw new NotImplementedException();
+            List<string> returnList = [];
+            foreach (var todo in _todoList)
+            {
+                if (todo.Value)
+                {
+                    returnList.Add(todo.Key);
+                }
+            }
+            return returnList;
         }
         public List<string> GetIncomplete()
         {
-            throw new NotImplementedException();
+            List<string> returnList = [];
+            foreach (var todo in _todoList)
+            {
+                if (!todo.Value)
+                {
+                    returnList.Add(todo.Key);
+                }
+            }
+            return returnList;
         }
 
         public List<string> OrderByAscending() 
