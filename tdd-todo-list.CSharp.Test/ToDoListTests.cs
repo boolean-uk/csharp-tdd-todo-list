@@ -65,7 +65,8 @@ namespace tdd_todo_list.CSharp.Test
 
             List<Job> actualJobList = list.GetJobs(true);
 
-            Assert.That(actualJobList, Is.EqualTo(actualJobList));
+            Assert.That(actualJobList, Is.EquivalentTo(expectedJobList));
+            //Assert.That(actualJobList, Is.EqualTo(expectedJobList));
         }
     }
 }
