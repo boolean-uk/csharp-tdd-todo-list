@@ -176,9 +176,57 @@ namespace tdd_todo_list.CSharp.Test
             Assert.That(result is not null);
 
         }
+        //I want to change the status of a task between incomplete and complete.
         //I want to be able to get only the complete tasks.
         //I want to be able to get only the incomplete tasks.
-        //I want to change the status of a task between incomplete and complete.
+        [Test]
+        public void CompleteOneTask() 
+        {
+            var todoList = new Todo();
+            List<string> todos = ["Backflip", "Cook", "Fill the car", "Walk the turtle"];
+
+            foreach(var todo in todos) todoList.Add(todo);
+            var result = todoList.ChangeTodoStatus(todos[1]);
+            var incomplete = todoList.GetIncomplete();
+            var complete = todoList.GetComplete();
+
+            Assert.That(result, Is.True);
+            Assert.AreEqual(complete.Count, 1);
+            Assert.AreEqual(incomplete.Count, 3);
+        }
+        [Test]
+        public void CompleteNoTask() 
+        {
+            var todoList = new Todo();
+            List<string> todos = ["Backflip", "Cook", "Fill the car", "Walk the turtle"];
+
+            foreach (var todo in todos) todoList.Add(todo);
+            var incomplete = todoList.GetIncomplete();
+            var complete = todoList.GetComplete();
+
+            Assert.AreEqual(complete.Count, 0);
+            Assert.AreEqual(incomplete.Count, 4);
+        }
+        [Test]
+        public void CompleteSomeTasks()
+        {
+            var todoList = new Todo();
+            List<string> todos = ["Backflip", "Cook", "Fill the car", "Walk the turtle"];
+
+            foreach (var todo in todos) todoList.Add(todo);
+            var result1 = todoList.ChangeTodoStatus(todos[1]);
+            var result2 = todoList.ChangeTodoStatus(todos[2]);
+            var result3 = todoList.ChangeTodoStatus(todos[3]);
+            var incomplete = todoList.GetIncomplete();
+            var complete = todoList.GetComplete();
+
+            Assert.That(result1, Is.True);
+            Assert.That(result2, Is.True);
+            Assert.That(result3, Is.True);
+            Assert.AreEqual(complete.Count, 3);
+            Assert.AreEqual(incomplete.Count, 1);
+        }
+
         //I want to see all the tasks in my list ordered alphabetically in ascending order.
         //I want to see all the tasks in my list ordered alphabetically in descending order.
     }

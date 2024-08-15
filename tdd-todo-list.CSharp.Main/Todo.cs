@@ -29,11 +29,7 @@ namespace tdd_todo_list.CSharp.Main
         {
             return _todoList.Keys.ToList();
         }
-        public bool CangeTodoStatus(string todo) 
-        {
-            throw new NotImplementedException();
-        }
-        public bool GetTodoStatus(string todo)
+        public bool ChangeTodoStatus(string todo) 
         {
             throw new NotImplementedException();
         }
@@ -41,7 +37,10 @@ namespace tdd_todo_list.CSharp.Main
         {
             throw new NotImplementedException();
         }
-
+        public List<string> GetIncomplete()
+        {
+            throw new NotImplementedException();
+        }
 
         public List<string> OrderByAscending() 
         { 
