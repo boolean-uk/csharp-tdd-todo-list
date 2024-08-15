@@ -43,6 +43,8 @@ namespace tdd_todo_list.CSharp.Main
             return false;
         }
 
+        public Dictionary<string, DateTime> getDates() => _todoList.Values.ToDictionary(x => x._name, x => x._date);
+
         public string GetTask(int v) => _todoList[v]._name;
 
     }

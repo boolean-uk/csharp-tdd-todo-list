@@ -92,5 +92,22 @@ namespace tdd_todo_list.CSharp.Test
             Assert.That(result, Is.False);
         }
 
+        [Test]
+        public void getAllDatesTest()
+        {
+            var todo = new TodoListExtension();
+            string task1 = "jump";
+            string task2 = "swim";
+            string task3 = "walk";
+            int expectedCount = 3;
+
+            todo.Add(task1);
+            todo.Add(task2);
+            todo.Add(task3);
+            Dictionary<string, DateTime> taskWithDates = todo.getDates();
+            int result = taskWithDates.Count;
+
+            Assert.That(result, Is.EqualTo(expectedCount));
+        }
     }
 }
