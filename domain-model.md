@@ -22,7 +22,7 @@ I want to see all the tasks in my list ordered alphabetically in descending orde
 | `TodoList`    | GetCompleteTasks()						 |  Get all complete tasks					 | List<Task>		|
 | `TodoList`    | GetIncompleteTasks()						 |  Get all incomplete tasks				 | List<Task>		|
 |               |				    						 |											 |					|
-| `TodoList`    | FindTask(string task)						 |  Get all incomplete tasks				 | Task				|
+| `TodoList`    | FindTask(string task)						 |  Find if task exist or not				 | string			|
 |               |				    						 |											 |					|
 | `TodoList`    | DeleteTask(string task)					 |  Delete task from todo list				 | true				|
 |               |				    						 |	 Task does not exist in todo list		 | false			|

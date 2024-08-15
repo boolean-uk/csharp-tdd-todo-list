@@ -74,7 +74,7 @@ namespace tdd_todo_list.CSharp.Main
 
             return incompletedTasks;
         }
-        public string FindTask(TodoTask t)
+        public string FindTask(string taskname)
         {
             throw new NotImplementedException();
         }

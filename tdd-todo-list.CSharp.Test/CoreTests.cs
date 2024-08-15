@@ -125,7 +125,21 @@ namespace tdd_todo_list.CSharp.Test
             core.ChangeTaskStatus(t1, newStatus);
             Assert.That(t1.Status, Is.EqualTo(newStatus));
 
+        }
 
+        [TestCase("Mow the lawn", "This task was found")]
+        [TestCase("Walk the dog", "This task was not found")]
+        [TestCase("Clean the car", "This task was found")]
+        public void TestFindTask(string taskname, string expected)
+        {
+            TodoList core = new TodoList();
+            core.AddTask(new TodoTask("Clean the car"));
+            core.AddTask(new TodoTask("Go fishing"));
+            core.AddTask(new TodoTask("Mow the lawn"));
+
+            string message = core.FindTask(taskname);
+
+            Assert.That(message, Is.EqualTo(expected));
 
         }
 
