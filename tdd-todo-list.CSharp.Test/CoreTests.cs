@@ -47,9 +47,28 @@ namespace tdd_todo_list.CSharp.Test
 
             //assert
             Assert.IsTrue(expected == result);
-
-            
         }
-        
+
+        [Test]
+        public void changeStatusTest()
+        {
+            //arrange
+            TodoList list1 = new TodoList();
+
+            UserTask task1 = new UserTask();
+
+            list1.Add(task1);
+
+            bool expected = true;
+
+            //act
+
+            bool result = list1.changeStatus();
+
+            //Assert
+            Assert.IsTrue(expected == result);
+
+        }
+
     }
 }

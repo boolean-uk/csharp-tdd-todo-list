@@ -37,5 +37,10 @@ namespace tdd_todo_list.CSharp.Main
                 return "No tasks found";
             }
         }
+
+        public bool changeStatus()
+        {
+            return false;
+        }
     }
 }
