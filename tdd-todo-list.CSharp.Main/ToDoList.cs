@@ -8,18 +8,10 @@ namespace tdd_todo_list.CSharp.Main
 {
     public class TodoList
     {
-        public TodoList() 
+        List<UserTask> tasks = new List<UserTask>();
+        public string add(UserTask taskname)
         {
-
-        }
-
-        List<string> taskList = new List<string>();
-
-        public string taskname;
-
-        public string add(string taskname)
-        {
-            return taskname; 
+            return taskname.taskname; 
         }
     }
 }

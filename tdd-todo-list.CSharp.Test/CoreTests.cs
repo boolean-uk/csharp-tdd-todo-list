@@ -7,11 +7,20 @@ namespace tdd_todo_list.CSharp.Test
     public class CoreTests
     {
 
-        [Test]
-        public void FirstTest()
+        [TestCase("Todo List")]
+        public void addTaskTest(UserTask taskname)
         {
-            TodoList core = new TodoList();
-            Assert.Pass();
+            //arrange
+            TodoList todo = new TodoList();
+            string expected = "Todo List";
+
+            //act
+            string result = todo.add(taskname);
+
+            //assert
+            Assert.IsTrue(expected == result);
+            
         }
+        
     }
 }
