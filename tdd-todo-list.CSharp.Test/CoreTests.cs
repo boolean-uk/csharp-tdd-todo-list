@@ -1,10 +1,5 @@
 ﻿using tdd_todo_list.CSharp.Main;
 using NUnit.Framework;
-using System.Collections.Generic;
-using System.Numerics;
-using System.Threading.Tasks;
-using NUnit.Framework.Constraints;
-using System.Xml.Linq;
 
 namespace tdd_todo_list.CSharp.Test
 {
@@ -322,8 +317,47 @@ namespace tdd_todo_list.CSharp.Test
 
         Assert.That(result, Is.False);
         }
-    //I want to update the name of a task by providing its ID and a new name.
-    //I want to be able to change the status of a task by providing its ID.
-    //I want to be able to see the date and time that I created each task.
-}
+        //I want to update the name of a task by providing its ID and a new name.
+        [Test]
+        public void ChangeByIDOfString() 
+        { 
+            var todoList = new Todo();
+            string oldName = "Backflip";
+            int hash = oldName.GetHashCode();
+            string newName = "Frontflip";
+
+            todoList.Add(oldName);
+            todoList.UpdateTodo(hash, newName);
+
+            Assert.That(todoList.TodoList().Contains(newName));
+        }
+        [Test]
+
+        public void ChangeByWrongIDOfString()
+        {
+            var todoList = new Todo();
+            string oldName = "Backflip";
+            int hash = oldName.GetHashCode();
+            string newName = "Frontflip";
+
+            todoList.UpdateTodo(123, newName);
+
+            Assert.That(!todoList.TodoList().Contains(newName));
+        }
+        [Test]
+
+        public void ChangeByIDToEmptyString()
+        {
+            var todoList = new Todo();
+            string oldName = "Backflip";
+            int hash = oldName.GetHashCode();
+            string newName = "";
+
+            todoList.UpdateTodo(123, newName);
+
+            Assert.That(!todoList.TodoList().Contains(newName));
+        }
+        //I want to be able to change the status of a task by providing its ID.
+        //I want to be able to see the date and time that I created each task.
+    }
 }

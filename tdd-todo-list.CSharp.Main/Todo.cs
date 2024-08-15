@@ -1,13 +1,10 @@
 ﻿
-using Microsoft.VisualStudio.TestPlatform.ObjectModel;
-using System.Collections.Immutable;
-using System.Globalization;
-
 namespace tdd_todo_list.CSharp.Main
 {
     public class Todo
     {
         private Dictionary<string, bool> _todoList = [];
+        public Dictionary<int, string> TodoIDList { get {return _todoList.ToDictionary(x => x.Key.GetHashCode(), x=> x.Key);} }
         private Dictionary<string, DateTime> _todoCreation = [];
 
         public bool Add(string todo)
@@ -31,12 +28,8 @@ namespace tdd_todo_list.CSharp.Main
         public bool SearchTodo(int todo)
         {
             string emptyString = "";
-            bool result = false;
             if (todo == emptyString.GetHashCode()) return false;
-            foreach(var item in _todoList) 
-            {
-                if(item.Key.GetHashCode() == todo) result = true;
-            }
+            bool result = TodoIDList.ContainsKey(todo);
             return result;
         }
         public List<string> TodoList() 
@@ -56,6 +49,11 @@ namespace tdd_todo_list.CSharp.Main
         public bool ChangeTodoStatus(int todo) 
         {
             throw new NotImplementedException();
+        }
+
+        public bool UpdateTodo(int id, string newName) 
+        {
+            throw new NotImplementedException ();
         }
         public List<string> GetComplete() 
         {
