@@ -22,15 +22,21 @@ namespace tdd_todo_list.CSharp.Test
         [TestCase(2)]
         [TestCase(50)]
         [TestCase(235252)]
-        public void GetTask(int id)
+        public void GetTaskSuccess(int id)
         {
+            _extension.AddTask("Cooking", id);
 
-            _extension.AddTask(String taskName, int id);
-
-            TaskItemExtension task = _extension.GetTask(int id);
-       
+            TaskItemExtension task = _extension.GetTask(id);
 
             Assert.IsTrue(task.Id == id);
+        }
+
+        [Test]
+        public void GetTaskFail()
+        {
+            TaskItemExtension? task = _extension.GetTask(22414);
+
+            Assert.IsTrue(task == null);
         }
 
     }
