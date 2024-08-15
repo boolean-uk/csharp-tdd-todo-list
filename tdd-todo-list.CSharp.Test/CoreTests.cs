@@ -49,5 +49,25 @@ namespace tdd_todo_list.CSharp.Test
             Assert.AreEqual(expected, resulted.ToList());
 
         }
+        [Test]
+        public void AditionalTestPrint()
+        {
+            //This test checks that method returns 
+            TodoList core = new TodoList();
+           
+
+            List<string> expected = new List<string>()
+            {
+                "There is no tasks in the todo list"
+            };
+
+            //run
+            string[] resulted = core.Print();
+
+
+            //assert
+            Assert.AreEqual(expected, resulted.ToList());
+
+        }
     }
 }
