@@ -120,6 +120,7 @@ namespace tdd_todo_list.CSharp.Test
 
             Assert.That(computed, Is.EqualTo(computedMessage));
         }
+        [TestCase("task 4", false)]
         [TestCase("task 2", true)]
         public void Remove(string task, bool expected)
         {
@@ -136,5 +137,6 @@ namespace tdd_todo_list.CSharp.Test
             //assert
             Assert.IsTrue(expected == computed);
         }
+
     }
 }
