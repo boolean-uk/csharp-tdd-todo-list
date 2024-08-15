@@ -105,4 +105,29 @@ namespace tdd_todo_list.CSharp.Test
             Assert.That(result == expected);
         }
     }
+
+    [TestCase("Write some code")]
+    [TestCase("Write some more code")]
+    [TestCase("Shop for groceries")]
+    [TestCase("Write a story about purchasing a debug rubber ducky")]
+    [TestCase("Code a new project")]
+    [TestCase("Get bored of new project")]
+    [TestCase("Code another new project")]
+    public void TestRemoveTask(string name)
+    {
+        //arrange
+        TodoList todo = new TodoList();
+        todo.AddTask("Write some code", false);
+        todo.AddTask("Write some more code", false);
+        todo.AddTask("Write a story about purchasing a debug rubber ducky", false);
+        bool expected = false;
+        if (name[0] == 'W')
+        {
+            expected = true;
+        }
+
+
+        bool result = todo.RemoveTask(name);
+        Assert.That(result == expected);
+    }
 }
