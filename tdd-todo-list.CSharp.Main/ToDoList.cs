@@ -24,7 +24,25 @@ namespace tdd_todo_list.CSharp.Main
 
         public bool PrintJobs(List<Job> jobs) 
         {
-            return false;
+            string message = string.Empty;
+            bool messageComplete = false;
+
+            foreach (var item in jobs)
+            {
+                message += string.Format($"Name: {item.Name}\n");
+                message += string.Format("Status: {0}", item.Complete ? "Complete" : "Incomplete\n");
+                message += string.Format($"Description: {item.Description}\n");
+                message += string.Format($"Created: {item.Created}\n\n");
+
+                messageComplete = message.Contains(item.Name);
+                if (messageComplete.Equals(false))
+                {
+                    return false;
+                }
+            }
+            Console.WriteLine(message);
+
+            return messageComplete;
         }
     }
 }

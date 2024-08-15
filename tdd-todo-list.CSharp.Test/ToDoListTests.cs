@@ -24,6 +24,8 @@ namespace tdd_todo_list.CSharp.Test
             TodoList list = new TodoList();
             Job job1 = new Job("Do the dishes", "The dishes shall be clean, but i dont like doing the work");
             Job job2 = new Job("Go for a run", "Run 1 km, its hard, but its good for you!");
+            list.AddToList(job1);
+            list.AddToList(job2);
 
             bool printJobsExpected = true;
 
