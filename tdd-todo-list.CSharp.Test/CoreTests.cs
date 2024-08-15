@@ -91,8 +91,6 @@ namespace tdd_todo_list.CSharp.Test
             string result = list.ListIncomplete();
 
             Assert.IsTrue(expected == result);
-
-
         }
 
     }

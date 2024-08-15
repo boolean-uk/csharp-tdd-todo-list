@@ -57,7 +57,20 @@ namespace tdd_todo_list.CSharp.Main
 
         public string ListIncomplete()
         {
-            return "Nothing";
+            string concat = "";
+
+            foreach (UserTask task in tasks) 
+            {
+                if (task.isComplete == false) 
+                {
+                    concat += task.taskname + " ";
+                }
+                else
+                {
+
+                }
+            }
+            return concat;
         }
     }
 }
