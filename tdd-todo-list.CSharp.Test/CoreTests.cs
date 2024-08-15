@@ -228,6 +228,74 @@ namespace tdd_todo_list.CSharp.Test
         }
 
         //I want to see all the tasks in my list ordered alphabetically in ascending order.
+        [Test]
+        public void OrderByAscendingWrongOrderList()
+        {
+            var todoList = new Todo();
+            List<string> todos = ["Walk the turtle", "Fill the car", "Cook", "Backflip" ];
+            List<string> expected = ["Backflip", "Cook", "Fill the car", "Walk the turtle"];
+
+            foreach (var todo in todos) todoList.Add(todo);
+            var result = todoList.OrderByAscending();
+
+
+            for (int i = 0; i < todos.Count; i++)
+            {
+                Assert.AreEqual(expected[i], result[i]);   
+            }
+
+        }
+        [Test]
+        public void OrderByAscendingCorrectOrderList()
+        {
+            var todoList = new Todo();
+            List<string> todos = ["Backflip", "Cook", "Fill the car", "Walk the turtle"];
+            List<string> expected = ["Backflip", "Cook", "Fill the car", "Walk the turtle"];
+
+            foreach (var todo in todos) todoList.Add(todo);
+            var result = todoList.OrderByAscending();
+
+
+            for (int i = 0; i < todos.Count; i++)
+            {
+                Assert.AreEqual(expected[i], result[i]);
+            }
+
+        }
         //I want to see all the tasks in my list ordered alphabetically in descending order.
+        [Test]
+        public void OrderByDescendingWrongOrderList()
+        {
+            var todoList = new Todo();
+            List<string> todos = ["Backflip", "Cook", "Fill the car", "Walk the turtle"];
+            List<string> expected = ["Walk the turtle", "Fill the car", "Cook", "Backflip"];
+
+            foreach (var todo in todos) todoList.Add(todo);
+            var result = todoList.OrderByDescending();
+
+
+            for (int i = 0; i < todos.Count; i++)
+            {
+                Assert.AreEqual(expected[i], result[i]);
+            }
+
+        }
+        [Test]
+        public void OrderByDescendingCorrectOrderList()
+        {
+            var todoList = new Todo();
+            List<string> todos = ["Walk the turtle", "Fill the car", "Cook", "Backflip"];
+            List<string> expected = ["Walk the turtle", "Fill the car", "Cook", "Backflip"];
+
+            foreach (var todo in todos) todoList.Add(todo);
+            var result = todoList.OrderByDescending();
+
+
+            for (int i = 0; i < todos.Count; i++)
+            {
+                Assert.AreEqual(expected[i], result[i]);
+            }
+
+        }
     }
 }
