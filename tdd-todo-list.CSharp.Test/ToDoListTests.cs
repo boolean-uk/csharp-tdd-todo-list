@@ -41,5 +41,19 @@ namespace tdd_todo_list.CSharp.Test
             Assert.AreEqual(expectedList, actualList);
 
         }
+
+        [Test]
+        public void ChangeTaskStatusTest()
+        {
+            string task = "clean";
+            string taskStatus = "complete";
+            bool expected = true;
+            TodoList todoList = new TodoList();
+            todoList.AddTask(task);
+
+            bool newStatus = todoList.ChangeTaskStatus(taskStatus);
+
+            Assert.AreEqual(expected, newStatus);
+        }
     }
 }

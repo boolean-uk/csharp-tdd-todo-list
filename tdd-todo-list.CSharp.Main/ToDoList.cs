@@ -23,6 +23,11 @@ namespace tdd_todo_list.CSharp.Main
             
         }
 
+        public bool ChangeTaskStatus(string taskStatus)
+        {
+            throw new NotImplementedException();
+        }
+
         public Dictionary<string, string> ViewToDoList { get { return ToDoList; } }
 
 
