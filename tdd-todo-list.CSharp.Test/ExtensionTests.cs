@@ -178,5 +178,13 @@ namespace tdd_todo_list.CSharp.Test
 
             Assert.That(actualResult, Is.EqualTo(expectedResult));
         }
+
+        [Test]
+        public void TestChangeJobNameWithID()
+        {
+            JobExtension job = new JobExtension("Go for a run", "Run 1 km, its hard, but its good for you!");
+
+            string expectedResult = "Dont go for a run";
+        }
     }
 }
