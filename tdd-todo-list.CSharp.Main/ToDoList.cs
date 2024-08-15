@@ -9,11 +9,11 @@ namespace tdd_todo_list.CSharp.Main
     public class TodoList
     {
         private Dictionary<string, bool> _taskList = new Dictionary<string, bool>();
-        public Dictionary<string, bool> TaskList { get { return _taskList; } }
+        public Dictionary<string, bool> TaskList { get { return this._taskList; } }
 
         public void Add(string task)
         {
-            throw new NotImplementedException();
+            _taskList.Add(task, false);
         }
 
         public void ChangeStatus(string task, bool isComplete)
