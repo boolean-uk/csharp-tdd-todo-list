@@ -22,5 +22,10 @@ namespace tdd_todo_list.CSharp.Main
 
 
         }
+
+        public Dictionary<string,bool> viewAllTasks()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

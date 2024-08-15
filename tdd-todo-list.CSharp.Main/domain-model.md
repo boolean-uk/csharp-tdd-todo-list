@@ -13,8 +13,8 @@ I want to see all the tasks in my list ordered alphabetically in descending orde
 
 | Classes  | Methods                                    | Scenario                                      | Output                              |
 |----------|--------------------------------------------|-----------------------------------------------|-------------------------------------|
-| ToDoList | addTask(String taskname)                   | task added or task not added                  | task got, or  not got anything          |
-|          | ViewAllTasks()                             | view all tasks not anything                   | tasks is showing                    |
+| ToDoList | string addTask(String taskname, bool status)| task added or task not added                  | task got, or  not got anything      |
+|          | Dictionary<string,bool> ViewAllTasks()     | view all tasks or not                   |      Dictionary <string name, bool status>|
 |          | changeStatus(string task, bool isComplete) | status changed between complete/incomplete    | status is changed                   |
 |          | getCompleteTasks()                         | task is completed                             | show completed task nothing to show |
 |          | getIncompleteTasks()                       | task not completed                            | show not completed task             |
