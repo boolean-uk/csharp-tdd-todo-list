@@ -41,7 +41,54 @@ namespace tdd_todo_list.CSharp.Test
             //assert
             Assert.That(expected == result);
         }
-        
+
+        [Test]
+        public void ChangeStatusTest()
+        {
+
+            //arrange
+            TodoList list = new TodoList();
+            list.Add("Grocery Shopping", 0);
+            list.Add("Vacuum", 1 );
+            list.Add("Mow the lawn", 0);
+
+            bool expected = true;
+            //act
+            bool result = list.ChangeStatus("Grocery Shopping", 1);
+
+
+            //assert
+            Assert.That(expected == result);
+        }
+
+        [TestCase(3, false) ]
+        [TestCase(2, true)]
+        [TestCase(1, false)]
+        [TestCase(4, false)]
+        public void GetCompletedTest(int val, bool isExpected)
+        {
+
+            //arrange
+            TodoList list = new TodoList();
+            list.Add("Grocery Shopping", 0);
+            list.Add("Vacuum", 1);
+            list.Add("task3", 0);
+            list.Add("task4", 1);
+            list.Add("task5", 0);
+
+            int numCompleted = val;
+
+            //act
+            List<string> completedList = list.GetCompleted();
+
+            int result = completedList.Count;
+
+            bool isEqual = (numCompleted == result);
+
+            //assert
+            Assert.That(isExpected == isEqual);
+        }
+
 
     }
 }

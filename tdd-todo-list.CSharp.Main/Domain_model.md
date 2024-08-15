@@ -1,5 +1,6 @@
 X - I want to add tasks to my todo list. 
 X - I want to see all the tasks in my todo list.
+X - I want to change the status of a task between incomplete and complete
 X - I want to be able to get only the complete tasks.
 X - I want to be able to get only the incomplete tasks.
 X - I want to search for a task and receive a message that says it wasn't found if it doesn't exist.
