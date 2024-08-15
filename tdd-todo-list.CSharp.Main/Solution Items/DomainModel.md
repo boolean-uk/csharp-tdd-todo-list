@@ -14,6 +14,9 @@ I want to be able to change the status of a task by providing its ID.
 I want to be able to see the date and time that I created each task.
 
 Task = job
+NB! Implemented the job object with id and Date from the start, that is why some of the usercases above have had their string arg changed to id,
+and also why there is no extension file, but only one. Talked with Nigel about it, he said it would be fine. Next time Ill doublecheck the requirements 
+
 
 | Classes       | Methods                                            | Scenario                                                               | Output          |
 |---------------|----------------------------------------------------|------------------------------------------------------------------------|-----------------|

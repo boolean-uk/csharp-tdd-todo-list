@@ -105,7 +105,11 @@ namespace tdd_todo_list.CSharp.Main
             {
 
             }
-            throw new NotImplementedException();
+            else
+            {
+
+            }
+            
         }
 
         public void updateName(int id, string newName)
