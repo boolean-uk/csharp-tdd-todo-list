@@ -39,7 +39,7 @@ namespace tdd_todo_list.CSharp.Main
         }
         public List<TodoTask> GetAllTasks()
         {
-            throw new NotImplementedException();
+            return this._tasks;
         }
         public Status ChangeTaskStatus(TodoTask t, Status newstatus) 
         { 
@@ -47,11 +47,31 @@ namespace tdd_todo_list.CSharp.Main
         }
         public List<TodoTask> GetCompleteTasks()
         {
-            throw new NotImplementedException(); 
+            List<TodoTask> completedTasks = new List<TodoTask>();
+
+            foreach(TodoTask t in this._tasks)
+            {
+                if(t.Status == Status.Complete)
+                {
+                    completedTasks.Add(t);
+                }
+            }
+
+            return completedTasks;
         }
         public List<TodoTask> GetIncompleteTasks() 
         {   
-            throw new NotImplementedException();
+            List<TodoTask> incompletedTasks = new List<TodoTask>();
+
+            foreach(TodoTask t in this._tasks)
+            {
+                if (t.Status == Status.Incomplete) 
+                {
+                    incompletedTasks.Add(t);
+                }
+            }
+
+            return incompletedTasks;
         }
         public string FindTask(TodoTask t)
         {

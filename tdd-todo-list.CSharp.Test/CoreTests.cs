@@ -61,7 +61,7 @@ namespace tdd_todo_list.CSharp.Test
 
             Assert.That(allTasks.Count, Is.EqualTo(2));
             Assert.That(allTasks[0], Is.EqualTo(t1));
-            Assert.That(allTasks[0], Is.EqualTo(t2));
+            Assert.That(allTasks[1], Is.EqualTo(t2));
               
         }
 
@@ -104,12 +104,12 @@ namespace tdd_todo_list.CSharp.Test
             core.AddTask(t3);
             core.AddTask(t4);
 
-            List<TodoTask> completedTasks = core.GetCompleteTasks();
+            List<TodoTask> incompletedTasks = core.GetIncompleteTasks();
 
-            Assert.That(completedTasks.Contains(t1), Is.True);
-            Assert.That(completedTasks.Contains(t2), Is.True);
-            Assert.That(completedTasks.Contains(t3), Is.False);
-            Assert.That(completedTasks.Contains(t4), Is.False);
+            Assert.That(incompletedTasks.Contains(t1), Is.True);
+            Assert.That(incompletedTasks.Contains(t2), Is.True);
+            Assert.That(incompletedTasks.Contains(t3), Is.False);
+            Assert.That(incompletedTasks.Contains(t4), Is.False);
         }
 
 
