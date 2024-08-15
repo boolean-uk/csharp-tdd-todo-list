@@ -26,9 +26,14 @@ namespace tdd_todo_list.CSharp.Main
             return true;
         }
 
-        public List<Job> GetJob(string name)
+        public Job GetJob(string name)
         {
-            return new List<Job>();
+            List<Job> jobs = Jobs.Where(job => job.Name.Equals(name)).ToList();
+            if (jobs.Count <= 0)
+            {
+                return new Job("", "");
+            }
+            return jobs[0];
         }
 
         public List<Job> GetJobs(bool completed)

@@ -94,9 +94,9 @@ namespace tdd_todo_list.CSharp.Test
             list.AddToList(job1);
             list.AddToList(job2);
 
-            List<Job> expectedJob = new List<Job>() { job1 };
+            Job expectedJob = job1;
 
-            List<Job> actualJob = list.GetJob("Do the dishes");
+            Job actualJob = list.GetJob("Do the dishes");
 
             Assert.That(actualJob, Is.EqualTo(expectedJob));
         }
