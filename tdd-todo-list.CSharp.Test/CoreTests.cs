@@ -138,7 +138,7 @@ namespace tdd_todo_list.CSharp.Test
             Assert.IsTrue(expected == computed);
         }
         [TestCase("Ascend", new[] { "A", "B", "C" })]
-        [TestCase("Descend", new[] { "C", "B", "A" }))]
+        [TestCase("Descend", new[] { "C", "B", "A" })]
         public void Sort(string order, string[] expected)
         {
             //init

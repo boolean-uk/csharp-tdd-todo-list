@@ -94,7 +94,20 @@ namespace tdd_todo_list.CSharp.Main
 
         public List<string> Sort(string order)
         {
-            throw new NotImplementedException();
+            if (order == "Ascend")
+            {
+                List<string> sortedTasks = _toDoList.Keys.ToList();
+                sortedTasks.Sort();
+                return sortedTasks;
+            }
+            else
+            {
+                List<string> sortedTasks = _toDoList.Keys.ToList();
+                sortedTasks.Sort();
+                sortedTasks.Reverse();
+                return sortedTasks;
+            }
+            
         }
     }
 }
