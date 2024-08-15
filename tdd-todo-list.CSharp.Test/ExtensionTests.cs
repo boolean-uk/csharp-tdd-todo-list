@@ -24,20 +24,21 @@ namespace tdd_todo_list.CSharp.Test
             //Arrange
             TodoListExtension list = new TodoListExtension();
             UserTask task1 = new UserTask(24);
+            task1.taskname = "correct one";
             UserTask task2 = new UserTask(99);
+            task2.taskname = "not this one mate";
 
             list.Add(task1);
             list.Add(task2);
 
-            
-
+            //act
             list.FindTaskById(id);
 
-            string expected = "Task with ID: "+task1.id.ToString()+ " is found";
+            string expected = task1.taskname+" with ID: "+task1.id.ToString()+" found!";
 
             string result = list.FindTaskById(id);
 
-            //
+            //assert
             Assert.IsTrue(result == expected);
             
         }

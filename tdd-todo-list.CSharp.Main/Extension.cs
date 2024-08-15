@@ -25,7 +25,15 @@ namespace tdd_todo_list.CSharp.Main
 
         public string FindTaskById(int id)
         {
-            return "Nothing";
+            UserTask thistask = tasks.FirstOrDefault(item => item.id == id);
+            if (thistask != null) 
+            {
+                return thistask.taskname+" with ID: "+thistask.id.ToString()+" found!";
+            }
+            else
+            {
+                return "Woopsie, no such task found";
+            }
         }
     }
 }
