@@ -63,7 +63,15 @@ namespace tdd_todo_list.CSharp.Main
 
         public string ListIncompleteTasks()
         {
-            throw new NotImplementedException();
+            string output = string.Empty;
+            foreach(var task in tasks)
+            {
+                if(!task.Value)
+                {
+                    output += task.Key + _incomplete;
+                }
+            }
+            return output;
         }
     }
 }
