@@ -105,7 +105,7 @@ namespace tdd_todo_list.CSharp.Test
 
             JobExtension expectedJob = job1;
 
-            JobExtension actualJob = todoListExtension.GetJob("Do the dishes");
+            JobExtension actualJob = todoListExtension.GetJob(1);
 
             Assert.That(actualJob, Is.EqualTo(expectedJob));
         }
@@ -121,13 +121,13 @@ namespace tdd_todo_list.CSharp.Test
 
             bool expectedResult = true;
 
-            bool actualResult = todoListExtension.RemoveJob("Do the dishes");
+            bool actualResult = todoListExtension.RemoveJob(1);
 
             Assert.That(actualResult, Is.EqualTo(expectedResult));
 
             expectedResult = false;
 
-            actualResult = todoListExtension.RemoveJob("Do the dishes");
+            actualResult = todoListExtension.RemoveJob(1);
             Assert.That(actualResult, Is.EqualTo(expectedResult));
         }
 
@@ -161,6 +161,22 @@ namespace tdd_todo_list.CSharp.Test
             List<JobExtension> actualResult = todoListExtension.GetJobsOrdered(false);
 
             Assert.That(actualResult, Is.EquivalentTo(expectedResult));
+        }
+
+        [Test]
+        public void TestChangeJobStatusFromList()
+        {
+            TodoListExtension todoListExtension = new TodoListExtension();
+            JobExtension job1 = new JobExtension("Go for a run", "Run 1 km, its hard, but its good for you!");
+            JobExtension job2 = new JobExtension("Do the dishes", "The dishes shall be clean, but i dont like doing the work");
+            todoListExtension.AddToList(job1);
+            todoListExtension.AddToList(job2);
+
+            bool expectedResult = true;
+
+            bool actualResult = todoListExtension.changeJobStatus(1, true);
+
+            Assert.That(actualResult, Is.EqualTo(expectedResult));
         }
     }
 }

@@ -18,7 +18,7 @@ namespace tdd_todo_list.CSharp.Main
             {
                 return false;
             }
-            else if (_jobs.Where(item => item.Name == job.Name).ToList().Count != 0)
+            else if (_jobs.Where(item => item.ID == job.ID).ToList().Count != 0)
             {
                 return false;
             }
@@ -102,11 +102,11 @@ namespace tdd_todo_list.CSharp.Main
         private string _name;
         private string _description;
         private DateTime _created;
-        private int _ID;
+        private int _ID = 0;
 
         public int ID { get; set; } // <== i do not condone this public set, just had to do it without rewriting alot of the add function of the list class
         public bool Complete { get { return _complete; } }
-        public string Name { get; set; }
+        public string Name { get { return _name; } set { _name = value; } }
         public string Description { get { return _description; } }
         public string Created { get { return DateTime.Now.ToString(); } }
 
