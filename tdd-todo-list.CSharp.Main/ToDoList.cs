@@ -71,7 +71,11 @@ namespace tdd_todo_list.CSharp.Main
 
         public List<Job> GetJobsOrdered(bool ascending)
         {
-            return new List<Job>();
+            if (ascending)
+            {
+                return Jobs.OrderBy(job => job.Name).ToList();
+            }
+            return Jobs.OrderByDescending(job => job.Name).ToList();
         }
     }
 }

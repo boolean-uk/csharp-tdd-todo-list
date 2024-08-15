@@ -123,7 +123,7 @@ namespace tdd_todo_list.CSharp.Test
         }
 
         [Test]
-        public void TestGetOrderedAscending()
+        public void TestGetJobsOrderedAscending()
         {
             TodoList list = new TodoList();
             Job job1 = new Job("Go for a run", "Run 1 km, its hard, but its good for you!");
@@ -134,6 +134,22 @@ namespace tdd_todo_list.CSharp.Test
             List<Job> expectedResult = new List<Job>() { job1, job2 };
 
             List<Job> actualResult = list.GetJobsOrdered(true);
+
+            Assert.That(actualResult, Is.EquivalentTo(expectedResult));
+        }
+
+        [Test]
+        public void TestGetJobsOrderedDescending()
+        {
+            TodoList list = new TodoList();
+            Job job1 = new Job("Go for a run", "Run 1 km, its hard, but its good for you!");
+            Job job2 = new Job("Do the dishes", "The dishes shall be clean, but i dont like doing the work");
+            list.AddToList(job1);
+            list.AddToList(job2);
+
+            List<Job> expectedResult = new List<Job>() { job2, job1 };
+
+            List<Job> actualResult = list.GetJobsOrdered(false);
 
             Assert.That(actualResult, Is.EquivalentTo(expectedResult));
         }
