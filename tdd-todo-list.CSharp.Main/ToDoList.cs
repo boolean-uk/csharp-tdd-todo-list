@@ -13,6 +13,16 @@ namespace tdd_todo_list.CSharp.Main
 
         private Dictionary<string, bool> _todoList { get; set; } = new Dictionary<string, bool>();
 
+        public Dictionary<string, bool> todoList { get { return _todoList; } }
+
+        public Dictionary<string, bool> tasksAscending { get { return _todoList.Keys.OrderBy(x => x).ToDictionary(x => x, x => _todoList[x]); } }
+        public Dictionary<string, bool> tasksDescending { get { return _todoList.Keys.OrderByDescending(x => x).ToDictionary(x => x, x => _todoList[x]); } }
+
+        public List<string> completedTasks { get { return _todoList.Keys.Where(x => _todoList[x] == true).ToList(); } }
+
+        public List<string> inCompletedTasks { get { return _todoList.Keys.Where(x => _todoList[x] == false).ToList(); } }
+
+
         public bool Add(string task)
         {
             //I assume a task is initially not completed
@@ -44,21 +54,10 @@ namespace tdd_todo_list.CSharp.Main
             return false;
         }
 
-        public List<string> getCompletedTasks() => _todoList.Keys.Where(x => _todoList[x] == true).ToList();
-
-        public List<string> getIncompletedTasks() => _todoList.Keys.Where(x => _todoList[x] == false).ToList();
-
         public bool Search(string task)
         {
             if (_todoList.ContainsKey(task)) { return true; }
             return false;
         }
-
-        public Dictionary<string, bool> getAllTasks() => _todoList;
-
-        public Dictionary<string, bool> getTasksAsc() => _todoList.Keys.OrderBy(x => x).ToDictionary(x => x, x => _todoList[x]);
-
-        public Dictionary<string, bool> getTasksDesc() => _todoList.Keys.OrderByDescending(x => x).ToDictionary(x => x, x => _todoList[x]);
-
     }
 }

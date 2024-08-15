@@ -54,7 +54,7 @@ namespace tdd_todo_list.CSharp.Test
 
             todoList.Add(task1);
             todoList.Add(task2);
-            Dictionary<string, bool> tasks = todoList.getAllTasks();
+            Dictionary<string, bool> tasks = todoList.todoList;
             int result = tasks.Count;
 
             Assert.That(result, Is.EqualTo(expectedCount));
@@ -75,7 +75,7 @@ namespace tdd_todo_list.CSharp.Test
             todoList.ChangeTask(task1);
             todoList.ChangeTask(task2);
 
-            List<string> tasks = todoList.getCompletedTasks();
+            List<string> tasks = todoList.completedTasks;
             int result = tasks.Count;
 
             Assert.That(result, Is.EqualTo(expectedCount));
@@ -98,7 +98,7 @@ namespace tdd_todo_list.CSharp.Test
             todoList.ChangeTask(task1);
             todoList.ChangeTask(task2);
 
-            List<string> tasks = todoList.getIncompletedTasks();
+            List<string> tasks = todoList.inCompletedTasks;
         }
 
         [TestCase("get dressed")]
@@ -163,7 +163,7 @@ namespace tdd_todo_list.CSharp.Test
             todo.Add(task3);
             todo.Add(task4);
 
-            Dictionary<string, bool> tasks = todo.getTasksAsc();
+            Dictionary<string, bool> tasks = todo.tasksAscending;
             string result = tasks.First().Key;
 
             Assert.That(expectedFirst, Is.EqualTo(result));
@@ -184,7 +184,7 @@ namespace tdd_todo_list.CSharp.Test
             todo.Add(task3);
             todo.Add(task4);
 
-            Dictionary<string, bool> tasks = todo.getTasksDesc();
+            Dictionary<string, bool> tasks = todo.tasksDescending;
             string result = tasks.First().Key;
 
             Assert.That(expectedFirst, Is.EqualTo(result));
