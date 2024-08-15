@@ -138,7 +138,7 @@ namespace tdd_todo_list.CSharp.Test
         }
 
         [Test]
-        public void OrderTasksAscending(bool ascending)
+        public void OrderTasksAscending()
         {
             TodoList todoList = new TodoList();
             todoList.AddTask("Study");
@@ -152,7 +152,7 @@ namespace tdd_todo_list.CSharp.Test
         }
 
         [Test]
-        public void OrderTasksDescending(bool ascending)
+        public void OrderTasksDescending()
         {
             TodoList todoList = new TodoList();
             todoList.AddTask("Study");

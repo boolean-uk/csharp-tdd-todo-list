@@ -51,5 +51,12 @@ namespace tdd_todo_list.CSharp.Main
             return true;
         }
 
+        public List<TaskItem> OrderTasks(bool ascending)
+        {
+            if (ascending)
+                return Tasks.OrderBy(t => t.Name).ToList();
+
+            return Tasks.OrderByDescending(t => t.Name).ToList();
+        }
     }
 }
