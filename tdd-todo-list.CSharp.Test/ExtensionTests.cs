@@ -80,7 +80,7 @@ namespace tdd_todo_list.CSharp.Test
             list.Add(task1);
             list.Add(task2);
 
-            string expected = "Task ID: " + id.ToString() + "changed completion status to: true";
+            string expected = "Task ID: " + id.ToString() + " changed completion status to: true"; // true here, but actual variable in extension class
         }
     }
 }

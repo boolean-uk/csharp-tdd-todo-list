@@ -55,7 +55,22 @@ namespace tdd_todo_list.CSharp.Main
 
         public string ChangeStatus(int id)
         {
-            return "Nothing";
+            foreach (UserTask task in tasks)
+            {
+                if (task.id == id)
+                {
+                    if (task.isComplete == true)
+                    {
+                        task.isComplete = false;
+                    }
+                    else
+                    {
+                        task.isComplete = true;
+                    }
+                }
+                return "Task ID: " + id.ToString() + " changed completion status to: " + task.isComplete;
+            }
+            return "Error";
         }
     }
 }
