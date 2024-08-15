@@ -67,7 +67,7 @@ namespace tdd_todo_list.CSharp.Test
             todoList.AddTask(task);
             todoList.AddTask(task2);
 
-            string actualSearchMessage = todoList.SearchList(task);
+            string actualSearchMessage = todoList.SearchList(noTask);
 
             Assert.AreEqual(expected, actualSearchMessage);
         }
