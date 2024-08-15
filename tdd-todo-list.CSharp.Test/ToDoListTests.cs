@@ -103,6 +103,34 @@ namespace tdd_todo_list.CSharp.Test
 
         }
 
+        //5. I want to be able to get only the incomplete tasks.
+        [Test]
+        public void GetIncompleteTasksTest()
+        {
+            string task1 = "blabla";
+            string taskStatus1 = "complete";
+            string task2 = "helloworld";
+            string taskStatus2 = "complete";
+            string task3 = "fix bugs";
+            Dictionary<string, string> expectedList = new Dictionary<string, string>
+            {
+                { task1, taskStatus1 },
+                { task2, taskStatus2 }
+            };
+
+            TodoList todoList = new TodoList();
+            todoList.AddTask(task1);
+            todoList.AddTask(task2);
+            todoList.AddTask(task3);
+            todoList.ChangeTaskStatus(task1, taskStatus1);
+            todoList.ChangeTaskStatus(task2, taskStatus2);
+
+            Dictionary<string, string> actualList = todoList.ViewIncompleteTasksList;
+
+            Assert.AreEqual(expectedList, actualList);
+
+        }
+
         //6. I want to search for a task and receive a message that says it wasn't found if it doesn't exist.
         [Test]
         public void SearchListTest()

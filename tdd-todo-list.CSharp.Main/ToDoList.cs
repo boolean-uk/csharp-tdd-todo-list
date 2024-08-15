@@ -65,5 +65,7 @@ namespace tdd_todo_list.CSharp.Main
 
         public Dictionary<string, string> ViewCompleteTasksList { get { return ToDoList.Where(task => task.Value == "complete").ToDictionary(); } }
 
+        public Dictionary<string, string> ViewIncompleteTasksList { get { return ToDoList.Where(task => task.Value == "incomplete").ToDictionary(); } }
+
     }
 }
