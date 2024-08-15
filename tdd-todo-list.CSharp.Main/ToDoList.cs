@@ -8,5 +8,12 @@ namespace tdd_todo_list.CSharp.Main
 {
     public class TodoList
     {
+
+        public List<toDoTask> taskList = new List<toDoTask>();
+
+        public void addTask(toDoTask toDoTask)
+        {
+            
+        }
     }
 }
