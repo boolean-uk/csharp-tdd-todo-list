@@ -23,8 +23,11 @@ namespace tdd_todo_list.CSharp.Test
         public void RemoveTaskTest()
         {
             string task = "shopping";
+            string task2 = "join zoom";
             bool expected = true;
             TodoList todoList = new TodoList();
+            todoList.AddTask(task);
+            todoList.AddTask(task2);
 
             bool taskRemoved = todoList.RemoveTask(task);
 

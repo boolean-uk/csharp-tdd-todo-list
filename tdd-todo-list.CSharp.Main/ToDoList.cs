@@ -53,7 +53,12 @@ namespace tdd_todo_list.CSharp.Main
 
         public bool RemoveTask(string task)
         {
-            throw new NotImplementedException();
+            if (ToDoList.ContainsKey(task))
+            {
+                ToDoList.Remove(task);
+                return true;
+            }
+            return false;
         }
 
         public Dictionary<string, string> ViewToDoList { get { return ToDoList; } }
