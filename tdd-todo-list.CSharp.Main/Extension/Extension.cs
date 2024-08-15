@@ -24,5 +24,15 @@ namespace Extension
             TaskItemExtension? taskItem = Tasks.Find(task => task.Id == id);
             return taskItem;
         }
+
+        public bool UpdateTaskName(int id, String newName)
+        {
+            TaskItemExtension? task = GetTask(id);
+            if (task == null)
+                return false;
+
+            task.Name = newName;
+            return true;
+        }
     }
 }
