@@ -144,5 +144,25 @@ namespace tdd_todo_list.CSharp.Test
             Assert.That(expected == result);
         }
 
+
+        [Test]
+        public void UpdateJobNameTest()
+        {
+            TodoList todoList = new TodoList();
+
+            Job job1 = new Job(1, "Kode", Status.INCOMPLETE, DateTime.Now);
+            Job job2 = new Job(2, "Teste", Status.COMPLETE, DateTime.Now);
+
+            todoList.addJob(job1);
+            todoList.addJob(job2);
+
+            string expected = "Handle";
+
+            Job result = todoList.updateJobName(job1.Id, "Handle");
+
+            Assert.That(expected == result.Name);
+
+        }
+
     }
 }

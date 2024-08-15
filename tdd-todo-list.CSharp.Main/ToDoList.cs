@@ -109,5 +109,10 @@ namespace tdd_todo_list.CSharp.Main
 
             return $"Job with name {name} found!";
         }
+
+        public Job updateJobName(int id, string v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
