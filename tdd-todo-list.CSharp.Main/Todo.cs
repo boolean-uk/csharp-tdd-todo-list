@@ -27,5 +27,7 @@ namespace tdd_todo_list.CSharp.Main
 
         public int id { get { return _id; } }
 
+        public string task { get { return _task; } }
+
     }
 }

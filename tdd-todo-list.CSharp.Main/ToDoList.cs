@@ -43,11 +43,20 @@ namespace tdd_todo_list.CSharp.Main
             return todoList.Where(item => !item.Complete).OrderBy(item => item.Complete);
         } //return based on bool
 
-        public Todo searchTask(int id) { return todoList[id]; }
+        public Todo searchTask(int id) { return todoList.FirstOrDefault(item => item.id == id); }
 
-        public bool remove(int id) {  todoList.RemoveAt(id); return true;}
+        public bool remove(int id) {  todoList.Remove(todoList.FirstOrDefault(item => item.id == id)); return true;}
 
-        public List<Todo> listTasksSort(bool descending) { return todoList; } //add sort  
+        public List<Todo> listTasksSort(bool descending) { 
+            if (descending)
+            {
+                return todoList.OrderByDescending(item => item.task).ToList();
+
+            }
+            return todoList.OrderBy(item => item.task).ToList();
+            
+
+        } //add sort  
 
     }
 }
