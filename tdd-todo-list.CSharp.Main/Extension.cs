@@ -182,7 +182,7 @@ namespace tdd_todo_list.CSharp.Main
             string key = string.Empty;
             foreach(var task in tasks)
             {
-                if (task.Value.ID == id)
+                if (task.Value.ID == id) //Found ID
                 {
                     key = task.Key;
                     found = true;
@@ -190,13 +190,22 @@ namespace tdd_todo_list.CSharp.Main
                 }
                 index++;
             }
-            if (found)
+            if (found) //If ID was found
             {
-                tasks.Add(newName, tasks[key]);
-                tasks.Remove(key);
+                if (tasks.ContainsKey(newName)) //Check if key is not already taken
+                {
+                    return false;
+                }
+                tasks.Add(newName, tasks[key]); //Add new key
+                tasks.Remove(key); //Remove old key
                 return true;
             }
             return false;
+        }
+
+        public bool ChangeStatus(int iD, bool v)
+        {
+            throw new NotImplementedException();
         }
     }
 }
