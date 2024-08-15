@@ -23,7 +23,19 @@ namespace tdd_todo_list.CSharp.Main
 
         public string ListAll()
         {
-            return "Nothing";
+            string concat = "";
+            if (tasks.Count > 0) 
+            {
+                foreach (UserTask task in tasks) 
+                {
+                    concat += task.taskname + " ";
+                }
+                return concat;
+            }
+            else
+            {
+                return "No tasks found";
+            }
         }
     }
 }

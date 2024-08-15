@@ -40,7 +40,7 @@ namespace tdd_todo_list.CSharp.Test
             list1.Add(task2);
             list1.Add(task3);
 
-            string expected = task1.taskname+" "+task2.taskname+" "+task3.taskname;
+            string expected = task1.taskname+" "+task2.taskname+" "+task3.taskname+" ";
 
             //act
             string result = list1.ListAll();
