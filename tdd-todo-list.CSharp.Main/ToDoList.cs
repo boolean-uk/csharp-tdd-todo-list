@@ -8,6 +8,11 @@ namespace tdd_todo_list.CSharp.Main
 {
     public class TodoList
     {
+        public SortedDictionary<string, bool> todoList { get; set; }
 
+        public void add(string task, bool status)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

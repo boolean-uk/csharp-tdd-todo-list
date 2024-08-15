@@ -11,7 +11,10 @@ namespace tdd_todo_list.CSharp.Test
         public void FirstTest()
         {
             TodoList core = new TodoList();
-            Assert.Pass();
+            string task = "Walk the dog";
+            bool status = false;
+            core.add(task, status);
+            Assert.That(core.todoList.Count, Is.EqualTo(1));
         }
     }
 }
