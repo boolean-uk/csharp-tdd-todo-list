@@ -115,7 +115,7 @@ namespace tdd_todo_list.CSharp.Main
 
         public ExtendedTasks GetTask(int id)
         {
-            return null;//_getTask(id);
+            return _getTask(id);
         }
 
         public bool UpdateName(int Id, string NewName)
@@ -129,9 +129,10 @@ namespace tdd_todo_list.CSharp.Main
             return false;
         }
 
-        public object GetDateTime(int v)
+        public object GetDateTime(int id)
         {
-            throw new NotImplementedException();
+            ExtendedTasks task = _getTask(id);
+            return task.datetime;
         }
     }
 }

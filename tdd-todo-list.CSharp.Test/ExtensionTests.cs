@@ -10,15 +10,12 @@ namespace tdd_todo_list.CSharp.Test
 {
     public class ExtensionTests
     {
-        private ExtendedToDoList _extension;
-        public ExtensionTests()
-        {
-            _extension = new ExtendedToDoList();
-        }
+
 
         [Test]
         public void GetTaskTest()
         {
+            ExtendedToDoList _extension = new ExtendedToDoList();
             ExtendedTasks task = new ExtendedTasks(69, "Task1");
             _extension.Add(task);
             Assert.That(task, Is.EqualTo(_extension.GetTask(69)));
@@ -28,6 +25,7 @@ namespace tdd_todo_list.CSharp.Test
         [TestCase(false, 420)]
         public void UpdateNameTest(bool expectedResult, int id)
         {
+            ExtendedToDoList _extension = new ExtendedToDoList();
             ExtendedTasks task = new ExtendedTasks(69, "Task1");
             _extension.Add(task);
             bool result = _extension.UpdateName(id, "Task2");
@@ -38,6 +36,7 @@ namespace tdd_todo_list.CSharp.Test
         [TestCase(false, 2)]
         public void ChangeStatusTest(bool expectedresult, int amountOfChanges)
         {
+            ExtendedToDoList _extension = new ExtendedToDoList();
             ExtendedTasks task = new ExtendedTasks(69, "Task1");
             _extension.Add(task);
             for(int i = 0; i< amountOfChanges; i++)
@@ -50,6 +49,7 @@ namespace tdd_todo_list.CSharp.Test
         [Test]
         public void GetDateTimeTest()
         {
+            ExtendedToDoList _extension = new ExtendedToDoList();
             ExtendedTasks task = new ExtendedTasks(69, "Task1");
             DateTime dt = task.datetime;
             _extension.Add(task);
