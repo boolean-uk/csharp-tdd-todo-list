@@ -11,6 +11,11 @@ namespace tdd_todo_list.CSharp.Main
         private Dictionary<string, bool> _list = new Dictionary<string, bool>();
         public Dictionary<string, bool> List {  get { return _list; } }
 
+        public String addTask(string name)
+        {
+            throw new NotImplementedException();
+        }
+
 
     }
 }

@@ -8,10 +8,20 @@ namespace tdd_todo_list.CSharp.Test
     {
 
         [Test]
-        public void TestaddTask()
+        public void TestAddingTasktoList()
         {
-            TodoList core = new TodoList();
-            Assert.Pass();
+            //arrange
+            TodoList todoList = new TodoList();
+
+
+            //act
+            string task = "Washing dishes";
+            todoList.addTask(task);
+
+            //assert
+            Assert.IsTrue(todoList.List.ContainsKey(task));
+
+
         }
     }
 }
