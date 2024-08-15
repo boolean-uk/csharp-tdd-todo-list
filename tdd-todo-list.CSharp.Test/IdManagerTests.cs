@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
+using NUnit.Framework.Interfaces;
 
 
 // THIS IS EXTENSION
@@ -79,9 +80,9 @@ namespace tdd_todo_list.CSharp.Test
         }
 
 
-        [TestCase("NewName")]
-        [TestCase("AnotherName")]
-        [TestCase("Go shopping")]
+        [TestCase(0)]
+        [TestCase(1)]
+        [TestCase(4)]
         public void TestToggleStatus(int id)
         {
             idManager = new IdManager();
@@ -89,12 +90,19 @@ namespace tdd_todo_list.CSharp.Test
             idManager.AddTask("AnotherName", true, "22-06-2013 11:21");
             idManager.AddTask("Go shopping", true, "22-06-2013 11:21");
 
-            bool expected = !idManager.CheckStatus(id);
+            string file = idManager.FindTaskByID(id);
+            bool expected = !idManager.CheckStatus(id); //expected is opposite of current
 
-            bool result = idManager.ToggleStatus(id);
+            bool success = idManager.ToggleStatus(id);
 
-
-            Assert.That(result == expected);
+            if (success)
+            {
+                Assert.That(idManager.GetStatus(id) == expected);
+            }
+            else
+            {
+                Assert.That(file == "404 task not found!");
+            }
         }
     }
 }

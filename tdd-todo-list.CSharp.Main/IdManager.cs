@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace tdd_todo_list.CSharp.Main
 {// THIS IS EXTENSION
@@ -65,6 +66,46 @@ namespace tdd_todo_list.CSharp.Main
                 }
             }
             return false;
+        }
+
+        public bool CheckStatus(int id)
+        {
+            foreach (var entry in todo)
+            {
+                if (entry.Key == id)
+                {
+                    return entry.Value.status;
+                }
+            }
+            return false; // this line should never be reached due 
+            // to how the test cases are set up
+        }
+
+        public bool ToggleStatus(int id)
+        {
+            foreach (var entry in todo)
+            {
+                if (entry.Key == id)
+                {
+                    TaskInfo newInfo = new TaskInfo(entry.Value.name, !entry.Value.status, entry.Value.timeStamp);
+                    todo[id] = newInfo;
+                    return true; //success
+                }
+            }
+            return false;
+        }
+
+        public bool GetStatus(int id)
+        {
+            foreach (var entry in todo)
+            {
+                if (entry.Key == id)
+                {
+                    return entry.Value.status;
+                }
+            }
+            return false; // Should never be reached due to how 
+            // test cases are set up
         }
     }
 }
