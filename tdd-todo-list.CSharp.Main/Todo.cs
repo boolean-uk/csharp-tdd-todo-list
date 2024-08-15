@@ -48,7 +48,11 @@ namespace tdd_todo_list.CSharp.Main
 
         public bool ChangeTodoStatus(int todo) 
         {
-            throw new NotImplementedException();
+            if(TodoIDList.TryGetValue(todo, out var value))
+            {
+                return ChangeTodoStatus(value);
+            }
+            return false;
         }
 
         public bool UpdateTodo(int id, string newName) 
