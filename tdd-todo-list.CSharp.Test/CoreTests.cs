@@ -137,11 +137,10 @@ namespace tdd_todo_list.CSharp.Test
         {
             TodoList list = new TodoList();
             UserTask task1 = new UserTask();
-            task1.taskname = "Dishes";
 
             list.Add(task1);
 
-            string expected = "Task named: " + task1.taskname + ", has been removed";
+            string expected = "Task named: " + task1.ToString()+ ", has been removed";
 
             string result = list.RemoveTask(task1);
 

@@ -105,7 +105,15 @@ namespace tdd_todo_list.CSharp.Main
 
         public string RemoveTask(UserTask taskname)
         {
-            return "Nothing";
+
+            if (tasks.Remove(taskname))
+            {
+                return "Task named: " + taskname.ToString()+ ", has been removed";
+            }
+            else
+            {
+                return "No such task found, nor removed";
+            }
         }
     }
 }
