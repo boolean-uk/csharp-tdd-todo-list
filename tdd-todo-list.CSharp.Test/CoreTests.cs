@@ -20,8 +20,10 @@ namespace tdd_todo_list.CSharp.Test
         {
             TodoList core = new TodoList();
             Tasks task = new Tasks("Task 1");
+            List<Tasks> tasks = new List<Tasks>();
+            tasks.Add(task);
             core.Add(task);
-            Assert.That(core.GetTodoList().Contains(task));
+            Assert.That(core.GetTodoList(), Is.EquivalentTo(tasks));
         }
 
         [Test]
@@ -94,7 +96,11 @@ namespace tdd_todo_list.CSharp.Test
             todoList1.SetTasks(tasks1);
             todoList2.SetTasks(tasks2);
             List<Tasks> sortedTasks = todoList2.SortAscending();
-            Assert.That(todoList1.GetTodoList(), Is.EquivalentTo(sortedTasks));
+            List<Tasks> expectedResult = todoList1.GetTodoList();
+            for (int i = 0; i<names.Length; i++)
+            {
+                Assert.That(expectedResult[i].name, Is.EqualTo(sortedTasks[i].name));
+            }
         }
 
         [Test]
@@ -114,7 +120,11 @@ namespace tdd_todo_list.CSharp.Test
             todoList1.SetTasks(tasks1);
             todoList2.SetTasks(tasks2);
             List<Tasks> sortedTasks = todoList2.SortDescending();
-            Assert.That(todoList1.GetTodoList(), Is.EquivalentTo(sortedTasks));
+            List<Tasks> expectedResult = todoList1.GetTodoList();
+            for (int i = 0; i < names.Length; i++)
+            {
+                Assert.That(expectedResult[i].name, Is.EqualTo(sortedTasks[i].name));
+            }
         }
     }
 }
