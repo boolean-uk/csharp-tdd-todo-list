@@ -155,7 +155,30 @@ namespace tdd_todo_list.CSharp.Test
             Assert.IsTrue(isAscending);
         }
 
-        
+        [Test]
+        public void checkIfListDescending()
+        {
+
+            //arrange 
+            TodoList list = new TodoList();
+            List<toDoTask> descendingList = list.getDescending(list.taskList);
+            bool isDescending = true;
+
+            //act
+            for (int i = 0; i < descendingList.Count; i++)
+            {
+                string word1 = descendingList[i].taskName;
+                string word2 = descendingList[i + 1].taskName;
+                int result = String.Compare(word1, word2);
+                if (result == -1)
+                {
+                    isDescending = false;
+                }
+            }
+
+            //assert
+            Assert.IsTrue(isDescending);
+        }
 
 
     }
