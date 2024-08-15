@@ -4,7 +4,7 @@ using NUnit.Framework;
 namespace tdd_todo_list.CSharp.Test
 {
     [TestFixture]
-    public class CoreTests
+    public class ToDoListTests
     {
 
         [Test]
