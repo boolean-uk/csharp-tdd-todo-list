@@ -86,7 +86,7 @@ namespace tdd_todo_list.CSharp.Test
             Assert.IsTrue(core.ToDoDict[task] == status);
         }
         [TestCase (new[] { "1", "3" }, "notComplete")]
-        [TestCase(new[] { "1", "3" }, "complete")]
+        [TestCase(new[] { "2" }, "complete")]
         public void ShowTest(string[] expected, string status)
         {
             //init
