@@ -107,5 +107,22 @@ namespace tdd_todo_list.CSharp.Main
             return false; // Should never be reached due to how 
             // test cases are set up
         }
+
+        public string ViewHistory()
+        {
+            string resultInfo = string.Empty;
+            foreach (var entry in todo)
+            {
+                var temp = entry.Value;
+                string completion = ", task incomplete";
+                if (temp.status)
+                {
+                    completion = ", task complete";
+                }
+                resultInfo += temp.name + completion + ", task created " + temp.timeStamp + "\n";
+            }
+            return resultInfo;
+            
+        }
     }
 }

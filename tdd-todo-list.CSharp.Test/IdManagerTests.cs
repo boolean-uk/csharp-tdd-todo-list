@@ -124,7 +124,7 @@ namespace tdd_todo_list.CSharp.Test
             }
 
             string exptected = "Go shopping, task complete, task created 22-06-2013 11:21\n"+
-                name + completion + ", task created " + timeStamp;
+                name + completion + ", task created " + timeStamp + "\n";
 
 
             string result = idManager.ViewHistory();
