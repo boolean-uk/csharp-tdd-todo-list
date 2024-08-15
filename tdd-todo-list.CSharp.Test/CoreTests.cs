@@ -8,10 +8,13 @@ namespace tdd_todo_list.CSharp.Test
     {
 
         [Test]
-        public void FirstTest()
+        public void AddTask()
         {
-            TodoList core = new TodoList();
-            Assert.Pass();
+            TodoList toDo = new TodoList();
+
+            toDo.addTask("complete challenge");
+
+            Assert.That(toDo.tasks.ContainsKey("complete challenge"));
         }
     }
 }
