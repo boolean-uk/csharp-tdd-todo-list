@@ -40,7 +40,7 @@ namespace tdd_todo_list.CSharp.Test
         {
             TodoList core = new TodoList();
             
-            core.getCompleteStasks();
+            core.getSomeTasks();
             Assert.Fail();
         }
 

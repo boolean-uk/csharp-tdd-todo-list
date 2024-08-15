@@ -8,44 +8,68 @@ namespace tdd_todo_list.CSharp.Main
 {
     public class TodoList
     {
-        public void AddTaskToList(string task)
+        private List<TodoTaskObj> taskList;
+
+        public TodoList() {
+            taskList = new List<TodoTaskObj>();
+        }
+
+        public void AddTaskToList(string text)
         {
+            taskList.Add(new TodoTaskObj(text));
+        }
+
+        public void AddTaskToList(TodoTaskObj obj)
+        {
+            taskList.Add(obj);
+        }
+
+        public void ChangeObjStatus(TodoTaskObj obj)
+        {
+            if (taskList.Contains(obj))
+            {
+                obj.ChangeStatus();
+            };
+        }
+        public void ChangeObjStatus(TodoTaskObj obj, bool b)
+        {
+            if (taskList.Contains(obj))
+            {
+                obj.Complete = b;
+            };
+        }
+
+        public List<TodoTaskObj> getSomeTasks(bool b)
+        {
+            List < TodoTaskObj > objList = new List < TodoTaskObj >();
+
+            foreach (TodoTaskObj obj in taskList)
+            {
+                if (obj.Complete == b) { 
+                    objList.Add(obj);
+                }
+            }
+            return objList;
+
+        }
+
+
+        public TodoTaskObj getIndividualTasks(string search)
+        {
+            foreach (TodoTaskObj obj in taskList)
+            {
+                if (obj.ContentText.Contains(search))
+                {
+                    return obj;
+                }
+            }
             throw new NotImplementedException();
         }
 
-        public void AddTaskToList(object task)
-        {
-            throw new NotImplementedException();
-        }
 
-        public void ChangeStatus()
+        public List<TodoTaskObj> getOrderedTasks()
         {
-            throw new NotImplementedException();
-        }
-
-        public void getCompleteStasks()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void getIncompleteStasks()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void getInCompleteTasks()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void getIndividualTasks()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void getOrderedTasks()
-        {
-            throw new NotImplementedException();
+            taskList.Sort();
         }
 
         public void getOrderedTasksReversed()
