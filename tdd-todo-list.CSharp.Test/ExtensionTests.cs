@@ -4,15 +4,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NUnit.Framework;
 
 namespace tdd_todo_list.CSharp.Test
 {
+    [TestFixture]
     public class ExtensionTests
     {
-        private TodoListExtension _extension;
-        public ExtensionTests()
+        
+        [Test]
+        public void getTaskByUniqueID()
         {
-            _extension = new TodoListExtension();
+            TodoList core = new TodoList();
+            TodoTaskObj task = new TodoTaskObj("First task", false);
+            int id = task.Id;
+            core.AddTaskToList(task);
+            Assert.That(core.getIndividualTasks(id).Equals(task));
         }
+
+
+        
     }
 }

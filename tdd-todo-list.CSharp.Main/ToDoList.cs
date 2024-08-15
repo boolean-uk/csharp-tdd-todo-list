@@ -53,17 +53,15 @@ namespace tdd_todo_list.CSharp.Main
 
         }
 
-
         public TodoTaskObj getIndividualTasks(string search)
         {
-            foreach (TodoTaskObj obj in taskList)
-            {
-                if (obj.ContentText == search)
-                {
-                    return obj;
-                }
-            }
-            throw new KeyNotFoundException();
+            return taskList.FirstOrDefault(obj => obj.ContentText == search);
+
+        }
+
+        public TodoTaskObj getIndividualTasks(int searchID)
+        {
+            return taskList.FirstOrDefault(obj => obj.Id == searchID);
         }
 
 
