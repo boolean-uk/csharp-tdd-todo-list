@@ -10,3 +10,5 @@ todolist.addJob(test1);
 todolist.addJob(test2);
 
 todolist.seeJobs();
+
+todolist.getJob(2);

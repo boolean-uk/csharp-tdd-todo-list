@@ -25,9 +25,8 @@ Task = job
 |               | ChangeStatus(int id)                               | User wants to change the status of a task                              | Bool            |
 |               |                                                    | The task doesnt exist                                                  | Bool            |
 |               |                                                    |                                                                        |                 |
-|               | GetSpecifiedHobing status)                         | User wants to see incomplete/complete tasks                            | List            |
+|               | GetSpecifiedJobs(Status status)                    | User wants to see incomplete/complete tasks                            | List            |
 |               |                                                    |                                                                        |                 |
-|               | FindJob(string name)                               | User uses name to find task                                            | string          |
 |               |                                                    | Task doesnt exist                                                      | string          |
 |               |                                                    |                                                                        |                 |
 |               | RemoveJob(int id)                                  | User wants to remove a specified task                                  | string          |
@@ -35,7 +34,7 @@ Task = job
 |               |                                                    |                                                                        |                 |
 |               | SortJob(string order)                              | User wants to view all tasks sorted alphabetically ascending/decending | List            |
 |               |                                                    |                                                                        |                 |
-|               | GetJob(int id)                                     | User wants to get a task specified by its id                           | Job             |
+|               | GetJob(int id)                                     | User wants to find a task specified by its id                          | Job             |
 |               |                                                    | Task doesnt exist                                                      |                 |
 |               |                                                    |                                                                        |                 |
 |               | UpdateName(int id, string newName)                 | User uses id to find and rename existing task                          |                 |

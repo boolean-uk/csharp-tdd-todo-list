@@ -24,9 +24,19 @@ namespace tdd_todo_list.CSharp.Main
             return true;
         }
 
-        public Job getJob(int v)
+        public string getJob(int id)
         {
-            throw new NotImplementedException();
+            foreach (var job in jobs)
+            {
+                if (job.Id == id)
+                {
+                    Console.WriteLine("job found!");
+                    return $"{job.Name} was found";
+                }
+            }
+            Console.WriteLine("job not found");
+            return "job not found";
+
         }
 
         public List<Job> seeJobs()

@@ -39,9 +39,10 @@ namespace tdd_todo_list.CSharp.Test
         {
             TodoList todoList = new TodoList();
             Job job = new Job(1, "shoot", Status.INCOMPLETE, DateTime.Now);
-            Job expected = job;
-            Job result = todoList.getJob(1);
-            Assert.That(expected == result);
+            todoList.addJob(job);
+            string expectedJob = $"{job.Name} was found";
+            string resultJob = todoList.getJob(1);
+            Assert.That(expectedJob == resultJob);
         }
         /*
         [Test]
