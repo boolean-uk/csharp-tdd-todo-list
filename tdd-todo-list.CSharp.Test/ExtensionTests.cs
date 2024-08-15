@@ -44,6 +44,17 @@ namespace tdd_todo_list.CSharp.Test
             Assert.True(core.getIndividualTasks(id).Complete);
         }
 
+        [Test]
+        public void getDateAndTime()
+        {
+            TodoList core = new TodoList();
+            TodoTaskObj task = new TodoTaskObj("First task", false);
+            int id = task.Id;
+            core.AddTaskToList(task);
+            Console.WriteLine(core.getIndividualTasks(id).getcreationDateTime());
+            
+        }
+
 
 
     }

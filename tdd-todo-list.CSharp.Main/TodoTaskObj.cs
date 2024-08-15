@@ -13,12 +13,16 @@ namespace tdd_todo_list.CSharp.Main
         //True if complete false if incomplete
         private bool complete;
         private int id;
+        private DateTime combined;
 
         public TodoTaskObj(string contentText, bool Complete)
         {
             this.contentText = contentText;
             this.complete = Complete;
             this.id = GetHashCode();
+            DateTime date = DateTime.Now;
+            TimeSpan time = new TimeSpan(36, 0, 0, 0);
+            this.combined = date.Add(time);
         }
 
         public TodoTaskObj(string contentText)
@@ -26,6 +30,9 @@ namespace tdd_todo_list.CSharp.Main
             this.contentText = contentText;
             this.complete = false;
             this.id = GetHashCode();
+            DateTime date = DateTime.Now;
+            TimeSpan time = new TimeSpan(36, 0, 0, 0);
+            this.combined = date.Add(time);
         }
 
         public string ContentText
@@ -66,6 +73,8 @@ namespace tdd_todo_list.CSharp.Main
         }
 
         public int Id { get { return id; } }
+
+        public DateTime getcreationDateTime() { return combined; }
     }
 }
 
