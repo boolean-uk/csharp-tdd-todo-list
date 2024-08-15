@@ -77,5 +77,24 @@ namespace tdd_todo_list.CSharp.Test
             }
 
         }
+
+
+        [TestCase("NewName")]
+        [TestCase("AnotherName")]
+        [TestCase("Go shopping")]
+        public void TestToggleStatus(int id)
+        {
+            idManager = new IdManager();
+            idManager.AddTask("ThisIsAName", false, "22-06-2023 11:21");
+            idManager.AddTask("AnotherName", true, "22-06-2013 11:21");
+            idManager.AddTask("Go shopping", true, "22-06-2013 11:21");
+
+            bool expected = !idManager.CheckStatus(id);
+
+            bool result = idManager.ToggleStatus(id);
+
+
+            Assert.That(result == expected);
+        }
     }
 }

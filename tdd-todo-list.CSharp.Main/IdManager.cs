@@ -14,7 +14,7 @@ namespace tdd_todo_list.CSharp.Main
             public bool status = status;
             public string timeStamp = timeStamp;   
         }
-        Dictionary<int, TaskInfo> todo = new Dictionary<int, TaskInfo>();
+        private Dictionary<int, TaskInfo> todo = new Dictionary<int, TaskInfo>();
         public enum TodoTaskStatus
         {
             Complete,
