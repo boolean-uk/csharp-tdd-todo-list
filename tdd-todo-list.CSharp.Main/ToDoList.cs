@@ -24,5 +24,9 @@ namespace tdd_todo_list.CSharp.Main
             return added;
         }
 
+        public List<Job> getAllJobs()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

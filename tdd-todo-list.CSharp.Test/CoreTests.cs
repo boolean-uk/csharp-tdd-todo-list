@@ -20,5 +20,20 @@ namespace tdd_todo_list.CSharp.Test
 
             Assert.That(expected == result);
         }
+
+
+        [Test]
+        public void GetAllJobsTest()
+        {
+            TodoList todoList = new TodoList();
+            Job job = new Job(1, "Lunsj", Status.INCOMPLETE, DateTime.Now);
+
+            todoList.addJob(job);
+            List<Job> expected = [job];
+
+            List<Job> result = todoList.getAllJobs();
+
+            Assert.That(expected == result);
+        }
     }
 }
