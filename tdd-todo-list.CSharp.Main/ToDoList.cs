@@ -105,7 +105,7 @@ namespace tdd_todo_list.CSharp.Main
 
         public string ListDescending()
         {
-            throw new NotImplementedException();
+            return _List(tasks.OrderByDescending(x => x.Key).ToDictionary());
         }
     }
 }
