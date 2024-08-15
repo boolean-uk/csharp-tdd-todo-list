@@ -78,5 +78,31 @@ namespace tdd_todo_list.CSharp.Test
 
             Assert.That(result == expected);
         }
+
+
+        [TestCase("Write some code")]
+        [TestCase("Write some more code")]
+        [TestCase("Shop for groceries")]
+        [TestCase("Write a story about purchasing a debug rubber ducky")]
+        [TestCase("Code a new project")]
+        [TestCase("Get bored of new project")]
+        [TestCase("Code another new project")]
+        public void TestSearchTask(string name)
+        {
+            //arrange
+            TodoList todo = new TodoList();
+            todo.AddTask("Write some code", false);
+            todo.AddTask("Write some more code", false);
+            todo.AddTask("Write a story about purchasing a debug rubber ducky", false);
+            string expected = "Task was not found!"
+            if (name[0] == 'W')
+            {
+                expected = "Task " + name + "exists!";
+            }
+
+
+            string result = todo.Search(name);
+            Assert.That(result == expected);
+        }
     }
 }
