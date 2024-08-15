@@ -15,10 +15,9 @@ namespace tdd_todo_list.CSharp.Test
         public void AddtoListTest(string task)
         {
             TodoList todoList = new TodoList();
-            bool expectedResult = true;
 
-            todoList.Add(task);
-            Assert.Pass();
+            bool result = todoList.Add(task);
+            Assert.That(result, Is.True);
         }
     }
 }
