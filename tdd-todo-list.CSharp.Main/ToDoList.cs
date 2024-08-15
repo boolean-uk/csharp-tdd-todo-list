@@ -75,6 +75,11 @@ namespace tdd_todo_list.CSharp.Main
             return newJobs;
         }
 
+        public void removeJob(int v)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Job> seeJobs()
         {
             foreach (var job in jobs) 

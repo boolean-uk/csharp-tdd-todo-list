@@ -78,6 +78,19 @@ namespace tdd_todo_list.CSharp.Test
             Assert.True(expected.SequenceEqual(result));
         }
 
+        [Test]
+        public void removeJobTest() 
+        {
+            TodoList todoList = new TodoList();
+            Job job = new Job(1, "casting", Status.INCOMPLETE, DateTime.Now);
+            todoList.addJob(job);
+            List<Job> expected = [];
+            todoList.removeJob(1);
+
+            
+        }
+
+
 
 
 
