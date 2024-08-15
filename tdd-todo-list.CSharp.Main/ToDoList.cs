@@ -104,6 +104,10 @@ namespace tdd_todo_list.CSharp.Main
 
         public void PrintTaskList(List<TodoTask> tasks)
         {
+            foreach (TodoTask task in todoList)
+            {
+                Console.WriteLine($"{task.name} ({task.status})");
+            }
         }
     }
 }
