@@ -9,13 +9,18 @@ namespace tdd_todo_list.CSharp.Main
     public class TodoList
     {
         private Dictionary<string, bool> _list = new Dictionary<string, bool>();
-        public Dictionary<string, bool> List {  get { return _list; } }
+        public Dictionary<string, bool> List { get { return _list; } }
 
-        public String addTask(string name)
+        public string addTask(string taskname, bool status)
         {
-            throw new NotImplementedException();
+            _list.Add(taskname, status);
+            if (_list.ContainsKey(taskname))
+            {
+                return "Task is added";
+            }
+            return "Not added any task";
+
+
         }
-
-
     }
 }

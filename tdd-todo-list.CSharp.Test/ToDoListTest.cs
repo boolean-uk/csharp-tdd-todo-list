@@ -18,14 +18,10 @@ namespace tdd_todo_list.CSharp.Test
 
             //act
             string task = "Washing dishes";
-            todoList.addTask(task);
+            todoList.addTask(task, false);
 
             //assert
             Assert.IsTrue(todoList.List.ContainsKey(task));
-
-            //hello
-
-
         }
     }
 }

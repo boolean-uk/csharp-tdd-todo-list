@@ -13,7 +13,7 @@ I want to see all the tasks in my list ordered alphabetically in descending orde
 
 | Classes  | Methods                                    | Scenario                                      | Output                              |
 |----------|--------------------------------------------|-----------------------------------------------|-------------------------------------|
-| ToDoList | addTask(String taskname)                   | task added  task not added                    | task got  not got anything          |
+| ToDoList | addTask(String taskname)                   | task added or task not added                  | task got, or  not got anything          |
 |          | ViewAllTasks()                             | view all tasks not anything                   | tasks is showing                    |
 |          | changeStatus(string task, bool isComplete) | status changed between complete/incomplete    | status is changed                   |
 |          | getCompleteTasks()                         | task is completed                             | show completed task nothing to show |
@@ -24,4 +24,3 @@ I want to see all the tasks in my list ordered alphabetically in descending orde
 |          | viewTasksDescending()                      |                                               |                                     |
 |          |                                            |                                               |                                     |
 
-å
