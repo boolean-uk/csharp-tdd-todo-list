@@ -1,5 +1,6 @@
 ﻿using tdd_todo_list.CSharp.Main;
 using NUnit.Framework;
+using System.Diagnostics.CodeAnalysis;
 
 namespace tdd_todo_list.CSharp.Test
 {
@@ -17,6 +18,7 @@ namespace tdd_todo_list.CSharp.Test
             bool result = core.Add(task);
 
             //assert
+            Assert.Contains(task, core.ToDoList.Keys);
         }
     }
 }
