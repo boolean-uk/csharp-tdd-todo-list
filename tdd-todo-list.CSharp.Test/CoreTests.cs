@@ -26,7 +26,7 @@ namespace tdd_todo_list.CSharp.Test
             bool status = false;
             core.add(task, status);
             var todo = core.Todo;
-            Assert.That(todo.Keys.Equals(task));
+            Assert.That(todo.ContainsKey(task));
         }
     }
 }
