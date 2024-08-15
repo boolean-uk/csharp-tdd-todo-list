@@ -14,11 +14,13 @@ namespace tdd_todo_list.CSharp.Main
         public void addTask(toDoTask toDoTask)
         {
             
+            taskList.Add(toDoTask);
+
         }
 
         public List<toDoTask> getAll()
         {
-            throw new NotImplementedException();
+            return taskList;
         }
 
         public List<toDoTask> getAscending(List<toDoTask> taskList)
@@ -28,7 +30,15 @@ namespace tdd_todo_list.CSharp.Main
 
         public List<toDoTask> getComplete(List<toDoTask> taskList)
         {
-            throw new NotImplementedException();
+            List<toDoTask> completedList = new List<toDoTask> ();
+            foreach (var item in taskList)
+            {
+                if (item.taskComplete == true)
+                {
+                    completedList.Add(item);
+                }
+            }
+            return completedList;
         }
 
         public List<toDoTask> getDescending(List<toDoTask> taskList)
