@@ -319,7 +319,7 @@ namespace tdd_todo_list.CSharp.Test
         }
         //I want to update the name of a task by providing its ID and a new name.
         [Test]
-        public void ChangeByIDOfString() 
+        public void UpdateByIDOfString() 
         { 
             var todoList = new Todo();
             string oldName = "Backflip";
@@ -333,7 +333,7 @@ namespace tdd_todo_list.CSharp.Test
         }
         [Test]
 
-        public void ChangeByWrongIDOfString()
+        public void UpdateByWrongIDOfString()
         {
             var todoList = new Todo();
             string oldName = "Backflip";
@@ -347,7 +347,7 @@ namespace tdd_todo_list.CSharp.Test
         }
         [Test]
 
-        public void ChangeByIDToEmptyString()
+        public void UpdateByIDToEmptyString()
         {
             var todoList = new Todo();
             string oldName = "Backflip";
