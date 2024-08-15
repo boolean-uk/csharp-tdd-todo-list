@@ -39,5 +39,17 @@ namespace tdd_todo_list.CSharp.Test
             Assert.IsTrue(task == null);
         }
 
+        [TestCase("Clean")]
+        [TestCase("Sweep")]
+        public void UpdateTaskName(String newName)
+        {
+            _extension.AddTask("Sleep", 50);
+
+            _extension.UpdateTaskName(50, newName);
+            TaskItemExtension? task = _extension.GetTask(50);
+
+            Assert.IsTrue(task.Name == newName);
+        }
+
     }
 }
