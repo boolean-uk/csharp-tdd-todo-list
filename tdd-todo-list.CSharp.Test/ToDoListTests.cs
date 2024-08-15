@@ -105,7 +105,7 @@ namespace tdd_todo_list.CSharp.Test
         }
         
         [Test]
-        public void RemoveTaskFromTODOList()
+        public void RemoveExistingTaskFromTODOList()
         {
             // 1. Setup
             TodoList todoList = new TodoList();
@@ -117,7 +117,21 @@ namespace tdd_todo_list.CSharp.Test
             // 3. Verify
             Assert.IsTrue(result);
         }
-        
+
+        [Test]
+        public void RemoveNonExistingTaskFromTODOList()
+        {
+            // 1. Setup
+            TodoList todoList = new TodoList();
+            // 2. Execute
+            string task = "Eat lunch";
+            todoList.Add(task, false);
+            bool result = todoList.Remove("Eat dinner");
+
+            // 3. Verify
+            Assert.IsFalse(result);
+        }
+
         [Test]
         public void GetListInAscendingOrderFromTODOList()
         {
@@ -125,18 +139,15 @@ namespace tdd_todo_list.CSharp.Test
             TodoList todoList = new TodoList();
 
             // 2. Execute
-            Dictionary<string, bool> sortedList = new Dictionary<string, bool>();
-            sortedList.Add("A - I am first", false);
-            sortedList.Add("B - I am second", false);
-
-            string task2 = "B - I am second";
             string task1 = "A - I am first";
-            todoList.Add(task1, false);
+            string task2 = "B - I am second";
+            
             todoList.Add(task2, false);
+            todoList.Add(task1, false);
             Dictionary<string, bool> sortedListFromTODOList = todoList.GetListInAscendingOrder();
 
             // 3. Verify
-            Assert.IsTrue(sortedList == sortedListFromTODOList);
+            Assert.IsTrue(sortedListFromTODOList.First().Key == task1);
         }
         
         [Test]
@@ -146,10 +157,6 @@ namespace tdd_todo_list.CSharp.Test
             TodoList todoList = new TodoList();
 
             // 2. Execute
-            Dictionary<string, bool> sortedList = new Dictionary<string, bool>();
-            sortedList.Add("B - I am first", false);
-            sortedList.Add("A - I am second", false);
-
             string task1 = "A - I am second";
             string task2 = "B - I am first";
             todoList.Add(task1, false);
@@ -157,7 +164,7 @@ namespace tdd_todo_list.CSharp.Test
             Dictionary<string, bool> sortedListFromTODOList = todoList.GetListInDescendingOrder();
 
             // 3. Verify
-            Assert.IsTrue(sortedList == sortedListFromTODOList);
+            Assert.IsTrue(sortedListFromTODOList.First().Key == task2);
         }
     }
 }

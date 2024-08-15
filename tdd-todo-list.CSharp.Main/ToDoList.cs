@@ -45,12 +45,17 @@ namespace tdd_todo_list.CSharp.Main
 
         public Dictionary<string, bool> GetListInAscendingOrder()
         {
-            throw new NotImplementedException();
+
+            var ordered = _taskList.OrderBy(task => task.Key).ToDictionary(x => x.Key, x => x.Value);
+
+            return ordered;
         }
 
         public Dictionary<string, bool> GetListInDescendingOrder()
         {
-            throw new NotImplementedException();
+            var ordered = _taskList.OrderByDescending(task => task.Key).ToDictionary(x => x.Key, x => x.Value);
+
+            return ordered;
         }
 
         public bool Remove(string task)
