@@ -68,6 +68,29 @@ namespace tdd_todo_list.CSharp.Test
             Assert.That(result, Is.False);
         }
 
+        [Test]
+        public void ChangeStatusId()
+        {
+            var todo = new TodoListExtension();
+            string task = "run forest run";
+            todo.Add(task);
+            int id = 0;
+
+            bool result = todo.ChangeStatus(id);
+            Assert.That(result, Is.True);
+        }
+
+        [Test]
+        public void ChangeStatusFailed()
+        {
+            var todo = new TodoListExtension();
+            string task = "run forest run";
+            todo.Add(task);
+            int id = 1;
+
+            bool result = todo.ChangeStatus(id);
+            Assert.That(result, Is.False);
+        }
 
     }
 }

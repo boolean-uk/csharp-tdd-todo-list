@@ -18,6 +18,21 @@ namespace tdd_todo_list.CSharp.Main
             _idCounter++;
         }
 
+        public bool ChangeStatus(int id)
+        {
+            if (_todoList.ContainsKey(id))
+            {
+                if (_todoList[id]._isCompleted)
+                {
+                    _todoList[id]._isCompleted = false;
+                    return true;
+                }
+                _todoList[id]._isCompleted = true;
+                return true;
+            }
+            return false;
+        }
+
         public bool ChangeTaskName(int id, string taskName)
         {
             if (_todoList.ContainsKey(id))
