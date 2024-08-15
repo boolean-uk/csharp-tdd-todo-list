@@ -5,9 +5,38 @@ namespace tdd_todo_list.CSharp.Main
     {
         private Dictionary<string, bool> _todoList = [];
 
+        public bool Add(string todo)
+        {
+            throw new NotImplementedException();
+        }
+        public bool Remove(string todo)
+        {
+            throw new NotImplementedException ();
+        }
+        public List<string> TodoList() 
+        {
+            throw new NotImplementedException();
+        }
+        public bool GetTodoStatus(string todo)
+        {
+            throw new NotImplementedException();
+        }
+        public List<string> GetComplete() 
+        {
+            throw new NotImplementedException();
+        }
+        public bool SearchTask(string todo) 
+        {
+            throw new NotImplementedException();
+        }
 
-        public Dictionary<string, bool> TodoList => _todoList;
-
-
+        public List<string> OrderByAscending() 
+        { 
+            throw new NotImplementedException(); 
+        }
+        public List<string> OrderByDescending() 
+        { 
+            throw new NotImplementedException(); 
+        }
     }
 }
