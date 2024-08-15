@@ -15,6 +15,7 @@ namespace tdd_todo_list.CSharp.Main
         {
             TaskItem task = new TaskItem(taskName);
             Tasks.Add(task);
+
             return true;
         }
 
@@ -30,6 +31,13 @@ namespace tdd_todo_list.CSharp.Main
             List<TaskItem> incompleteTasks = Tasks.FindAll(task => task.IsComplete == false);
 
             return incompleteTasks;
+        }
+
+        public bool SearchTask(String name)
+        {
+            bool taskIsFound = Tasks.Any(task => task.Name == name);
+
+            return taskIsFound;
         }
 
     }
