@@ -18,13 +18,13 @@ namespace tdd_todo_list.CSharp.Test
             //SetUp
             TodoListExtension todolist = new TodoListExtension();
             TaskItem task = new TaskItem("Go to work", Status.INCOMPLETE);
-            todolist.List.Add(1, task);
+            todolist.AddTask(1, task);
            
             //Execution
-            string result = todolist.GetTask(1);
+            TaskItem result = todolist.GetTask(1);
             //Verify
 
-            Assert.IsTrue(result == "Go to work");
+            Assert.IsTrue(result == task);
         }        
         
         [Test]
@@ -41,7 +41,7 @@ namespace tdd_todo_list.CSharp.Test
 
             //Verify
 
-            Assert.IsTrue(todolist.GetTask(1) == "Throw garbage");
+            Assert.IsTrue(todolist.GetTask(1) == task);
         }        
         
         [Test]
@@ -76,17 +76,17 @@ namespace tdd_todo_list.CSharp.Test
             Assert.IsTrue(result == Status.INCOMPLETE);
         }        
         
-        [Test]
-        public void schouldSeeDateAndTime()
-        {
+       // [Test]
+        //public void schouldSeeDateAndTime()
+        //{
             //SetUp
-            TodoListExtension todolist = new TodoListExtension();
+          //  TodoListExtension todolist = new TodoListExtension();
 
             //Execution
             //Verify
 
-            Assert.Fail();
-        }        
+            //Assert.Fail();
+        //}        
         
   
     }

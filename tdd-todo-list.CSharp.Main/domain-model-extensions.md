@@ -12,7 +12,7 @@
 | **Classes** |  **Methods** | **Scenario** | **Outputs** |
 |:---:|:---:|:---:|:---:|
 | `Extension` | getTask(int id) | receive a task by typing its id | string | 
-|| updateName(int id, string name) | updates the name of a task, by providing its id and new name| List<TaskItem,> |
+|| updateName(int id, string name) | updates the name of a task, by providing its id and new name| TaskItem |
 || changeStatus(int id) | changes the tasks status by providing the tasks id | Status
 || seeDateAndTime(int id) | prints the date and time that the task was created | string
 | `TaskItem`|

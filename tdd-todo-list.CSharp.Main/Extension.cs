@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,19 +18,50 @@ namespace tdd_todo_list.CSharp.Main
 
         public TodoListExtension() { }
 
-        public string GetTask(int v)
+        public TaskItem GetTask(int id)
         {
-            throw new NotImplementedException();
+
+            return _toDoList[id];
+
         }
 
-        public List<TaskItem> UpdateName(int id, string name)
+        public TaskItem UpdateName(int id, string name)
         {
-            throw new NotImplementedException();
+
+            _toDoList[id].Task = name;
+
+            return _toDoList[id];
         }
 
-        public Status ChangeStatus(int v)
+        public Status ChangeStatus(int id)
         {
-            throw new NotImplementedException();
+
+            if (_toDoList[id].Status == Status.COMPLETE)
+            {
+                _toDoList[id].Status = Status.INCOMPLETE;
+
+            }
+            else if (_toDoList[id].Status == Status.INCOMPLETE)
+            {
+
+                _toDoList[id].Status = Status.COMPLETE;
+
+            }
+
+            return _toDoList[id].Status;
         }
-    }
+
+
+        public bool AddTask(int id, TaskItem task)
+        {
+            if (!_toDoList.ContainsKey(id))
+            {
+                _toDoList.Add(id, task);
+                return true;
+
+            }
+            return false;
+        }
+
+    }  
 }
