@@ -25,11 +25,11 @@ namespace tdd_todo_list.CSharp.Main
             if (todo is null) return false;
             return _todoList.ContainsKey(todo);
         }
-        public bool CangeTodoStatus(string todo) 
-        {
-            throw new NotImplementedException();
-        }
         public List<string> TodoList() 
+        {
+            return _todoList.Keys.ToList();
+        }
+        public bool CangeTodoStatus(string todo) 
         {
             throw new NotImplementedException();
         }
