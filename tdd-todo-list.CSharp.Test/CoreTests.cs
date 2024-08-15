@@ -204,5 +204,31 @@ namespace tdd_todo_list.CSharp.Test
             //assert
             Assert.That(result, Is.EqualTo(expectedSecondString));
         }
+
+        [TestCase("Feed Pet", "Go Shopping", "Eat Dinner")]
+        public void DescendingOrderTest(string task1, string task2, string task3)
+        {
+            //arrange
+            TodoList tasks = new TodoList();
+            tasks.Add(task1);
+            tasks.Add(task2);
+            string expectedFirstString = "Go Shopping | Incomplete\nFeed Pet | Incomplete\n";
+
+            //act
+            string result = tasks.ListDescending();
+
+            //assert
+            Assert.That(result, Is.EqualTo(expectedFirstString));
+
+            //arrange
+            tasks.Add(task3);
+            string expectedSecondString = "Go Shopping | Incomplete\nFeed Pet | Incomplete\nEat Dinner | Incomplete\n";
+
+            //act
+            result = tasks.ListDescending();
+
+            //assert
+            Assert.That(result, Is.EqualTo(expectedSecondString));
+        }
     }
 }
