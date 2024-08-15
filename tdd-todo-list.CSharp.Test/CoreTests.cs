@@ -69,5 +69,21 @@ namespace tdd_todo_list.CSharp.Test
             Assert.AreEqual(expected, resulted.ToList());
 
         }
+        [TestCase("task1", "complete")]
+        public void ChangeStatusTest(string task, string status)
+        {
+            //init
+            TodoList core = new TodoList();
+            core.Add("task");
+            core.Add("task1");
+            core.Add("task2");
+            core.Add("task3");
+
+            //run
+            core.ChangeStatus(task);
+
+            //assert
+            Assert.IsTrue(core.ToDoDict[task] == status);
+        }
     }
 }

@@ -15,7 +15,7 @@ namespace tdd_todo_list.CSharp.Main
 
         public void Add(string task)
         {
-            string status = "incomplete";
+            string status = "notComplete";
             _toDoList.Add(task, status);
         }
 
@@ -44,6 +44,10 @@ namespace tdd_todo_list.CSharp.Main
 
             }
             
+        }
+        public void ChangeStatus(string task)
+        {
+            throw new NotImplementedException();
         }
     }
 }
