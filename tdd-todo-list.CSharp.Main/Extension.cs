@@ -203,9 +203,17 @@ namespace tdd_todo_list.CSharp.Main
             return false;
         }
 
-        public bool ChangeStatus(int iD, bool v)
+        public bool ChangeStatus(int id, bool status)
         {
-            throw new NotImplementedException();
+            foreach(var task in tasks)
+            {
+                if (task.Value.ID == id)
+                {
+                    tasks[task.Key].SetState(status);
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
