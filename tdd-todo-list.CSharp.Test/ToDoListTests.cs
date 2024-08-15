@@ -163,8 +163,24 @@ namespace tdd_todo_list.CSharp.Test
             Assert.AreEqual(expected, actualSearchMessage);
         }
 
-        
+        //8. I want to see all the tasks in my list ordered alphabetically in ascending order.
+        [Test]
+        public void AscendingTodoListTest()
+        {
 
+            Dictionary<string, string> expectedList = new Dictionary<string, string>();
+
+            Dictionary<string, string> actualList = new Dictionary<string, string>();
+
+            Assert.Equals(expectedList.First(), actualList.First());
+        }
+
+        //9. I want to see all the tasks in my list ordered alphabetically in descending order.
+        [Test]
+        public void DescendingTodoListTest()
+        {
+            Assert.That(false);
+        }
 
     }
 }
