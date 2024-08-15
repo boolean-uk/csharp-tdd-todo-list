@@ -76,6 +76,30 @@ namespace tdd_todo_list.CSharp.Test
             todoList.ChangeTask(task2);
 
             List<string> tasks = todoList.getCompletedTasks();
+            int result = tasks.Count;
+
+            Assert.That(result, Is.EqualTo(expectedCount));
         }
+
+        [Test]
+        public void getAllIncolompetedTasks()
+        {
+            TodoList todoList = new TodoList();
+            string task1 = "a";
+            string task2 = "b";
+            string task3 = "c";
+
+            int expectedCount = 1;
+
+            todoList.Add(task1);
+            todoList.Add(task2);
+            todoList.Add(task3);
+
+            todoList.ChangeTask(task1);
+            todoList.ChangeTask(task2);
+
+            List<string> tasks = todoList.getIncompletedTasks();
+        }
+
     }
 }

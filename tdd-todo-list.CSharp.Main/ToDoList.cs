@@ -33,12 +33,11 @@ namespace tdd_todo_list.CSharp.Main
             return false;
         }
 
-        public List<string> getCompletedTasks()
-        {
-            throw new NotImplementedException();
-        }
+        public List<string> getCompletedTasks() => _todoList.Keys.Where(x => _todoList[x] == true).ToList();
 
-        public List<string> showAllTasks(){ return _todoList.Keys.ToList(); }
+        public List<string> getIncompletedTasks() => _todoList.Keys.Where(x => _todoList[x] == false).ToList();
+
+        public List<string> showAllTasks() => _todoList.Keys.ToList();
 
     }
 }
