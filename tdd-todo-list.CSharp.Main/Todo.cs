@@ -9,6 +9,8 @@ namespace tdd_todo_list.CSharp.Main
 
         public bool Add(string todo)
         {
+            if (todo is null ) return false;
+            if (todo.Length == 0 ) return false;
             _todoList.Add(todo, false);
             return true;
         }
