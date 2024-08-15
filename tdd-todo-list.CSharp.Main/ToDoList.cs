@@ -21,9 +21,14 @@ namespace tdd_todo_list.CSharp.Main
             return true;
         }
 
-        public bool ChangeStatus(string task, bool v)
+        public bool ChangeStatus(string task, bool status)
         {
-            throw new NotImplementedException();
+            if (tasks.ContainsKey(task))
+            {
+                tasks[task] = status;
+                return true;
+            }
+            return false;
         }
 
         public string List()
