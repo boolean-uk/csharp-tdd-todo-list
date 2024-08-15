@@ -17,6 +17,15 @@ namespace tdd_todo_list.CSharp.Main
             _todoList.Add(task, false);
             return true;
         }
+        public bool Remove(string taskToBeRemoved)
+        {
+            if (_todoList.ContainsKey(taskToBeRemoved))
+            {
+                _todoList.Remove(taskToBeRemoved);
+                return true;
+            }
+            return false;
+        }
 
         public bool ChangeTask(string task)
         {
@@ -43,7 +52,11 @@ namespace tdd_todo_list.CSharp.Main
             return false;
         }
 
-        public List<string> showAllTasks() => _todoList.Keys.ToList();
+        public List<string> getAllTasks() => _todoList.Keys.ToList();
+
+        public List<string> getTasksAsc() => _todoList.Keys.OrderBy(x => x).ToList();
+
+        public List<string> getTasksDesc() => _todoList.Keys.OrderByDescending(x => x).ToList();
 
     }
 }

@@ -54,7 +54,7 @@ namespace tdd_todo_list.CSharp.Test
 
             todoList.Add(task1);
             todoList.Add(task2);
-            List<string> tasks = todoList.showAllTasks();
+            List<string> tasks = todoList.getAllTasks();
             int result = tasks.Count;
 
             Assert.That(result, Is.EqualTo(expectedCount));
@@ -135,5 +135,60 @@ namespace tdd_todo_list.CSharp.Test
             Assert.That(result, Is.False);
 
         }
+
+        [Test]
+        public void removeTaskTest()
+        {
+            TodoList todo = new TodoList();
+            string taskToBeRemoved = "code some nice code";
+            todo.Add(taskToBeRemoved);
+
+            bool result = todo.Remove(taskToBeRemoved);
+
+            Assert.That(result, Is.True);
+        }
+
+        [Test]
+        public void getAllTasksAscending()
+        {
+            TodoList todo = new TodoList();
+            string task1 = "lay ball";
+            string task2 = "walk the dog";
+            string task3 = "eat";
+            string task4 = "run";
+            string expectedFirst = task3;
+
+            todo.Add(task1);
+            todo.Add(task2);
+            todo.Add(task3);
+            todo.Add(task4);
+
+            List<string> tasks = todo.getTasksAsc();
+            string result = tasks[0];
+
+            Assert.That(expectedFirst, Is.EqualTo(result));
+        }
+
+        [Test]
+        public void getAllTasksDescending()
+        {
+            TodoList todo = new TodoList();
+            string task1 = "lay ball";
+            string task2 = "walk the dog";
+            string task3 = "eat";
+            string task4 = "run";
+            string expectedFirst = task2;
+
+            todo.Add(task1);
+            todo.Add(task2);
+            todo.Add(task3);
+            todo.Add(task4);
+
+            List<string> tasks = todo.getTasksDesc();
+            string result = tasks[0];
+
+            Assert.That(expectedFirst, Is.EqualTo(result));
+        }
+
     }
 }
