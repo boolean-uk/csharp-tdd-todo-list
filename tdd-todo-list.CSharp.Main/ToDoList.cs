@@ -17,5 +17,12 @@ namespace tdd_todo_list.CSharp.Main
             Tasks.Add(task);
             return true;
         }
+
+        public List<TaskItem> GetCompleteTasks()
+        {
+            List<TaskItem> completeTasks = Tasks.FindAll(task => task.IsComplete == true);
+
+            return completeTasks;
+        }
     }
 }

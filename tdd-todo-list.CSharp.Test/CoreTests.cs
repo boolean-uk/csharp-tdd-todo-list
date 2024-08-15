@@ -48,9 +48,10 @@ namespace tdd_todo_list.CSharp.Test
             todoList.Tasks[0].IsComplete = true;
             todoList.AddTask("Run");
 
-            Assert.IsTrue(todoList.GetCompleteTasks().Count = 1);
+            Assert.IsTrue(todoList.GetCompleteTasks().Count == 1);
         }
 
+        [Test]
         public void GetCompleteTasksCorrectTask()
         {
             TodoList todoList = new TodoList();
@@ -61,7 +62,7 @@ namespace tdd_todo_list.CSharp.Test
             List<TaskItem> completeTasks = todoList.GetCompleteTasks();
 
 
-            Assert.IsTrue(todoList.completeTasks[0].Name = "Hoover");
+            Assert.IsTrue(completeTasks[0].Name == "Hoover");
         }
     }
 }
