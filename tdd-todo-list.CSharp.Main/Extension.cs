@@ -8,5 +8,24 @@ namespace tdd_todo_list.CSharp.Main
 {
     public class TodoListExtension
     {
+        List<UserTask> tasks = new List<UserTask>();
+
+        public string Add(UserTask taskname)
+        {
+            tasks.Add(taskname);
+            if (tasks.Contains(taskname))
+            {
+                return taskname.taskname;
+            }
+            else
+            {
+                return "Task not added";
+            }
+        }
+
+        public string FindTaskById(int id)
+        {
+            return "Nothing";
+        }
     }
 }

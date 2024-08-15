@@ -13,7 +13,7 @@ namespace tdd_todo_list.CSharp.Test
         public void addTaskTest(string taskname)
         {
             //arrange
-            UserTask task1 = new UserTask();
+            UserTask task1 = new UserTask(1);
             task1.taskname = taskname;
 
             TodoList todo = new TodoList();
@@ -33,9 +33,9 @@ namespace tdd_todo_list.CSharp.Test
             //arrange
             TodoList list1 = new TodoList();
 
-            UserTask task1 = new UserTask();
-            UserTask task2 = new UserTask();
-            UserTask task3 = new UserTask();
+            UserTask task1 = new UserTask(1);
+            UserTask task2 = new UserTask(2);
+            UserTask task3 = new UserTask(3);
 
             list1.Add(task1);
             list1.Add(task2);
@@ -56,7 +56,7 @@ namespace tdd_todo_list.CSharp.Test
             //arrange
             TodoList list1 = new TodoList();
 
-            UserTask task1 = new UserTask();
+            UserTask task1 = new UserTask(3);
 
             list1.Add(task1);
             task1.taskname = taskname;
@@ -76,9 +76,9 @@ namespace tdd_todo_list.CSharp.Test
         {
             TodoList list = new TodoList();
 
-            UserTask task1 = new UserTask();
-            UserTask task2 = new UserTask();
-            UserTask task3 = new UserTask();
+            UserTask task1 = new UserTask(2);
+            UserTask task2 = new UserTask(1);
+            UserTask task3 = new UserTask(3);
 
             list.Add(task1);
             list.Add(task2);
@@ -98,9 +98,9 @@ namespace tdd_todo_list.CSharp.Test
         {
             TodoList list = new TodoList();
 
-            UserTask task1 = new UserTask();
-            UserTask task2 = new UserTask();
-            UserTask task3 = new UserTask();
+            UserTask task1 = new UserTask(1);
+            UserTask task2 = new UserTask(2);
+            UserTask task3 = new UserTask(3);
 
             list.Add(task1);
             list.Add(task2);
@@ -119,8 +119,8 @@ namespace tdd_todo_list.CSharp.Test
         public void findTaskTest(string taskname)
         {
             TodoList list = new TodoList();
-            UserTask task1 = new UserTask();
-            UserTask task5 = new UserTask(); // This one is not added to the list
+            UserTask task1 = new UserTask(1);
+            UserTask task5 = new UserTask(2); // This one is not added to the list
 
             list.Add(task1);
 
@@ -136,7 +136,7 @@ namespace tdd_todo_list.CSharp.Test
         public void RemoveTaskTest(string taskname)
         {
             TodoList list = new TodoList();
-            UserTask task1 = new UserTask();
+            UserTask task1 = new UserTask(1);
 
             list.Add(task1);
 
@@ -152,11 +152,11 @@ namespace tdd_todo_list.CSharp.Test
         {
             TodoList list = new TodoList();
 
-            UserTask program = new UserTask();
+            UserTask program = new UserTask(1);
             program.taskname = "program";
-            UserTask little = new UserTask();
+            UserTask little = new UserTask(2);
             little.taskname = "little";
-            UserTask big = new UserTask();
+            UserTask big = new UserTask(3);
             big.taskname = "big";
 
 
@@ -177,11 +177,11 @@ namespace tdd_todo_list.CSharp.Test
         {
             TodoList list = new TodoList();
 
-            UserTask program = new UserTask();
+            UserTask program = new UserTask(1);
             program.taskname = "program";
-            UserTask little = new UserTask();
+            UserTask little = new UserTask(2);
             little.taskname = "little";
-            UserTask big = new UserTask();
+            UserTask big = new UserTask(3);
             big.taskname = "big";
 
 

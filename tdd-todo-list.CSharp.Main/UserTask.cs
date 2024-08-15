@@ -10,6 +10,12 @@ namespace tdd_todo_list.CSharp.Main
     {
         public string taskname;
         public bool isComplete = false;
+        public int id;
+
+        public UserTask(int id)
+        {
+            this.id = id;
+        }
 
         public int CompareTo(UserTask other)
         {
