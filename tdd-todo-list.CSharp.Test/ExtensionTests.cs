@@ -5,12 +5,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
+using Microsoft.VisualBasic;
 
 namespace tdd_todo_list.CSharp.Test
 {
     [TestFixture]
     public class ExtensionTests
     {
+        public ExtensionTests() //Added this to see if the PR run failed email stops showing up.
+        {
+        }
+
         [TestCase("Feed Pet")]
         public void GetTest(string task)
         {
@@ -83,6 +88,32 @@ namespace tdd_todo_list.CSharp.Test
 
             //assert
             Assert.That(result, Is.EqualTo(expectedSuccess));
+        }
+
+        [TestCase("Feed Pet")]
+        public void ListFullInfoTest(string task)
+        {
+            //arrange
+            TodoListExtension tasks = new TodoListExtension();
+            string expectedEmptyString = string.Empty;
+
+            //act
+            string result = tasks.ListFull();
+
+            //assert
+            Assert.That(result, Is.EqualTo(expectedEmptyString));
+
+            //arrange
+            tasks.Add(task);
+            string date = DateAndTime.Now.ToString("d");
+            string time = DateAndTime.Now.ToString("h:mm");
+            string expectedString = "Feed Pet | ID: 0 | " + date + " | " + time + " | Incomplete\n";
+
+            //act
+            result = tasks.ListFull();
+
+            //assert
+            Assert.That(result, Is.EqualTo(expectedString));
         }
     }
 }

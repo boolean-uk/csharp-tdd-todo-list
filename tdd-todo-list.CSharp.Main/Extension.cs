@@ -22,7 +22,7 @@ namespace tdd_todo_list.CSharp.Main
             {
                 this.ID = ID;
                 date = DateTime.Now.ToString("d");
-                time = DateTime.Now.ToString("h:mm:ss tt");
+                time = DateTime.Now.ToString("h:mm");
                 state = false;
             }
 
@@ -214,6 +214,11 @@ namespace tdd_todo_list.CSharp.Main
                 }
             }
             return false;
+        }
+
+        public string ListFull()
+        {
+            throw new NotImplementedException();
         }
     }
 }
