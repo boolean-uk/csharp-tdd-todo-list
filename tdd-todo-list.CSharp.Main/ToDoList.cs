@@ -32,36 +32,51 @@ namespace tdd_todo_list.CSharp.Main
             return "task not in todo list";
         }
 
-        public List<string> getList(char completed = 'a')
+        public List<string> getList(char completed = 'a', char sorted = 'n')
         {
+            List<string> returnList = new List<string>();
+
             if (completed == 'c')
             {
-                List<string> completedTasks = new List<string>();
-
                 foreach (string toDoItem in tasks.Keys)
                 {
                     if (tasks[toDoItem])
                     {
-                        completedTasks.Add(toDoItem);
+                        returnList.Add(toDoItem);
                     }
                 }
-                return completedTasks;
             }
-            if (completed == 'i')
+            else if (completed == 'i')
             {
-                List<string> incompleteTasks = new List<string>();
-
                 foreach (string toDoItem in tasks.Keys)
                 {
                     if (!tasks[toDoItem])
                     {
-                        incompleteTasks.Add(toDoItem);
+                        returnList.Add(toDoItem);
                     }
                 }
-                return incompleteTasks;
+            }
+            else
+            {
+                returnList = new List<string>(tasks.Keys);
             }
 
-            return new List<String>(tasks.Keys);
+
+            if (sorted == 'a')
+            {
+                return returnList.OrderBy(x => x).ToList();
+            }
+            if (sorted == 'd')
+            {
+                return returnList.OrderByDescending(x => x).ToList();
+            }
+            return returnList;
+
+        }
+
+        public void removeTask(string toDoItem)
+        {
+            tasks.Remove(toDoItem);
         }
     }
 }

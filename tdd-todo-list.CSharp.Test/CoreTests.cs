@@ -82,5 +82,46 @@ namespace tdd_todo_list.CSharp.Test
 
             Assert.That(result.Equals("task not in todo list"));
         }
+
+        [Test]
+        public void RemoveTaskTest()
+        {
+            TodoList toDo = new TodoList();
+            toDo.addTask("quit my job");
+
+            toDo.removeTask("quit my job");
+            string result = toDo.findTask("quit my job");
+
+            Assert.That(result.Equals("task not in todo list"));
+        }
+
+        [Test]
+        public void SortedAcsendingTest()
+        {
+            TodoList toDo = new TodoList();
+            toDo.addTask("complete challenge");
+            toDo.addTask("make apple jam");
+            toDo.addTask("dig up treasure");
+            List<string> expected = new List<string>() {"complete challenge", "dig up treasure", "make apple jam"};
+
+            List<string> result = toDo.getList(sorted: 'a');
+
+            Assert.That(result.SequenceEqual(expected));
+        }
+
+        [Test]
+        public void SortedDecsendingTest()
+        {
+            TodoList toDo = new TodoList();
+            toDo.addTask("complete challenge");
+            toDo.addTask("make apple jam");
+            toDo.addTask("dig up treasure");
+            List<string> expected = new List<string>() { "make apple jam", "dig up treasure", "complete challenge" };
+
+            List<string> result = toDo.getList(sorted: 'd');
+
+            Assert.That(result.SequenceEqual(expected));
+        }
+
     }
 }
