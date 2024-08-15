@@ -47,5 +47,10 @@ namespace tdd_todo_list.CSharp.Main
             }
             return output;
         }
+
+        public string ListCompleteTasks()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

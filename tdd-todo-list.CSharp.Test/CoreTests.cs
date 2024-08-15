@@ -73,5 +73,33 @@ namespace tdd_todo_list.CSharp.Test
             //assert
             Assert.That(result, Is.EqualTo(expectedSuccess));
         }
+
+        [TestCase("Feed Pet", "Go Shopping", "Eat Dinner")]
+        public void ListCompleteTasksTest(string task1, string task2, string task3)
+        {
+            //arrange
+            TodoList tasks = new TodoList();
+            tasks.Add(task1);
+            tasks.Add(task2);
+            tasks.Add(task3);
+            string expectedEmptyString = string.Empty;
+
+            //act
+            string result = tasks.ListCompleteTasks();
+
+            //assert
+            Assert.That(result, Is.EqualTo(expectedEmptyString));
+
+            //arrange
+            tasks.ChangeStatus(task1, true);
+            tasks.ChangeStatus(task3, true);
+            string expectedString = "Feed Pet | Complete\nEat Dinner | Complete\n";
+
+            //act
+            result = tasks.ListCompleteTasks();
+
+            //assert
+            Assert.That(result, Is.EqualTo(expectedString));
+        }
     }
 }
