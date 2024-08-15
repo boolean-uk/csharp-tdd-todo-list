@@ -136,5 +136,33 @@ namespace tdd_todo_list.CSharp.Test
 
             Assert.IsFalse(taskIsFound);
         }
+
+        [Test]
+        public void OrderTasksAscending(bool ascending)
+        {
+            TodoList todoList = new TodoList();
+            todoList.AddTask("Study");
+            todoList.AddTask("Breakfast");
+            todoList.AddTask("Walk dog");
+
+
+            List<TaskItem> orderedList = todoList.OrderTasks(true);
+
+            Assert.IsTrue(orderedList[0].Name == "Breakfast");
+        }
+
+        [Test]
+        public void OrderTasksDescending(bool ascending)
+        {
+            TodoList todoList = new TodoList();
+            todoList.AddTask("Study");
+            todoList.AddTask("Breakfast");
+            todoList.AddTask("Walk dog");
+
+
+            List<TaskItem> orderedList = todoList.OrderTasks(false);
+
+            Assert.IsTrue(orderedList[0].Name == "Walk dog");
+        }
     }
 }
