@@ -1,5 +1,6 @@
 ﻿using tdd_todo_list.CSharp.Main;
 using NUnit.Framework;
+using tdd_todo_Slist.CSharp.Main;
 
 namespace tdd_todo_list.CSharp.Test
 {
@@ -8,10 +9,16 @@ namespace tdd_todo_list.CSharp.Test
     {
 
         [Test]
-        public void FirstTest()
+        public void AddJobTest()
         {
-            TodoList core = new TodoList();
-            Assert.Pass();
+            TodoList todolist = new TodoList();
+            Job job = new Job(1, "Middag", Status.INCOMPLETE, DateTime.Now);
+
+            bool expected = true;
+
+            bool result = todolist.addJob(job);
+
+            Assert.That(expected == result);
         }
     }
 }
