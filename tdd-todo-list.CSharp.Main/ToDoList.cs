@@ -26,6 +26,11 @@ namespace tdd_todo_list.CSharp.Main
             return true;
         }
 
+        public List<Job> GetJob(string name)
+        {
+            return new List<Job>();
+        }
+
         public List<Job> GetJobs(bool completed)
         {
             return Jobs.Where(job => job.Complete.Equals(completed)).ToList();
