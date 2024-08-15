@@ -69,7 +69,8 @@ namespace tdd_todo_list.CSharp.Main
 
         public List<TodoTaskObj> getOrderedTasks()
         {
-            taskList.Sort();
+            List<TodoTaskObj> SortedList = taskList.OrderBy(obj => obj.ContentText).ToList();
+            return SortedList;
         }
 
         public void getOrderedTasksReversed()
@@ -80,6 +81,11 @@ namespace tdd_todo_list.CSharp.Main
         public void removeTask()
         {
             throw new NotImplementedException();
+        }
+
+        public int getListLenght()
+        {
+            return taskList.Count;
         }
     }
 }

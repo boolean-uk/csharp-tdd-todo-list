@@ -12,20 +12,17 @@ namespace tdd_todo_list.CSharp.Main
         private string contentText;
         //True if complete false if incomplete
         private bool complete;
-        private int id;
 
         public TodoTaskObj(string contentText, bool Complete)
         {
             this.contentText = contentText;
             this.complete = Complete;
-            this.id.GetHashCode();
         }
 
         public TodoTaskObj(string contentText)
         {
             this.contentText = contentText;
             this.complete = false;
-            this.id.GetHashCode();
         }
 
         public string ContentText
@@ -51,8 +48,6 @@ namespace tdd_todo_list.CSharp.Main
                 complete = true;
             }
         }
-
-        public int Id { get { return id; } }
     }
 }
 

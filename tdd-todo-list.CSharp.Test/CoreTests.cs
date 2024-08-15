@@ -11,16 +11,16 @@ namespace tdd_todo_list.CSharp.Test
         public void addTaskToList()
         {
             TodoList core = new TodoList();
-            Task task = new Task("First task", "incomplete");
+            TodoTaskObj task = new TodoTaskObj("First task", false);
             core.AddTaskToList(task);
-            Assert.Fail();
+            Assert.That(core.getListLenght() == 1);
         }
 
         [Test]
         public void seeAllTasktInList()
         {
             TodoList core = new TodoList();
-            Task task = new Task("First task", "incomplete");
+            TodoTaskObj task = new TodoTaskObj("First task");
             core.AddTaskToList(task);
             core.ToString();
             Assert.Fail();
@@ -30,33 +30,33 @@ namespace tdd_todo_list.CSharp.Test
         public void changeStatusOfTask()
         {
             TodoList core = new TodoList();
-            Task task = new Task("First task", "incomplete");
+            TodoTaskObj task = new TodoTaskObj("First task");
             core.AddTaskToList(task);
-            core.ChangeStatus();
+            core.ChangeObjStatus(task);
             Assert.Fail();
         }
         [Test]
         public void getCompleteTasks()
         {
             TodoList core = new TodoList();
-            
-            core.getSomeTasks();
+            TodoTaskObj task = new TodoTaskObj("First task");
+            core.getSomeTasks(true);
             Assert.Fail();
         }
 
         public void getInCompleteTasks()
         {
             TodoList core = new TodoList();
-
-            core.getInCompleteTasks();
+            TodoTaskObj task = new TodoTaskObj("First task");
+            core.getSomeTasks(false);
             Assert.Fail();
         }
 
         public void getIndividualTask()
         {
             TodoList core = new TodoList();
-
-            core.getIndividualTasks();
+            TodoTaskObj task = new TodoTaskObj("First task");
+            core.getIndividualTasks("First");
             Assert.Fail();
         }
 
@@ -64,7 +64,7 @@ namespace tdd_todo_list.CSharp.Test
         public void removeTask()
         {
             TodoList core = new TodoList();
-
+            TodoTaskObj task = new TodoTaskObj("First task");
             core.removeTask();
             Assert.Fail();
         }
@@ -72,7 +72,7 @@ namespace tdd_todo_list.CSharp.Test
         public void orderedTasksAlphabeticaly()
         {
             TodoList core = new TodoList();
-
+            TodoTaskObj task = new TodoTaskObj("First task");
             core.getOrderedTasks();
             Assert.Fail();
         }
@@ -80,7 +80,7 @@ namespace tdd_todo_list.CSharp.Test
         public void orderedTasksReversedAlphabeticaly()
         {
             TodoList core = new TodoList();
-
+            TodoTaskObj task = new TodoTaskObj("First task");
             core.getOrderedTasksReversed();
             Assert.Fail();
         }
