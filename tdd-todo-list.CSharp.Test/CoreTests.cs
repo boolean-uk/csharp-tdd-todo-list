@@ -82,24 +82,38 @@ namespace tdd_todo_list.CSharp.Test
             TodoList core = new TodoList();
             TodoTaskObj task = new TodoTaskObj("First task");
             core.AddTaskToList(task);
-            core.removeTask();
-            Assert.Fail();
+            core.removeTask(task);
+            Assert.That(core.getListLenght() == 0);
         }
         [Test]
         public void orderedTasksAlphabeticaly()
         {
             TodoList core = new TodoList();
-            TodoTaskObj task = new TodoTaskObj("First task");
-            core.getOrderedTasks();
-            Assert.Fail();
+            TodoTaskObj task1 = new TodoTaskObj("First task");
+            TodoTaskObj task2 = new TodoTaskObj("Second task", true);
+            TodoTaskObj task3 = new TodoTaskObj("A_First task");
+            core.AddTaskToList(task1);
+            core.AddTaskToList(task2);
+            core.AddTaskToList(task3);
+            var list = core.getOrderedTasks();
+            Assert.That(list[0].Equals(task3));
+            Assert.That(list[1].Equals(task1));
+            Assert.That(list[2].Equals(task2));
         }
         [Test]
         public void orderedTasksReversedAlphabeticaly()
         {
             TodoList core = new TodoList();
-            TodoTaskObj task = new TodoTaskObj("First task");
-            core.getOrderedTasksReversed();
-            Assert.Fail();
+            TodoTaskObj task1 = new TodoTaskObj("First task");
+            TodoTaskObj task2 = new TodoTaskObj("Second task", true);
+            TodoTaskObj task3 = new TodoTaskObj("A_First task");
+            core.AddTaskToList(task1);
+            core.AddTaskToList(task2);
+            core.AddTaskToList(task3);
+            var list = core.getOrderedTasks();
+            Assert.That(list[2].Equals(task3));
+            Assert.That(list[1].Equals(task1));
+            Assert.That(list[0].Equals(task2));
         }
 
 

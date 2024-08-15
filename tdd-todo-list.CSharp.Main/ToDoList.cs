@@ -78,9 +78,9 @@ namespace tdd_todo_list.CSharp.Main
             throw new NotImplementedException();
         }
 
-        public void removeTask()
+        public void removeTask(TodoTaskObj obj)
         {
-            throw new NotImplementedException();
+            taskList.Remove(obj);
         }
 
         public int getListLenght()
