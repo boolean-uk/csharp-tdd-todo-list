@@ -18,12 +18,12 @@ namespace tdd_todo_list.CSharp.Main
         {
             _taskList = new List<toDoTask>()
         {
-            new toDoTask("cook", false),
-            new toDoTask("work", true),
-            new toDoTask("eat", true),
-            new toDoTask("sleep", false),
-            new toDoTask("read", false),
-            new toDoTask("exercise", true),
+          new toDoTask(1, "cook", false, new DateTime(2024, 3, 18, 14, 30, 0)),
+            new toDoTask(2, "work", true, new DateTime(2024, 3, 18, 14, 30, 0)),
+            new toDoTask(3, "eat", true, new DateTime(2024, 3, 18, 14, 30, 0)),
+            new toDoTask(4, "sleep", false, new DateTime(2024, 3, 18, 14, 30, 0)),
+            new toDoTask(5, "read", false, new DateTime(2024, 3, 18, 14, 30, 0)),
+            new toDoTask(6, "exercise", true, new DateTime(2024, 3, 18, 14, 30, 0)),
         };
         }
 
