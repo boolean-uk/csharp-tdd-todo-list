@@ -120,5 +120,21 @@ namespace tdd_todo_list.CSharp.Test
 
             Assert.That(computed, Is.EqualTo(computedMessage));
         }
+        [TestCase("task 2", true)]
+        public void Remove(string task, bool expected)
+        {
+            //init
+            TodoList core = new TodoList();
+            core.Add("task 1");
+            core.Add("task 2");
+            core.Add("task 3");
+
+            //run
+            bool computed = core.Remove(task);
+
+
+            //assert
+            Assert.IsTrue(expected == computed);
+        }
     }
 }
