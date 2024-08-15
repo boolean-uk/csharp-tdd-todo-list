@@ -93,6 +93,28 @@ namespace tdd_todo_list.CSharp.Test
             Assert.IsTrue(expected == result);
         }
 
+        [Test]
+        public void ListCompleteTest()
+        {
+            TodoList list = new TodoList();
+
+            UserTask task1 = new UserTask();
+            UserTask task2 = new UserTask();
+            UserTask task3 = new UserTask();
+
+            list.Add(task1);
+            list.Add(task2);
+            list.Add(task3);
+
+            task2.isComplete = true;
+
+            string expected = task2.taskname +" ";
+
+            string result = list.ListComplete();
+
+            Assert.IsTrue(expected == result);
+        }
+
         [TestCase("task1")]
         public void findTaskTest(string taskname)
         {

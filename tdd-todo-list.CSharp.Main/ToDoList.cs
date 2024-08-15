@@ -73,6 +73,24 @@ namespace tdd_todo_list.CSharp.Main
             return concat;
         }
 
+        public string ListComplete() 
+        {
+            string concat = "";
+
+            foreach (UserTask task in tasks)
+            {
+                if (task.isComplete == true)
+                {
+                    concat += task.taskname + " ";
+                }
+                else
+                {
+
+                }
+            }
+            return concat;
+        }
+
         public string FindTask(UserTask taskname)
         {
             if (tasks.Contains(taskname))
