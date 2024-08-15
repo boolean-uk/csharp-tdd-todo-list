@@ -185,6 +185,33 @@ namespace tdd_todo_list.CSharp.Test
             Assert.IsTrue(isDescending);
         }
 
+        [Test]
+
+        void checkIfCorrectId()
+        {
+            //arrange
+            TodoList list = new TodoList();
+            int id = 2;
+            string expectedTaskName = "cook";
+
+            //act
+            string taskName= list.findById(id);
+
+
+            //assert
+            Assert.AreEqual(expectedTaskName, taskName);
+
+
+
+        }
+
+
+        [Test]
+        public void checkUpdateNameById()
+        {
+
+            //arrange
+        }
 
     }
 }

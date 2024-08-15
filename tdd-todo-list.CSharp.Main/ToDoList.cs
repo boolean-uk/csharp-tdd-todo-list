@@ -91,5 +91,10 @@ namespace tdd_todo_list.CSharp.Main
             return inCompleteList;
 
         }
+
+        public string findById(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
