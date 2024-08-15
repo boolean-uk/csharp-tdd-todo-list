@@ -20,5 +20,20 @@ namespace tdd_todo_list.CSharp.Main
         {
             throw new NotImplementedException();
         }
+
+        public List<toDoTask> getAscending(List<toDoTask> taskList)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<toDoTask> getComplete(List<toDoTask> taskList)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<toDoTask> getInComplete(List<toDoTask> taskList)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

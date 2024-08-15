@@ -76,10 +76,87 @@ namespace tdd_todo_list.CSharp.Test
 
 
 
+        [Test]
+
+        public void checkifFilteredComplete()
+        {
+
+            //arrange
+            TodoList list = new TodoList();
+            List <toDoTask> filteredList = list.getComplete(list.taskList);
+            bool filterComplete= true;
+
+            //act
+            foreach (var item in filteredList)
+            {
+                if (item.taskComplete == false)
+                {
+                    filterComplete = false;
+                }
+            }
+
+            //Assert
+
+            Assert.IsTrue(filterComplete);
+
+        }
 
 
 
+        [Test]
+
+        public void checkifFilteredInComplete()
+        {
+
+            //arrange
+            TodoList list = new TodoList();
+            List<toDoTask> filteredList = list.getInComplete(list.taskList);
+            bool filterComplete = true;
+
+            //act
+            foreach (var item in filteredList)
+            {
+                if (item.taskComplete == true)
+                {
+                    filterComplete = false;
+                }
+            }
+
+            //Assert
+
+            Assert.IsTrue(filterComplete);
+
+        }
 
 
-       }
+        [Test]
+
+        public void checkIfListAscending()
+        {
+
+            //arrange 
+            TodoList list = new TodoList();
+            List<toDoTask> ascendingList = list.getAscending(list.taskList);
+            bool isAscending = true;
+
+            //act
+            for (int i = 0; i < ascendingList.Count; i++)
+            {
+                string word1 = ascendingList[i].taskName;
+                string word2 = ascendingList[i+1].taskName;
+                int result = String.Compare(word1, word2);
+                if(result == 1)
+                {
+                    isAscending = false;
+                }
+            }
+
+            //assert
+            Assert.IsTrue(isAscending);
+        }
+
+        
+
+
+    }
 }
