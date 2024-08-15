@@ -9,7 +9,6 @@ I want to see all the tasks in my list ordered alphabetically in ascending order
 I want to see all the tasks in my list ordered alphabetically in descending order.
 
 
-
 | Classes       | Methods			     					 |  Scenario								 | Outputs			|
 | ------------- | -------------	     						 |  ------------							 | -----------		|
 | `TodoList`    | AddTask(string taskname)					 |  Adds task to todo list					 | true				|

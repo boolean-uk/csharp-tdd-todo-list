@@ -28,6 +28,7 @@ namespace tdd_todo_list.CSharp.Main
             this._tasks.Add(t);
             return true;
         }
+
         public bool RemoveTask(TodoTask t)
         {
             if (this._tasks.Contains(t))
@@ -37,15 +38,18 @@ namespace tdd_todo_list.CSharp.Main
             }
             return false;
         }
+
         public List<TodoTask> GetAllTasks()
         {
             return this._tasks;
         }
+
         public Status ChangeTaskStatus(TodoTask t, Status newstatus) 
         {
             t.Status = newstatus;
             return newstatus;
         }
+
         public List<TodoTask> GetCompleteTasks()
         {
             List<TodoTask> completedTasks = new List<TodoTask>();
@@ -60,6 +64,7 @@ namespace tdd_todo_list.CSharp.Main
 
             return completedTasks;
         }
+
         public List<TodoTask> GetIncompleteTasks() 
         {   
             List<TodoTask> incompletedTasks = new List<TodoTask>();
@@ -74,6 +79,7 @@ namespace tdd_todo_list.CSharp.Main
 
             return incompletedTasks;
         }
+
         public string FindTask(string taskname)
         {
             bool found = this._tasks.Any((t) => t.Taskname == taskname);
@@ -85,13 +91,17 @@ namespace tdd_todo_list.CSharp.Main
             return "This task was not found";
         
         }
+
         public List<TodoTask> GetSortedTasksAsc()
         {
-            throw new NotImplementedException();
+            this._tasks.Sort((a, b) => a.Taskname.CompareTo(b.Taskname));
+            return this._tasks;
         }
+
         public List<TodoTask> GetSortedTasksDesc()
         {
-            throw new NotImplementedException();
+            this._tasks.Sort((a, b) => b.Taskname.CompareTo(a.Taskname));
+            return this._tasks;
         }
 
 

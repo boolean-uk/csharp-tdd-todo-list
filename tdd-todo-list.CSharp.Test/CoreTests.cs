@@ -143,6 +143,41 @@ namespace tdd_todo_list.CSharp.Test
 
         }
 
+        [Test]
+        public void TestGetSortedTasksAsc()
+        {
+            TodoList core = new TodoList();
+            TodoTask t1 = new TodoTask("Clean the car", Status.Incomplete);
+            TodoTask t2 = new TodoTask("Vacuum the shower", Status.Incomplete);
+            TodoTask t3 = new TodoTask("Grocery shopping", Status.Complete);
+            core.AddTask(t1);
+            core.AddTask(t2);
+            core.AddTask(t3);
+
+            List<TodoTask> sortedTasks = core.GetSortedTasksAsc();
+            Assert.That(sortedTasks[0], Is.EqualTo(t1));
+            Assert.That(sortedTasks[1], Is.EqualTo(t3));
+            Assert.That(sortedTasks[2], Is.EqualTo(t2));
+
+        }
+
+        [Test]
+        public void TestGetSortedTasksDesc()
+        {
+            TodoList core = new TodoList();
+            TodoTask t1 = new TodoTask("Clean the car", Status.Incomplete);
+            TodoTask t2 = new TodoTask("Vacuum the shower", Status.Incomplete);
+            TodoTask t3 = new TodoTask("Grocery shopping", Status.Complete);
+            core.AddTask(t1);
+            core.AddTask(t2);
+            core.AddTask(t3);
+
+            List<TodoTask> sortedTasks = core.GetSortedTasksDesc();
+            Assert.That(sortedTasks[0], Is.EqualTo(t2));
+            Assert.That(sortedTasks[1], Is.EqualTo(t3));
+            Assert.That(sortedTasks[2], Is.EqualTo(t1));
+
+        }
 
     }
 }
