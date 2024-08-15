@@ -32,12 +32,12 @@ namespace tdd_todo_list.CSharp.Test
             Assert.That(result, Is.EqualTo(task));
         }
 
-        [TestCase("something", 2)]
-        [TestCase("fly", 2)]
-        [TestCase("climb", 2)]
-        [TestCase("repeat", 2)]
+        [TestCase("something", 0)]
+        [TestCase("fly", 1)]
+        [TestCase("climb", 0)]
+        [TestCase("repeat", 1)]
 
-        public void ChangeTaskNameById(string task, int id)
+        public void ChangeTaskNameById(string newTaskName, int id)
         {
             TodoListExtension todo = new TodoListExtension();
             string otherTask1 = "example";
@@ -45,11 +45,29 @@ namespace tdd_todo_list.CSharp.Test
 
             todo.Add(otherTask1);
             todo.Add(otherTask2);
-            todo.Add(task);
 
-            string result = todo.GetTask(id);
-            Assert.That(result, Is.EqualTo(task));
+            bool result = todo.ChangeTaskName(id, newTaskName);
+            Assert.That(result, Is.True);
         }
+
+        [TestCase("something", 3)]
+        [TestCase("fly", 2)]
+        [TestCase("climb", 5)]
+        [TestCase("repeat", 2)]
+
+        public void ChangeTaskNameByIdFailed(string newTaskName, int id)
+        {
+            TodoListExtension todo = new TodoListExtension();
+            string otherTask1 = "example";
+            string otherTask2 = "dance";
+
+            todo.Add(otherTask1);
+            todo.Add(otherTask2);
+
+            bool result = todo.ChangeTaskName(id, newTaskName);
+            Assert.That(result, Is.False);
+        }
+
 
     }
 }

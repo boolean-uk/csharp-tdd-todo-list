@@ -54,7 +54,7 @@ namespace tdd_todo_list.CSharp.Test
 
             todoList.Add(task1);
             todoList.Add(task2);
-            List<string> tasks = todoList.getAllTasks();
+            Dictionary<string, bool> tasks = todoList.getAllTasks();
             int result = tasks.Count;
 
             Assert.That(result, Is.EqualTo(expectedCount));
@@ -82,7 +82,7 @@ namespace tdd_todo_list.CSharp.Test
         }
 
         [Test]
-        public void getAllIncolompetedTasks()
+        public void getAllIncolompletedTasks()
         {
             TodoList todoList = new TodoList();
             string task1 = "a";
@@ -163,8 +163,8 @@ namespace tdd_todo_list.CSharp.Test
             todo.Add(task3);
             todo.Add(task4);
 
-            List<string> tasks = todo.getTasksAsc();
-            string result = tasks[0];
+            Dictionary<string, bool> tasks = todo.getTasksAsc();
+            string result = tasks.First().Key;
 
             Assert.That(expectedFirst, Is.EqualTo(result));
         }
@@ -184,8 +184,8 @@ namespace tdd_todo_list.CSharp.Test
             todo.Add(task3);
             todo.Add(task4);
 
-            List<string> tasks = todo.getTasksDesc();
-            string result = tasks[0];
+            Dictionary<string, bool> tasks = todo.getTasksDesc();
+            string result = tasks.First().Key;
 
             Assert.That(expectedFirst, Is.EqualTo(result));
         }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -53,11 +54,11 @@ namespace tdd_todo_list.CSharp.Main
             return false;
         }
 
-        public List<string> getAllTasks() => _todoList.Keys.ToList();
+        public Dictionary<string, bool> getAllTasks() => _todoList;
 
-        public List<string> getTasksAsc() => _todoList.Keys.OrderBy(x => x).ToList();
+        public Dictionary<string, bool> getTasksAsc() => _todoList.Keys.OrderBy(x => x).ToDictionary(x => x, x => _todoList[x]);
 
-        public List<string> getTasksDesc() => _todoList.Keys.OrderByDescending(x => x).ToList();
+        public Dictionary<string, bool> getTasksDesc() => _todoList.Keys.OrderByDescending(x => x).ToDictionary(x => x, x => _todoList[x]);
 
     }
 }

@@ -11,5 +11,6 @@ I want to be able to see the date and time that I created each task.
 |						  |											    | task does not exist							| false				|
 |						  |											    |												|					|
 |						  | `changeStatus(int id)`						| status changed								| true				|
+|						  |											    | id does not exist in list						| false				|
 |						  |											    |												|					|
 |						  | `getDates()`								| shows all dates that each task was created	| true				|

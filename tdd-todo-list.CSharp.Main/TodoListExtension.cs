@@ -18,6 +18,16 @@ namespace tdd_todo_list.CSharp.Main
             _idCounter++;
         }
 
+        public bool ChangeTaskName(int id, string taskName)
+        {
+            if (_todoList.ContainsKey(id))
+            {
+                _todoList[id]._name = taskName;
+                return true;
+            }
+            return false;
+        }
+
         public string GetTask(int v) => _todoList[v]._name;
 
     }
