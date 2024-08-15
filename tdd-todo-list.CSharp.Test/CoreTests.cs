@@ -327,7 +327,7 @@ namespace tdd_todo_list.CSharp.Test
             string newName = "Frontflip";
 
             todoList.Add(oldName);
-            todoList.UpdateTodo(hash, newName);
+            var result = todoList.UpdateTodo(hash, newName);
 
             Assert.That(todoList.TodoList().Contains(newName));
         }
@@ -340,7 +340,8 @@ namespace tdd_todo_list.CSharp.Test
             int hash = oldName.GetHashCode();
             string newName = "Frontflip";
 
-            todoList.UpdateTodo(123, newName);
+            todoList.Add(oldName);
+            var result = todoList.UpdateTodo(123, newName);
 
             Assert.That(!todoList.TodoList().Contains(newName));
         }
@@ -353,7 +354,8 @@ namespace tdd_todo_list.CSharp.Test
             int hash = oldName.GetHashCode();
             string newName = "";
 
-            todoList.UpdateTodo(123, newName);
+            todoList.Add(oldName);
+            var result = todoList.UpdateTodo(123, newName);
 
             Assert.That(!todoList.TodoList().Contains(newName));
         }

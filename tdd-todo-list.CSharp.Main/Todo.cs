@@ -53,7 +53,15 @@ namespace tdd_todo_list.CSharp.Main
 
         public bool UpdateTodo(int id, string newName) 
         {
-            throw new NotImplementedException ();
+            if (newName.Length == 0) return false;
+            if (TodoIDList.TryGetValue(id, out var value)) 
+            {
+                Remove(value);
+                Add(newName);
+                return true;
+            }
+
+            return false;
         }
         public List<string> GetComplete() 
         {
