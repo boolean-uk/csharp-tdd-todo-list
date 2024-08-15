@@ -54,7 +54,15 @@ namespace tdd_todo_list.CSharp.Main
 
         public List<string> Show(string status)
         {
-            throw new NotImplementedException();
+            List<string> list = new List<string>();
+            foreach (string key in _toDoList.Keys)
+            {
+                if (_toDoList[key] == status)
+                    list.Add(key);
+            }
+            //does not work for some reason
+            //List<string> list = _toDoList.Where(x => x.Value == status).Select(x => x.Key).ToList();
+            return list;
         }
     }
 }
