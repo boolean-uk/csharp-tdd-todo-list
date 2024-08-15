@@ -26,5 +26,10 @@ namespace tdd_todo_list.CSharp.Main
             _description = description;
             _created = DateTime.Now;
         }
+
+        public bool ChangeStatus(bool newStatus)
+        {
+            return false;
+        }
     }
 }
