@@ -34,7 +34,8 @@ namespace tdd_todo_list.CSharp.Main
         }
         public bool SearchTodo(string todo) 
         {
-            throw new NotImplementedException();
+            if(todo is null ) return false;
+            return _todoList.ContainsKey(todo);
         }
 
         public List<string> OrderByAscending() 
