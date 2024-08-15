@@ -1,5 +1,6 @@
 ﻿using tdd_todo_list.CSharp.Main;
 using NUnit.Framework;
+using System.Threading.Tasks;
 
 namespace tdd_todo_list.CSharp.Test
 {
@@ -8,10 +9,17 @@ namespace tdd_todo_list.CSharp.Test
     {
 
         [Test]
-        public void FirstTest()
+        [TestCase("Hoover")]
+        [TestCase("Cook")]
+        public void AddTask(String task)
         {
-            TodoList core = new TodoList();
-            Assert.Pass();
+            TodoList todoList = new TodoList();
+
+            todoList.AddTask(task);
+
+            Assert.IsTrue(Tasks.Contains(task));
         }
+
+
     }
 }
