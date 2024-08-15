@@ -68,5 +68,17 @@ namespace tdd_todo_list.CSharp.Main
             return todoList.Where(j => j.Status == status).ToList();
              
         }
+
+        public string searchJobByName(string name)
+        {
+            Job job = todoList.Find(x => x.Name.Equals(name));
+
+            if (job == null)
+            {
+                return $"Job with name {name} not found!";
+            }
+
+            return $"Job with name {name} found!";
+        }
     }
 }
