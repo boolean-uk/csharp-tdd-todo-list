@@ -13,6 +13,8 @@ namespace tdd_todo_list.CSharp.Main
         private string _description;
         private DateTime _created;
 
+        public string Name { get { return _name; } }
+
         public Job(string name, string description) 
         { 
             _complete = false;
