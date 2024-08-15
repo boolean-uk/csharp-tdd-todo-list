@@ -8,9 +8,13 @@ namespace tdd_todo_list.CSharp.Main
 {
     public class TodoList
     {
+
+        public List<Job> jobs = new List<Job>();
         public bool addJob(Job job)
         {
-            throw new NotImplementedException();
+            if(jobs.Contains(job)) return false;
+            jobs.Add(job);
+            return true;
         }
     }
 }
