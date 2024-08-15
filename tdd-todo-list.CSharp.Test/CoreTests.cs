@@ -316,10 +316,10 @@ namespace tdd_todo_list.CSharp.Test
         public void SearchByNullID()
         {
             var todoList = new Todo();
-            string todo = "Backflip";
+            string todo = null;
 
             todoList.Add(todo);
-            var result = todoList.SearchTodo(null);
+            var result = todoList.SearchTodo(todo.GetHashCode());
 
             Assert.That(result, Is.False);
         }
