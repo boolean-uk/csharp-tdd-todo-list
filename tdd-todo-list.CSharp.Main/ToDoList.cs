@@ -37,6 +37,12 @@ namespace tdd_todo_list.CSharp.Main
 
         public List<string> getIncompletedTasks() => _todoList.Keys.Where(x => _todoList[x] == false).ToList();
 
+        public bool Search(string task)
+        {
+            if (_todoList.ContainsKey(task)) { return true; }
+            return false;
+        }
+
         public List<string> showAllTasks() => _todoList.Keys.ToList();
 
     }

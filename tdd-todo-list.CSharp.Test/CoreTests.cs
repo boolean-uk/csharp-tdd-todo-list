@@ -101,5 +101,39 @@ namespace tdd_todo_list.CSharp.Test
             List<string> tasks = todoList.getIncompletedTasks();
         }
 
+        [TestCase("get dressed")]
+        [TestCase("pet dog")]
+        [TestCase("pet cat")]
+        [TestCase("feed family of 10")]
+        [TestCase("work")]
+
+        public void searchForTask(string task)
+        {
+            TodoList todo = new TodoList();
+            todo.Add(task);
+
+            bool result = todo.Search(task);
+
+            Assert.That(result, Is.True);
+        }
+
+        [TestCase("get dressed")]
+        [TestCase("pet dog")]
+        [TestCase("pet cat")]
+        [TestCase("feed family of 10")]
+        [TestCase("work")]
+
+        public void searchForNonExistingTask(string task)
+        {
+
+            TodoList todo = new TodoList();
+            string otherTask = "boil potatoes";
+            todo.Add(otherTask);
+
+            bool result = todo.Search(task);
+
+            Assert.That(result, Is.False);
+
+        }
     }
 }
