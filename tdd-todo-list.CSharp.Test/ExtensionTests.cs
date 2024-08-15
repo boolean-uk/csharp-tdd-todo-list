@@ -105,6 +105,7 @@ namespace tdd_todo_list.CSharp.Test
             string result = list.CheckCreated(id);
 
             //Assert
+            Assert.IsTrue(result == expected);
 
 
 
