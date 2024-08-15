@@ -27,6 +27,11 @@ namespace tdd_todo_list.CSharp.Main
                 return added;
         }
 
+        public bool changeJobStatus(int jobId)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Job> getAllJobs()
         {
             return todoList;

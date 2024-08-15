@@ -45,7 +45,10 @@ namespace tdd_todo_list.CSharp.Test
 
             todoList.addJob(job);
 
+            bool result = todoList.changeJobStatus(job.Id);
+            bool expected = true;
 
+            Assert.That(expected == result);
 
         }
     }
