@@ -10,8 +10,11 @@ namespace tdd_todo_list.CSharp.Test
         [Test]
         public void FirstTest()
         {
-            TodoList core = new TodoList();
-            Assert.Pass();
+            TodoList todoList = new TodoList();
+            Job job = new Job(1, "shoot", Status.INCOMPLETE, DateTime.Now);
+            bool expected = true;
+            bool result = todoList.addJob(job);
+            Assert.That(expected == result);
         }
     }
 }
