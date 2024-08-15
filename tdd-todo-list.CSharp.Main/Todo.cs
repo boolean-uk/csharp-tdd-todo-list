@@ -5,7 +5,7 @@ namespace tdd_todo_list.CSharp.Main
     {
         private Dictionary<string, bool> _todoList = [];
         public Dictionary<int, string> TodoIDList { get {return _todoList.ToDictionary(x => x.Key.GetHashCode(), x=> x.Key);} }
-        private Dictionary<string, DateTime> _todoCreation = [];
+        public Dictionary<string, string> TodoCreation = [];
 
         public bool Add(string todo)
         {

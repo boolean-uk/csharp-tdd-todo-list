@@ -374,5 +374,17 @@ namespace tdd_todo_list.CSharp.Test
             Assert.That(todoList.GetComplete().Contains(todo));
         }
         //I want to be able to see the date and time that I created each task.
+        [Test]
+        public void GetCreationDateTimeOneTask()
+        { 
+            var todoList = new Todo();
+            string todo = "Backflip";
+
+            todoList.Add(todo);
+            var dateTime = DateTime.Now.ToString("yyyy-MM-dd h:mm"); 
+            var result = todoList.TodoCreation[todo];
+            
+            Assert.That(result.Equals(dateTime));
+        }
     }
 }
