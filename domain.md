@@ -28,8 +28,8 @@ TodoList			RemoveTask(string taskName)							Remove a task								true if found 
 TodoList			AllTasksSorted(string asc/desc)						Fetch tasks in order						list of tasks
 TodoList			PrintTaskList(List<Task> list)						Print the list of tasks						void
 
-TodoListExtended	FetchTaskByID(int id)								Fetch a task by id							int id of the task
-																													-1 if not found
+TodoListExtended	FetchTaskByID(int id)								Fetch a task by id							the task with the id
+																													null if not found
 TodoListExtended	UpdateTaskNameByID(int id, string newName)			Update task name by id						true if successful
 																													false if no task with id
 TodoListExtended	UpdateTaskStatusByID(int id, status newStatus)		Update task status by id					true if successful
