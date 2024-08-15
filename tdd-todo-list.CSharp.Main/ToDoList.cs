@@ -10,9 +10,9 @@ namespace tdd_todo_list.CSharp.Main
     {
         Dictionary<string, bool> todo = new Dictionary<string, bool>();
 
-        public void AddTask(string name)
+        public void AddTask(string name, bool status)
         {
-            todo.Add(name, false); // adds tasks to todo dictionary
+            todo.Add(name, status); // adds tasks to todo dictionary
         }
 
         public bool SeeIfTaskExists(string expected)
