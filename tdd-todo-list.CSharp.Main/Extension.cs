@@ -8,8 +8,7 @@ namespace tdd_todo_list.CSharp.Main
 {
     public class TodoListExtension
     {
-        // Could use another dictionary within the dictionary, but that sounds like extra work!
-        // so we're using a tuple instead
+        // Using a tuple for storing data (which is not easily modifiable... classes soon surely...)
         Dictionary<int, (string, bool, DateTime)> _todoList;
         public TodoListExtension()
         {
@@ -21,6 +20,11 @@ namespace tdd_todo_list.CSharp.Main
             _todoList.Add(id, (task, status, dateTime));
         }
 
+        public void changeStatus(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public (string, bool, DateTime) getTask(int id)
         {
             return _todoList[id];
@@ -28,7 +32,8 @@ namespace tdd_todo_list.CSharp.Main
 
         public void updateTask(int id, string v)
         {
-            throw new NotImplementedException();
+            var tuple = (v, _todoList[id].Item2, _todoList[id].Item3);
+            _todoList[id] = tuple;
         }
     }
 }

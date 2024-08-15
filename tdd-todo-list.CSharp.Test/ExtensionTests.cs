@@ -32,10 +32,29 @@ namespace tdd_todo_list.CSharp.Test
             bool status = false;
             DateTime dateTime = DateTime.Now;
             extension.add(id, task, status, dateTime);
+
+            Assert.That(extension.getTask(id).Item1.Equals("Walk the dog"));
+
             extension.updateTask(id, "Pet the dog");
 
             Assert.That(extension.getTask(id).Item1.Equals("Pet the dog"));
-
+            Assert.That(!extension.getTask(id).Item1.Equals("Walk the dog"));
         }
+
+        [Test]
+        public void ETest3()
+        {
+            var extension = new TodoListExtension();
+            int id = 0;
+            string task = "Walk the dog";
+            bool status = false;
+            DateTime dateTime = DateTime.Now;
+            extension.add(id, task, status, dateTime);
+
+            Assert.That(extension.getTask(id).Item2.Equals(false));
+            extension.changeStatus(id);
+            Assert.That(extension.getTask(id).Item2.Equals(true));
+        }
+
     }
 }
