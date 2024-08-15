@@ -72,5 +72,17 @@ namespace tdd_todo_list.CSharp.Main
             }
             return concat;
         }
+
+        public string FindTask(UserTask taskname)
+        {
+            if (tasks.Contains(taskname))
+            {
+                return taskname.taskname;
+            }
+            else
+            {
+                return "Task not found";
+            }
+        }
     }
 }

@@ -93,5 +93,21 @@ namespace tdd_todo_list.CSharp.Test
             Assert.IsTrue(expected == result);
         }
 
+        [TestCase("task1")]
+        public void findTaskTest(string taskname)
+        {
+            TodoList list = new TodoList();
+            UserTask task1 = new UserTask();
+            UserTask task5 = new UserTask(); // This one is not added to the list
+
+            list.Add(task1);
+
+            string expected = "Task not found";
+
+
+            string result = list.FindTask(task5);
+
+            Assert.IsTrue(expected == result);
+        }
     }
 }
