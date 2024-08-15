@@ -17,5 +17,10 @@ namespace tdd_todo_list.CSharp.Main
             string status = "incomplete";
             _toDoList.Add(task, status);
         }
+
+        public string[] Print()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
