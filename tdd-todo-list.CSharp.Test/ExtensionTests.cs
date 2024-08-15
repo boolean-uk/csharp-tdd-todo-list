@@ -56,5 +56,19 @@ namespace tdd_todo_list.CSharp.Test
             Assert.That(extension.getTask(id).Item2.Equals(true));
         }
 
+
+        [Test]
+        public void ETest4()
+        {
+            var extension = new TodoListExtension();
+            int id = 0;
+            string task = "Walk the dog";
+            bool status = false;
+            DateTime dateTime = DateTime.Now;
+            extension.add(id, task, status, dateTime);
+            var created = extension.taskCreated(id);
+
+            Assert.That(created.Equals(dateTime));
+        }
     }
 }

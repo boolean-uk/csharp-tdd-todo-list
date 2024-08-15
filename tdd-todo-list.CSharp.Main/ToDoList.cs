@@ -81,8 +81,6 @@ namespace tdd_todo_list.CSharp.Main
 
         public int Count { get { return _count; } } // getter property for count
 
-        // As Incomplete and Complete tasks just represent data without requiring
-        // input, we can make them as properties
         public List<string> Incomplete
         {
             get {
