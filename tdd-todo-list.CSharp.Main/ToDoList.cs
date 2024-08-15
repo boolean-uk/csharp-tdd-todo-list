@@ -53,7 +53,17 @@ namespace tdd_todo_list.CSharp.Main
 
         public Dictionary<string, bool> SearchFor(string task)
         {
-            throw new NotImplementedException();
+            Dictionary <string, bool> relevantTasks = new Dictionary<string, bool>();
+            
+            foreach (var tasks in _taskList)
+            {
+                if (tasks.Key.Contains(task))
+                {
+                    relevantTasks.Add(tasks.Key, tasks.Value);
+                }
+            }
+
+            return relevantTasks;
         }
     }
 }
