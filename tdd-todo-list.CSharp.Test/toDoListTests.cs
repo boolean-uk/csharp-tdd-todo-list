@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -222,7 +223,37 @@ namespace tdd_todo_list.CSharp.Test
 
             //assert
             Assert.AreEqual(newName, actualName);
+
+
         }
 
+        [Test]
+
+        public void checkUpdateStatusById() {
+            TodoList list = new TodoList();
+            int testId = 3;
+            bool newStatus = false;
+            bool expectedStatus = false;
+
+            //act
+            list.changeStatusById(testId, newStatus);
+
+
+            //Assert
+            Assert.IsTrue(expectedStatus);
     }
+
+        [Test]
+        public void checkCreationTime()
+        {
+            //arrange
+            TodoList list = new TodoList();
+            toDoTask newTask = new toDoTask("setTime", true);
+            string taskToCheck = "setTime";
+            list.addTask(newTask);
+
+
+            //act
+            list.getDateTime(taskToCheck);
+        }
 }

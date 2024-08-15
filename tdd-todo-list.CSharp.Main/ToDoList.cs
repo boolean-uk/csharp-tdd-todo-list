@@ -101,5 +101,15 @@ namespace tdd_todo_list.CSharp.Main
         {
             throw new NotImplementedException();
         }
+
+        public void changeStatusById(int testId, bool newStatus)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void getDateTime(string taskToCheck)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
