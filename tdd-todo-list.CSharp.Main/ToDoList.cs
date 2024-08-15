@@ -11,6 +11,23 @@ namespace tdd_todo_list.CSharp.Main
         private string _complete = " | Complete\n";
         private string _incomplete = " | Incomplete\n";
         Dictionary<string, bool> tasks = new Dictionary<string, bool>();
+
+        private string _List(Dictionary<string, bool> taskList)
+        {
+            string output = string.Empty;
+            foreach (var task in taskList)
+            {
+                if (task.Value)
+                {
+                    output += task.Key + _complete;
+                }
+                else
+                {
+                    output += task.Key + _incomplete;
+                }
+            }
+            return output;
+        }
         public bool Add(string task)
         {
             if (tasks.ContainsKey(task))
@@ -33,24 +50,12 @@ namespace tdd_todo_list.CSharp.Main
 
         public string List()
         {
-            string output = string.Empty;
-            foreach (var task in tasks)
-            {
-                if (task.Value)
-                {
-                    output += task.Key + _complete;
-                }
-                else
-                {
-                    output += task.Key + _incomplete;
-                }
-            }
-            return output;
+            return _List(tasks);
         }
 
         public string ListAscending()
         {
-            throw new NotImplementedException();
+            return _List(tasks.OrderBy(x => x.Key).ToDictionary());
         }
 
         public string ListCompleteTasks()
