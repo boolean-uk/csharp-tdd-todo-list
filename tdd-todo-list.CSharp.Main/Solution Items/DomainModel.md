@@ -22,15 +22,15 @@ Task = job
 |               |                                                    |                                                                        |                 |
 |               | SeeJob()                                           | User wants to see all tasks                                            | List            |
 |               |                                                    |                                                                        |                 |
-|               | ChangeStatus(int id)                               | User wants to change the status of a task                              | Bool            |
-|               |                                                    | The task doesnt exist                                                  | Bool            |
+|               | ChangeStatus(int id)                               | User wants to change the status of a task                              | bool            |
+|               |                                                    | The task doesnt exist                                                  | bool            |
 |               |                                                    |                                                                        |                 |
 |               | GetSpecifiedJobs(Status status)                    | User wants to see incomplete/complete tasks                            | List            |
 |               |                                                    |                                                                        |                 |
 |               |                                                    | Task doesnt exist                                                      | string          |
 |               |                                                    |                                                                        |                 |
-|               | RemoveJob(int id)                                  | User wants to remove a specified task                                  | string          |
-|               |                                                    | Task doesnt exist                                                      | string          |
+|               | RemoveJob(int id)                                  | User wants to remove a specified task                                  | bool            |
+|               |                                                    | Task doesnt exist                                                      | bool            |
 |               |                                                    |                                                                        |                 |
 |               | SortJob(string order)                              | User wants to view all tasks sorted alphabetically ascending/decending | List            |
 |               |                                                    |                                                                        |                 |

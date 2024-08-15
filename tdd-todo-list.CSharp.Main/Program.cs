@@ -14,5 +14,6 @@ todolist.seeJobs();
 todolist.getJob(2);
 
 todolist.changeStatus(1);
-
+todolist.removeJob(1);
 todolist.seeJobs();
+

@@ -75,9 +75,19 @@ namespace tdd_todo_list.CSharp.Main
             return newJobs;
         }
 
-        public void removeJob(int v)
+        public bool removeJob(int id)
         {
-            throw new NotImplementedException();
+            foreach (var existingJob in jobs)
+            {
+                if (existingJob.Id == id)
+                {
+                    Console.WriteLine("job removed!");
+                    jobs.Remove(existingJob);
+                    return true;
+                }
+            }
+            Console.WriteLine("Job didnt exist");
+            return false;
         }
 
         public List<Job> seeJobs()
