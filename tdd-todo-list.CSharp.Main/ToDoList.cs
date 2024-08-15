@@ -33,6 +33,24 @@ namespace tdd_todo_list.CSharp.Main
                 
         }
 
+        public string SearchList(string task)
+        {
+            string SearchMessage = string.Empty;
+
+
+            if (!ToDoList.ContainsKey(task))
+            {
+                SearchMessage = "Task does not exist";
+            }
+            else if (ToDoList.ContainsKey(task))
+            {
+                SearchMessage = task;
+            }
+
+            return SearchMessage;
+            
+        }
+
         public Dictionary<string, string> ViewToDoList { get { return ToDoList; } }
 
 

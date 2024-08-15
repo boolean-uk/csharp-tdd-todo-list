@@ -51,9 +51,25 @@ namespace tdd_todo_list.CSharp.Test
             TodoList todoList = new TodoList();
             todoList.AddTask(task);
 
-            string newStatus = todoList.ChangeTaskStatus(task, taskStatus);
+            string actualStatus = todoList.ChangeTaskStatus(task, taskStatus);
 
-            Assert.AreEqual(expected, newStatus);
+            Assert.AreEqual(expected, actualStatus);
+        }
+
+        [Test]
+        public void TaskDoesNotExistTest()
+        {
+            string noTask = "join zoom";
+            string task = "clean";
+            string task2 = "shopping";
+            string expected = "Task does not exist";
+            TodoList todoList = new TodoList();
+            todoList.AddTask(task);
+            todoList.AddTask(task2);
+
+            string actualSearchMessage = todoList.SearchList(task);
+
+            Assert.AreEqual(expected, actualSearchMessage);
         }
     }
 }
