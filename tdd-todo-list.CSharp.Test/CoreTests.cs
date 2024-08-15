@@ -7,8 +7,8 @@ namespace tdd_todo_list.CSharp.Test
     public class CoreTests
     {
 
-        [TestCase("Clean bathroom", true)]
         [TestCase("", false)]
+        [TestCase("Clean bathroom", true)]
         public void TestAddTask(string str, bool expected)
         {
             TodoList core = new TodoList();
@@ -16,10 +16,8 @@ namespace tdd_todo_list.CSharp.Test
             
             bool isAdded = core.AddTask(t);
             
-            Assert.That(isAdded == expected);
+            Assert.That(isAdded, Is.EqualTo(expected));
         }
-
-
 
         [TestCase("Go fishing", true)]
         [TestCase("Take out garbage", false)]

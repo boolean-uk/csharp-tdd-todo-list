@@ -14,18 +14,28 @@ namespace tdd_todo_list.CSharp.Main
         private List<TodoTask> _tasks;
         public TodoList()
         {
-
+            this._tasks = new List<TodoTask>();
         }
 
         public List<TodoTask> Tasks { get => _tasks; set => _tasks = value; }
 
         public bool AddTask(TodoTask t)
         {
-            throw new NotImplementedException();
+            if(t.Taskname == "")
+            {
+                return false;
+            }
+            this._tasks.Add(t);
+            return true;
         }
         public bool RemoveTask(TodoTask t)
         {
-            throw new NotImplementedException();
+            if (this._tasks.Contains(t))
+            {
+                this._tasks.Remove(t);
+                return true;
+            }
+            return false;
         }
         public List<TodoTask> GetAllTasks()
         {

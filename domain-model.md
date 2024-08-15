@@ -12,7 +12,7 @@ I want to see all the tasks in my list ordered alphabetically in descending orde
 
 | Classes       | Methods			     					 |  Scenario								 | Outputs			|
 | ------------- | -------------	     						 |  ------------							 | -----------		|
-| `TodoList`    | AddTask(Task t)							 |  Adds task to todo list					 | true				|
+| `TodoList`    | AddTask(string taskname)					 |  Adds task to todo list					 | true				|
 |				| 											 |  Task could not be added					 | false			|
 |				|										     |											 |      			|
 | `TodoList`    | GetAllTasks()	     					     |  Finds all tasks from todo list			 | List<Task>		|
