@@ -68,5 +68,10 @@ namespace tdd_todo_list.CSharp.Main
         {
             return Jobs.Remove(GetJob(name));
         }
+
+        public List<Job> GetJobsOrdered(bool ascending)
+        {
+            return new List<Job>();
+        }
     }
 }
