@@ -48,6 +48,11 @@ namespace tdd_todo_list.CSharp.Main
             return output;
         }
 
+        public string ListAscending()
+        {
+            throw new NotImplementedException();
+        }
+
         public string ListCompleteTasks()
         {
             string output = string.Empty;
