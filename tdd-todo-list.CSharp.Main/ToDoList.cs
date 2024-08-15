@@ -20,5 +20,10 @@ namespace tdd_todo_list.CSharp.Main
                 return "Task not added";
             }
         }
+
+        public string ListAll()
+        {
+            return "Nothing";
+        }
     }
 }
