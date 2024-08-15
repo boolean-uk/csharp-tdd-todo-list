@@ -1,4 +1,7 @@
 ﻿
+
+
+
 namespace tdd_todo_list.CSharp.Main
 {
     public class TodoList
@@ -44,6 +47,21 @@ namespace tdd_todo_list.CSharp.Main
             return completed;
         }
 
+        public List<string> GetIncomplete()
+        {
+            List<string> incomplete = new List<string>();
+
+            foreach (string task in taskList.Keys)
+            {
+                if (taskList[task] == 0)
+                {
+                    incomplete.Add(task);
+                }
+            }
+
+            return incomplete;
+        }
+
         public List<string> GetTaskList()
         {
             List<string> tasks = new List<string>();
@@ -55,5 +73,21 @@ namespace tdd_todo_list.CSharp.Main
 
             return tasks;
         }
+
+        public void Remove(string task)
+        {
+            if (taskList.ContainsKey(task))
+            {
+                taskList.Remove(task);
+            }
+        }
+
+        public bool Search(string task)
+        {
+            if(taskList.ContainsKey(task)) {  return true; }
+
+            return false;
+        }
+
     }
 }

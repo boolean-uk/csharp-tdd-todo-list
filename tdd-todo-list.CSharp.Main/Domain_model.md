@@ -26,7 +26,8 @@ I want to see all the tasks in my list ordered alphabetically in descending orde
 |                |                                                                    |                                  |                                                                |               |
 |                |                                                                    | `Remove(string task)`            | if task exist   -> remove                                      | true          |
 |                |                                                                    |                                  | else                                                           | false         |
-|                |                                                                    | `ExistCheck(string task)`        |                                                                |               |
+|                |                                                                    |                                  |                                                                |               |
+|                |                                                                    | `Search(string task)`            | if Task exists                                                 | true          |
 |                |                                                                    |                                  |                                                                |               |
 |                |                                                                    | `SortAscending()`                |                                                                | void          |
 |                |                                                                    | `SortDscending()`                |                                                                | void          |
