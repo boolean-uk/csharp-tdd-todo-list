@@ -12,6 +12,7 @@ namespace tdd_todo_list.CSharp.Main
             if (todo is null ) return false;
             if (todo.Length == 0 ) return false;
             _todoList.Add(todo, false);
+            TodoCreation.Add(todo, DateTime.Now.ToString("yyyy-MM-dd h:mm"));
             return true;
         }
         public bool Remove(string todo)
