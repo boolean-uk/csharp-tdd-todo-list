@@ -113,6 +113,20 @@ namespace tdd_todo_list.CSharp.Test
             Assert.That(result, Is.False);
         }
         //I want to search for a task and receive a message that says it wasn't found if it doesn't exist.
+        [TestCase(true, "Walk the dog", true)]
+        [TestCase(false, "Walk the turtle", false)]
+        [TestCase(true, null, false)]
+        [TestCase(true, "", false)]
+        public void SearchTodo(bool performAdd, string todo, bool expectedResult)
+        {
+            var todoList = new Todo();
+
+            if(performAdd) todoList.Add(todo);
+            var result = todoList.SearchTodo(todo);
+            Assert.AreEqual(result, expectedResult);
+
+        }
+
         //I want to change the status of a task between incomplete and complete.
         //I want to see all the tasks in my todo list.
         //I want to be able to get only the complete tasks.
