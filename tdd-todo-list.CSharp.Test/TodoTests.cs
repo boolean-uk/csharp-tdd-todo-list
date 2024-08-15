@@ -94,10 +94,10 @@ namespace tdd_todo_list.CSharp.Test
             todo.AddTask("Write some code", false);
             todo.AddTask("Write some more code", false);
             todo.AddTask("Write a story about purchasing a debug rubber ducky", false);
-            string expected = "Task was not found!"
+            string expected = "Task was not found!";
             if (name[0] == 'W')
             {
-                expected = "Task " + name + "exists!";
+                expected = "Task " + name + " exists!";
             }
 
 

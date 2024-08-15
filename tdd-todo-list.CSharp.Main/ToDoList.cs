@@ -56,5 +56,17 @@ namespace tdd_todo_list.CSharp.Main
             }
             return tasks;
         }
+
+        public string Search(string name)
+        {
+            if(!todo.ContainsKey(name))
+            {
+                return "Task was not found!";
+            }
+            else
+            {
+                return "Task " + name + " exists!";
+            }
+        }
     }
 }
