@@ -6,7 +6,6 @@ namespace tdd_todo_list.CSharp.Test
     [TestFixture]
     public class TodoTests
     {
-        //list<struct> and use enum
 
         [TestCase("Write some code")]
         public void TestAddTask(string name)
