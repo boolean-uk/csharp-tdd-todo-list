@@ -40,7 +40,7 @@ namespace tdd_todo_list.CSharp.Main
 
         public Dictionary<string, bool> GetList()
         {
-            throw new NotImplementedException();
+            return TaskList;
         }
 
         public Dictionary<string, bool> GetListInAscendingOrder()
