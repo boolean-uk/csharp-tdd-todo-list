@@ -52,5 +52,10 @@ namespace tdd_todo_list.CSharp.Main
             }
             return "Error";
         }
+
+        public string ChangeStatus(int id)
+        {
+            return "Nothing";
+        }
     }
 }

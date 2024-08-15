@@ -55,12 +55,32 @@ namespace tdd_todo_list.CSharp.Test
             list.Add(task1);
             list.Add(task2);
 
+            string expected = "Task ID: " + id.ToString() + " is now called: " + taskname;
+
+
             //act
-            string expected = "Task ID: "+id.ToString() + " is now called: " + taskname;
 
             string result = list.ChangeTaskName(id, taskname);
 
             Assert.IsTrue(result == expected);
+        }
+
+        [TestCase(99)]
+        public void ChangeStatusTest(int id)
+        {
+            TodoListExtension list = new TodoListExtension();
+            UserTask task1 = new UserTask(24);
+            task1.taskname = "not me";
+            task1.isComplete = false;
+            UserTask task2 = new UserTask(99);
+            task2.taskname = "change me";
+            task2.isComplete = false;
+
+
+            list.Add(task1);
+            list.Add(task2);
+
+            string expected = "Task ID: " + id.ToString() + "changed completion status to: true";
         }
     }
 }
