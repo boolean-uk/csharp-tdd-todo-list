@@ -17,6 +17,7 @@ namespace tdd_todo_list.CSharp.Main
         private SortedDictionary<string, bool> _descending;
         private int _count = 0; // Added as an extra example for properties
 
+        // A class to create a descending comparer
         private class DescendingComparer<T> : IComparer<T> where T : IComparable<T>
         {
             public int Compare(T x, T y) { return y.CompareTo(x); }
@@ -80,6 +81,8 @@ namespace tdd_todo_list.CSharp.Main
 
         public int Count { get { return _count; } } // getter property for count
 
+        // As Incomplete and Complete tasks just represent data without requiring
+        // input, we can make them as properties
         public List<string> Incomplete
         {
             get {

@@ -16,6 +16,9 @@ this by default, but we can use a SortedDictionary class just for this purpose. 
 to just store the todo list as a SortedDictionary to begin with, though it will not be as fast as a regular dict
 (O(log n) vs O(1) retrieval speed). Especially true if this list is mainly being up on a view with sorting options.
 
+SortedDictionary does not have built in functionality to reverse the dictionary, thus my solution is to hold onto
+two private sorted dictionaries, one for ascending order, the other for descending, the todo list simply points to one of them.
+
 Some of the user stories say "I want to see ...", here I am focusing on just creating what they want to see with
 a method or property retrieval. In order to show them, I could also send the result of this retrieval to a
 terminal print in a very simple case, or to whatever UI the todo list might be using in this theoretical scenario.
@@ -24,7 +27,7 @@ terminal print in a very simple case, or to whatever UI the todo list might be u
 |-------------------------------------------|-----------------------------------|---------------------------|-----------|
 | `SortedDictionary<string, bool> todoList` | `add(string task, bool status)`   | adding task to the list   | nothing   |
 | `SortedDictionary<string, bool> ascending`| `Todo` ***property***             | get the todo list         | SortedDictionary |
-| `SortedDictionary<string, bool> ascending`| `change(string task)`             | invert status of task     | nothing   |
+| `SortedDictionary<string, bool> descending`| `change(string task)`             | invert status of task     | nothing   |
 |                                           | `Complete`   ***property***       | get complete tasks        | list      |
 |                                           | `Incomplete` ***property***       | get incomplete tasks      | list      |
 |                                           | `getTask(string task)`            | task was found            | name of task |
