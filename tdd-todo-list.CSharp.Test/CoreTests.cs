@@ -11,7 +11,7 @@ namespace tdd_todo_list.CSharp.Test
         public void ShouldAddTask()
         {
             //SetUp
-            TodoList todoList = new TodoList();
+            ToDoList todoList = new ToDoList();
             string task = "Shop groceries";
 
 
@@ -27,7 +27,7 @@ namespace tdd_todo_list.CSharp.Test
         public void ShouldNotAddTask()
         {
             //SetUp
-            TodoList todoList = new TodoList();
+            ToDoList todoList = new ToDoList();
             string task = "Shop groceries";
 
 
@@ -43,7 +43,7 @@ namespace tdd_todo_list.CSharp.Test
         public void ShouldShowList()
         {
             //SetUp
-            TodoList todoList = new TodoList();
+            ToDoList todoList = new ToDoList();
             string task = "Go to work";
             string task2 = "Throw garbage";
 
@@ -59,15 +59,16 @@ namespace tdd_todo_list.CSharp.Test
         }
 
         [Test]
-        public void ShouldChangeStatusToComplete()
+        public void ShouldChangeStatusToInComplete()
         {
             //SetUp
-            TodoList todoList = new TodoList();
+            ToDoList todoList = new ToDoList();
             string task = "Throw garbage";
             todoList.AddTasks(task);
 
 
             //Execute
+            todoList.ChangeStatus(task);
             Status result = todoList.ChangeStatus(task); 
             
             
@@ -76,16 +77,15 @@ namespace tdd_todo_list.CSharp.Test
         }
 
         [Test]
-        public void ShouldgetInCompleteTask()
+        public void ShouldChangeStatusToComplete()
         {
             //SetUp
-            TodoList todoList = new TodoList();
+            ToDoList todoList = new ToDoList();
             string task = "Throw garbage";
             todoList.AddTasks(task);
 
 
             //Execute
-            todoList.ChangeStatus(task);
             Status result = todoList.ChangeStatus(task);
            
             
@@ -94,10 +94,50 @@ namespace tdd_todo_list.CSharp.Test
         }
 
         [Test]
+        public void ShouldGetCompleteTask()
+        {
+            //SetUp
+            ToDoList todoList = new ToDoList();
+            string task = "Throw garbage";
+            string task2 = "Go to work";
+            todoList.List.Add(task, Status.COMPLETE);
+            todoList.List.Add(task2, Status.INCOMPLETE);
+
+
+
+            //Execute
+
+            Dictionary<string, Status> list = todoList.GetCompletedTask();
+
+            //Verify
+            Assert.IsTrue(list.ContainsKey(task) && !list.ContainsKey(task2));
+        }
+
+            [Test]
+        public void ShouldGetIncompletedTask()
+        {
+            //SetUp
+            ToDoList todoList = new ToDoList();
+            string task = "Throw garbage";
+            string task2 = "Go to work";
+            todoList.List.Add(task,Status.COMPLETE);
+            todoList.List.Add(task2, Status.INCOMPLETE);
+            
+
+
+            //Execute
+            
+            Dictionary<string,Status> list = todoList.GetInCompletedTask();
+            
+            //Verify
+            Assert.IsTrue(list.ContainsKey(task2) && !list.ContainsKey(task));
+        }
+
+        [Test]
         public void ShouldSearchForTask()
         {
             //SetUp
-            TodoList todoList = new TodoList();
+            ToDoList todoList = new ToDoList();
             string task = "Go to work";
             string task2 = "Throw garbage";
             
@@ -106,14 +146,14 @@ namespace tdd_todo_list.CSharp.Test
             string result = todoList.SearchForTask(task2);
            
             //Verify
-            Assert.Equals(result, "Task not found in list");
+            Assert.That(result == "Task not found in list");
         }
 
         [Test]
         public void ShouldRemoveTask()
         {
             //SetUp
-            TodoList todoList = new TodoList();
+            ToDoList todoList = new ToDoList();
             string task = "Go to work";
             string task2 = "Shop groceries";
 
@@ -130,7 +170,7 @@ namespace tdd_todo_list.CSharp.Test
         public void ShouldRemoveTaskFalse()
         {
             //SetUp
-            TodoList todoList = new TodoList();
+            ToDoList todoList = new ToDoList();
             string task = "Go to work";
             string task2 = "Shop groceries";
 
@@ -148,38 +188,38 @@ namespace tdd_todo_list.CSharp.Test
         public void ShouldOrderAscending()
         {
             //SetUp
-            TodoList todoList = new TodoList();
+            ToDoList todoList = new ToDoList();
             
-            string task = "Go to work";
-            string task2 = "Shop groceries";
+            string task = "A Go to work";
+            string task2 = "B Shop groceries";
 
             //Execute
             todoList.AddTasks(task2);
             todoList.AddTasks(task);
-            bool result = todoList.OrderDescending(todoList.List);
+            Dictionary<string,Status> result = todoList.OrderAscending();
 
             //Verify
 
-            Assert.That(todoList.List.First().Key == task);
+            Assert.That(result.First().Key == task);
         }
 
         [Test]
         public void ShouldOrderDescending()
         {
             //SetUp
-            TodoList todoList = new TodoList();
+            ToDoList todoList = new ToDoList();
 
-            string task2 = "Go to work";
-            string task = "Shop groceries";
+            string task2 = "A Go to work";
+            string task = "B Shop groceries";
 
             //Execute
             todoList.AddTasks(task2);
             todoList.AddTasks(task);
-            bool result = todoList.OrderDescending(todoList.List);
+            Dictionary<string,Status> result = todoList.OrderDescending();
 
             //Verify
 
-            Assert.That(todoList.List.First().Key == task);
+            Assert.That(result.First().Key == task);
         }
     }
 }

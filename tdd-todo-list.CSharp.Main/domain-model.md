@@ -31,7 +31,7 @@
 || SearchForTask(string task) | Searching for a task in the to do list, and returns a message if it doesnt exists | string|
 || RemoveTask(string task)| Removes a task from the list, if the task exist | true |
 ||||false|
-|| OrderAscending(Dictionary<string, Status> toDoList) | takes the toDolist and order it alphabetically in ascending order | |
+|| OrderAscending() | takes the toDolist and order it alphabetically in ascending order | Dictionary<string, Status> |
 || OrderDescending(Dictionary<string, Status> toDoList) | takes the toDolist and order it alphabetically in descending order | |
 | enum  `Status` | INCOMPLETE, COMPLETE | Shows the status of the task |
 
