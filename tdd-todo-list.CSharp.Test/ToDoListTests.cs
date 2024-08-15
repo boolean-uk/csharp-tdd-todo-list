@@ -108,10 +108,11 @@ namespace tdd_todo_list.CSharp.Test
         public void GetIncompleteTasksTest()
         {
             string task1 = "blabla";
-            string taskStatus1 = "complete";
+            string taskStatus1 = "incomplete";
             string task2 = "helloworld";
-            string taskStatus2 = "complete";
+            string taskStatus2 = "incomplete";
             string task3 = "fix bugs";
+            string taskStatus3 = "complete";
             Dictionary<string, string> expectedList = new Dictionary<string, string>
             {
                 { task1, taskStatus1 },
@@ -122,8 +123,7 @@ namespace tdd_todo_list.CSharp.Test
             todoList.AddTask(task1);
             todoList.AddTask(task2);
             todoList.AddTask(task3);
-            todoList.ChangeTaskStatus(task1, taskStatus1);
-            todoList.ChangeTaskStatus(task2, taskStatus2);
+            todoList.ChangeTaskStatus(task3, taskStatus3);
 
             Dictionary<string, string> actualList = todoList.ViewIncompleteTasksList;
 
