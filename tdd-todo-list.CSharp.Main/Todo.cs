@@ -25,7 +25,7 @@ namespace tdd_todo_list.CSharp.Main
         {
             throw new NotImplementedException();
         }
-        public bool SearchTask(string todo) 
+        public bool SearchTodo(string todo) 
         {
             throw new NotImplementedException();
         }
