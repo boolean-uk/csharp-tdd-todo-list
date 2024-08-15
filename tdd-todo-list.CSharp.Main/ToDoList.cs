@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Channels;
 using System.Threading.Tasks;
 using tdd_todo_Slist.CSharp.Main;
 
@@ -9,7 +10,10 @@ namespace tdd_todo_list.CSharp.Main
 {
     public class TodoList
     {
+
         List<Job> todoList = new List<Job>();
+        
+        public int Count { get { return todoList.Count; } }
 
         public bool addJob(Job job)
         {
@@ -67,6 +71,17 @@ namespace tdd_todo_list.CSharp.Main
         {
             return todoList.Where(j => j.Status == status).ToList();
              
+        }
+
+        public void removeJob(int jobId)
+        {
+            Job job = todoList.Where(x => x.Id == jobId).First();
+            if (job == null)
+            {
+                return;
+            }
+
+            todoList.Remove(job);
         }
 
         public string searchJobByName(string name)

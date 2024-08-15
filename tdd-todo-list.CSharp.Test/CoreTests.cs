@@ -91,5 +91,27 @@ namespace tdd_todo_list.CSharp.Test
             Assert.That(expected2 == result2);
         }
 
+
+        [Test]
+        public void RemoveJobTest()
+        {
+            TodoList todoList = new TodoList();
+
+            Job job1 = new Job(1, "Kode", Status.INCOMPLETE, DateTime.Now);
+            Job job2 = new Job(2, "Teste", Status.COMPLETE, DateTime.Now);
+
+            todoList.addJob(job1);
+            todoList.addJob(job2);
+
+            int expected = 1;
+
+            todoList.removeJob(job1.Id);
+
+            int result = todoList.Count;
+
+            Assert.That(expected == result);
+
+        }
+
     }
 }
