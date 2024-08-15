@@ -18,5 +18,19 @@ namespace tdd_todo_list.CSharp.Test
 
             Assert.AreEqual(expected, taskAdded);
         }
+
+        [Test]
+        public void ViewToDoListTest()
+        {
+
+            string task = "clean";
+            string expected = "clean";
+            TodoList todoList = new TodoList();
+
+            string actualList = todoList.ViewTodoList();
+
+            Assert.AreEqual(expected, actualList);
+
+        }
     }
 }

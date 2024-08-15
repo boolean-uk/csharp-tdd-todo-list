@@ -22,5 +22,10 @@ namespace tdd_todo_list.CSharp.Main
             return false;
             
         }
+
+        public string ViewTodoList()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
