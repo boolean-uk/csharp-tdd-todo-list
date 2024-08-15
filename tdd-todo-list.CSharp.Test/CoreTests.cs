@@ -60,5 +60,27 @@ namespace tdd_todo_list.CSharp.Test
 
             Assert.That(completedList.Count == 2 && incompleteList.Count == 1);
         }
+
+        [Test]
+        public void FindTaskInListTest()
+        {
+            TodoList toDo = new TodoList();
+            toDo.addTask("complete challenge");
+
+            string result = toDo.findTask("complete challenge");
+
+            Assert.That(result.Equals("complete challenge"));
+        }
+
+        [Test]
+        public void FindTaskNotInListTest()
+        {
+            TodoList toDo = new TodoList();
+            toDo.addTask("complete challenge");
+
+            string result = toDo.findTask("dig up treasure");
+
+            Assert.That(result.Equals("task not in todo list"));
+        }
     }
 }

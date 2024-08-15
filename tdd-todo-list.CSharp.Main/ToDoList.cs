@@ -22,6 +22,16 @@ namespace tdd_todo_list.CSharp.Main
             tasks[toDoItem] = completed;
         }
 
+        public string findTask(string toDoItem)
+        {
+            if (tasks.ContainsKey(toDoItem))
+            {
+                return toDoItem;
+            }
+
+            return "task not in todo list";
+        }
+
         public List<string> getList(char completed = 'a')
         {
             if (completed == 'c')
