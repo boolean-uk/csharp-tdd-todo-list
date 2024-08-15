@@ -112,5 +112,29 @@ namespace tdd_todo_list.CSharp.Test
 
             Assert.IsFalse(taskIsFound);
         }
+
+        [Test]
+        public void RemoveTaskCount()
+        {
+            TodoList todoList = new TodoList();
+            todoList.AddTask("Study");
+            todoList.AddTask("Run");
+            todoList.AddTask("Sleep");
+            TodoList.RemoveTask("Study");
+
+            Assert.IsTrue(todoList.Tasks.Count() == 2);
+        }
+
+        [Test]
+        public void RemoveTask()
+        {
+            TodoList todoList = new TodoList();
+            todoList.AddTask("Study");
+            TodoList.RemoveTask("Study");
+
+            bool taskIsFound = todoList.SearchTask("Run");
+
+            Assert.IsFalse(taskIsFound);
+        }
     }
 }
