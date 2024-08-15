@@ -99,6 +99,15 @@ namespace tdd_todo_list.CSharp.Main
             return jobs;
         }
 
+        public void sortJob(string type)
+        {
+            if(type == "ascending")
+            {
+
+            }
+            throw new NotImplementedException();
+        }
+
         public void updateName(int id, string newName)
         {
             Job job = getJob(id);

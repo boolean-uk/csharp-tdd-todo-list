@@ -105,8 +105,36 @@ namespace tdd_todo_list.CSharp.Test
 
         }
 
-       
+        [Test]
+        public void sortJobTest()
+        {
 
+            //jobs that will be sorted
+            TodoList todoListUnsorted = new TodoList();
+
+            Job job1 = new Job(1, "shoot", Status.INCOMPLETE, DateTime.Now);
+            Job job2 = new Job(2, "experis academy", Status.COMPLETE, DateTime.Now);
+            Job job3 = new Job(3, "beer", Status.COMPLETE, DateTime.Now);
+            Job job4 = new Job(4, "code", Status.INCOMPLETE, DateTime.Now);
+
+            todoListUnsorted.addJob(job1);
+            todoListUnsorted.addJob(job2);
+            todoListUnsorted.addJob(job3);
+            todoListUnsorted.addJob(job4);
+
+            //already sorted
+            TodoList todoListSorted = new TodoList();
+            todoListSorted.addJob(job3);
+            todoListSorted.addJob(job4);
+            todoListSorted.addJob(job2);
+            todoListSorted.addJob(job1);
+
+            todoListUnsorted.sortJob("asc");
+
+
+
+
+        }
 
     }
 }
