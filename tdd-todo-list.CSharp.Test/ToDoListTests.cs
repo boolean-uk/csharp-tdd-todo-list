@@ -11,8 +11,20 @@ namespace tdd_todo_list.CSharp.Test
         public void AddTaskToTODOList()
         {
             // 1. Setup
-            // 2. Execute
             TodoList todoList = new TodoList();
+            // 2. Execute
+
+            // 3. Verify
+            Assert.Fail();
+        }
+        
+        [Test]
+        public void GetTasksInTODOList()
+        {
+            // 1. Setup
+            TodoList todoList = new TodoList();
+            // 2. Execute
+
             // 3. Verify
             Assert.Fail();
         }

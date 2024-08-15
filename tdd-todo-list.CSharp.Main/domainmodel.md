@@ -33,12 +33,12 @@
 | **Classes** | **Methods** | **Scenario** | **Outputs** |
 |:---:|:---:|:---:|:---:|
 | `ToDoList` | Add(string task) | Add a task to a TODO-list | bool |
-|  | ShowList(string task, bool isComplete) | Return tasks from the TODO-list | Dictionary<string, bool> |
+|  | GetList(string task, bool isComplete) | Return tasks from the TODO-list | Dictionary<string, bool> |
 |  | ChangeStatus(string task, bool isComplete) | Change the status of a task | bool |
-|  | ShowCompleteTasks() | Return a list of completed tasks from the TODO-list | Dictionary<string, bool> |
-|  | ShowIncompleteTasks() | Return a list of incomplete tasks from the TODO-list | Dictionary<string, bool> |
+|  | GetCompleteTasks() | Return a list of completed tasks from the TODO-list | Dictionary<string, bool> |
+|  | GetIncompleteTasks() | Return a list of incomplete tasks from the TODO-list | Dictionary<string, bool> |
 |  | SearchFor(string task) | Search for a task in the TODO-list. If the task does not exist it will display a message | Dictionary<string, bool> |
 |  | Remove(string task) | Remove a task from the TODO-list | bool |
-|  | ShowListAscending() | Return the TODO-list sorted alphabetically in ascending order | Dictionary<string, bool> |
-|  | ShowListDescending() | Return the TODO-list sorted alphabetically in descending order | Dictionary<string, bool> |
+|  | GetListInAscendingOrder() | Return the TODO-list sorted alphabetically in ascending order | Dictionary<string, bool> |
+|  | GetListInDescendingOrder() | Return the TODO-list sorted alphabetically in descending order | Dictionary<string, bool> |
 
