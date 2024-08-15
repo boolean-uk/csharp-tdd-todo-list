@@ -19,7 +19,11 @@ namespace tdd_todo_list.CSharp.Main
 
         public List<Job> seeJobs()
         {
-            throw new NotImplementedException();
+            foreach (var job in jobs) 
+            { 
+                Console.WriteLine($"job nr: {job.Id}, {job.Name}, {job.Status.ToString()}, {job.Date.ToString()}");
+            }
+            return jobs;
         }
     }
 }

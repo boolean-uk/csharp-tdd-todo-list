@@ -26,9 +26,10 @@ namespace tdd_todo_list.CSharp.Test
             DateTime time = DateTime.Now;
             Job job = new Job(1, "shoot", Status.INCOMPLETE, time);
             todoList.addJob(job);
-            List<Job> expected = [];
+            List<Job> expected = [job];
             List<Job> result = todoList.seeJobs();
-            Assert.That(expected == result);
+            Console.WriteLine($"expected {expected}\nresult {result}");
+            Assert.True(expected.SequenceEqual(result));
         }
     }
 }

@@ -26,5 +26,10 @@ namespace tdd_todo_list.CSharp.Main
             this.status = status;
             this.date = date;
         }
+
+        public int Id { get { return id; } }
+        public string Name { get { return name; } }
+        public Status Status { get { return status; } }
+        public DateTime Date { get { return date; } }
     }
 }
