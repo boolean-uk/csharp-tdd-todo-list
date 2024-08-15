@@ -28,9 +28,9 @@ namespace tdd_todo_list.CSharp.Main
             return true;
         }
 
-        public JobExtension GetJob(string name)
+        public JobExtension GetJob(int id)
         {
-            List<JobExtension> jobs = Jobs.Where(job => job.Name.Equals(name)).ToList();
+            List<JobExtension> jobs = Jobs.Where(job => job.ID.Equals(id)).ToList();
             if (jobs.Count <= 0)
             {
                 return new JobExtension("", "");
@@ -50,6 +50,7 @@ namespace tdd_todo_list.CSharp.Main
 
             foreach (var item in jobs)
             {
+                message += string.Format($"ID: {item.ID}\n");
                 message += string.Format($"Name: {item.Name}\n");
                 message += string.Format("Status: {0}", item.Complete ? "Complete" : "Incomplete\n");
                 message += string.Format($"Description: {item.Description}\n");
@@ -66,9 +67,9 @@ namespace tdd_todo_list.CSharp.Main
             return messageComplete;
         }
 
-        public bool RemoveJob(string name)
+        public bool RemoveJob(int id)
         {
-            return Jobs.Remove(GetJob(name));
+            return Jobs.Remove(GetJob(id));
         }
 
         public List<JobExtension> GetJobsOrdered(bool ascending)
@@ -78,6 +79,20 @@ namespace tdd_todo_list.CSharp.Main
                 return Jobs.OrderBy(job => job.Name).ToList();
             }
             return Jobs.OrderByDescending(job => job.Name).ToList();
+        }
+
+        public bool changeJobStatus(int id, bool status)
+        {
+            JobExtension job = GetJob(id);
+            job.ChangeStatus(status);
+            return true;
+        }
+
+        public bool changeJobName(int id, string newName)
+        {
+            JobExtension job = GetJob(id);
+            job.Name = newName;
+            return true;
         }
     }
 
@@ -89,9 +104,9 @@ namespace tdd_todo_list.CSharp.Main
         private DateTime _created;
         private int _ID;
 
-        public int ID { get; set; }
+        public int ID { get; set; } // <== i do not condone this public set, just had to do it without rewriting alot of the add function of the list class
         public bool Complete { get { return _complete; } }
-        public string Name { get { return _name; } }
+        public string Name { get; set; }
         public string Description { get { return _description; } }
         public string Created { get { return DateTime.Now.ToString(); } }
 
