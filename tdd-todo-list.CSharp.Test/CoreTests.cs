@@ -1,5 +1,6 @@
 ﻿using tdd_todo_list.CSharp.Main;
 using NUnit.Framework;
+using System.Threading.Tasks;
 
 namespace tdd_todo_list.CSharp.Test
 {
@@ -55,8 +56,8 @@ namespace tdd_todo_list.CSharp.Test
             bool status2 = true;
             core.add(task2, status2);
 
-            List<string> complete = core.getComplete();
-            List<string> incomplete = core.getIncomplete();
+            List<string> complete = core.Complete;
+            List<string> incomplete = core.Incomplete;
 
             Assert.That(complete[0] == "Pet the dog");
             Assert.That(incomplete[0] == "Walk the dog");
@@ -65,7 +66,7 @@ namespace tdd_todo_list.CSharp.Test
         [Test]
         public void FifthTest()
         {
-            // testing getting a task
+            // Testing getting a task
             TodoList core = new TodoList();
             string task = "Pet the dog";
             bool status = true;
@@ -81,7 +82,7 @@ namespace tdd_todo_list.CSharp.Test
         [Test]
         public void SixthTest()
         {
-            // testing removing a task
+            // Testing removing a task
             TodoList core = new TodoList();
             string task = "Pet the dog";
             bool status = true;
@@ -92,6 +93,53 @@ namespace tdd_todo_list.CSharp.Test
 
             Assert.That(result.Equals("Pet the dog"));
             Assert.That(result2.Equals("not found"));
+        }
+
+        [Test]
+        public void SeventhTest()
+        {
+            // Testing getting tasks in ascending or descending order
+            TodoList core = new TodoList();
+            core.add("Pet the dog", true);
+            core.add("Feed the dog", false);
+            core.add("Walk the dog", false);
+            core.add("Play with the dog", true);
+
+            List<string> sortedTasks = new List<string>();
+            sortedTasks.Add("Pet the dog");
+            sortedTasks.Add("Feed the dog");
+            sortedTasks.Add("Walk the dog");
+            sortedTasks.Add("Play with the dog");
+            sortedTasks.Sort();
+
+            // Should be ascending by default
+            int i = 0;
+            foreach(var (key, value) in core.Todo)
+            {
+                Assert.That(key.Equals(sortedTasks[i]));
+                i++;
+            }
+
+            // Reverse it
+            core.descending();
+            i = 3;
+            foreach (var (key, value) in core.Todo)
+            {
+                Assert.That(key.Equals(sortedTasks[i]));
+                i--;
+            }
+
+            // Another test to make sure
+            core.ascending();
+            i = 3;
+            foreach (var (key, value) in core.Todo)
+            {
+                Assert.That(!key.Equals(sortedTasks[i]));
+                i--;
+            }
+
+
+
         }
     }
 }

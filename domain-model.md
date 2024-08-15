@@ -20,19 +20,19 @@ Some of the user stories say "I want to see ...", here I am focusing on just cre
 a method or property retrieval. In order to show them, I could also send the result of this retrieval to a
 terminal print in a very simple case, or to whatever UI the todo list might be using in this theoretical scenario.
 
-| Members                              | Methods                           | Scenario                  | Output    |
-|--------------------------------------|-----------------------------------|---------------------------|-----------|
-| `SortedDictionary<string, bool> todoList`  | `add(string task, bool status)`   | adding task to the list   | nothing   |
-|                                      | `toDoList.get()` ***property***   | get the todo list         | SortedDictionary |
-|                                      | `change(string task)`             | invert status of task     | nothing   |
-|                                      | `getComplete()`                   | get complete tasks        | list      |
-|                                      | `getIncomplete()`                 | get incomplete tasks      | list      |
-|                                      | `getTask(string task)`            | task was found            | name of task |
-|                                      |                                   | task was not found        | "not found"|
-|                                      | `remove(string task)`             | task was found            | name of task |
-|                                      |                                   | task was not found        | "not found"|
-|                                      | `getTasksAscending()`             | ascending order of tasks  | SortedDictionary |
-|                                      | `getTasksDescending()`            | descending order of tasks | SortedDictionary |
+| Members                                   | Methods                           | Scenario                  | Output    |
+|-------------------------------------------|-----------------------------------|---------------------------|-----------|
+| `SortedDictionary<string, bool> todoList` | `add(string task, bool status)`   | adding task to the list   | nothing   |
+| `SortedDictionary<string, bool> ascending`| `Todo` ***property***             | get the todo list         | SortedDictionary |
+| `SortedDictionary<string, bool> ascending`| `change(string task)`             | invert status of task     | nothing   |
+|                                           | `Complete`   ***property***       | get complete tasks        | list      |
+|                                           | `Incomplete` ***property***       | get incomplete tasks      | list      |
+|                                           | `getTask(string task)`            | task was found            | name of task |
+|                                           |                                   | task was not found        | "not found"|
+|                                           | `remove(string task)`             | task was found            | name of task |
+|                                           |                                   | task was not found        | "not found"|
+|                                           | `ascending()`                     | sets order to ascending   | SortedDictionary|
+|                                           | `descending()`                    | sets order to descending  | SortedDictionary|
 
 
 ### Domain Model (Extension)
