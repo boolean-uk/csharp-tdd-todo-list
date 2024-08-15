@@ -24,7 +24,7 @@ namespace tdd_todo_list.CSharp.Test
         {
 
             string task = "clean";
-            string taskStatus = "Incomplete";
+            string taskStatus = "incomplete";
             string task2 = "shopping";
             Dictionary<string, string> expectedList = new Dictionary<string, string>
             {
@@ -47,11 +47,11 @@ namespace tdd_todo_list.CSharp.Test
         {
             string task = "clean";
             string taskStatus = "complete";
-            bool expected = true;
+            string expected = "complete";
             TodoList todoList = new TodoList();
             todoList.AddTask(task);
 
-            bool newStatus = todoList.ChangeTaskStatus(taskStatus);
+            string newStatus = todoList.ChangeTaskStatus(task, taskStatus);
 
             Assert.AreEqual(expected, newStatus);
         }

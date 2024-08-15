@@ -12,20 +12,25 @@ namespace tdd_todo_list.CSharp.Main
 
         public bool AddTask(string task)
         {
-            string newTaskStatus = "Incomplete";
+            string defaultTaskStatus = "incomplete";
 
             if (!ToDoList.ContainsKey(task)) 
             {
-                ToDoList.Add(task, newTaskStatus);
+                ToDoList.Add(task, defaultTaskStatus);
                 return true;
             }
             return false;
             
         }
 
-        public bool ChangeTaskStatus(string taskStatus)
+        public string ChangeTaskStatus(string task, string taskStatus) 
         {
-            throw new NotImplementedException();
+            if (!ToDoList.ContainsKey(task)) return "Task does not exist";
+            else
+            {
+                return ToDoList[task] = taskStatus;
+            }
+                
         }
 
         public Dictionary<string, string> ViewToDoList { get { return ToDoList; } }
