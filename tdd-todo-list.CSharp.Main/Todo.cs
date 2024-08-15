@@ -1,5 +1,6 @@
 ﻿
 using Microsoft.VisualStudio.TestPlatform.ObjectModel;
+using System.Collections.Immutable;
 using System.Globalization;
 
 namespace tdd_todo_list.CSharp.Main
@@ -66,11 +67,12 @@ namespace tdd_todo_list.CSharp.Main
 
         public List<string> OrderByAscending() 
         { 
-            throw new NotImplementedException(); 
+            _todoList.OrderBy(x => x.Key);
+            return _todoList.Keys.Order().ToList();
         }
         public List<string> OrderByDescending() 
-        { 
-            throw new NotImplementedException(); 
+        {
+            return _todoList.Keys.OrderDescending().ToList();
         }
     }
 }
