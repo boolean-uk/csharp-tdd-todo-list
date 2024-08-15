@@ -28,5 +28,16 @@ namespace tdd_todo_list.CSharp.Test
             var todo = core.Todo;
             Assert.That(todo.ContainsKey(task));
         }
+
+        [Test]
+        public void ThirdTest()
+        {
+            TodoList core = new TodoList();
+            string task = "Walk the dog";
+            bool status = false;
+            core.add(task, status);
+            core.change(task, true);
+            Assert.That(core.Todo["Walk the dog"] == true);
+        }
     }
 }

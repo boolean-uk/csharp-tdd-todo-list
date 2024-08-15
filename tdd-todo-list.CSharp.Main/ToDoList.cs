@@ -18,6 +18,11 @@ namespace tdd_todo_list.CSharp.Main
             _count = _todoList.Count;
         }
 
+        public void change(string task, bool status)
+        {
+            throw new NotImplementedException();
+        }
+
         public SortedDictionary<string, bool> Todo { get { return _todoList; } }
 
         public int Count { get { return _count; } } // getter property for count
