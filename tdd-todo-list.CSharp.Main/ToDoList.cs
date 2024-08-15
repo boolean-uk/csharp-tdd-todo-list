@@ -47,8 +47,55 @@ namespace tdd_todo_list.CSharp.Main
         public string PrintTasks(TodoTaskStatus status, Order order)
         {
             string tasks = string.Empty;
-            
 
+            if (order == Order.Ascending)
+            {
+                var ascendingOrder = todo.OrderBy(x => x.Key).ToDictionary();
+                //go through them in order
+                foreach (var task in ascendingOrder)
+                {
+                    if (status != TodoTaskStatus.All)
+                    {
+                        if (status == TodoTaskStatus.Complete && task.Value == true)
+                        {
+                            tasks += task.Key + "\n";
+                        }
+                        else if (status == TodoTaskStatus.InComplete && task.Value == false)
+                        {
+                            tasks += task.Key + "\n";
+                        }
+                    }
+                    else
+                    {
+                        tasks += task.Key + "\n";
+                    }
+                }
+                return tasks;
+            }
+            else if (order == Order.Descending)
+            {
+                var descendingOrder = todo.OrderByDescending(x => x.Key).ToDictionary();
+                //go through them in order
+                foreach (var task in descendingOrder)
+                {
+                    if (status != TodoTaskStatus.All)
+                    {
+                        if (status == TodoTaskStatus.Complete && task.Value == true)
+                        {
+                            tasks += task.Key + "\n";
+                        }
+                        else if (status == TodoTaskStatus.InComplete && task.Value == false)
+                        {
+                            tasks += task.Key + "\n";
+                        }
+                    }
+                    else
+                    {
+                        tasks += task.Key + "\n";
+                    }
+                }
+                return tasks;
+            }
 
             foreach (var task in todo)
             {

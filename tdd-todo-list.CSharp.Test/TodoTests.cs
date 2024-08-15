@@ -159,19 +159,19 @@ namespace tdd_todo_list.CSharp.Test
             string expected = string.Empty;
             if(Order.Descending == order && status == TodoTaskStatus.All)
             {
-                expected = "Write some more code\nWrite some code\nWrite a story about purchasing a debug rubber ducky\nTake a nap\nStudy for exam\nGo Shopping\nFilm a youtube intro\nFinish painting the fence\nBuild a website\n";
+                expected = "Write some more code\nWrite some code\nWrite a story about purchasing a debug rubber ducky\nTake a nap\nStudy for exam\nGo Shopping\nFinish painting the fence\nFilm a youtube intro\nBuild a website\n";
             }
             else if (Order.Descending == order && status == TodoTaskStatus.Complete)
             {
-                expected = "Study for exam\nWrite some more code\nFilm a youtube intro\n";
+                expected = "Write some more code\nStudy for exam\nFilm a youtube intro\n";
             }
             else if (Order.Descending == order && status == TodoTaskStatus.InComplete)
             {
-                expected = "Write some code\nWrite a story about purchasing a debug rubber ducky\nTake a nap\nGo Shopping\nFinish painting the fence\nBuild a website\n;";
+                expected = "Write some code\nWrite a story about purchasing a debug rubber ducky\nTake a nap\nGo Shopping\nFinish painting the fence\nBuild a website\n";
             }
             else if (Order.Ascending == order && status == TodoTaskStatus.All)
             {
-                expected = "Build a website\nFinish painting the fence\nFilm a youtube intro\nGo Shopping\nStudy for exam\nTake a nap\nWrite a story about purchasing a debug rubber ducky\nWrite some code\nWrite some more code\n";
+                expected = "Build a website\nFilm a youtube intro\nFinish painting the fence\nGo Shopping\nStudy for exam\nTake a nap\nWrite a story about purchasing a debug rubber ducky\nWrite some code\nWrite some more code\n";
             }
             else if (Order.Ascending == order && status == TodoTaskStatus.Complete)
             {
