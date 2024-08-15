@@ -18,8 +18,17 @@ namespace tdd_todo_list.CSharp.Main
             {
                 return false;
             }
+            else if (_jobs.Where(item => item.Name == job.Name).ToList().Count != 0)
+            {
+                return false;
+            }
             _jobs.Add(job);
             return true;
+        }
+
+        public List<Job> GetJobs(bool completed)
+        {
+            return new List<Job>();
         }
 
         public bool PrintJobs(List<Job> jobs) 
