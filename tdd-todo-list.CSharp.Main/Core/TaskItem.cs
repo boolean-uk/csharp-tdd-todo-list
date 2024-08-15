@@ -5,16 +5,16 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace tdd_todo_list.CSharp.Main
+namespace Core
 {
     public class TaskItem
-{
-        public String Name { get; set; }
+    {
+        public string Name { get; set; }
         public bool IsComplete { get; set; } = false;
 
-        public TaskItem (String name)
+        public TaskItem(string name)
         {
-            Name = name; 
+            Name = name;
         }
     }
 }

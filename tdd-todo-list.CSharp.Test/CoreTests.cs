@@ -1,6 +1,6 @@
-﻿using tdd_todo_list.CSharp.Main;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using System.Threading.Tasks;
+using Core;
 
 namespace tdd_todo_list.CSharp.Test
 {

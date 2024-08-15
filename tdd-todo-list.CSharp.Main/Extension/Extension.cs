@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace tdd_todo_list.CSharp.Main
+namespace Extension
 {
     public class TodoListExtension
     {
