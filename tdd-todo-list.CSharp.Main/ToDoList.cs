@@ -24,5 +24,13 @@ namespace tdd_todo_list.CSharp.Main
 
             return completeTasks;
         }
+
+        public List<TaskItem> GetIncompleteTasks()
+        {
+            List<TaskItem> incompleteTasks = Tasks.FindAll(task => task.IsComplete == false);
+
+            return incompleteTasks;
+        }
+
     }
 }
