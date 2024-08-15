@@ -66,7 +66,7 @@ namespace tdd_todo_list.CSharp.Main
 
         public bool RemoveJob(string name)
         {
-            return false;
+            return Jobs.Remove(GetJob(name));
         }
     }
 }

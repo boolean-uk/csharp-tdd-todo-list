@@ -115,6 +115,11 @@ namespace tdd_todo_list.CSharp.Test
             bool actualResult = list.RemoveJob("Do the dishes");
 
             Assert.That(actualResult, Is.EqualTo(expectedResult));
+
+            expectedResult = false;
+
+            actualResult = list.RemoveJob("Do the dishes");
+            Assert.That(actualResult, Is.EqualTo(expectedResult));
         }
     }
 }
