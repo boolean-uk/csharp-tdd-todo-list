@@ -20,6 +20,15 @@ namespace tdd_todo_list.CSharp.Main
             if (todo.Length == 0 ) return false; 
             return _todoList.Remove(todo);
         }
+        public bool SearchTodo(string todo)
+        {
+            if (todo is null) return false;
+            return _todoList.ContainsKey(todo);
+        }
+        public bool CangeTodoStatus(string todo) 
+        {
+            throw new NotImplementedException();
+        }
         public List<string> TodoList() 
         {
             throw new NotImplementedException();
@@ -32,11 +41,7 @@ namespace tdd_todo_list.CSharp.Main
         {
             throw new NotImplementedException();
         }
-        public bool SearchTodo(string todo) 
-        {
-            if(todo is null ) return false;
-            return _todoList.ContainsKey(todo);
-        }
+
 
         public List<string> OrderByAscending() 
         { 
