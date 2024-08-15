@@ -26,9 +26,9 @@ namespace tdd_todo_list.CSharp.Main
         public string FindTaskById(int id)
         {
             UserTask thistask = tasks.FirstOrDefault(item => item.id == id);
-            if (thistask != null) 
+            if (thistask != null)
             {
-                return thistask.taskname+" with ID: "+thistask.id.ToString()+" found!";
+                return thistask.taskname + " with ID: " + thistask.id.ToString() + " found!";
             }
             else
             {
@@ -38,9 +38,9 @@ namespace tdd_todo_list.CSharp.Main
 
         public string ChangeTaskName(int id, string taskname)
         {
-            foreach (UserTask task in tasks) 
+            foreach (UserTask task in tasks)
             {
-                if (task.id == id) 
+                if (task.id == id)
                 {
                     task.taskname = taskname;
                     return "Task ID: " + id.ToString() + " is now called: " + taskname;
@@ -55,7 +55,7 @@ namespace tdd_todo_list.CSharp.Main
 
         public string ChangeStatus(int id)
         {
-            
+
             foreach (UserTask task in tasks)
             {
                 if (task.id == id)
@@ -69,6 +69,24 @@ namespace tdd_todo_list.CSharp.Main
                         task.isComplete = true;
                     }
                     return "Task ID: " + id.ToString() + " changed completion status to: " + task.isComplete;
+                }
+            }
+            return "Error";
+        }
+
+        public string CheckCreated(int id)
+        {
+            string concat = "";
+            foreach (UserTask task in tasks)
+            {
+                if (task.id == id)
+                {
+                    concat += task.created.ToString();
+                    return concat;
+                }
+                else
+                {
+                    return "Error";
                 }
             }
             return "Error";

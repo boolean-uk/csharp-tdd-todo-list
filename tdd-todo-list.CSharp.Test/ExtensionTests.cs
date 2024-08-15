@@ -88,25 +88,26 @@ namespace tdd_todo_list.CSharp.Test
             Assert.IsTrue(result == expected);
         }
 
-        //[TestCase(1)]
-        //public void CheckCreatedTest(int id)
-        //{
-        //    TodoListExtension list = new TodoListExtension();
-        //    UserTask task1 = new UserTask(1);
-        //    UserTask task2 = new UserTask(2);
-        //    task1.created = DateTime.Now;
-        //    task1.created = DateTime.Now;
+        [TestCase(1)]
+        public void CheckCreatedTest(int id)
+        {
+            TodoListExtension list = new TodoListExtension();
+            UserTask task1 = new UserTask(1);
+            UserTask task2 = new UserTask(2);
+            task1.created = DateTime.Now;
+            task1.created = DateTime.Now;
 
-        //    list.Add(task1);
-        //    list.Add(task2);
+            list.Add(task1);
+            list.Add(task2);
 
-        //    string expected = task1.created.ToString();
+            string expected = task1.created.ToString();
 
-        //    string result = list.CheckCreated(id);
+            string result = list.CheckCreated(id);
 
-        //    Assert
+            //Assert
 
-            
-        //}
+
+
+        }
     }
 }
