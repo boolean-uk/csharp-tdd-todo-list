@@ -128,11 +128,14 @@ namespace tdd_todo_list.CSharp.Test
             todoListSorted.addJob(job4);
             todoListSorted.addJob(job2);
             todoListSorted.addJob(job1);
+            
+            todoListUnsorted.sortJob("ascending");
 
-            todoListUnsorted.sortJob("asc");
+            List<Job> expected = todoListSorted.seeJobs();
 
+            List<Job> result = todoListUnsorted.seeJobs();
 
-
+            Assert.True(expected.SequenceEqual(result));
 
         }
 

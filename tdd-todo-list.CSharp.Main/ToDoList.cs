@@ -103,11 +103,17 @@ namespace tdd_todo_list.CSharp.Main
         {
             if(type == "ascending")
             {
-
+                Console.WriteLine("Sorting - ascending");
+                jobs = jobs.OrderBy(job => job.Name).ToList();
+            }
+            else if (type == "descending")
+            {
+                Console.WriteLine("Sorting - descending");
+                jobs = jobs.OrderByDescending(job => job.Name).ToList();
             }
             else
             {
-
+                Console.WriteLine("wrong input");
             }
             
         }
