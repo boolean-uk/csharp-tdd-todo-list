@@ -104,5 +104,32 @@ namespace tdd_todo_list.CSharp.Test
                 Assert.That(file == "404 task not found!");
             }
         }
+
+
+        [TestCase("Paint the fence", false, "01-06-2024 16:45")]
+        [TestCase("Walk the dog", true, "08-04-2024 12:45")]
+        [TestCase("Play baseball", false, "02-06-2021 13:32")]
+        public void TestViewHistory(string name, bool status, string timeStamp)
+
+        {
+            idManager = new IdManager();
+
+            idManager.AddTask("Go shopping", true, "22-06-2013 11:21");
+            idManager.AddTask(name, status, timeStamp);
+
+            string completion = ", task incomplete";
+            if(status)
+            {
+                completion = ", task complete";
+            }
+
+            string exptected = "Go shopping, task complete, task created 22-06-2013 11:21\n"+
+                name + completion + ", task created " + timeStamp;
+
+
+            string result = idManager.ViewHistory();
+
+            Assert.That(result == exptected);
+        }
     }
 }
