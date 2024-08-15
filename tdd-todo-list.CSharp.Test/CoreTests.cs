@@ -7,11 +7,21 @@ namespace tdd_todo_list.CSharp.Test
     public class CoreTests
     {
 
-        [Test]
-        public void FirstTest()
+        [TestCase("Feed Pet")]
+        public void AddTaskTest(string task)
         {
-            TodoList core = new TodoList();
-            Assert.Pass();
+            //arrange
+            TodoList tasks = new TodoList();
+            bool expectedSuccess = true;
+            bool expectedFailure = false;
+
+            //act
+            bool resultInitialAdd = tasks.Add(task);
+            bool resultDuplicateAdd = tasks.Add(task);
+
+            //assert
+            Assert.That(resultInitialAdd, Is.EqualTo(expectedSuccess));
+            Assert.That(resultDuplicateAdd, Is.EqualTo(expectedFailure));
         }
     }
 }
