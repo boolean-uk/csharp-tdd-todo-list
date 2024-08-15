@@ -24,7 +24,7 @@ terminal print in a very simple case, or to whatever UI the todo list might be u
 |--------------------------------------|-----------------------------------|---------------------------|-----------|
 | `SortedDictionary<string, bool> todoList`  | `add(string task, bool status)`   | adding task to the list   | nothing   |
 |                                      | `toDoList.get()` ***property***   | get the todo list         | SortedDictionary |
-|                                      | `change(string task, bool status)`| change status of task     | nothing   |
+|                                      | `change(string task)`             | invert status of task     | nothing   |
 |                                      | `getComplete()`                   | get complete tasks        | list      |
 |                                      | `getIncomplete()`                 | get incomplete tasks      | list      |
 |                                      | `getTask(string task)`            | task was found            | name of task |

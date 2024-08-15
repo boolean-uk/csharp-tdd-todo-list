@@ -36,8 +36,27 @@ namespace tdd_todo_list.CSharp.Test
             string task = "Walk the dog";
             bool status = false;
             core.add(task, status);
-            core.change(task, true);
+            core.changeStatus(task);
             Assert.That(core.Todo["Walk the dog"] == true);
+        }
+
+        [Test]
+        public void FourthTest()
+        {
+            TodoList core = new TodoList();
+            string task = "Walk the dog";
+            bool status = false;
+            core.add(task, status);
+            string task2 = "Pet the dog";
+            bool status2 = true;
+            core.add(task2, status2);
+
+            List<string> complete = core.getComplete();
+            List<string> incomplete = core.getIncomplete();
+
+            Assert.That(complete[0] == "Pet the dog");
+            Assert.That(incomplete[0] == "Walk the dog");
+
         }
     }
 }

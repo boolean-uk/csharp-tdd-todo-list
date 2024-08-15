@@ -18,7 +18,17 @@ namespace tdd_todo_list.CSharp.Main
             _count = _todoList.Count;
         }
 
-        public void change(string task, bool status)
+        public void changeStatus(string task)
+        {
+            _todoList[task] = !_todoList[task];
+        }
+
+        public List<string> getIncomplete()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<string> getComplete()
         {
             throw new NotImplementedException();
         }
