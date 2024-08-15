@@ -34,5 +34,19 @@ namespace Extension
             task.Name = newName;
             return true;
         }
+
+        public  bool UpdateTaskStatus(int id)
+        {
+            TaskItemExtension? task = GetTask(id);
+            if (task == null)
+                return false;
+
+            if (task.IsComplete)
+                task.IsComplete = false;
+            else 
+                task.IsComplete = true;
+
+            return true;
+        }
     }
 }
