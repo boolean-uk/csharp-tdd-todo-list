@@ -18,5 +18,10 @@ namespace tdd_todo_list.CSharp.Main
             tasks.Add(task, true);
             return true;
         }
+
+        public string List()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
