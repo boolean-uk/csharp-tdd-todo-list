@@ -8,6 +8,7 @@
 |        | findTask(int id)				                    | task is in toDoList             | string task                                             |
 |        |                                                  | task is not in toDolist         | string message                                          |
 |        | removeTask(string task)                          |                                 |                                                         |
+|        | updateTask(int id, string description)           |                                 |                                                |
 |        | getTimeAndDate(int id)                           |                                 | string                                                  |
 |Task    | bool Completed									|                                 |                                                         |
 |        | string Description                               |                                 |                                                         |

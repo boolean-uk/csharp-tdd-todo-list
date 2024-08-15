@@ -8,14 +8,33 @@ namespace tdd_todo_list.CSharp.Main
 {
     public class TodoListExtension
     {
-        public int AddTask(string v)
+        public Dictionary<int, TaskItem> tasks = new Dictionary<int, TaskItem>();
+        public int AddTask(string description)
         {
-            return -1;
+            int id = tasks.Count;
+            tasks[id] = new TaskItem(description);
+
+            return id;
+        }
+
+        public void ChangeStatus(int taskID)
+        {
+            tasks[taskID].IsCompleted = true;
         }
 
         public TaskItem FindTask(int taskID)
         {
-            return null;
+            return tasks[taskID];
+        }
+
+        public string TaskTimeAndDate(int taskID)
+        {
+            return "";
+        }
+
+        public void UpdateTask(int taskID, string description)
+        {
+            tasks[taskID].Description = description;
         }
     }
 }
