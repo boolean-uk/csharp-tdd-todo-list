@@ -76,7 +76,12 @@ namespace tdd_todo_list.CSharp.Main
 
         public bool Remove(string task)
         {
-            throw new NotImplementedException();
+            if (tasks.ContainsKey(task))
+            {
+                tasks.Remove(task);
+                return true;
+            }
+            return false;
         }
 
         public string Search(string task)

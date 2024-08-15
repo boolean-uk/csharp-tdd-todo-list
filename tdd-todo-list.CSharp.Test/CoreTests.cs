@@ -166,7 +166,7 @@ namespace tdd_todo_list.CSharp.Test
             bool result = tasks.Remove(task);
 
             //assert
-            Assert.That(result, Is.EqualTo(!expectedFailure));
+            Assert.That(result, Is.EqualTo(expectedFailure));
 
             //arrange
             tasks.Add(task);
