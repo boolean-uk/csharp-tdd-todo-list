@@ -31,9 +31,19 @@ namespace tdd_todo_list.CSharp.Main
                 return added;
         }
 
-        public void allJobsSorted(string orderAsc)
+        public void allJobsSorted(string order)
         {
-            throw new NotImplementedException();
+            if (order == "ascending")
+            {
+                Console.WriteLine("Sorting jobs in ascending order");
+                todoList = todoList.OrderBy(x => x.Name).ToList();
+            }
+            else if (order == "descending")
+            {
+                Console.WriteLine("Sorting jobs in descending order");
+                todoList = todoList.OrderByDescending(x => x.Name).ToList();
+            }
+            else { Console.WriteLine("Wrong input"); }
         }
 
         public bool changeJobStatus(int jobId)

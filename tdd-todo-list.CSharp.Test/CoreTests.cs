@@ -137,10 +137,10 @@ namespace tdd_todo_list.CSharp.Test
 
             List<Job> expectedAsc = todoListSortedAsc.getAllJobs();
             string orderAsc = "ascending";
-            //string orderDesc = "descending";
+            // string orderDesc = "descending";
 
             todoListUnsorted.allJobsSorted(orderAsc);
-           // todoListUnsorted.allJobsSorted(orderDesc);
+            // todoListUnsorted.allJobsSorted(orderDesc);
 
             List<Job> resultAsc = todoListUnsorted.getAllJobs();
 
