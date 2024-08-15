@@ -27,6 +27,25 @@ namespace tdd_todo_list.CSharp.Test
         }
 
 
+        [Test]
+
+        public void printToDoList()
+        {
+
+            //arrange
+            TodoList list = new TodoList();
+            int numberOfTasks = list.taskList.Count;
+
+            //act
+            List<toDoTask> returnedList = list.getAll();
+
+            //assert
+
+            Assert.IsTrue(returnedList==list.taskList);
+
+
+        }
+
 
 
 
