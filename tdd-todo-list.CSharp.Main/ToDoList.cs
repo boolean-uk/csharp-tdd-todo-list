@@ -40,5 +40,16 @@ namespace tdd_todo_list.CSharp.Main
             return taskIsFound;
         }
 
+        public bool RemoveTask(String name)
+        {
+            bool taskIsFound = SearchTask(name);
+            if (!taskIsFound)
+                return false;
+
+            TaskItem taskItem = Tasks.Find(task => task.Name == name);
+            Tasks.Remove(taskItem);
+            return true;
+        }
+
     }
 }

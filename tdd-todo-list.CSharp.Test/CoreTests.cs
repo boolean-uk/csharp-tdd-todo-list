@@ -120,7 +120,7 @@ namespace tdd_todo_list.CSharp.Test
             todoList.AddTask("Study");
             todoList.AddTask("Run");
             todoList.AddTask("Sleep");
-            TodoList.RemoveTask("Study");
+            todoList.RemoveTask("Study");
 
             Assert.IsTrue(todoList.Tasks.Count() == 2);
         }
@@ -130,7 +130,7 @@ namespace tdd_todo_list.CSharp.Test
         {
             TodoList todoList = new TodoList();
             todoList.AddTask("Study");
-            TodoList.RemoveTask("Study");
+            todoList.RemoveTask("Study");
 
             bool taskIsFound = todoList.SearchTask("Run");
 
