@@ -300,8 +300,41 @@ namespace tdd_todo_list.CSharp.Test
         }
 
         //I want to be able to get a task by a unique ID.
-        //I want to update the name of a task by providing its ID and a new name.
-        //I want to be able to change the status of a task by providing its ID.
-        //I want to be able to see the date and time that I created each task.
-    }
+        [Test]
+        public void SearchByUniqueID() 
+        {
+            var todoList = new Todo();
+            string todo = "Backflip";
+
+            todoList.Add(todo);
+            var result = todoList.SearchTodo(todo.GetHashCode());
+
+            Assert.That(result, Is.True);
+        }
+
+        [Test]
+        public void SearchByNullID()
+        {
+            var todoList = new Todo();
+            string todo = "Backflip";
+
+            todoList.Add(todo);
+            var result = todoList.SearchTodo(null);
+
+            Assert.That(result, Is.False);
+        }
+        [Test]
+        public void SearchByIDOfEmptyString() { 
+        var todoList = new Todo();
+        string todo = "";
+
+        todoList.Add(todo);
+        var result = todoList.SearchTodo(todo.GetHashCode());
+
+        Assert.That(result, Is.False);
+        }
+    //I want to update the name of a task by providing its ID and a new name.
+    //I want to be able to change the status of a task by providing its ID.
+    //I want to be able to see the date and time that I created each task.
+}
 }
