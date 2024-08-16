@@ -36,5 +36,48 @@ namespace tdd_todo_list.CSharp.Main
         {
             tasks[taskID].Description = description;
         }
+
+        public List<TaskItem> GetList(char completed = 'a', char sorted = 'n')
+        {
+            List<TaskItem> returnList = new List<TaskItem>();
+
+            if (completed == 'c')
+            {
+                foreach (TaskItem taskItem in tasks.Values)
+                {
+                    if (taskItem.IsCompleted)
+                    {
+                        returnList.Add(taskItem);
+                    }
+                }
+            }
+            else if (completed == 'i')
+            {
+                foreach (TaskItem taskItem in tasks.Values)
+                {
+                    if (!taskItem.IsCompleted)
+                    {
+                        returnList.Add(taskItem);
+                    }
+                }
+            }
+            else
+            {
+                returnList = new List<TaskItem>(tasks.Values);
+            }
+
+
+
+            if (sorted == 'a')
+            {
+                return returnList.OrderBy(x => x.Description).ToList();
+            }
+            if (sorted == 'd')
+            {
+                return returnList.OrderByDescending(x => x.Description).ToList();
+            }
+            return returnList;
+
+        }
     }
 }

@@ -55,5 +55,36 @@ namespace tdd_todo_list.CSharp.Test
 
             Assert.That(dateAndTime.Equals(taskCreated));
         }
+
+        [Test]
+        public void SortedAcsendingTest()
+        {
+            TodoListExtension toDo = new TodoListExtension();
+            toDo.AddTask("complete challenge");
+            toDo.AddTask("make apple jam");
+            toDo.AddTask("dig up treasure");
+            List<string> expected = new List<string>() { "complete challenge", "dig up treasure", "make apple jam" };
+
+            List<TaskItem> result = toDo.GetList(sorted: 'a');
+            List<string> stringResult = result.Select(x => x.Description).ToList();
+
+            Assert.That(stringResult.SequenceEqual(expected));
+        }
+
+        [Test]
+        public void SortedDecsendingTest()
+        {
+            TodoListExtension toDo = new TodoListExtension();
+            toDo.AddTask("complete challenge");
+            toDo.AddTask("make apple jam");
+            toDo.AddTask("dig up treasure");
+            List<string> expected = new List<string>() { "make apple jam", "dig up treasure", "complete challenge" };
+
+            List<TaskItem> result = toDo.GetList(sorted: 'd');
+            List<string> stringResult = result.Select(x => x.Description).ToList();
+            
+
+            Assert.That(stringResult.SequenceEqual(expected));
+        }
     }
 }
