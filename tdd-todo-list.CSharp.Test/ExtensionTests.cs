@@ -21,6 +21,10 @@ namespace tdd_todo_list.CSharp.Test
             extension.add(id, task, status, dateTime);
             (string, bool, DateTime) result = extension.getTask(id);
             Assert.That(result.Item1.Equals(task));
+
+            // Checking that id is unique
+            bool added = extension.add(id, "Feed the dog", false, DateTime.Now);
+            Assert.That(added, Is.False);
         }
 
         [Test]

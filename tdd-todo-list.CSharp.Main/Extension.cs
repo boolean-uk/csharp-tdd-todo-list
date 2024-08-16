@@ -17,9 +17,11 @@ namespace tdd_todo_list.CSharp.Main
             _todoList = new Dictionary<int, (string, bool, DateTime)>();
         }
 
-        public void add(int id, string task, bool status, DateTime dateTime)
+        public bool add(int id, string task, bool status, DateTime dateTime)
         {
+            if (_todoList.ContainsKey(id)) return false;
             _todoList.Add(id, (task, status, dateTime));
+            return true;
         }
 
         public void changeStatus(int id)
