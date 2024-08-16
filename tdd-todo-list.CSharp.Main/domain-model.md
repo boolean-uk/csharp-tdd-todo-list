@@ -8,29 +8,24 @@
 8. I want to see all the tasks in my list ordered alphabetically in ascending order.
 9. I want to see all the tasks in my list ordered alphabetically in descending order.
 
-| Class		| Members							       | Methods														 | Scenario						    | Output
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-| ToDoList  | Dictionary<string, string> ToDoList      | AddTask(string task)											 | if task is not already in list   | True
-| ToDoList  |									       |																 | if task is already in list	    | False
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-| ToDoList  |									       | ViewToDoList(Dictionary<string, string> ToDoList)				 | if viewing all tasks in list	    | Dictionary ToDoList
-| ToDoList  |									       |		modified ViewToDoList()									 | if filtering incomplete tasks    | List
-| ToDoList  |									       |		modified ViewToDoList()									 | if filtering complete tasks	    | List
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-| ToDoList	|									       | SearchList(Dictionary<string, string> ToDoList, string task)	 | if task is not in list		    | string SearchMessage
-| ToDoList	|									       |																 | if task is in list			    | string SearchMessage
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-| ToDoList	| 									       | RemoveTask(string task)										 | if task exist				    | True
-| ToDoList	| 									       |																 | if task does not exist		    | False
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-| ToDoList	| string TaskStatus { get; set; }	       |																 | property to set task status 	    | string
-| ToDoList	|									       |																 | if task new or is not completed  | string "incomplete"
-| ToDoList	|									       |																 | if task is completed			    | string "complete"
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-| ToDoList	| bool CheckStatus { get; set; }	       |																 | property to check task status    | bool
-| ToDoList	|									       |																 | if TaskStatus is incomplete	    | False
-| ToDoList	| 									       |																 | if TaskStatus is complete	    | True
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-| ToDoList	| List AscendingOrder { get; set; }		   | 																 | property to view ascending list  | List
-| ToDoList	| List DescendingOrder { get; set; }	   |																 | property to view descending list | List
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Class		| Members											| Methods											| Scenario						    | Output
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| ToDoList  | Dictionary<string, string> ToDoList				| AddTask(string task)								| if task is not already in list    | True
+| ToDoList  |													|													| if task is already in list	    | False
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| ToDoList	|													| SearchList(string task)							| if task is not in list		    | string SearchMessage
+| ToDoList	|													|													| if task is in list			    | string SearchMessage
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| ToDoList	| 													| RemoveTask(string task)							| if task exist						| True
+| ToDoList	| 													|													| if task does not exist		    | False
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| ToDoList	|													| ChangeTaskStatus(string task, string taskStatus)	| if task is not in list 			| string
+| ToDoList	|													|													| if if task is in list				| set taskStatus
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| ToDoList  | Dictionary ViewToDoList { get; set; }			    |													| property to view ToDoList			| Dictionary ToDoList
+| ToDoList  | Dictionary ViewCompleteTasksList { get; set	}	|													| property to view complete tasks   | Dictionary 
+| ToDoList  | Dictionary ViewIncompleteTasksList { get; set; }	|													| property to view incomplete tasks | Dictionary
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| ToDoList	| Dictionary AscendingList { get; set; }		    | 													| property to view ascending list   | Dictionary
+| ToDoList	| Dictionary DescendingList { get; set; }			|													| property to view descending list  | Dictionary
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
