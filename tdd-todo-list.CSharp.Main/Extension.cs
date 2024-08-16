@@ -36,16 +36,21 @@ namespace tdd_todo_list.CSharp.Main
         public Status ChangeStatus(int id)
         {
 
-            if (_toDoList[id].Status == Status.COMPLETE)
-            {
-                _toDoList[id].Status = Status.INCOMPLETE;
-
-            }
-            else if (_toDoList[id].Status == Status.INCOMPLETE)
+            if (_toDoList.ContainsKey(id))
             {
 
-                _toDoList[id].Status = Status.COMPLETE;
 
+                if (_toDoList[id].Status == Status.COMPLETE)
+                {
+                    _toDoList[id].Status = Status.INCOMPLETE;
+
+                }
+                else if (_toDoList[id].Status == Status.INCOMPLETE)
+                {
+
+                    _toDoList[id].Status = Status.COMPLETE;
+
+                }
             }
 
             return _toDoList[id].Status;
