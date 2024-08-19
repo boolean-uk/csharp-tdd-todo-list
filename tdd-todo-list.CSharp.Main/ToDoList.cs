@@ -21,7 +21,7 @@ namespace tdd_todo_list.CSharp.Main
             _taskCount++;
             string taskID = _taskCount.ToString() + "T";
             TaskIDs.Add(taskID);
-            TaskClass taskObject = new TaskClass(task);    
+            TaskClass taskObject = new TaskClass(task);
             _toDoList.Add(taskID, taskObject);
         }
 
@@ -29,18 +29,18 @@ namespace tdd_todo_list.CSharp.Main
         {
             if (_taskCount != 0)
             {
-            string[] allTasks = new string[_taskCount];
-            int counter = 0;
+                string[] allTasks = new string[_taskCount];
+                int counter = 0;
 
-                foreach (string iD in _taskIDs) 
+                foreach (string iD in _taskIDs)
                 {
                     string temp = _toDoList[iD].TaskHolder;
-                    allTasks[counter] = temp ;
+                    allTasks[counter] = temp;
                     counter++;
-                    
+
                 }
-            
-            return allTasks;
+
+                return allTasks;
 
             }
 
@@ -61,13 +61,13 @@ namespace tdd_todo_list.CSharp.Main
 
         public List<string> Show(bool status)
         {
-           List<string> temp = new List<string>();
-           foreach (TaskClass tempTask in _toDoList.Values)
+            List<string> temp = new List<string>();
+            foreach (TaskClass tempTask in _toDoList.Values)
             {
                 if (tempTask.IsComplete == status)
                     temp.Add(tempTask.TaskHolder);
             }
-           return temp;
+            return temp;
         }
 
         public string Search(string searchParameter)
@@ -103,52 +103,32 @@ namespace tdd_todo_list.CSharp.Main
         }
 
 
-        /*
-            
-
-            public string Search(string task)
+        public List<string> Sort(string order)
+        {
+            if (order == "Ascend")
             {
-                if (_toDoList.ContainsKey(task))
+                List<string> sortedTasks = new();
+                foreach (TaskClass task in _toDoList.Values)
                 {
-                    return "Task is found";
+                    sortedTasks.Add(task.TaskHolder);
                 }
-                else
+                sortedTasks.Sort();
+                return sortedTasks;
+            }
+            else
+            {
+                List<string> sortedTasks = new();
+                foreach (TaskClass task in _toDoList.Values)
                 {
-                    return "Task is not found";
+                    sortedTasks.Add(task.TaskHolder);
                 }
+                sortedTasks.Sort();
+                sortedTasks.Reverse();
+                return sortedTasks;
             }
 
-            public bool Remove(string task)
-            {
-                if (_toDoList.ContainsKey(task))
-                {
-                    _toDoList.Remove(task);
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
+        }
 
-            public List<string> Sort(string order)
-            {
-                if (order == "Ascend")
-                {
-                    List<string> sortedTasks = _toDoList.Keys.ToList();
-                    sortedTasks.Sort();
-                    return sortedTasks;
-                }
-                else
-                {
-                    List<string> sortedTasks = _toDoList.Keys.ToList();
-                    sortedTasks.Sort();
-                    sortedTasks.Reverse();
-                    return sortedTasks;
-                }
-
-            }
-            */
 
         public Dictionary<string, TaskClass> ToDoDict { get => _toDoList; }
         public List<string> TaskIDs { get => _taskIDs; }

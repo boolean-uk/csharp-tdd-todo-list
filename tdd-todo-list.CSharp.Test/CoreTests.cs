@@ -142,7 +142,7 @@ namespace tdd_todo_list.CSharp.Test
         
         [TestCase("Ascend", new[] { "A", "B", "C" })]
         [TestCase("Descend", new[] { "C", "B", "A" })]
-        public void Sort(string order, string[] expected)
+        public void SortTest(string order, string[] expected)
         {
             //init
             TodoList core = new TodoList();
