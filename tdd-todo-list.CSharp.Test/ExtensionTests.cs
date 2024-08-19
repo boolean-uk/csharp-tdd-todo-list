@@ -43,6 +43,22 @@ namespace tdd_todo_list.CSharp.Test
             //assert
             Assert.IsTrue(result == newName);
         }
+        [TestCase("T2", true)]
+        public void ChangeStatusByIDTest(string id, bool status)
+        {
+            //init
+            TodoList core = new TodoList();
+            core.Add("task");
+            core.Add("task1");
+            core.Add("task2");
+            core.Add("task3");
+
+            //run
+            core.ChangeStatusByID(id);
+
+            //assert
+            Assert.IsTrue(core.ToDoDict[core.TaskIDs[1]].IsComplete == status);
+        }
 
     }
 }

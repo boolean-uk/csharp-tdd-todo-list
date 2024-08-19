@@ -48,7 +48,7 @@ namespace tdd_todo_list.CSharp.Main
             return allTasks1;
         }
 
-        public void ChangeStatus(string task)
+        public void ChangeStatusByID(string task)
         {
             foreach (TaskClass tempTask in _toDoList.Values)
             {

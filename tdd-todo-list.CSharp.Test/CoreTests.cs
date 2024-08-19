@@ -80,7 +80,7 @@ namespace tdd_todo_list.CSharp.Test
             core.Add("task3");
 
             //run
-            core.ChangeStatus(task);
+            core.ChangeStatusByID(task);
 
             //assert
             Assert.IsTrue(core.ToDoDict[core.TaskIDs[1]].IsComplete == status);
@@ -95,7 +95,7 @@ namespace tdd_todo_list.CSharp.Test
             core.Add("1");
             core.Add("2");
             core.Add("3");
-            core.ChangeStatus("2");
+            core.ChangeStatusByID("2");
             
             List<string> expectedList = expected.ToList();
 
