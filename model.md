@@ -1,9 +1,9 @@
  
  |     Classes             |                       Methods                 |                  Scenario              |                        Output	    		                  |              
  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
- |     `TodoList`          |   `Add(string task, string status)`	       |                                        |       "Task has been added"                                 |
+ |     `TodoList``Task`    |   `Add(Task task)`	       |                   |       "Task has been added"            |                                                             |
  |                         |                                               |                                        |                                                             |
- |     `TodoList`	       |   `Print()`							       |  no tasks in the list property         | "There is no tasks in the todo list", empty list is returned|
+ |     `TodoList`	       |   ` Print()`				    			   |  no tasks in the list property         | "There is no tasks in the todo list", empty list is returned|
  |                         |                                               |                                        |                                                             |
  |     `TodoList`		   |   `Print()`                                   |  many tasks in the list property       |	tasks are printed, and the list with tasks is returned    |
  |                         |                                               |                                        |                                                             |
@@ -23,7 +23,8 @@
  |                         |                                               |                                        |                                                             |
  |     `TodoList`		   |   `Sort(string d)`		    		           |                                     	|  returns sorted list                                        |
 
- 
+ Extension
+
 
 
 

@@ -10,15 +10,21 @@ namespace tdd_todo_list.CSharp.Main
 {
     public class TodoList
     {
-        private Dictionary<string, string> _toDoList = new Dictionary<string, string>();
+        private Dictionary<string, TaskClass> _toDoList = new Dictionary<string, TaskClass>();
+        private int _taskCount = 0;
+        private List<string> _taskIDs = new List<string>();
 
-        public Dictionary<string, string> ToDoDict { get => _toDoList; }
 
         public void Add(string task)
         {
-            string status = "notComplete";
-            _toDoList.Add(task, status);
+            _taskCount++;
+            string taskID = _taskCount.ToString() + "T";
+            TaskIDs.Add(taskID);
+            TaskClass taskObject = new TaskClass(task);    
+            _toDoList.Add(taskID, taskObject);
         }
+
+    /*
 
         public string[] Print()
         {
@@ -61,7 +67,7 @@ namespace tdd_todo_list.CSharp.Main
                 if (_toDoList[key] == status)
                     list.Add(key);
             }
-            */
+            !!!!hide
             
             List<string> list = _toDoList.Where(x => x.Value == status).Select(x => x.Key).ToList();
             return list;
@@ -107,7 +113,11 @@ namespace tdd_todo_list.CSharp.Main
                 sortedTasks.Reverse();
                 return sortedTasks;
             }
-            
+
         }
+        */
+
+        public Dictionary<string, TaskClass> ToDoDict { get => _toDoList; }
+        public List<string> TaskIDs { get => _taskIDs; }
     }
 }

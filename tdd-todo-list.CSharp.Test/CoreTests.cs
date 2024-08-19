@@ -20,8 +20,9 @@ namespace tdd_todo_list.CSharp.Test
             core.Add(task);
 
             //assert
-            Assert.Contains(task, core.ToDoDict.Keys);
+            Assert.IsTrue (task == core.ToDoDict[core.TaskIDs[0]].Task);
         }
+        /*
         [Test]
         public void TestPrint()
         {
@@ -155,6 +156,7 @@ namespace tdd_todo_list.CSharp.Test
             Assert.IsTrue(list.SequenceEqual(sortedTasks));
 
         }
+        */
 
     }
 }
