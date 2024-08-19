@@ -61,7 +61,13 @@ namespace tdd_todo_list.CSharp.Main
 
         public List<string> Show(bool status)
         {
-            throw new NotImplementedException();
+           List<string> temp = new List<string>();
+           foreach (TaskClass tempTask in _toDoList.Values)
+            {
+                if (tempTask.IsComplete == status)
+                    temp.Add(tempTask.TaskHolder);
+            }
+           return temp;
         }
 
 

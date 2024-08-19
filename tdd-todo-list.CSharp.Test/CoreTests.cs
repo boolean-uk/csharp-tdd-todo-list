@@ -87,7 +87,7 @@ namespace tdd_todo_list.CSharp.Test
         }
         
         [TestCase (new[] { "1", "3" }, false)]
-        [TestCase(new[] { "2" }, false)]
+        [TestCase(new[] { "2" }, true)]
         public void ShowTest(string[] expected, bool status)
         {
             //init
