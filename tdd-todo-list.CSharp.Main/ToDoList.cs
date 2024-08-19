@@ -85,6 +85,11 @@ namespace tdd_todo_list.CSharp.Main
             return "Task is not found";
         }
 
+        public bool Remove(string task)
+        {
+            throw new NotImplementedException();
+        }
+
 
         /*
             
