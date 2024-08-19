@@ -105,7 +105,6 @@ namespace tdd_todo_list.CSharp.Test
             //assert
             Assert.IsTrue(expected.SequenceEqual(computed));
         }
-        /*
         [TestCase("1", "Task is not found")]
         public void SearchTest(string searchParameter, string computedMessage)
         {
@@ -122,6 +121,7 @@ namespace tdd_todo_list.CSharp.Test
 
             Assert.That(computed, Is.EqualTo(computedMessage));
         }
+        /*
         [TestCase("task 4", false)]
         [TestCase("task 2", true)]
         public void Remove(string task, bool expected)

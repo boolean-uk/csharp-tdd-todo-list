@@ -70,28 +70,14 @@ namespace tdd_todo_list.CSharp.Main
            return temp;
         }
 
+        public string Search(string searchParameter)
+        {
+            throw new NotImplementedException();
+        }
+
 
         /*
-            public void ChangeStatus(string task)
-            {
-                if (_toDoList.ContainsKey(task))
-                    _toDoList[task] = "complete";
-            }
-
-            public List<string> Show(string status)
-            {
-                /*
-                List<string> list = new List<string>();
-                foreach (string key in _toDoList.Keys)
-                {
-                    if (_toDoList[key] == status)
-                        list.Add(key);
-                }
-                !!!!hide
-
-                List<string> list = _toDoList.Where(x => x.Value == status).Select(x => x.Key).ToList();
-                return list;
-            }
+            
 
             public string Search(string task)
             {
