@@ -56,19 +56,17 @@ namespace tdd_todo_list.CSharp.Test
         {
             //This test checks that method returns 
             TodoList core = new TodoList();
-           
 
-            List<string> expected = new List<string>()
-            {
-                "There is no tasks in the todo list"
-            };
+
+            string expected = "There is no tasks in the todo list";
+            
 
             //run
             string[] resulted = core.PrintAll();
 
 
             //assert
-            Assert.AreEqual(expected, resulted.ToList());
+            Assert.AreEqual(expected, resulted[0]);
 
         }
         /*

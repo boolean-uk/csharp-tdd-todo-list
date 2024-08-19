@@ -27,7 +27,7 @@ namespace tdd_todo_list.CSharp.Main
 
         public string[] PrintAll()
         {
-            if (_taskCount != 0);
+            if (_taskCount != 0)
             {
             string[] allTasks = new string[_taskCount];
             int counter = 0;
@@ -43,7 +43,8 @@ namespace tdd_todo_list.CSharp.Main
             return allTasks;
 
             }
-            string[] allTasks1 = new string[1] { "No tasks have been saved" };
+
+            string[] allTasks1 = new string[1] { "There is no tasks in the todo list" };
             return allTasks1;
         }
 
