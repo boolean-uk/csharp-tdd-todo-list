@@ -20,7 +20,7 @@ namespace tdd_todo_list.CSharp.Test
             core.Add(task);
 
             //assert
-            Assert.IsTrue (task == core.ToDoDict[core.TaskIDs[0]].Task);
+            Assert.IsTrue (task == core.ToDoDict[core.TaskIDs[0]].taskHolder);
         }
         
         [Test]
@@ -43,7 +43,7 @@ namespace tdd_todo_list.CSharp.Test
             };
 
             //run
-            string[] resulted = core.Print();
+            string[] resulted = core.PrintAll();
 
 
             //assert
