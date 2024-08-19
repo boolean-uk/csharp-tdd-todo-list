@@ -129,6 +129,10 @@ namespace tdd_todo_list.CSharp.Main
 
         }
 
+        public string SearchById(string id)
+        {
+            throw new NotImplementedException();
+        }
 
         public Dictionary<string, TaskClass> ToDoDict { get => _toDoList; }
         public List<string> TaskIDs { get => _taskIDs; }
