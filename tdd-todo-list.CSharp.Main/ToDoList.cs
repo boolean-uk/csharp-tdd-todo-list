@@ -131,7 +131,10 @@ namespace tdd_todo_list.CSharp.Main
 
         public string SearchById(string id)
         {
-            throw new NotImplementedException();
+            if (_toDoList.ContainsKey(id))
+                return _toDoList[id].TaskHolder;
+            else
+                return "Task has not been found";
         }
 
         public Dictionary<string, TaskClass> ToDoDict { get => _toDoList; }
