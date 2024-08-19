@@ -59,6 +59,22 @@ namespace tdd_todo_list.CSharp.Test
             //assert
             Assert.IsTrue(core.ToDoDict["2T"].IsComplete == status);
         }
+        [Test]
+        public void getDateAndTime()
+        {
+            //init
+            TodoList core = new TodoList();
+            core.Add("task");
+            Thread.Sleep(3000);
+            core.Add("task1");
+
+            //run
+            string firstTaskDate = core.ToDoDict["1T"].DateAndTime.ToString();
+            string secondTaskDate = core.ToDoDict["2T"].DateAndTime.ToString();
+
+            //assert
+            Assert.False(firstTaskDate.Equals(secondTaskDate));
+        }
 
     }
 }

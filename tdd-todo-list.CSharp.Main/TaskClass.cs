@@ -12,6 +12,7 @@ namespace tdd_todo_list.CSharp.Main
         private string _task;
         private bool _isComplete = false;
         private string _name = "NoNameGiven";
+        private DateTime now = DateTime.Now;
 
         public TaskClass(string TaskMessage)
         {
@@ -32,5 +33,6 @@ namespace tdd_todo_list.CSharp.Main
         public bool IsComplete { get => _isComplete; }
         public string TaskHolder { get => _task; }
         public string Name { get => _name; }
+        public DateTime DateAndTime { get => now;  }
     }
 }
