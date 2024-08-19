@@ -50,7 +50,7 @@ namespace tdd_todo_list.CSharp.Test
             Assert.AreEqual(expected, resulted.ToList());
 
         }
-        /*
+        
         [Test]
         public void AditionalTestPrint()
         {
@@ -64,13 +64,14 @@ namespace tdd_todo_list.CSharp.Test
             };
 
             //run
-            string[] resulted = core.Print();
+            string[] resulted = core.PrintAll();
 
 
             //assert
             Assert.AreEqual(expected, resulted.ToList());
 
         }
+        /*
         [TestCase("task1", "complete")]
         public void ChangeStatusTest(string task, string status)
         {
