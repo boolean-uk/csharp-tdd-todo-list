@@ -20,7 +20,7 @@ namespace tdd_todo_list.CSharp.Test
             core.Add(task);
 
             //assert
-            Assert.IsTrue (task == core.ToDoDict[core.TaskIDs[0]].taskHolder);
+            Assert.IsTrue (task == core.ToDoDict[core.TaskIDs[0]].TaskHolder);
         }
         
         [Test]
@@ -83,7 +83,7 @@ namespace tdd_todo_list.CSharp.Test
             core.ChangeStatus(task);
 
             //assert
-            Assert.IsTrue(core.ToDoDict[core.TaskIDs[0]].IsComplete == status);
+            Assert.IsTrue(core.ToDoDict[core.TaskIDs[1]].IsComplete == status);
         }
         /*
         [TestCase (new[] { "1", "3" }, "notComplete")]

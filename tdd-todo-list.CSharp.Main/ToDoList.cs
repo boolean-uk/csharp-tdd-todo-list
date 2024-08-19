@@ -34,7 +34,7 @@ namespace tdd_todo_list.CSharp.Main
 
                 foreach (string iD in _taskIDs) 
                 {
-                    string temp = _toDoList[iD].taskHolder;
+                    string temp = _toDoList[iD].TaskHolder;
                     allTasks[counter] = temp ;
                     counter++;
                     
@@ -50,7 +50,13 @@ namespace tdd_todo_list.CSharp.Main
 
         public void ChangeStatus(string task)
         {
-            throw new NotImplementedException();
+            foreach (TaskClass tempTask in _toDoList.Values)
+            {
+                if (tempTask.TaskHolder == task)
+                {
+                    tempTask.ChangeStatus();
+                }
+            }
         }
 
 
