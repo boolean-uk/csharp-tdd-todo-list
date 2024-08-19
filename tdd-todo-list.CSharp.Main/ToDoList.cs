@@ -72,7 +72,17 @@ namespace tdd_todo_list.CSharp.Main
 
         public string Search(string searchParameter)
         {
-            throw new NotImplementedException();
+            if (_taskCount != 0)
+            {
+                foreach (TaskClass task in _toDoList.Values)
+                {
+                    if (task.TaskHolder == searchParameter)
+                        return task.TaskHolder;
+                    else
+                        return "Task is not found";
+                }
+            }
+            return "Task is not found";
         }
 
 
