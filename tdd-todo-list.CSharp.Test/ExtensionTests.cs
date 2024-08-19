@@ -43,7 +43,7 @@ namespace tdd_todo_list.CSharp.Test
             //assert
             Assert.IsTrue(result == newName);
         }
-        [TestCase("T2", true)]
+        [TestCase("2T", true)]
         public void ChangeStatusByIDTest(string id, bool status)
         {
             //init
@@ -57,7 +57,7 @@ namespace tdd_todo_list.CSharp.Test
             core.ChangeStatusByID(id);
 
             //assert
-            Assert.IsTrue(core.ToDoDict[core.TaskIDs[1]].IsComplete == status);
+            Assert.IsTrue(core.ToDoDict["2T"].IsComplete == status);
         }
 
     }

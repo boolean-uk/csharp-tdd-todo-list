@@ -48,15 +48,13 @@ namespace tdd_todo_list.CSharp.Main
             return allTasks1;
         }
 
-        public void ChangeStatusByID(string task)
+        public void ChangeStatusByID(string id)
         {
-            foreach (TaskClass tempTask in _toDoList.Values)
+            if (_toDoList.ContainsKey(id))
             {
-                if (tempTask.TaskHolder == task)
-                {
-                    tempTask.ChangeStatus();
-                }
+                _toDoList[id].ChangeStatus();
             }
+
         }
 
         public List<string> Show(bool status)
