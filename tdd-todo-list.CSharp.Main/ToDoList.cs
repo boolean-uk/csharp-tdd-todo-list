@@ -48,34 +48,13 @@ namespace tdd_todo_list.CSharp.Main
             return allTasks1;
         }
 
+        public void ChangeStatus(string task)
+        {
+            throw new NotImplementedException();
+        }
+
+
         /*
-
-            public string[] Print()
-            {
-                if (_toDoList.Count != 0)
-                {
-                    string[] keys = new string[ToDoDict.Count];
-                    int counter = 0;
-                    foreach (string key in _toDoList.Keys)
-                    {
-                        //Console.WriteLine(key);
-                        keys[counter] = key;
-                        counter++;
-
-                    }
-                    return keys;
-
-                }
-                else
-                {
-                    string[] keys = new string[1];
-                    keys[0] = "There is no tasks in the todo list";
-
-                    return keys;
-
-                }
-
-            }
             public void ChangeStatus(string task)
             {
                 if (_toDoList.ContainsKey(task))

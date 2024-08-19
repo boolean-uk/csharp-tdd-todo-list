@@ -69,9 +69,8 @@ namespace tdd_todo_list.CSharp.Test
             Assert.AreEqual(expected, resulted[0]);
 
         }
-        /*
-        [TestCase("task1", "complete")]
-        public void ChangeStatusTest(string task, string status)
+        [TestCase("task1", true)]
+        public void ChangeStatusTest(string task, bool status)
         {
             //init
             TodoList core = new TodoList();
@@ -84,8 +83,9 @@ namespace tdd_todo_list.CSharp.Test
             core.ChangeStatus(task);
 
             //assert
-            Assert.IsTrue(core.ToDoDict[task] == status);
+            Assert.IsTrue(core.ToDoDict[core.TaskIDs[0]].IsComplete == status);
         }
+        /*
         [TestCase (new[] { "1", "3" }, "notComplete")]
         [TestCase(new[] { "2" }, "complete")]
         public void ShowTest(string[] expected, string status)
