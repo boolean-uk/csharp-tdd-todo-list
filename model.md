@@ -32,3 +32,7 @@
  |                         |                                               |                                        |                                                             |
  |     `TodoList`		   |   `UpdateNameByID(string id)`		    	   |                                     	|  name is updated                                            |
  |                         |                                               |                                        |                                                             |
+ |     `TodoList`		   |   `ChangeStatusByID((id)`		        	   |  Task exists in todolist            	|  status is updated                                            |
+ |                         |                                               |                                        |                                                             |
+ |     `TodoList`		   |   		    	                               |                 Checks if times of tasks are the same                    	|  name is updated                                            |
+ |                         |                                               |                                        |                                                             |
