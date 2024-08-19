@@ -59,6 +59,11 @@ namespace tdd_todo_list.CSharp.Main
             }
         }
 
+        public List<string> Show(bool status)
+        {
+            throw new NotImplementedException();
+        }
+
 
         /*
             public void ChangeStatus(string task)

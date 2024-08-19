@@ -85,10 +85,10 @@ namespace tdd_todo_list.CSharp.Test
             //assert
             Assert.IsTrue(core.ToDoDict[core.TaskIDs[1]].IsComplete == status);
         }
-        /*
-        [TestCase (new[] { "1", "3" }, "notComplete")]
-        [TestCase(new[] { "2" }, "complete")]
-        public void ShowTest(string[] expected, string status)
+        
+        [TestCase (new[] { "1", "3" }, false)]
+        [TestCase(new[] { "2" }, false)]
+        public void ShowTest(string[] expected, bool status)
         {
             //init
             TodoList core = new TodoList();
@@ -105,6 +105,7 @@ namespace tdd_todo_list.CSharp.Test
             //assert
             Assert.IsTrue(expected.SequenceEqual(computed));
         }
+        /*
         [TestCase("1", "Task is not found")]
         public void SearchTest(string searchParameter, string computedMessage)
         {
