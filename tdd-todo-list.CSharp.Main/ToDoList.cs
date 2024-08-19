@@ -139,7 +139,13 @@ namespace tdd_todo_list.CSharp.Main
 
         public string UpdateNameByID(string id, string newName)
         {
-            throw new NotImplementedException();
+            if (_toDoList.ContainsKey(id))
+            {
+                _toDoList[id].UpdateName(newName);
+                return _toDoList[id].Name;
+            }
+            else
+                return "Task has not been found";
         }
 
         public Dictionary<string, TaskClass> ToDoDict { get => _toDoList; }

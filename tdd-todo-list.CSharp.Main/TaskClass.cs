@@ -31,6 +31,6 @@ namespace tdd_todo_list.CSharp.Main
 
         public bool IsComplete { get => _isComplete; }
         public string TaskHolder { get => _task; }
-
+        public string Name { get => _name; }
     }
 }
