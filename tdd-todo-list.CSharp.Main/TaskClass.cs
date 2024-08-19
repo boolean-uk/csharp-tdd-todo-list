@@ -11,6 +11,7 @@ namespace tdd_todo_list.CSharp.Main
         
         private string _task;
         private bool _isComplete = false;
+        private string _name = "NoNameGiven";
 
         public TaskClass(string TaskMessage)
         {
@@ -23,7 +24,13 @@ namespace tdd_todo_list.CSharp.Main
             _isComplete = !IsComplete;
         }
 
+        public void UpdateName(string newName)
+        {
+            _name = newName;
+        }
+
         public bool IsComplete { get => _isComplete; }
         public string TaskHolder { get => _task; }
+
     }
 }

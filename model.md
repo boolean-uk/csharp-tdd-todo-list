@@ -28,4 +28,7 @@
 
 
 
-  
+ |     `TodoList`		   |   `SearchByID(string id)`		    		   |    Task exists in todolist           	|  returns task associated with id                            |
+ |                         |                                               |                                        |                                                             |
+ |     `TodoList`		   |   `UpdateNameByID(string id)`		    	   |                                     	|  name is updated                                            |
+ |                         |                                               |                                        |                                                             |
