@@ -56,6 +56,17 @@ namespace tdd_todo_list.CSharp.Main
             }
 
         }
+        public void ChangeStatus(string task)
+        {
+            
+            foreach (TaskClass tempTask in _toDoList.Values)
+            {
+                if (tempTask.TaskHolder == task)
+                {
+                    tempTask.ChangeStatus();
+                }
+            }
+        }
 
         public List<string> Show(bool status)
         {
