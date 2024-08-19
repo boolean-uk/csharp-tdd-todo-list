@@ -26,6 +26,23 @@ namespace tdd_todo_list.CSharp.Test
             //assert
             Assert.IsTrue(result == "task 2");
         }
+        [Test]
+        public void UpdateNameByID()
+        {
+            //init
+            TodoList extension = new TodoList();
+            extension.Add("task 1");
+            string id = "2T";
+            string newName = "NAME!";
+            extension.Add("task 2");
+            extension.Add("task 3");
+
+            //run
+            string result = extension.UpdateNameByID(id,newName);
+
+            //assert
+            Assert.IsTrue(result == newName);
+        }
 
     }
 }

@@ -137,6 +137,11 @@ namespace tdd_todo_list.CSharp.Main
                 return "Task has not been found";
         }
 
+        public string UpdateNameByID(string id, string newName)
+        {
+            throw new NotImplementedException();
+        }
+
         public Dictionary<string, TaskClass> ToDoDict { get => _toDoList; }
         public List<string> TaskIDs { get => _taskIDs; }
     }
