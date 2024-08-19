@@ -22,7 +22,7 @@ namespace tdd_todo_list.CSharp.Test
             //assert
             Assert.IsTrue (task == core.ToDoDict[core.TaskIDs[0]].Task);
         }
-        /*
+        
         [Test]
         public void TestPrint()
         {
@@ -50,6 +50,7 @@ namespace tdd_todo_list.CSharp.Test
             Assert.AreEqual(expected, resulted.ToList());
 
         }
+        /*
         [Test]
         public void AditionalTestPrint()
         {
