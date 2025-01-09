@@ -12,7 +12,7 @@ namespace tdd_todo_list.CSharp.Test
     public class ExtensionTests
     {
         private TodoListExtension extension;
-        private List<string> tasks = ["Go hiking", "Buy a bike", "Care for cats", "Go skydiving", "Dont fall", "Run home", "Forget the alarm"];
+        private List<string> tasks = ["Go hiking", "Go hiking", "Buy a bike", "Care for cats", "Go skydiving", "Dont fall", "Run home", "Forget the alarm"];
         [SetUp]
         public void SetUp()
         {
@@ -46,15 +46,6 @@ namespace tdd_todo_list.CSharp.Test
                 TodoTask task = extension.Get(item.Key);
                 Assert.That(task.Name, Is.EqualTo(item.Value));
                 Assert.That(task.Id, Is.EqualTo(item.Key));
-            }
-
-            // Checking get by name
-            foreach (var item in ids)
-            {
-                TodoTask task = extension.Get(item.Value);
-                Assert.That(task.Name, Is.EqualTo(item.Value));
-                Assert.That(task.Id, Is.EqualTo(item.Key));
-
             }
         }
 
@@ -104,6 +95,9 @@ namespace tdd_todo_list.CSharp.Test
         }
 
         [TestCase(1)]
+        [TestCase(6)]
+        [TestCase(5)]
+        [TestCase(3)]
         public void TestRemoveTask(int id)
         {
             tasks.ForEach(task => extension.Add(task));

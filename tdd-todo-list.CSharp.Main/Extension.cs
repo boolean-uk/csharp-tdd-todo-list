@@ -10,12 +10,13 @@ namespace tdd_todo_list.CSharp.Main
     {
         private int _runningId = 0;
         private Dictionary<int, TodoTask> _todoList = [];
-        private Dictionary<string, int> _taskLookupTable = [];
-        public int Add(string taskContent)
+        private Dictionary<string, List<int>> _taskLookupTable = [];
+        public int Add(string name)
         {
-            TodoTask task = new TodoTask(_runningId, taskContent);
+            TodoTask task = new TodoTask(_runningId, name);
             _todoList.Add(task.Id, task);
-            _taskLookupTable.Add(taskContent, task.Id);
+            if (!_taskLookupTable.ContainsKey(name)) _taskLookupTable[name] = [];
+            _taskLookupTable[name].Add(task.Id);
             _runningId++;
             return task.Id;
         }
@@ -38,8 +39,11 @@ namespace tdd_todo_list.CSharp.Main
             ValidateId(id);
             string key = _todoList[id].Name;
             _todoList[id].Name = name;
-            _taskLookupTable.Remove(key);
-            _taskLookupTable.Add(name, id);
+
+            _taskLookupTable[key].Remove(id);
+            if (_taskLookupTable[key].Count == 0) _taskLookupTable.Remove(key);
+            if (!_taskLookupTable.ContainsKey(name)) _taskLookupTable[name] = [];
+            _taskLookupTable[name].Add(id);
         }
 
         public bool ToggleStatus(int id)
@@ -61,7 +65,8 @@ namespace tdd_todo_list.CSharp.Main
             ValidateId(id);
             TodoTask task = _todoList[id];
             _todoList.Remove(id);
-            _taskLookupTable.Remove(task.Name);
+            _taskLookupTable[task.Name].Remove(id);
+            if (_taskLookupTable[task.Name].Count == 0) _taskLookupTable.Remove(task.Name);
         }
         public void RemoveTask(string name)
         {
@@ -96,12 +101,12 @@ namespace tdd_todo_list.CSharp.Main
 
         private void ValidateName(string name)
         {
-            if (!ContainsName(name)) throw new ArgumentException("The provided name does not exist");
+            if (!ContainsName(name) || _taskLookupTable[name].Count() == 0) throw new ArgumentException("The provided name does not exist");
         }
 
-        private int GetIdFromName(string name)
+        private int GetIdFromName(string name) // Naive lookup, if two of the same name exists, return the id of the one created earlier.
         {
-            return _taskLookupTable[name];
+            return _taskLookupTable[name].First();
         }
     }
 }
