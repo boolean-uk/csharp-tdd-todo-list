@@ -13,30 +13,30 @@ namespace tdd_todo_list.CSharp.Main
         public class Task
         {
             private bool _completed;
-            private string _description;
+            private string _name;
             public bool IsCompleted 
             { 
                 get { return _completed; }  
                 set { _completed = value; }
             }
-            public string Description { get { return _description; } }
+            public string Name { get { return _name; } }
 
             public Task() 
             {
                 this._completed = false;
-                this._description = string.Empty;
+                this._name = string.Empty;
             }
 
-            public Task(string taskDescription)
+            public Task(string taskName)
             { 
                 this._completed = false;
-                this._description = taskDescription; 
+                this._name = taskName; 
             }
 
-            public Task(string taskDescription, bool completed)
+            public Task(string taskName, bool completed)
             {
                 this._completed = completed;
-                this._description = taskDescription;
+                this._name = taskName;
             }
         }
 
@@ -50,12 +50,19 @@ namespace tdd_todo_list.CSharp.Main
             _todoList = todoList;
         }
 
+        public void ViewTodoList()
+        { 
+            foreach (var todo in _todoList.Values)
+            {
+                Console.WriteLine(todo.Name.ToString());
+            }
+        }
         public int Count()
         { 
             return this._todoList.Count; 
         }
 
-        //Todo: handle unique keys/existing keys, currently overrides when key exists.
+        //Todo: handle key already exists (throw error or return error message)
         public void AddTask(int id, Task task)
         {
             if (this._todoList.ContainsKey(id)) return;
@@ -91,14 +98,14 @@ namespace tdd_todo_list.CSharp.Main
         public TodoList OrderByAscending()
         {
 
-            var newList = this._todoList.OrderBy(task => task.Value.Description).ToDictionary(x => x.Key, x => x.Value);
+            var newList = this._todoList.OrderBy(task => task.Value.Name).ToDictionary(x => x.Key, x => x.Value);
             return new TodoList(newList);
         }
 
         public TodoList OrderByDescending()
         {
 
-            var newList = this._todoList.OrderByDescending(task => task.Value.Description).ToDictionary(x => x.Key, x => x.Value);
+            var newList = this._todoList.OrderByDescending(task => task.Value.Name).ToDictionary(x => x.Key, x => x.Value);
             return new TodoList(newList);
         }
 

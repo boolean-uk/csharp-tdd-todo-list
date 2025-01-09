@@ -87,7 +87,7 @@ namespace tdd_todo_list.CSharp.Main
         {
             this._todoListExtension.Remove(Id);
         }
-        public object GetTaskById(int id)
+        public object SearchTaskById(int id)
         {
             if (this._todoListExtension.TryGetValue(id, out Task? value))
             {

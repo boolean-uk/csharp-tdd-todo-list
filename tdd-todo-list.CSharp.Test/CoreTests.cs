@@ -41,7 +41,7 @@ namespace tdd_todo_list.CSharp.Test
             Assert.IsInstanceOf<TodoList.Task>(result);
             var task = result as TodoList.Task;
             Assert.NotNull(task);
-            Assert.That(task.Description, Is.EqualTo("Buy bread"));
+            Assert.That(task.Name, Is.EqualTo("Buy bread"));
         }
 
         [Test]
@@ -69,7 +69,7 @@ namespace tdd_todo_list.CSharp.Test
             var completedList = _todoList.GetCompletedTasks();
             var task = _todoList.SearchTaskById(2) as TodoList.Task;
             Assert.NotNull(task);
-            var result = task.Description;
+            var result = task.Name;
             Assert.That(completedList.Count, Is.EqualTo(1));
             Assert.That(result, Is.EqualTo("Buy cereal"));
 
@@ -81,7 +81,7 @@ namespace tdd_todo_list.CSharp.Test
             var incompletedList = _todoList.GetInCompletedTasks();
             var task = _todoList.SearchTaskById(1) as TodoList.Task;
             Assert.NotNull(task);
-            var result = task.Description;
+            var result = task.Name;
             Assert.That(incompletedList.Count, Is.EqualTo(1));
             Assert.That(result, Is.EqualTo("Buy bread"));
 
@@ -100,7 +100,7 @@ namespace tdd_todo_list.CSharp.Test
 
             var result = todoList.OrderByDescending();
 
-            Assert.AreEqual(expected, result.First().Description);
+            Assert.AreEqual(expected, result.First().Name);
         }
 
         [Test]
@@ -114,7 +114,7 @@ namespace tdd_todo_list.CSharp.Test
 
             var result = todoList.OrderByAscending();
 
-            Assert.AreEqual(expected, result.First().Description);
+            Assert.AreEqual(expected, result.First().Name);
         }
 
 
