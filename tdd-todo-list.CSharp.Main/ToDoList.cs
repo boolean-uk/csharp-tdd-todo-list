@@ -17,6 +17,11 @@ namespace tdd_todo_list.CSharp.Main
             todolist.Add(task);
             return task.ToString();
         }
+        public Task Add(Task task)
+        {
+            todolist.Add(task);
+            return task;
+        }
 
         public string ChangeStatus(string Task)
         {
@@ -29,6 +34,16 @@ namespace tdd_todo_list.CSharp.Main
                 }
             }
             return "Task not found";
+        }
+
+        public List<Task> ViewCompletedTasks()
+        {
+            return todolist.Where(item => item.isCompleted == true).ToList();
+        }
+
+        public List<Task> ViewInCompletedTasks()
+        {
+            return todolist.Where(item => item.isCompleted == false).ToList();
         }
 
         public List<string> ViewTasks()

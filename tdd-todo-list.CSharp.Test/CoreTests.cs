@@ -83,6 +83,11 @@ namespace tdd_todo_list.CSharp.Test
 
             TodoList core = new TodoList();
 
+            foreach (var task in tasks)
+            {
+                core.Add(task);
+            }
+
             var completedTasks = core.ViewCompletedTasks();
 
             Assert.That(completedTasks.Count, Is.EqualTo(2));
@@ -100,6 +105,11 @@ namespace tdd_todo_list.CSharp.Test
             List<Task> tasks = new List<Task> { task1, task2, task3, task4, task5 };
 
             TodoList core = new TodoList();
+
+            foreach (var task in tasks)
+            {
+                core.Add(task);
+            }
 
             var inCompletedTasks = core.ViewInCompletedTasks();
 
