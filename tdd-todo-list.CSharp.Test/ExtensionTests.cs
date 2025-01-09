@@ -16,6 +16,7 @@ namespace tdd_todo_list.CSharp.Test
         {
             _extension = new TodoListExtension();
         }
+
         [Test]
         public void GetTaskById()
         {
