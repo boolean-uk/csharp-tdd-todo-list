@@ -48,5 +48,26 @@ namespace tdd_todo_list.CSharp.Test
 
             Assert.That(expected, Is.EqualTo(viewTask));
         }
+        [Test]
+        public void ChangeStatusToCompleted()
+        {
+            var tasks = new List<string>
+            {
+                "Clean your room",
+                "Do the laundry",
+                "Buy groceries",
+                "Prepare dinner",
+                "Read a book"
+            };
+            TodoList core = new TodoList();
+
+            foreach (var task in tasks)
+            {
+                core.Add(task);
+            }
+            core.ChangeStatus("Prepare dinner");
+
+            Assert.That(core.todolist[2].isCompleted, Is.True);
+        }
     }
 }
