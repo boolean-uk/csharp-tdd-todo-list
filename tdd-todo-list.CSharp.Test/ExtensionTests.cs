@@ -97,8 +97,9 @@ namespace tdd_todo_list.CSharp.Test
 
             int taskId = 3;
             var taskWithDate = extension.GetDateCreated(taskId);
-
-            Assert.That(taskWithDate.createdAt, Is.EqualTo(typeof(DateTime)));
+            Assert.That(taskWithDate, Is.InstanceOf<DateTime>());
+            var timeDifference = DateTime.Now - taskWithDate;
+            Assert.That(timeDifference.TotalMinutes, Is.LessThan(1));
         }
     }
 }

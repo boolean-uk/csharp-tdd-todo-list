@@ -12,6 +12,7 @@ namespace tdd_todo_list.CSharp.Main
         public bool isCompleted = false;
         private static int _currentId = 1;
         public int id;
+        public DateTime createdAt;
 
         public Task() { }
 
@@ -20,12 +21,14 @@ namespace tdd_todo_list.CSharp.Main
             this.id = _currentId++;
             this.task = task;
             this.isCompleted = false;
+            this.createdAt = DateTime.Now;
         }
         public Task (string task, bool isCompleted)
         {
             this.id = _currentId++;
             this.task = task;
             this.isCompleted = isCompleted;
+            this.createdAt = DateTime.Now;
         }
 
         public override string ToString()

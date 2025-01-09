@@ -43,5 +43,11 @@ namespace tdd_todo_list.CSharp.Main
             }
             return task;
         }
+
+        public DateTime GetDateCreated(int id)
+        {
+            var task = this.todolist.FirstOrDefault(t => t.id == id);
+            return task.createdAt;
+        }
     }
 }
