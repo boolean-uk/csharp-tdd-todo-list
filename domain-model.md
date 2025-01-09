@@ -1,0 +1,14 @@
+| Classes     | Methods/properties                                 | Scenario                                                           | Outputs                                                         |
+|-------------|----------------------------------------------------|--------------------------------------------------------------------|-----------------------------------------------------------------|
+| TodoList.cs | Task Add(string title, string description)         | Add a task to the tasklist                                         | The added task                                                  |
+| TodoList.cs | List<Task> GetTasks()                              | Get all tasks from the Tasklist                                    | The complete tasklist                                           |
+| TodoList.cs | Task ChangeTask(string title, bool status)         | Change the status of a task based on the title of a task           | The updated task                                                |
+| TodoList.cs | List<Task> GetCompletedTasks()                     | Get all tasks that are done                                        | All completed tasks                                             |
+| TodoList.cs | List<Task> GetIncompleteTasks()                    | Get all tasks that are not done                                    | All incomplete tasks                                            |
+| TodoList.cs | Task GetTask(string Title)                         | Get a task based on the title. Return an empty task if not found.  | The specified task, an empty task otherwise                     |
+| TodoList.cs | Task RemoveTask(string Title)                      | Remove a task from the tasklist based on the title of the task     | The removed task, an empty task if not found                    |
+| TodoList.cs | List<Task> SortTasksAlphabetically(bool ascending) | Sorts the tasklist alphabetically based on the ascending parameter | The tasklist sorted alphabetically                              |
+| TodoList.cs | Task GetTaskByID(long id)                          | Get a task by its ID                                               | The specified task, an empty task if not found                  |
+| TodoList.cs | Task UpdateTaskTitle(long id, string title)        | Set the title of a task by its ID                                  | The updated task, an empty task if not found                    |
+| TodoList.cs | Task UpdateTaskStatus(long id, bool status)        | Set the status of a task by its ID                                 | The updated task, an empty task if not found                    |
+| TodoList.cs | string GetCreationTime()                           | Get the creation time, id, and title of each task                  | A string consisting of the ID, title, and datetime of all tasks |
