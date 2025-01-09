@@ -8,6 +8,12 @@ namespace tdd_todo_list.CSharp.Test
     public class CoreTests
     {
 
+        [SetUp]
+        public void SetUp()
+        {
+            Task.ResetCounter();
+        }
+
         [Test]
         public void FirstTest()
         {

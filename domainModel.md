@@ -50,8 +50,8 @@ TodoList
 
 | method              | object variable         | context                                                                                                      | output/return      |
 |---------------------|-------------------------|--------------------------------------------------------------------------------------------------------------|--------------------|
-| delete(string name) | List\<Task\> tasks	    | iterates over elements in List and remove the first element that matches name. If deleted, return true.	   | (bool) found		|
-|                     |                         | If not deleted (not found), return false                                                                     | (bool) notFound	|
+| delete(string name) | List\<Task\> tasks	    | Uses List's RemoveAll method to delete all tasks with corresponding name, and returns true if deleted 1 or more Tasks	   | (bool) found		|
+|                     |                         | If none Task was deleted, return false                                                                     | (bool) notFound	|
 ___
 ```I want to see all the tasks in my list ordered alphabetically in ascending order.```
 
@@ -68,7 +68,7 @@ TodoList
 
 | method           | object variable        | context                                                                                                           | output/return                       |
 |------------------|------------------------|-------------------------------------------------------------------------------------------------------------------|-------------------------------------|
-| orderTasksDesc() | List\<Task\> list		| If there are elements in List, use sort-method and Collections.reverseOrder() to sort it in descending order		| (List\<Task\>) tasksSortedDesc |
+| orderTasksDesc() | List\<Task\> list		| If there are elements in List, use sort-method-descending to sort it in descending order		| (List\<Task\>) tasksSortedDesc |
 
 ___
 ```I want to be able to get a task by a unique ID.```

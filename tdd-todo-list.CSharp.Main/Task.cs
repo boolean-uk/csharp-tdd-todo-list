@@ -21,5 +21,10 @@ namespace tdd_todo_list.CSharp.Main
             this._name = name;
             this._status = false;
         }
-}
+
+        public static void ResetCounter()
+        {
+            _counter = 0;
+        }
+    }
 }

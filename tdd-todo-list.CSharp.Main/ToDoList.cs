@@ -72,12 +72,18 @@ namespace tdd_todo_list.CSharp.Main
 
         public void OrderTasksAsc()
         {
-            tasks.Sort((a, b) => a._name.CompareTo(b._name));
+            if (tasks.Count > 0)
+            {
+                tasks.Sort((a, b) => a._name.CompareTo(b._name));
+            }
         }
 
         public void OrderTasksDsc()
         {
-            tasks.Sort((a, b) => b._name.CompareTo(a._name));
+            if (tasks.Count > 0)
+            {
+                tasks.Sort((a, b) => b._name.CompareTo(a._name));
+            }
         }
 
 
