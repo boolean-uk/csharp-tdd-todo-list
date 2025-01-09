@@ -108,12 +108,6 @@ namespace tdd_todo_list.CSharp.Test
             Assert.That(todoList.GetSortedTaskList(asc), asc ? Is.Ordered.Ascending : Is.Ordered.Descending);
         }
 
-        //private List<string> GetRandomTasks(int count)
-        //{
-        //    List<string> tasks = new() { "get", "buy", "sell", "toss"};
-        //    List<string> counter = new() { "one", "all", "ten", "too many"};
-
-        //}
         private void AddTasks()
         {
             tasks.ForEach(todoList.Add);
