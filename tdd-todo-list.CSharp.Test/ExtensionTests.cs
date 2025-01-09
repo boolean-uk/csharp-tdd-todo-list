@@ -39,12 +39,13 @@ namespace tdd_todo_list.CSharp.Test
         {
             TodoListExtension ext = new TodoListExtension();
             ext.AddTask("A", 199);
-            string currstatus = ext.GetStatus("A");
-            Assert.That(currstatus, Is.EqualTo("incomplete"));
+            string currstatus = ext.GetStatus("A");  
+            Assert.That(currstatus, Is.EqualTo("incomplete")); 
             ext.ChangeTaskStatusByID(199, "complete");
+            currstatus = ext.GetStatus("A");
             Assert.That(currstatus, Is.EqualTo("complete"));
-
         }
+
 
         [Test]
         public void DisplayDate()

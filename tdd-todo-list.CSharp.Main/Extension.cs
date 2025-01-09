@@ -21,16 +21,11 @@ namespace tdd_todo_list.CSharp.Main
 
         public void AddTask(string task, int id)
         {
-            if (TaskListMapping.ContainsKey(id))
-            {
-                throw new Exception("There is already a task with that ID number");
-            }
-            else
-            {
-                TaskList.Add(task, "incomplete");
-                TaskListMapping.Add(id, task);
-                TaskListDateTimeMapping.Add(id, DateTime.Now);
-            }
+
+            TaskList.Add(task, "incomplete");
+            TaskListMapping.Add(id, task);
+            TaskListDateTimeMapping.Add(id, DateTime.Now);
+
 
         }
 
@@ -75,15 +70,8 @@ namespace tdd_todo_list.CSharp.Main
 
             string task = TaskListMapping[id];
 
-            if (TaskExists(TaskList[task]))
-            {
-                TaskList[task] = status;
-            }
+            TaskList[task] = status;
 
-            else
-            {
-                throw new Exception("The task does not exist");
-            }
         }
 
         public string GetStatus(string task)
