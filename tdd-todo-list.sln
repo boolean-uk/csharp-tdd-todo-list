@@ -11,6 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.github\workflows\core-criteria.yml = .github\workflows\core-criteria.yml
 		Domain.md = Domain.md
+		domain_extension.md = domain_extension.md
 		.github\workflows\extension-criteria.yml = .github\workflows\extension-criteria.yml
 		README.md = README.md
 	EndProjectSection
