@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace tdd_todo_list.CSharp.Main
 {
-    public class TodoList
+    public class TodoListExtension
     {
         public enum SortCriteria
         {
@@ -17,30 +17,30 @@ namespace tdd_todo_list.CSharp.Main
             Default
         }
 
-        public Dictionary<string, TodoTask> todoTaskDict {  get; private set; }
-        public TodoList() {
-            this.todoTaskDict = new Dictionary<string, TodoTask>();
+        public Dictionary<Guid, TodoTaskExtension> todoTaskDict {  get; private set; }
+        public TodoListExtension() {
+            this.todoTaskDict = new Dictionary<Guid, TodoTaskExtension>();
         }
 
         public void addTask(String taskName) { 
-            TodoTask newTask = new TodoTask(taskName);
-            this.todoTaskDict.Add(taskName, newTask);
+            TodoTaskExtension newTask = new TodoTaskExtension(taskName);
+            this.todoTaskDict.Add(newTask.taskId, newTask);
         }
 
-        public TodoTask findTaskByName(string taskName)
+        public TodoTaskExtension findTaskById(Guid findTaskId)
         {
-            TodoTask? foundTask;
-            this.todoTaskDict.TryGetValue(taskName, out foundTask);
+            TodoTaskExtension? foundTask;
+            this.todoTaskDict.TryGetValue(findTaskId, out foundTask);
 
             return foundTask;
         }
 
-        public void setTaskStatus(string taskName, bool isFinished)
+        public void setTaskStatus(Guid setTaskId, bool isFinished)
         {
-            findTaskByName(taskName).isFinished = isFinished;
+            findTaskById(setTaskId).isFinished = isFinished;
         }
         
-        public List<TodoTask> getAllTasksSorted(SortCriteria ?criteria)
+        public List<TodoTaskExtension> getAllTasksSorted(SortCriteria ?criteria)
         {
             switch (criteria) 
             { 
@@ -70,10 +70,10 @@ namespace tdd_todo_list.CSharp.Main
 
         }
 
-        public void removeTask(string taskName)
+        public void removeTask(Guid taskId)
         {
-            var taskToRemove = findTaskByName(taskName);
-            this.todoTaskDict.Remove(taskName);
+            var taskToRemove = findTaskById(taskId);
+            this.todoTaskDict.Remove(taskId);
         }
     }
 }
