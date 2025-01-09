@@ -224,7 +224,6 @@ namespace tdd_todo_list.CSharp.Test
             var sortedTasks = core.SortDesc();
             Assert.That(sortedTasks.First().task, Is.EqualTo(tasks[4].task));
             Assert.That(sortedTasks.Last().task, Is.EqualTo(tasks[2].task));
-
         }
     }
 }
