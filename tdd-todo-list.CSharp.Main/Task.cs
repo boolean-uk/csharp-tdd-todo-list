@@ -13,6 +13,7 @@ namespace tdd_todo_list.CSharp.Main
         private static int _currentId = 1;
         public int id;
 
+        public Task() { }
 
         public Task(string task)
         {

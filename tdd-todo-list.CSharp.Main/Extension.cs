@@ -24,6 +24,16 @@ namespace tdd_todo_list.CSharp.Main
             }
             return "Task not found";
         }
-        
+
+        public Task? UpdateTaskById(int id, string taskName)
+        {
+            var task = this.todolist.FirstOrDefault(t => t.id == id);
+            if (task != null)
+            {
+                task.task = taskName;
+                return task;
+            }
+            return null;
+        }
     }
 }
