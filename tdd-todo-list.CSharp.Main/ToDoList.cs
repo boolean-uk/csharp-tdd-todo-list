@@ -36,6 +36,17 @@ namespace tdd_todo_list.CSharp.Main
             return "Task not found";
         }
 
+        public object Remove(string taskToRemove)
+        {
+            var task = todolist.FirstOrDefault(t => t.task.Equals(taskToRemove));
+            if (task != null)
+            {
+               todolist.Remove(task);
+                return task;
+            }
+            return "Task not found";
+        }
+
         public object Search(string taskToFind)
         {
             var task = todolist.FirstOrDefault(t => t.task.Equals(taskToFind));
