@@ -30,8 +30,21 @@ It may be beneficial to work in groups during the design phase of this exercise.
 - I want to see all the tasks in my list ordered alphabetically in ascending order.
 - I want to see all the tasks in my list ordered alphabetically in descending order.
 
-## Domain Model
+## Domain Model - Core
 
+| Classes         | Methods/Properties                                 | Scenario                        | Outputs          |
+|-----------------|----------------------------------------------------|---------------------------------|------------------
+|ToDoList.cs	  |AddTask(string task)                                |add keyvalue pair off task:status|nothing - void
+|ToDoList.cs      |GetTodoCount()									   |return the amount of active tasks|the result of a*b
+|ToDoList.cs      |Private dictionary to store tasks and corresponding status
+|ToDoList.cs      |ContainsTask(string task)                           |see if task is stored in todolist|true/false  
+|ToDoList.cs      |ChangeStatus(string task, string status)            |change status of a task			 |nothing - void 
+|ToDoList.cs      |GetCompletedTask()								   |wanted a list of completed task	 |list of completed tasks
+|ToDoList.cs      |GetInCompletedTask()								   |wanted a list of incompleted task|list of incompleted tasks
+|ToDoList.cs      |RetrieveTask()									   |retrieve a specific task	     |task: status string
+|ToDoList.cs      |RemoveTask()										   |remove a task					 |nothing - void
+|ToDoList.cs      |AscendingOrder()								       |a list of all task in ascending	 |list of task in ascending order
+|ToDoList.cs      |DescendingOrder()								   |a list of all task in descending |list of task in descending order
 
 
 ## Extension Requirements
@@ -46,6 +59,24 @@ You will see a `.gitkeep` file in each of those directories, you can safely igno
 - I want to update the name of a task by providing its ID and a new name.
 - I want to be able to change the status of a task by providing its ID.
 - I want to be able to see the date and time that I created each task.
+
+## Domain Model - Extension
+
+
+| Classes				| Methods/Properties                                 | Scenario                        | Outputs          |
+|-----------------		|----------------------------------------------------|---------------------------------|------------------
+|ToDoListExtension.cs	|Private dictionary to store tasks and corresponding status
+|ToDoListExtension.cs	|Private dictionary to map a ID number to a task
+|ToDoListExtension.cs   |Private dictionary to map a ID number to a Date
+|ToDoListExtension.cs   |AddTask(string task, int id)                        |creating a task				   |nothing - void  
+|ToDoListExtension.cs   |RetrieveTaskByID(int id)							 |finding a task through a id	   |a task 
+|ToDoListExtension.cs   |ChangeTaskName(int id, string name)				 |changing the name of a task	   |nothing - void
+|ToDoListExtension.cs   |TaskExist(string task)								 |check if task exists			   |true/false
+|ToDoListExtension.cs   |ChangeTaskStatusByID(int id, string status)		 |change status of a task		   |nothing - void
+|ToDoListExtension.cs	|GetStatus(string task)								 |returning the status of a task   |status of a task
+|ToDoListExtension.cs	|DisplayDate(int id)							     |displaying date of a task		   |string representation of the date
+
+
 
 ## Test Output
 
