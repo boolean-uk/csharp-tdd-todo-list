@@ -14,7 +14,7 @@
 
 | Classes     | Methods/Properties                  | Senario                                      | Outputs                                               |
 |-------------|-------------------------------------|----------------------------------------------|-------------------------------------------------------|
-| ToDoList.cs | AddTask(string task, bool status) | Adds a task to the list of tasks             | task added                                                      |
+| ToDoList.cs | AddTask(string task, bool status) | Adds a task to the list of tasks             |                                                       |
 | ToDoList.cs | GetList                         | Get the current list of tasks                | todoList                                              |
 | ToDoList.cs | ChangeStatus(string task)           | Changes the status of a task                 | the new status                                        |
 | ToDoList.cs | GetTasks(bool status)              | Gets the tasks of a specific status          | The tasks with a specific status                      |

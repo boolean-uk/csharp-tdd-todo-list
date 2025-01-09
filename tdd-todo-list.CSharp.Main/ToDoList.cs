@@ -36,11 +36,11 @@ namespace tdd_todo_list.CSharp.Main
         {
             if (taskList.ContainsKey(word))
             {
-                Console.WriteLine("Found the task");
+                Console.WriteLine("Found " + word);
                 return true;
             } else
             {
-                Console.WriteLine("Task not found");
+                Console.WriteLine("Did not find " + word);
                 return false;
             }
         }
@@ -62,6 +62,7 @@ namespace tdd_todo_list.CSharp.Main
         public void RemoveTask(string v)
         {
             taskList.Remove(v);
+            Console.WriteLine("Removed " + v);
         }
 
         public object? AscSortList()
