@@ -22,3 +22,23 @@
 | ToDoList.cs | RemoveTask(string task)             | removes the task from list                   | Removed task                                          |
 | ToDoList.cs | AscSortList()                       | sorts the list in asceending order           | Sorted list                                           |
 | ToDoList.cs | DesSortList()                       | sorts the list in descending order           | Sorted list                                           |
+
+
+## Extension Requirements
+
+
+
+- I want to be able to get a task by a unique ID.
+- I want to update the name of a task by providing its ID and a new name.
+- I want to be able to change the status of a task by providing its ID.
+- I want to be able to see the date and time that I created each task.
+
+## Extension Domain model
+
+| Classes     | Methods/Properties                  | Senario                                      | Outputs                                               |
+|-------------|-------------------------------------|----------------------------------------------|-------------------------------------------------------|
+| ToDoList.cs | AddTask(int id, string task, bool status) | Adds a task to the list of tasks             |    True if added, False if not                                                   |
+| ToDoList.cs | GetTask(int id)                       | Get the task with the unique ID           | Task                                             |
+| ToDoList.cs | ChangeName(int id, string name)           | Changes the name of a task with a unique id               | The new name                                     |
+| ToDoList.cs | ChangeStatus(int id)              | Changes the statis of the task with a unique id         |The updated status                  |
+| ToDoList.cs | SeeTimeCreated(int id)            | Output the time a task was created | Time created |
