@@ -156,5 +156,29 @@ namespace tdd_todo_list.CSharp.Test
             var searchResult = core.Search("exercise for 30 min");
             Assert.That(searchResult, Is.EqualTo("Task not found"));
         }
+
+        [Test]
+        public void RemoveTask()
+        {
+            var task1 = new Task("clean your room", false);
+            var task2 = new Task("do the laundry", false);
+            var task3 = new Task("buy groceries", true);
+            var task4 = new Task("prepare dinner", false);
+            var task5 = new Task("read a book", true);
+            List<Task> tasks = new List<Task> { task1, task2, task3, task4, task5 };
+
+            TodoList core = new TodoList();
+
+            foreach (var task in tasks)
+            {
+                core.Add(task);
+            }
+            core.Remove("buy groceries");
+
+            Assert.That(tasks.Count, Is.EqualTo(5));
+            Assert.That(core.todolist.Count, Is.EqualTo(4));
+
+            Assert.That(core.Search("buy groceries"), Is.EqualTo("Task not found"));
+        }
     }
 }
