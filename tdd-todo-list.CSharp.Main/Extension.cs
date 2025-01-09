@@ -8,5 +8,10 @@ namespace tdd_todo_list.CSharp.Main
 {
     public class TodoListExtension
     {
+        private TodoList _todoList;
+        public TodoListExtension()
+        {
+            _todoList = new TodoList();
+        }
     }
 }
