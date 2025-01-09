@@ -67,7 +67,7 @@ namespace tdd_todo_list.CSharp.Test
             }
             core.ChangeStatus("Prepare dinner");
 
-            Assert.That(core.todolist[2].isCompleted, Is.True);
+            Assert.That(core.todolist[3].isCompleted, Is.True);
         }
     }
 }
