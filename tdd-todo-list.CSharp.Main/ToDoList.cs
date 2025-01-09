@@ -30,14 +30,25 @@ namespace tdd_todo_list.CSharp.Main
         public TodoTask findTaskByName(string taskName)
         {
             TodoTask? foundTask;
-            this.todoTaskDict.TryGetValue(taskName, out foundTask);
+            if (!this.todoTaskDict.TryGetValue(taskName, out foundTask))
+            {
+
+                //task not found
+                throw new KeyNotFoundException("Task not found");
+            }
 
             return foundTask;
         }
 
         public void setTaskStatus(string taskName, bool isFinished)
         {
-            findTaskByName(taskName).isFinished = isFinished;
+            try
+            {
+                findTaskByName(taskName).isFinished = isFinished;
+            } catch (KeyNotFoundException)
+            {
+                throw new KeyNotFoundException("Task not found, could not change status.");
+            }
         }
         
         public List<TodoTask> getAllTasksSorted(SortCriteria ?criteria)
@@ -72,8 +83,14 @@ namespace tdd_todo_list.CSharp.Main
 
         public void removeTask(string taskName)
         {
-            var taskToRemove = findTaskByName(taskName);
-            this.todoTaskDict.Remove(taskName);
+            try
+            {
+                var taskToRemove = findTaskByName(taskName);
+                this.todoTaskDict.Remove(taskName);
+            }
+            catch (KeyNotFoundException) {
+                throw new KeyNotFoundException("Task not found, could not remove.");
+            }
         }
     }
 }

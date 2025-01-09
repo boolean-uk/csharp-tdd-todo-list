@@ -26,18 +26,33 @@ namespace tdd_todo_list.CSharp.Main
             TodoTaskExtension newTask = new TodoTaskExtension(taskName);
             this.todoTaskDict.Add(newTask.taskId, newTask);
         }
+        public void addTaskByTask(TodoTaskExtension newTask)
+        {
+            this.todoTaskDict.Add(newTask.taskId, newTask);
+        }
 
         public TodoTaskExtension findTaskById(Guid findTaskId)
         {
             TodoTaskExtension? foundTask;
-            this.todoTaskDict.TryGetValue(findTaskId, out foundTask);
+
+            if (!this.todoTaskDict.TryGetValue(findTaskId, out foundTask)) {
+
+                //task not found
+                throw new KeyNotFoundException("Task not found"); 
+            }
 
             return foundTask;
         }
 
         public void setTaskStatus(Guid setTaskId, bool isFinished)
         {
-            findTaskById(setTaskId).isFinished = isFinished;
+            try
+            {
+                findTaskById(setTaskId).isFinished = isFinished;
+            }
+            catch (KeyNotFoundException) {
+                throw new KeyNotFoundException("Task not found, could not change status.");
+            }
         }
         
         public List<TodoTaskExtension> getAllTasksSorted(SortCriteria ?criteria)
@@ -56,12 +71,12 @@ namespace tdd_todo_list.CSharp.Main
 
                 case SortCriteria.AllTaskAlphabeticAsc:
                     return this.todoTaskDict
-                        .OrderBy(t => t.Key)
+                        .OrderBy(t => t.Value.taskName)
                         .Select(t => t.Value).ToList();
 
                 case SortCriteria.AllTaskAlphabeticDesc:
                     return this.todoTaskDict
-                        .OrderByDescending(t => t.Key)
+                        .OrderByDescending(t => t.Value.taskName)
                         .Select(t => t.Value).ToList();
 
                 default:
@@ -72,8 +87,20 @@ namespace tdd_todo_list.CSharp.Main
 
         public void removeTask(Guid taskId)
         {
-            var taskToRemove = findTaskById(taskId);
-            this.todoTaskDict.Remove(taskId);
+            try
+            {
+                findTaskById(taskId);
+                this.todoTaskDict.Remove(taskId);
+            }
+            catch (KeyNotFoundException) {
+                throw new KeyNotFoundException("Could not remove task.");
+            }
+            
+        }
+
+        public void setTaskNameById(Guid taskId, string newTaskName)
+        {
+            findTaskById(taskId).taskName = newTaskName;
         }
     }
 }

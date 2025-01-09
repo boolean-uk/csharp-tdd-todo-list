@@ -13,9 +13,14 @@
 | Classes         | Methods/Properties                                 | Scenario                        | Outputs          |
 |-----------------|----------------------------------------------------|---------------------------------|------------------
 |Task.cs    | bool status, string task, uid id, date creationDate                                               
-|ToDoList.cs    |Add(Task t)                                   |adding a task to list                | Log 'task added' or error
+|ToDoList.cs    |Add(Task t), and Add(string taskName)                                   |adding a task to dictionary                | 
 |ToDoList.cs    |Property for storing all tasks                           |
-|ToDoList.cs    |retrieving tasks getTasks
-|ToDoList.cs    |different implementations of gettask based on criteria                  | get tasks by alphabetic 
-|ToDoList.cs    |searchTask(string name)                    |search for task  | get response of found or not
-|ToDoList.cs    |removeTask(uid id)                    |if you want to remove task  |log if remove successful
+|ToDoList.cs    |retrieving tasks getTasks with criteria, all tasks default
+|ToDoList.cs    |searchTask(uid id)                 |search for task  | exeption if not found
+|ToDoList.cs    |removeTask(uid id)                    |if you want to remove task  |exception if not remove success
+|ToDoList.cs    |changeTaskStatus(uid id)                    |if you want to change task status |
+|ToDoList.cs    |override ToString()                 |functionality for viewing tasks in any form, can also see date| 
+|ToDoList.cs    | changeNameById(uid id)                |can change name of task given id| 
+
+## Notes
+I did not get time to implement a ui, but the functionality should be solid for implementing one where you can actually see the tasks and errormessages. You would have to catch the exceptions thrown and display.
