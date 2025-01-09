@@ -116,5 +116,45 @@ namespace tdd_todo_list.CSharp.Test
             Assert.That(inCompletedTasks.Count, Is.EqualTo(3));
 
         }
+
+        [Test]
+        public void SearchForTaskSuccessfully()
+        {
+            var task1 = new Task("clean your room", false);
+            var task2 = new Task("do the laundry", false);
+            var task3 = new Task("buy groceries", true);
+            var task4 = new Task("prepare dinner", false);
+            var task5 = new Task("read a book", true);
+            List<Task> tasks = new List<Task> { task1, task2, task3, task4, task5 };
+
+            TodoList core = new TodoList();
+
+            foreach (var task in tasks)
+            {
+                core.Add(task);
+            }
+
+            var searchResult = core.Search("read a book");
+            Assert.That(searchResult, Is.EqualTo(tasks[4]));
+        }
+        [Test]
+        public void SearchForTaskUnsuccessfully()
+        {
+            var task1 = new Task("clean your room", false);
+            var task2 = new Task("do the laundry", false);
+            var task3 = new Task("buy groceries", true);
+            var task4 = new Task("prepare dinner", false);
+            var task5 = new Task("read a book", true);
+            List<Task> tasks = new List<Task> { task1, task2, task3, task4, task5 };
+
+            TodoList core = new TodoList();
+
+            foreach (var task in tasks)
+            {
+                core.Add(task);
+            }
+            var searchResult = core.Search("exercise for 30 min");
+            Assert.That(searchResult, Is.EqualTo("Task not found"));
+        }
     }
 }
