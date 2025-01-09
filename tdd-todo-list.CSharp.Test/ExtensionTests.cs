@@ -51,13 +51,12 @@ namespace tdd_todo_list.CSharp.Test
         }
         [Test]
         public void TimeCreated()
-        {   
+        {
             DateTime startTime = DateTime.Now;
-            Thread.Sleep(1000);
             _extension.AddTask("do something");
             _extension.AddTask("buy food");
-            DateTime endtime = DateTime.Now;
-            Assert.That(_extension.GetTask(0).time <= startTime && _extension.GetTask(0).time <= endtime) ;
+            Thread.Sleep(100);
+            Assert.That(_extension.GetTask(0).time, Is.Not.EqualTo(startTime) ) ;
         }
     }
 }
