@@ -4,15 +4,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NUnit.Framework;
 
-namespace tdd_todo_list.CSharp.Test
+namespace tdd_todo_list.CSharp.Test;
+
+[TestFixture]
+public class ExtensionTests
 {
-    public class ExtensionTests
+    [Test]
+    public void UpdateTaskTitleTest()
     {
-        private TodoListExtension _extension;
-        public ExtensionTests()
-        {
-            _extension = new TodoListExtension();
-        }
+        TodoListExtension todoList = TodoListExtension.CreateList("A", "A");
+        todoList.AddTask("B", "B");
+        todoList.UpdateTaskTitle(todoList.Tasks[0].UUID, "C");
+        Assert.That(todoList.Tasks[0].Title, Is.EqualTo("C"));
     }
 }
