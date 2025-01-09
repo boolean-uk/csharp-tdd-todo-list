@@ -31,9 +31,17 @@ namespace tdd_todo_list.CSharp.Main
             if (task != null)
             {
                 task.task = taskName;
-                return task;
             }
-            return null;
+            return task;
+        }
+        public Task? ChangeStatusById(int id)
+        {
+            var task = this.todolist.FirstOrDefault(t => t.id == id);
+            if(task != null)
+            {
+                task.isCompleted = !task.isCompleted;
+            }
+            return task;
         }
     }
 }
