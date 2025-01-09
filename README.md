@@ -30,6 +30,10 @@ It may be beneficial to work in groups during the design phase of this exercise.
 - I want to see all the tasks in my list ordered alphabetically in ascending order.
 - I want to see all the tasks in my list ordered alphabetically in descending order.
 
+## Domain Model
+
+
+
 ## Extension Requirements
 
 Work on these only after you have completed the core requirements. You may need to make changes to your domain model to complete these.
