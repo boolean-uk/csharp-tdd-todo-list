@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace tdd_todo_list.CSharp.Main
 {
-    public class TodoList
+    public class TodoListExtension
     {
         public enum SortCriteria
         {
@@ -17,41 +17,45 @@ namespace tdd_todo_list.CSharp.Main
             Default
         }
 
-        public Dictionary<string, TodoTask> todoTaskDict {  get; private set; }
-        public TodoList() {
-            this.todoTaskDict = new Dictionary<string, TodoTask>();
+        public Dictionary<Guid, TodoTaskExtension> todoTaskDict {  get; private set; }
+        public TodoListExtension() {
+            this.todoTaskDict = new Dictionary<Guid, TodoTaskExtension>();
         }
 
         public void addTask(String taskName) { 
-            TodoTask newTask = new TodoTask(taskName);
-            this.todoTaskDict.Add(taskName, newTask);
+            TodoTaskExtension newTask = new TodoTaskExtension(taskName);
+            this.todoTaskDict.Add(newTask.taskId, newTask);
+        }
+        public void addTaskByTask(TodoTaskExtension newTask)
+        {
+            this.todoTaskDict.Add(newTask.taskId, newTask);
         }
 
-        public TodoTask findTaskByName(string taskName)
+        public TodoTaskExtension findTaskById(Guid findTaskId)
         {
-            TodoTask? foundTask;
-            if (!this.todoTaskDict.TryGetValue(taskName, out foundTask))
-            {
+            TodoTaskExtension? foundTask;
+
+            if (!this.todoTaskDict.TryGetValue(findTaskId, out foundTask)) {
 
                 //task not found
-                throw new KeyNotFoundException("Task not found");
+                throw new KeyNotFoundException("Task not found"); 
             }
 
             return foundTask;
         }
 
-        public void setTaskStatus(string taskName, bool isFinished)
+        public void setTaskStatus(Guid setTaskId, bool isFinished)
         {
             try
             {
-                findTaskByName(taskName).isFinished = isFinished;
-            } catch (KeyNotFoundException)
-            {
+                findTaskById(setTaskId).isFinished = isFinished;
+            }
+            catch (KeyNotFoundException) {
                 throw new KeyNotFoundException("Task not found, could not change status.");
             }
         }
         
-        public List<TodoTask> getAllTasksSorted(SortCriteria ?criteria)
+        public List<TodoTaskExtension> getAllTasksSorted(SortCriteria ?criteria)
         {
             switch (criteria) 
             { 
@@ -67,12 +71,12 @@ namespace tdd_todo_list.CSharp.Main
 
                 case SortCriteria.AllTaskAlphabeticAsc:
                     return this.todoTaskDict
-                        .OrderBy(t => t.Key)
+                        .OrderBy(t => t.Value.taskName)
                         .Select(t => t.Value).ToList();
 
                 case SortCriteria.AllTaskAlphabeticDesc:
                     return this.todoTaskDict
-                        .OrderByDescending(t => t.Key)
+                        .OrderByDescending(t => t.Value.taskName)
                         .Select(t => t.Value).ToList();
 
                 default:
@@ -81,16 +85,22 @@ namespace tdd_todo_list.CSharp.Main
 
         }
 
-        public void removeTask(string taskName)
+        public void removeTask(Guid taskId)
         {
             try
             {
-                var taskToRemove = findTaskByName(taskName);
-                this.todoTaskDict.Remove(taskName);
+                findTaskById(taskId);
+                this.todoTaskDict.Remove(taskId);
             }
             catch (KeyNotFoundException) {
-                throw new KeyNotFoundException("Task not found, could not remove.");
+                throw new KeyNotFoundException("Could not remove task.");
             }
+            
+        }
+
+        public void setTaskNameById(Guid taskId, string newTaskName)
+        {
+            findTaskById(taskId).taskName = newTaskName;
         }
     }
 }
