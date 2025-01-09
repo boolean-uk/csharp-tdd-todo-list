@@ -18,5 +18,9 @@ namespace tdd_todo_list.CSharp.Main
             return task.ToString();
         }
 
+        public List<string> ViewTasks()
+        {
+            return todolist.Select(task => task.ToString()).ToList();
+        }
     }
 }

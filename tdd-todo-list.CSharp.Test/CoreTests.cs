@@ -43,7 +43,7 @@ namespace tdd_todo_list.CSharp.Test
                 core.Add(task);
             }
 
-            var viewTask = core.View();
+            var viewTask = core.ViewTasks();
             var expected = tasks;
 
             Assert.That(expected, Is.EqualTo(viewTask));

@@ -6,10 +6,21 @@ using System.Threading.Tasks;
 
 namespace tdd_todo_list.CSharp.Main
 {
-    public class Task(string task)
+    public class Task
     {
-        public string task = task;
+        public string task;
         public bool isCompleted = false;
+
+        public Task(string task)
+        {
+            this.task = task;
+            this.isCompleted = false;
+        }
+        public Task (string task, bool isCompleted)
+        {
+            this.task = task;
+            this.isCompleted = isCompleted;
+        }
 
         public override string ToString()
         {
