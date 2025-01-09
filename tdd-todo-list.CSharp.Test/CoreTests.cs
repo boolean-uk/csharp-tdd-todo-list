@@ -109,5 +109,29 @@ namespace tdd_todo_list.CSharp.Test
 
             Assert.That(todo.getAllTasksSorted(TodoList.SortCriteria.AllTaskAlphabeticDesc)[0].taskName, Is.EqualTo(t3));
         }
+
+        [Test]
+        public void testExceptionFindInvalidName()
+        {
+            TodoList todo = new TodoList();
+
+            Assert.Throws<KeyNotFoundException>(() => todo.findTaskByName("invalid name"));
+        }
+
+        [Test]
+        public void testExceptionCouldNotRemove()
+        {
+            TodoList todo = new TodoList();
+
+            Assert.Throws<KeyNotFoundException>(() => todo.removeTask("invalid"));
+        }
+
+        [Test]
+        public void testExceptionCouldNotChangeStatus()
+        {
+            TodoList todo = new TodoList();
+
+            Assert.Throws<KeyNotFoundException>(() => todo.setTaskStatus("invalid", false));
+        }
     }
 }

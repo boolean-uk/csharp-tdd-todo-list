@@ -23,4 +23,4 @@
 |ToDoList.cs    | changeNameById(uid id)                |can change name of task given id| 
 
 ## Notes
-I did not get time to implement a ui, but the functionality should be solid for implementing one where you can actually see the tasks and errormessages. You would have to catch the exceptions thrown and display.
+I did not get time to implement a ui, but the functionality should be solid for implementing one where you can actually see the tasks and errormessages. You would have to catch the exceptions thrown and display.	
