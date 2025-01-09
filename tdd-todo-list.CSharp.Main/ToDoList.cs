@@ -36,6 +36,16 @@ namespace tdd_todo_list.CSharp.Main
             return "Task not found";
         }
 
+        public object Search(string taskToFind)
+        {
+            var task = todolist.FirstOrDefault(t => t.task.Equals(taskToFind));
+            if(task == null)
+            {
+                return "Task not found";
+            }
+            return task;
+        }
+
         public List<Task> ViewCompletedTasks()
         {
             return todolist.Where(item => item.isCompleted == true).ToList();
