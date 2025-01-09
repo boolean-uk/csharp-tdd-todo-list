@@ -71,5 +71,14 @@ namespace tdd_todo_list.CSharp.Main
         {
             return todolist.Select(task => task.ToString()).ToList();
         }
+
+        public List<Task> SortAsc()
+        {
+            return todolist.OrderBy(t => t.task).ToList();
+        }
+        public List<Task> SortDesc()
+        {
+            return todolist.OrderByDescending(t => t.task).ToList();
+        }
     }
 }
