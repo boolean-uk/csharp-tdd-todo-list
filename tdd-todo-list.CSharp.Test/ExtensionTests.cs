@@ -26,14 +26,14 @@ namespace tdd_todo_list.CSharp.Test
             var task5 = new Task("read a book", true);
             List<Task> tasks = new List<Task> { task1, task2, task3, task4, task5 };
 
-            TodoList core = new TodoList();
+            TodoListExtension extension = new TodoListExtension();
             foreach (var task in tasks)
             {
-                core.Add(task);
+                extension.Add(task);
             }
-            var taskId = 3;
-            var taskByID = core.GetTaskById(taskId);
-            Assert.That(tasks[2], Is.EqualTo(taskByID));
+            int taskId = 3;
+            var taskByID = extension.GetTaskById(taskId);
+            Assert.That(taskByID, Is.EqualTo(task3));
 
         }
     }

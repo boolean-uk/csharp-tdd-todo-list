@@ -10,14 +10,19 @@ namespace tdd_todo_list.CSharp.Main
     {
         public string task;
         public bool isCompleted = false;
+        private static int _currentId = 1;
+        public int id;
+
 
         public Task(string task)
         {
+            this.id = _currentId++;
             this.task = task;
             this.isCompleted = false;
         }
         public Task (string task, bool isCompleted)
         {
+            this.id = _currentId++;
             this.task = task;
             this.isCompleted = isCompleted;
         }
