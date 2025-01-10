@@ -22,11 +22,11 @@
 | ToDoList.cs | AddTask(string task)        | Add tasks to list                                | Task added to list                                                |
 | ToDoList.cs | GetTasks()                  | Viewing all tasks in to do list                  | List of all tasks                                                 |
 | ToDoList.cs | CompleteTask(string task)   | Marking a task as complete                       | Task status set to complete                                       |
-|             | IncompleteTask(string task) | Marking a task as incomplete                     | Task status set to incomplete                                     |
-| ToDoList.cs | GetCo                       | Retrieve complete tasks                          | List of complete tasks                                            |
-| ToDoList.cs |                             | Retrieve incomplete tasks                        | List of incomplete tasks                                          |
-| ToDoList.cs |                             | Search method for task                           | name of task if it exists, message with "it wasn't found" if not. |
-| ToDoList.cs |                             | Remove tasks from list                           | Task removed from list                                            |
-| ToDoList.cs |                             | Show tasks ordered alphabetically and ascending  | List of tasks in alphabetically and ascending order               |
-| ToDoList.cs |                             | Show tasks ordered alphabetically and descending | List of tasks in alphabetically and descending order              |
+| ToDoList.cs | IncompleteTask(string task) | Marking a task as incomplete                     | Task status set to incomplete                                     |
+| ToDoList.cs | GetCompletedTasks()         | Retrieve complete tasks                          | List of complete tasks                                            |
+| ToDoList.cs | GetInCompletedTasks()       | Retrieve incomplete tasks                        | List of incomplete tasks                                          |
+| ToDoList.cs | SearchTask()                | Search method for task                           | name of task if it exists, message with "it wasn't found" if not. |
+| ToDoList.cs | RemoveTask()                | Remove tasks from list                           | Task removed from list                                            |
+| ToDoList.cs | GetAllTasksAscending()      | Show tasks ordered alphabetically and ascending  | List of tasks in alphabetically and ascending order               |
+| ToDoList.cs | GetAllTasksDescending()     | Show tasks ordered alphabetically and descending | List of tasks in alphabetically and descending order              |
 

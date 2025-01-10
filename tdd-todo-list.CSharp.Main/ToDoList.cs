@@ -16,9 +16,12 @@ namespace tdd_todo_list.CSharp.Main
         {
 
             _tasks[task] = false;
-            
-              
-            
+            {
+               
+
+
+            }
+
         }
 
         public List<string> GetAllTasks()
@@ -106,6 +109,7 @@ namespace tdd_todo_list.CSharp.Main
 
                 return "successfully removed";
             }
+
 
 
         }
