@@ -62,6 +62,15 @@ namespace tdd_todo_list.CSharp.Test
             Task updatedTask = _extension.SearchById(3);
             Assert.That(updatedTask._status, Is.True);
         }
+
+        [Test]
+        public void CreatedTaskTest()
+        {
+            Task task = new Task("Vacuum");
+            DateTime created = task._created;
+            var timeDifference = DateTime.Now - created;
+            Assert.That(timeDifference.TotalMinutes, Is.LessThan(1));
+        }
     }
 
 }

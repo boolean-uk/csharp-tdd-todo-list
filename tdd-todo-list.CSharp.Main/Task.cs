@@ -12,6 +12,7 @@ namespace tdd_todo_list.CSharp.Main
         public int _id;
         public string _name { get; set; }
         public bool _status { get; set; }
+        public DateTime _created { get; set; }
 
         // Makes sure each Object gets a unique Id, starting with 1.
         public Task(string name)
@@ -20,6 +21,7 @@ namespace tdd_todo_list.CSharp.Main
             this._id = _counter;
             this._name = name;
             this._status = false;
+            this._created = DateTime.Now;
         }
 
         public static void ResetCounter()
