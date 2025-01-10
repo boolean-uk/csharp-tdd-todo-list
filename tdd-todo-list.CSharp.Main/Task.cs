@@ -35,5 +35,10 @@ namespace tdd_todo_list.CSharp.Main
         {
             return task;
         }
+
+        public static void ResetId()
+        {
+            _currentId = 1;
+        }
     }
 }

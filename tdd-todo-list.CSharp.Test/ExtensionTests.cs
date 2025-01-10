@@ -12,6 +12,14 @@ namespace tdd_todo_list.CSharp.Test
     public class ExtensionTests
     {
         private TodoListExtension _extension;
+
+        [SetUp]
+        public void SetUp()
+        {
+            Task.ResetId();
+        }
+
+
         public ExtensionTests()
         {
             _extension = new TodoListExtension();
@@ -80,6 +88,7 @@ namespace tdd_todo_list.CSharp.Test
 
             Assert.That(updatedTask.isCompleted , Is.False);
         }
+
         [Test]
         public void GetDateCreated()
         {
