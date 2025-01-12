@@ -10,18 +10,19 @@ namespace tdd_todo_list.CSharp.Main
     public class TodoListExtension
     {
         private Dictionary<string, string> TaskList;
-        private Dictionary<int, string> TaskListMapping;
-        private Dictionary<int, DateTime> TaskListDateTimeMapping;
+        private Dictionary<Guid, string> TaskListMapping;
+        private Dictionary<Guid, DateTime> TaskListDateTimeMapping;
+
         public TodoListExtension()
         {
             TaskList = new Dictionary<string, string>();
-            TaskListMapping = new Dictionary<int, string>();
-            TaskListDateTimeMapping = new Dictionary<int, DateTime>();
+            TaskListMapping = new Dictionary<Guid, string>();
+            TaskListDateTimeMapping = new Dictionary<Guid, DateTime>();
         }
 
-        public void AddTask(string task, int id)
+        public void AddTask(string task)
         {
-
+            Guid id = Guid.NewGuid();
             TaskList.Add(task, "incomplete");
             TaskListMapping.Add(id, task);
             TaskListDateTimeMapping.Add(id, DateTime.Now);
@@ -30,7 +31,7 @@ namespace tdd_todo_list.CSharp.Main
         }
 
 
-        public string RetrieveTaskByID(int id)
+        public string RetrieveTaskByID(Guid id)
         {
 
             string task = TaskListMapping[id];
@@ -38,7 +39,7 @@ namespace tdd_todo_list.CSharp.Main
 
         }
 
-        public void ChangeTaskName(int id, string name)
+        public void ChangeTaskName(Guid id, string name)
         {
 
             string oldname = TaskListMapping[id];
@@ -65,7 +66,7 @@ namespace tdd_todo_list.CSharp.Main
             return TaskList.ContainsKey(task);
         }
 
-        public void ChangeTaskStatusByID(int id, string status)
+        public void ChangeTaskStatusByID(Guid id, string status)
         {
 
             string task = TaskListMapping[id];
@@ -80,13 +81,25 @@ namespace tdd_todo_list.CSharp.Main
         }
 
 
-        public string DisplayDate(int id)
+        public string DisplayDate(Guid id)
         {
 
             DateTime date = TaskListDateTimeMapping[id];
             string dater = $"{date}";
 
             return dater;
+        }
+
+        public Guid getId(string task)
+        {
+            foreach (Guid key in TaskListMapping.Keys)
+            {
+                if (task == TaskListMapping[key])
+                {
+                    return key;
+                }
+            }
+            return Guid.Empty;
         }
     }
 }

@@ -15,11 +15,13 @@ namespace tdd_todo_list.CSharp.Test
         [Test]
         public void GetTaskById()
         {
-            int id = 1992;
+           
             
 
             TodoListExtension extension = new TodoListExtension();
-            extension.AddTask("Clean up", id);
+            
+            extension.AddTask("Clean up");
+            Guid id = extension.getId("Clean up");
             string task = extension.RetrieveTaskByID(id);
             Assert.That(extension.RetrieveTaskByID(id), Is.EqualTo("Clean up"));
         }
@@ -28,8 +30,9 @@ namespace tdd_todo_list.CSharp.Test
         public void ChangeTaskName()
         {
             TodoListExtension ext = new TodoListExtension();
-            ext.AddTask("A", 95);
-            ext.ChangeTaskName(95, "Axel");
+            ext.AddTask("A");
+            Guid id = ext.getId("A");
+            ext.ChangeTaskName(id, "Axel");
             Assert.That(ext.TaskExists("Axel"));
             Assert.That(!ext.TaskExists("A"));
         }
@@ -38,10 +41,12 @@ namespace tdd_todo_list.CSharp.Test
         public void ChangeTaskStatus()
         {
             TodoListExtension ext = new TodoListExtension();
-            ext.AddTask("A", 199);
+            
+            ext.AddTask("A");
+            Guid guid = ext.getId("A");
             string currstatus = ext.GetStatus("A");  
             Assert.That(currstatus, Is.EqualTo("incomplete")); 
-            ext.ChangeTaskStatusByID(199, "complete");
+            ext.ChangeTaskStatusByID(guid, "complete");
             currstatus = ext.GetStatus("A");
             Assert.That(currstatus, Is.EqualTo("complete"));
         }
@@ -51,8 +56,9 @@ namespace tdd_todo_list.CSharp.Test
         public void DisplayDate()
         {
             TodoListExtension ext = new TodoListExtension();
-            ext.AddTask("A", 23);
-            Console.WriteLine(ext.DisplayDate(23));
+            ext.AddTask("A");
+            Guid guid = ext.getId("A");
+            Console.WriteLine(ext.DisplayDate(guid));
         }
 
     }
