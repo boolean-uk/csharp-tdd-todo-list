@@ -13,10 +13,12 @@ namespace tdd_todo_list.CSharp.Main
     public class TodoListExtension
     {
         List<ToDoTask> todolist = new List<ToDoTask>();
-        public string addTask(string name)
+        int idcounter = 0;
+        public string AddTask(string name)
         {
             ToDoTask task = new ToDoTask();
             task.Name = name;
+            task.Id = idcounter++;
             todolist.Add(task);
             return todolist.Last().Name;
 
@@ -24,7 +26,7 @@ namespace tdd_todo_list.CSharp.Main
 
         }
 
-        public string changeStatus(string name)
+        public string ChangeStatus(string name)
 
         {
 
@@ -82,7 +84,7 @@ namespace tdd_todo_list.CSharp.Main
         }
 
 
-        public int listSize()
+        public int ListSize()
         {
             return todolist.Count;
         }
@@ -110,7 +112,7 @@ namespace tdd_todo_list.CSharp.Main
             return "this task does not exist";
         }
 
-        public string showList()
+        public string ShowList()
 
         {
             string allTasks = "";
@@ -143,6 +145,11 @@ namespace tdd_todo_list.CSharp.Main
         public string getTaskById(int id)
         {
             ToDoTask? task = todolist.Find(x => x.Id == id);
+            foreach (ToDoTask todo in todolist)
+            {
+                Console.WriteLine(todo.Id);
+            }
+           
             if (task != null)
             {
                 return task.Name;
@@ -150,6 +157,31 @@ namespace tdd_todo_list.CSharp.Main
             return "this id does not exist!";
 
         }
+
+        public void UpdateName(int id, string name)
+        {
+            ToDoTask? task = todolist.Find(x => x.Id == id);
+            if (task!= null)
+            {
+                task.Name = name;   
+            }
+       
+
+        }
+        public String UpdateStatusById(int id)
+        {
+            ToDoTask? task = todolist.Find(x => x.Id == id);
+            if (task != null)
+            {
+                ChangeStatus(task.Name);
+                return task.Status;
+            }
+            return "the id does not exist";
+
+        }
+        
+
+        
 
     }
 }

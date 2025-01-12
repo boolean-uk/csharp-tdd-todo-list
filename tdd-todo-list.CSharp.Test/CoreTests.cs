@@ -13,8 +13,8 @@ namespace tdd_todo_list.CSharp.Test
         {
             TodoList core = new TodoList();
 
-            core.addTask("clean your room");
-            int result = core.listSize();
+            core.AddTask("clean your room");
+            int result = core.ListSize();
             int expected = 1;
 
 
@@ -28,13 +28,13 @@ namespace tdd_todo_list.CSharp.Test
             TodoList core = new TodoList();
 
 
-            core.addTask("clean your room");
-            core.addTask("do dishes");
-            core.addTask("do homework");
-            core.addTask("do groceries");
-            core.changeStatus("do dishes");
+            core.AddTask("clean your room");
+            core.AddTask("do dishes");
+            core.AddTask("do homework");
+            core.AddTask("do groceries");
+            core.ChangeStatus("do dishes");
 
-            string result = core.showList();
+            string result = core.ShowList();
             string expected =
 
                 " clean your room: incomplete\n" + " "
@@ -51,12 +51,12 @@ namespace tdd_todo_list.CSharp.Test
         public void SetStatus()
         {
             TodoList core = new TodoList();
-            core.addTask("clean your room");
-            core.addTask("do dishes");
-            core.addTask("do homework");
-            core.addTask("do groceries");
-            string result = core.changeStatus("do homework");
-            result = core.changeStatus("do homework");
+            core.AddTask("clean your room");
+            core.AddTask("do dishes");
+            core.AddTask("do homework");
+            core.AddTask("do groceries");
+            string result = core.ChangeStatus("do homework");
+            result = core.ChangeStatus("do homework");
             string expected = "incomplete";
             Assert.IsTrue(result == expected);
 
@@ -70,20 +70,17 @@ namespace tdd_todo_list.CSharp.Test
 
 
             //action
-            core.addTask("clean your room");
-            core.addTask("do dishes");
-            core.addTask("do homework");
-            core.addTask("do groceries");
+            core.AddTask("clean your room");
+            core.AddTask("do dishes");
+            core.AddTask("do homework");
+            core.AddTask("do groceries");
 
-            core.changeStatus("clean your room");
-            core.changeStatus("do homework");
-            core.changeStatus("do groceries");
-            //her er resultat
+            core.ChangeStatus("clean your room");
+            core.ChangeStatus("do homework");
+            core.ChangeStatus("do groceries");
+         
             List<ToDoTask> result = core.GetCompletedList();
-            // hva skal fasiten være 
-            //hva faen skal jeg sammenlikne resultatet med,
-            //
-
+           
 
 
 
@@ -103,33 +100,22 @@ namespace tdd_todo_list.CSharp.Test
 
 
             //action
-            core.addTask("clean your room");
-            core.addTask("do dishes");
-            core.addTask("do homework");
-            core.addTask("do groceries");
+            core.AddTask("clean your room");
+            core.AddTask("do dishes");
+            core.AddTask("do homework");
+            core.AddTask("do groceries");
 
-            core.changeStatus("clean your room");
-            core.changeStatus("do homework");
-            core.changeStatus("do groceries");
+            core.ChangeStatus("clean your room");
+            core.ChangeStatus("do homework");
+            core.ChangeStatus("do groceries");
 
-            core.changeStatus("do homework");
-            core.changeStatus("do groceries");
+            core.ChangeStatus("do homework");
+            core.ChangeStatus("do groceries");
 
-            //her er resultat
             List<ToDoTask> result = core.GetIncompletedList();
-            // hva skal fasiten være 
-            //hva faen skal jeg sammenlikne resultatet med,
-            //
-
-
-
-
-
+           
 
             Assert.That(result.Count == 3);
-
-
-
 
         }
 
@@ -137,10 +123,10 @@ namespace tdd_todo_list.CSharp.Test
         public void TaskNotExists()
         {
             TodoList core = new TodoList();
-            core.addTask("clean your room");
-            core.addTask("do dishes");
-            core.addTask("do homework");
-            core.addTask("do groceries");
+            core.AddTask("clean your room");
+            core.AddTask("do dishes");
+            core.AddTask("do homework");
+            core.AddTask("do groceries");
             string taskname = "do push ups";
 
 
@@ -154,10 +140,10 @@ namespace tdd_todo_list.CSharp.Test
         public void TaskExists()
         {
             TodoList core = new TodoList();
-            core.addTask("clean your room");
-            core.addTask("do dishes");
-            core.addTask("do homework");
-            core.addTask("do groceries");
+            core.AddTask("clean your room");
+            core.AddTask("do dishes");
+            core.AddTask("do homework");
+            core.AddTask("do groceries");
             string taskname = "do groceries";
 
 
@@ -171,16 +157,16 @@ namespace tdd_todo_list.CSharp.Test
         public void RemovingFromList()
         {
             TodoList core = new TodoList();
-            core.addTask("clean your room");
-            core.addTask("do dishes");
-            core.addTask("do homework");
-            core.addTask("do groceries");
+            core.AddTask("clean your room");
+            core.AddTask("do dishes");
+            core.AddTask("do homework");
+            core.AddTask("do groceries");
             string expected = "do dishes";
 
 
             string result = core.RemoveTask("do dishes");
 
-            Assert.That(result == expected && core.listSize() == 3);
+            Assert.That(result == expected && core.ListSize() == 3);
 
 
         }
@@ -189,10 +175,10 @@ namespace tdd_todo_list.CSharp.Test
         public void AlphabeticalAscending()
         {
             TodoList core = new TodoList();
-            core.addTask("clean your room");
-            core.addTask("do dishes");
-            core.addTask("a little nap");
-            core.addTask("do groceries");
+            core.AddTask("clean your room");
+            core.AddTask("do dishes");
+            core.AddTask("a little nap");
+            core.AddTask("do groceries");
 
             List<ToDoTask> tempresult = core.SortAlphabetical();
             List<string> result = new List<string>();
@@ -219,10 +205,10 @@ namespace tdd_todo_list.CSharp.Test
         public void AlphabeticalDescending()
         {
             TodoList core = new TodoList();
-            core.addTask("clean your room");
-            core.addTask("do dishes");
-            core.addTask("a little nap");
-            core.addTask("do groceries");
+            core.AddTask("clean your room");
+            core.AddTask("do dishes");
+            core.AddTask("a little nap");
+            core.AddTask("do groceries");
 
             List<ToDoTask> tempresult = core.SortAlphabeticalDescending();
             List<string> result = new List<string>();

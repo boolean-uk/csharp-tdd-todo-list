@@ -9,21 +9,23 @@ namespace tdd_todo_list.CSharp.Main
     public class ToDoTask
 
     {
-        string name=" ";
-        static int idCounter = 0;
-        int id;
+        string name = "";
+  
+        int id = 0;
         string status;
+        DateTime now = DateTime.Now;
 
         public ToDoTask()
         {
             status = "incomplete";
-            id = idCounter;
-            idCounter++;
+            Console.WriteLine(now.ToString());
+
 
         }
         public int Id
         {
             get { return id; }
+            set { id = value; }
         }
 
 

@@ -11,18 +11,20 @@ namespace tdd_todo_list.CSharp.Main
 
     {
         List<ToDoTask> todolist = new List<ToDoTask>();
-        public string addTask(string name)
+      
+        public string AddTask(string name)
         {
             ToDoTask task = new ToDoTask();
             task.Name = name;
             todolist.Add(task);
+        
             return todolist.Last().Name;
 
 
 
         }
 
-        public string changeStatus(string name)
+        public string ChangeStatus(string name)
 
         {
            
@@ -80,7 +82,7 @@ namespace tdd_todo_list.CSharp.Main
 
     
 
-        public int listSize()
+        public int ListSize()
         {
             return todolist.Count;
         }
@@ -108,7 +110,7 @@ namespace tdd_todo_list.CSharp.Main
             return "this task does not exist";
         }
 
-        public string showList()
+        public string ShowList()
 
         {
             string allTasks = "";

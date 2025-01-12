@@ -20,10 +20,11 @@ namespace tdd_todo_list.CSharp.Test
         {
             TodoListExtension extension= new TodoListExtension();
         
-            extension.addTask("clean your room");
-            extension.addTask("do dishes");
-            extension.addTask("do homework");
-            extension.addTask("do groceries");
+            extension.AddTask("clean your room");
+
+            extension.AddTask("do dishes");
+            extension.AddTask("do homework");
+            extension.AddTask("do groceries");
             string expected = "do homework";
 
             String result = extension.getTaskById(2);
@@ -33,6 +34,34 @@ namespace tdd_todo_list.CSharp.Test
 
 
 
+        }
+
+        [Test]
+        public void NameCheck()
+        {
+            TodoListExtension extension = new TodoListExtension();
+            String expected = "skip breakfast";
+            extension.AddTask("wake up");
+            extension.AddTask("brush teeth");
+            extension.AddTask("eat breakfast");
+            extension.UpdateName(2, "skip breakfast");
+            String result=extension.getTaskById(2);
+
+            Assert.That (result, Is.EqualTo(expected));
+
+        }
+        [Test]
+        public void TestChangeStatusById()
+        {
+            TodoListExtension extension = new TodoListExtension();
+            String expected = "complete";
+            extension.AddTask("wake up");
+            extension.AddTask("brush teeth");
+            extension.AddTask("eat breakfast");
+            String result = extension.UpdateStatusById(1);
+
+
+            Assert.That(result == expected);
         }
     }
 }
