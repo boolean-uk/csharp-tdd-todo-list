@@ -1,2 +1,12 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using System;
+using tdd_todo_list.CSharp.Main;
+
+
+TodoList toDoList = new TodoList();
+
+toDoList.AddTask("Buy food");
+toDoList.AddTask("exercise");
+
+toDoList.RemoveTask("Buy food");
+
+toDoList.ShowTasks();
