@@ -13,6 +13,3 @@
 |         |                   | ordered alphabetically in ascending order    |
 |         | TaskDescending    | I want to see all the tasks in my list       |
 |         |                   | ordered alphabetically in descending order.  |
-|         | GetTaskById       | I want to be able to get task by a unique ID |
-|         | UpdatedTask		  | I want to update the name of a task by       |
-|         |                   | providing its ID and a new name.             |
