@@ -7,6 +7,8 @@ TodoList toDoList = new TodoList();
 toDoList.AddTask("Buy food");
 toDoList.AddTask("exercise");
 
+toDoList.ShowTasks();
+
 toDoList.RemoveTask("Buy food");
 
 toDoList.ShowTasks();

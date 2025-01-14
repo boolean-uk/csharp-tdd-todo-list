@@ -50,7 +50,7 @@ namespace tdd_todo_list.CSharp.Main
         }
         public void RemoveTask(string description)
         {
-            tasks.Remove(new Task(nextId++, description));
+            tasks.Remove
             Console.WriteLine("removed task");
         }
     }
