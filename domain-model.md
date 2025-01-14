@@ -1,4 +1,4 @@
-# User Stories
+# Core User Stories
 
 1. I want to add tasks to my todo list.
 2. I want to see all the tasks in my todo list.
@@ -23,3 +23,15 @@
 |ToDoList.cs    |RemoveTasks(string task)                        |remove task                                        |message confirming removal of task           |
 |ToDoList.cs    |GetTasksAlphaAscending()                        |return tasks in alphabetical ascending order       |returns all tasks in alpha asc order         |
 |ToDoList.cs    |GetTasksAlphaDescending()                       |return tasks in alphabetical descending order      |returns all tasks in alpha desc order        |
+
+# Extension User Stories
+
+/* Domain Model */
+
+| Classes           | Methods/Properties                             | Scenario                                          | Outputs                                                |
+|-------------------|------------------------------------------------|--------------------------------------------------|---------------------------------------------------------|
+| TodoListExtension | GetTaskById(int id)                            | Retrieve a task by its unique ID                 | Returns the task object or null                         |
+| TodoListExtension | UpdateTaskName(int id, string updatedName)     | Update the name of a task by providing its ID    | Returns true if update succeeds, false otherwise        |
+| TodoListExtension | UpdateTaskStatus(int id, string updatedStatus) | Change the status of a task by providing its ID  | Returns true if status change succeeds, false otherwise |
+| TodoListExtension | GetTaskCreationDateTime(int id)                | Retrieve the creation date of a task by its ID   | Returns the creation date or null                       |
+
