@@ -1,0 +1,16 @@
+| Classes    | Members                                                                        | Methods                           | Scenario                                                 | Outputs     |
+|------------|--------------------------------------------------------------------------------|-----------------------------------|----------------------------------------------------------|-------------|
+| `ToDoList` | `Dictionary<String, bool> _toDoList` (key is task, value is completion status) | `Add(string task, bool complete)` | Task with the provided name *is not* already on the list | true        |
+|            |                                                                                |                                   | Task with the provided name *is* already on the list     | false       |
+|            |                                                                                | `PrintTasks()`                    |                                                          | int         |
+|            |                                                                                | `ChangeStatus(string task)`       | Task with the provided name *is not* on the list         | false       |
+|            |                                                                                |                                   | Task with the provided name *is* on the list             | true        |
+|            |                                                                                | `PrintComplete()`                 |                                                          | int         |
+|            |                                                                                | `PrintIncomplete()`               |                                                          | int         |
+|            |                                                                                | `SearchTask(string task)`         | Task with the provided name *is not* on the list         | false       |
+|            |                                                                                |                                   | Task with the provided name *is* on the list             | true        |
+|            |                                                                                | `RemoveTask(string task)`         | Task with the provided name *is not* on the list         | false       |
+|            |                                                                                |                                   | Task with the provided name *is* on the list             | true        |
+|            |                                                                                | `PrintAlpha()`                    |                                                          | List<sting> |
+|            |                                                                                | `PrintDeAlpha()`                  |                                                          | List<sting> |
+|            |                                                                                |                                   |                                                          |             |
