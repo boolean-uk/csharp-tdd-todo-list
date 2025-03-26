@@ -1,0 +1,20 @@
+﻿class Task
+PROPERTIES:
+    public string? Name;
+    public bool IsComplete;
+
+class TodoList
+PROPERTIES:
+    private List<Task> tasks;
+
+METHODS:
+    public TodoList(); // Constructor that initializes tasks
+    void AddTask(string name); // Adds a task to the todo list
+    List<Task> GetAllTasks(); // Gets all the tasks in the todo list
+    void ChangeTaskStatus(string name, bool isComplete); // Changes the status of a task
+    List<Task> GetCompleteTasks(); // Gets only the complete tasks
+    List<Task> GetIncompleteTasks(); // Gets only the incomplete tasks
+    string SearchTask(string name); // Searches for a task and returns a message
+    void RemoveTask(string name); // Removes a task from the list
+    List<Task> GetTasksOrderedAscending(); // Gets all the tasks ordered alphabetically in ascending order
+    List<Task> GetTasksOrderedDescending(); // Gets all the tasks ordered alphabetically in descending order
