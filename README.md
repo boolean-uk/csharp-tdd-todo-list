@@ -29,12 +29,13 @@ It may be beneficial to work in groups during the design phase of this exercise.
 - I want to remove tasks from my list.
 - I want to see all the tasks in my list ordered alphabetically in ascending order.
 - I want to see all the tasks in my list ordered alphabetically in descending order.
+- I want to prioritise tasks e.g. low, medium, high
 
 ## Extension Requirements
 
-Work on these only after you have completed the core requirements. You may need to make changes to your domain model to complete these.
+Work on these only after you have completed the core requirements. You may need to make changes to your domain model and / or your core code to complete these.
 
-Create new classes and tests for these requirements in the `./tdd-todo-list.CSharp.Main/Extension.cs` and `./tdd-todo-list.CSharp.Test/ExtensionTests.cs` directories respectively. **Do not continue working in the same classes you used during the core requirements above.**
+Create new classes and tests for these requirements in the `./tdd-todo-list.CSharp.Main/Extension.cs` and `./tdd-todo-list.CSharp.Test/ExtensionTests.cs` directories respectively. 
 
 You will see a `.gitkeep` file in each of those directories, you can safely ignore them. They're just there to make sure the directories are pushed to the repository when they're empty.
 
@@ -42,6 +43,10 @@ You will see a `.gitkeep` file in each of those directories, you can safely igno
 - I want to update the name of a task by providing its ID and a new name.
 - I want to be able to change the status of a task by providing its ID.
 - I want to be able to see the date and time that I created each task.
+- I want to be able to see the date and time that I completed a task.
+- I want to know which task took the longest amount of time to complete.
+- I want to know which task took the shortest amount of time to complete.
+- I want to categorise tasks e.g. study, work, admin etc
 
 ## Test Output
 
