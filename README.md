@@ -30,6 +30,7 @@ It may be beneficial to work in groups during the design phase of this exercise.
 - I want to see all the tasks in my list ordered alphabetically in ascending order.
 - I want to see all the tasks in my list ordered alphabetically in descending order.
 - I want to prioritise tasks e.g. low, medium, high
+- I want to list all tasks by priority
 
 ## Extension Requirements
 
@@ -46,7 +47,9 @@ You will see a `.gitkeep` file in each of those directories, you can safely igno
 - I want to be able to see the date and time that I completed a task.
 - I want to know which task took the longest amount of time to complete.
 - I want to know which task took the shortest amount of time to complete.
+- I want to know which tasks took longer than 5 days to complete.
 - I want to categorise tasks e.g. study, work, admin etc
+- I want to list all tasks by category
 
 ## Test Output
 
