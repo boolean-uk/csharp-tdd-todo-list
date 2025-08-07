@@ -55,14 +55,22 @@ namespace tdd_todo_list.CSharp.Main
             return tasks;
         }
 
-        public List<TodoObject> GetAllCompleteTasks()
+        public List<TodoObject> GetAllCompleteTasks(bool complete = true)
         {
-            throw new NotImplementedException();
+            List<TodoObject> completedTasks = new List<TodoObject>();
+            foreach (TodoObject task in Todo.Values)
+            {
+                if (task.Completed == complete) { 
+                    completedTasks.Add(task);
+                }
+            }
+            return completedTasks;
         }
 
         public List<TodoObject> GetAllIncompleteTasks()
         {
-            throw new NotImplementedException();
+            List<TodoObject> incompletedTasks = GetAllCompleteTasks(false);
+            return incompletedTasks;
         }
 
         public bool SearchFor(string v)

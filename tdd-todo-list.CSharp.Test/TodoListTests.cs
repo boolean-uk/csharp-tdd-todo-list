@@ -94,7 +94,7 @@ namespace tdd_todo_list.CSharp.Test
 
         }
         [Test]
-        public void GetAlIncompleteTasksTest1()
+        public void GetAllIncompleteTasksTest1()
         {
             TodoList TestList = new TodoList();
             TestList.Add("ferdig");
@@ -118,7 +118,7 @@ namespace tdd_todo_list.CSharp.Test
             TestList.Todo[4].Completed = true;
 
             List<TodoObject> incompleteList = TestList.GetAllIncompleteTasks();
-            Assert.That(incompleteList.All(t => t.Completed == true) && incompleteList.Count == 2);
+            Assert.That(incompleteList.All(t => t.Completed == false) && incompleteList.Count == 2);
 
         }
         [Test]
