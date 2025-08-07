@@ -70,5 +70,18 @@ namespace tdd_todo_list.CSharp.Main
 
             return resultTask;
         }
+
+        public bool RemoveTask(string taskName)
+        {
+            Task? task = GetTaskByName(taskName);
+
+            if (task == null)
+            {
+                return false;
+            }
+
+            return _tasks.Remove(task.ID);
+
+        }
     }
 }

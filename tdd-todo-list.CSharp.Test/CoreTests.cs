@@ -115,5 +115,24 @@ namespace tdd_todo_list.CSharp.Test
             Assert.That(nonExistingTask, Is.Null);
         }
 
+        [Test]
+        public void RemoveTaskName()
+        {
+            TodoList todoList = new TodoList();
+            string taskName1 = "Homework";
+            string taskName2 = "Laundry";
+            todoList.AddTask(taskName1);
+            todoList.AddTask(taskName2);
+
+            string nonExistingTaskName = "Run";
+
+            bool wasRemoved1 = todoList.RemoveTask(taskName1);
+            bool wasRemoved2 = todoList.RemoveTask(nonExistingTaskName);
+
+            Assert.That(wasRemoved1, Is.True);
+            Assert.That(wasRemoved2, Is.False);
+
+        }
+
     }
 }
