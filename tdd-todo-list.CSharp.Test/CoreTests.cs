@@ -32,5 +32,20 @@ namespace tdd_todo_list.CSharp.Test
 
             Assert.That(todoList.Tasks.Count, Is.EqualTo(2));
         }
+
+        [Test]
+        public void ToggleCompleteTest()
+        {
+            TodoList todoList = new TodoList();
+            string taskName1 = "Homework";
+            string taskName2 = "Laundry";
+            todoList.AddTask(taskName1);
+            todoList.AddTask(taskName2);
+
+            todoList.ToggleComplete(taskName1);
+
+            Assert.That(todoList.Tasks[0].IsCompleted, Is.True);
+            Assert.That(todoList.Tasks[1].IsCompleted, Is.False);
+        }
     }
 }
