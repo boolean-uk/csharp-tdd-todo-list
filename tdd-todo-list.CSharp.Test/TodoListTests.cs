@@ -35,5 +35,27 @@ namespace tdd_todo_list.CSharp.Test
 
             Assert.That(length == expectedLength);
         }
+        [Test]
+        public void GetAllObjectsTest()
+        {
+            TodoList TestList = new TodoList();
+            TestList.Add("test1");
+            TestList.Add("test2");
+            List<TodoObject> allTasks =TestList.GetAllTasks();
+
+            Assert.That(allTasks.Count == 2);
+        }
+
+        [Test]
+        public void GetAllTaskStringsTest()
+        {
+            TodoList TestList = new TodoList();
+            TestList.Add("test1");
+            TestList.Add("test2");
+
+            List<string> taskStrings = TestList.GetAllStringTasks();
+
+            Assert.That(taskStrings.Contains("test1") && taskStrings.Contains("test2"));
+        }
     }
 }
