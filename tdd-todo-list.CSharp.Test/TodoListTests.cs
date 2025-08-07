@@ -161,6 +161,18 @@ namespace tdd_todo_list.CSharp.Test
 
             Assert.That(TestList.Todo.Count == 1 && !TestList.Todo.ContainsKey(0) && TestList.Todo[1].TaskStr == "ikke ferdig");
         }
+        //Wanted to make it general but then  I had to use EquivalentComparer which I'm not familiar with
+        private bool EquivalentLists(List<TodoObject> list1, List<TodoObject> list2)
+        {
+            if (list1.Count != list2.Count) 
+            {
+                return false;
+            }
+            for (int i = 0; i < list1.Count; i++) { 
+                if (list1[i] != list2[i]) { return false; }
+            }
+            return true;
+        }
         [Test]
         public void OrderAscendingTest()
         {
@@ -169,6 +181,11 @@ namespace tdd_todo_list.CSharp.Test
             TestList.Add("caabssdsa");
             TestList.Add("baabvb");
             List<TodoObject> sortedList = TestList.OrderList();
+            List<TodoObject> expectedList = new List<TodoObject>();
+            expectedList.Add(TestList.Todo[0]);
+            expectedList.Add(TestList.Todo[2]);
+            expectedList.Add(TestList.Todo[1]);
+            Assert.IsTrue(EquivalentLists(expectedList, sortedList));
         }
         [Test]
         public void OrderDescendingTest()
@@ -178,6 +195,11 @@ namespace tdd_todo_list.CSharp.Test
             TestList.Add("caabssdsa");
             TestList.Add("baabvb");
             List<TodoObject> sortedList = TestList.OrderList(false);
+            List<TodoObject> expectedList = new List<TodoObject>();
+            expectedList.Add(TestList.Todo[1]);
+            expectedList.Add(TestList.Todo[2]);
+            expectedList.Add(TestList.Todo[0]);
+            Assert.IsTrue(EquivalentLists(expectedList, sortedList));
         }
 
         [Test]
