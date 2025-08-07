@@ -10,7 +10,7 @@
 |`TodoList`|`GetTaskByName(string name)`| Search for Task with given name | Task, provide message if not found |
 |`TodoList`|`RemoveTask(string name)` | Remove task with given name from TodoList | bool |
 |`TodoList`|`GetAllTasksSortedByName(bool useAscendingOrder)` | Return sorted version of tasks by name, either ascending or descending alphabetical order, to user | Sorted List<Task>|
-|`TodoList`|`GiveTaskPriority(name)` | Add priority (low, medium, high) to a given task | string current priority |
+|`TodoList`|`GiveTaskPriority(string name, string priority)` | Add priority (low, medium, high) to a given task | bool |
 |`TodoList`|`SortTasksByPriority()` | Return sorted version of tasks sorted by priority | Sorted List<Taks> |
 |`TodoList`|`GetTaskByID(int id)` | Provide task with given id | Task |
 |`TodoList`|`UpdateTaskName(int id, string newName)` | Update the name of a task with given id | bool |

@@ -25,5 +25,6 @@ namespace tdd_todo_list.CSharp.Main
         public string Name { get { return _name; } }
         public int ID { get { return _id; } }
         public bool IsCompleted { get { return _isCompleted; } set { _isCompleted = value; } }
+        public string Priority { get { return _priority; } set { _priority = value; } }
     }
 }

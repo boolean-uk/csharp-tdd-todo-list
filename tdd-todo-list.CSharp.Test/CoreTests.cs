@@ -158,5 +158,28 @@ namespace tdd_todo_list.CSharp.Test
             Assert.That(sortedTaskDescending[1].Name == "Homework");
             Assert.That(sortedTaskDescending[2].Name == "Dishes");
         }
+
+        [Test]
+        public void GiveTaskPriorityTest()
+        {
+            TodoList todoList = new TodoList();
+            string taskName1 = "Homework";
+            string taskName2 = "Laundry";
+            string taskName3 = "Dishes";
+            todoList.AddTask(taskName1);
+            todoList.AddTask(taskName2);
+            todoList.AddTask(taskName3);
+
+            todoList.GiveTaskPriority(taskName1, "medium");
+            todoList.GiveTaskPriority(taskName2, "low");
+            todoList.GiveTaskPriority(taskName3, "high");
+
+            bool result = todoList.GiveTaskPriority("Run", "high");
+
+            Assert.That(todoList.Tasks[0].Priority == "medium");
+            Assert.That(todoList.Tasks[1].Priority == "low");
+            Assert.That(todoList.Tasks[2].Priority == "high");
+            Assert.That(result, Is.False);
+        }
     }
 }
