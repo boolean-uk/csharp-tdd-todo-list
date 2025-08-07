@@ -10,11 +10,11 @@ namespace tdd_todo_list.CSharp.Main
     {
         private string _name;
         private int _id;
-        private bool isCompleted = false;
-        private string priority = "low";
-        private string category = String.Empty;
-        private DateTime timeCreated;
-        private DateTime timeCompleted;
+        private bool _isCompleted = false;
+        private string _priority = "low";
+        private string _category = String.Empty;
+        private DateTime _timeCreated;
+        private DateTime _timeCompleted;
 
         public Task(int count, string name)
         {
@@ -24,5 +24,6 @@ namespace tdd_todo_list.CSharp.Main
 
         public string Name { get { return _name; } }
         public int ID { get { return _id; } }
+        public bool IsCompleted { get { return _isCompleted; } set { _isCompleted = value; } }
     }
 }

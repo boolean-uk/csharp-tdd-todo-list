@@ -42,7 +42,7 @@ namespace tdd_todo_list.CSharp.Test
             todoList.AddTask(taskName1);
             todoList.AddTask(taskName2);
 
-            todoList.ToggleComplete(taskName1);
+            todoList.ToggleComplete(0);
 
             Assert.That(todoList.Tasks[0].IsCompleted, Is.True);
             Assert.That(todoList.Tasks[1].IsCompleted, Is.False);
