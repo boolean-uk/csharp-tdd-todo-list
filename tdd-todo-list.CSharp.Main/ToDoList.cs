@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace tdd_todo_list.CSharp.Main
 {
+
     public class TodoObject
     {
         private readonly int id;
@@ -52,6 +53,11 @@ namespace tdd_todo_list.CSharp.Main
                 tasks.Add(task.TaskStr);
             }
             return tasks;
+        }
+
+        public List<TodoObject> GetAllCompleteTasks()
+        {
+            throw new NotImplementedException();
         }
     }
 }

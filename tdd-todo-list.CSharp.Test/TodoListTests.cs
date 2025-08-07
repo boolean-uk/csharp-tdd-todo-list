@@ -57,5 +57,33 @@ namespace tdd_todo_list.CSharp.Test
 
             Assert.That(taskStrings.Contains("test1") && taskStrings.Contains("test2"));
         }
+        [Test]
+        public void GetAllCompleteTasksTest1()
+        {
+            TodoList TestList = new TodoList();
+            TestList.Add("ferdig");
+            TestList.Todo[0].Completed = true;
+            
+            List<TodoObject> completeList = TestList.GetAllCompleteTasks();
+            Assert.That(completeList.All( t => t.Completed == true) && completeList.Count == 1);
+
+        }
+        [Test]
+        public void GetAllCompleteTasksTest2()
+        {
+            TodoList TestList = new TodoList();
+            TestList.Add("ferdig");
+            TestList.Add("ikke ferdig");
+            TestList.Add("ferdig");
+            TestList.Add("ikke ferdig");
+            TestList.Add("ferdig");
+            TestList.Todo[0].Completed = true;
+            TestList.Todo[2].Completed = true;
+            TestList.Todo[4].Completed = true;
+
+            List<TodoObject> completeList = TestList.GetAllCompleteTasks();
+            Assert.That(completeList.All(t => t.Completed == true) && completeList.Count == 3);
+
+        }
     }
 }
