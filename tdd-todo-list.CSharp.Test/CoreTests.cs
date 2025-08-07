@@ -74,7 +74,7 @@ namespace tdd_todo_list.CSharp.Test
         }
 
         [Test]
-        public void GetInompleteTasksTest()
+        public void GetIncompleteTasksTest()
         {
             TodoList todoList = new TodoList();
             string taskName1 = "Homework";
@@ -94,5 +94,26 @@ namespace tdd_todo_list.CSharp.Test
             Assert.That(incompleteTaskList.All(task => task.IsCompleted), Is.False);
             Assert.That(incompleteTaskList.Count == 2);
         }
+
+        [Test]
+        public void GetTaskByNameTest()
+        {
+            TodoList todoList = new TodoList();
+            string taskName1 = "Homework";
+            string taskName2 = "Laundry";
+            string taskName3 = "Dishes";
+            todoList.AddTask(taskName1);
+            todoList.AddTask(taskName2);
+            todoList.AddTask(taskName3);
+
+            string nonExistingTaskName = "Run";
+
+            Task? existingTask = todoList.GetTaskByName(taskName1);
+            Task? nonExistingTask = todoList.GetTaskByName(nonExistingTaskName);
+
+            Assert.That(existingTask.Name, Is.EqualTo(taskName1));
+            Assert.That(nonExistingTask, Is.Null);
+        }
+
     }
 }

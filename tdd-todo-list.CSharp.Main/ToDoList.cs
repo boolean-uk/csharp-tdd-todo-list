@@ -50,5 +50,25 @@ namespace tdd_todo_list.CSharp.Main
             }
             return incompleteTasks;
         }
+
+        public Task? GetTaskByName(string taskName)
+        {
+            Task? resultTask = null;
+            foreach (KeyValuePair<int, Task> task in _tasks)
+            {
+                if (task.Value.Name == taskName)
+                {
+                    resultTask = task.Value;
+                    break;
+                }
+            }
+
+            if (resultTask == null)
+            {
+                Console.WriteLine($"Task {taskName} not found");
+            }
+
+            return resultTask;
+        }
     }
 }
