@@ -13,6 +13,7 @@ namespace tdd_todo_list.CSharp.Main
         private TaskPriorityEnum _priority;
         private DateTime _timeCompleted;
         private TimeSpan _timeToComplete;
+        private TaskCategoryEnum _category;
 
         public int Id { get; }
         public bool IsCompleted { get { return _isCompleted; } }
@@ -24,7 +25,7 @@ namespace tdd_todo_list.CSharp.Main
         public DateTime TimeUpdated { get { return _timeCompleted; } }
         public TimeSpan TimeToComplete { get { return _timeToComplete; } }
 
-        public TaskCategoryEnum Category { get; set; }
+        public TaskCategoryEnum Category { get { return _category; } }
 
         public void ChangeTaskContent(string taskContent)
         {
@@ -41,7 +42,17 @@ namespace tdd_todo_list.CSharp.Main
         {
             _timeCompleted= DateTime.Now;
             _timeToComplete = (TimeUpdated - TimeCreated);
+            _isCompleted = true;
+        }
 
+        public void ChangeTaskPriority(TaskPriorityEnum priority)
+        {
+            _priority = priority;
+        }
+
+        public void ChangeTaskCategory(TaskCategoryEnum category)
+        {
+            _category = category;
         }
 
 

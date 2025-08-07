@@ -116,6 +116,8 @@ namespace tdd_todo_list.CSharp.Test
         public void GetTaskNotFoundExceptionTest()
         {
             TodoList todoList = new TodoList();
+            string taskContent = "do the dishes";
+            todoList.AddTask(taskContent);
 
             Assert.Throws<TaskNotFoundException>( () => todoList.GetTaskByName("name") );
         }
@@ -129,7 +131,7 @@ namespace tdd_todo_list.CSharp.Test
 
             int expectedTasksNumber = 0;
 
-            todoList.ChangeTaskStatus(taskContent);
+            todoList.RemoveTaskByName(taskContent);
 
             var allTasks = todoList.GetAllTasks();
 
@@ -163,7 +165,7 @@ namespace tdd_todo_list.CSharp.Test
         public void GetAlphabethicallyReverseSortedTasksTest()
         {
             TodoList todoList = new TodoList();
-            string taskContent = "aaa";
+            string taskContent = "ddd";
             todoList.AddTask(taskContent);
 
             string taskContent2 = "bbb";
@@ -172,14 +174,14 @@ namespace tdd_todo_list.CSharp.Test
             string taskContent3 = "ccc";
             todoList.AddTask(taskContent3);
 
-            bool ascending = false;
+            bool ascending = true;
             var sortedTasks = todoList.GetAlphabeticallySortedTasks(ascending);
 
             int expectedTasksNumber = 3;
 
             Assert.That(sortedTasks.Count, Is.EqualTo(expectedTasksNumber));
 
-            Assert.That(sortedTasks.FirstOrDefault().TaskContent, Is.EqualTo(taskContent3));
+            Assert.That(sortedTasks.FirstOrDefault().TaskContent, Is.EqualTo(taskContent));
         }
 
         [Test]
@@ -193,7 +195,7 @@ namespace tdd_todo_list.CSharp.Test
 
             TaskPriorityEnum expectedTaskPriority = TaskPriorityEnum.High;
 
-            var task = todoList.GetTaskByName("name");
+            var task = todoList.GetTaskByName(taskContent);
 
             Assert.That(task.Priority, Is.EqualTo(expectedTaskPriority));
         }
