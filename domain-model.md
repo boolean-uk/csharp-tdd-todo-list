@@ -1,13 +1,13 @@
 | Classes       | Methods/Properties                                | Scenario							| Outputs          |
 |---------------|---------------------------------------------------|-----------------------------------|------------------
-|ToDoList.cs	|Add(Task task)										|Add task to ToDoList				|bool
+|ToDoList.cs	|Add(string name)										|Add task to ToDoList				|bool
 |ToDoList.cs	|GetAll(bool complete=false, bool incomplete=false)	|Get tasks from ToDoList (filtered)	|List\<Task\>
 |ToDoList.cs	|ChangeStatus(int TaskId)							|Change status for a task			|bool
 |ToDoList.cs	|GetTask(int taskId)								|Get task by Id						|Task
 |ToDoList.cs	|GetTask(string TaskName)							|Get/Search for task by stringName	|Task
 |ToDoList.cs	|GetTasksByPriority(string priority="")				|Get all tasks for a priority		|List\<Task\>
-|ToDoList.cs	|RemoveTask(int TaskId)								|Remove tasks by Id					|bool
-|ToDoList.cs	|SetPriority(int TaskId, int Priority)				|Sets the priority for a task		|bool
+|ToDoList.cs	|Remove(int TaskId)								|Remove tasks by Id					|bool
+|ToDoList.cs	|SetTaskPriority(int TaskId, int Priority)				|Sets the priority for a task		|bool
 |ToDoList.cs	|GetTasksByCategory(string category)				|Get tasks by category				|List\<Task\>
 |ToDoList.cs	|GetSortedTasks(bool ascending=true)				|Get tasks sorted alphabetically	|List\<Task\>
 |ToDoList.cs	|GetLongerThanFive()								|Get tasks that took \> 5 days		|List\<Task\>
