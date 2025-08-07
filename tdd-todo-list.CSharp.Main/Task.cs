@@ -22,7 +22,7 @@ namespace tdd_todo_list.CSharp.Main
         public TaskPriorityEnum Priority { get { return _priority; } }
 
         public DateTime TimeCreated { get; }
-        public DateTime TimeUpdated { get { return _timeCompleted; } }
+        public DateTime TimeCompleted { get { return _timeCompleted; } }
         public TimeSpan TimeToComplete { get { return _timeToComplete; } }
 
         public TaskCategoryEnum Category { get { return _category; } }
@@ -36,12 +36,13 @@ namespace tdd_todo_list.CSharp.Main
         {
             Id = id;
             _taskContent = taskContent;
+            TimeCreated = DateTime.Now;
         }
 
         public void CompleteTask()
         {
             _timeCompleted= DateTime.Now;
-            _timeToComplete = (TimeUpdated - TimeCreated);
+            _timeToComplete = (TimeCompleted - TimeCreated);
             _isCompleted = true;
         }
 

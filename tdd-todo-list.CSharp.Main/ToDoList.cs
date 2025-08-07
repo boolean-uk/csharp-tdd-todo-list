@@ -114,14 +114,14 @@ namespace tdd_todo_list.CSharp.Main
 
         public Task GetTaskShortestToComplete() 
         {
-            var task = tasks.Where(task => task.TimeToComplete > TimeSpan.MinValue).OrderByDescending(t => t.TimeToComplete).First();
+            var task = tasks.Where(task => task.TimeToComplete > TimeSpan.MinValue).OrderBy(t => t.TimeToComplete).FirstOrDefault();
             return task;
         }
 
-        public IEnumerable<Task> GetTasksWhichTookLongerToCompleteThan(int time) 
+        public IEnumerable<Task> GetTasksWhichTookLongerToCompleteThan(int seconds) 
         {
-            TimeSpan timeSpan = TimeSpan.FromHours(time);
-            return tasks.Where(task => task.TimeToComplete > TimeSpan.MinValue).OrderByDescending(t => t.TimeToComplete).ToList();            
+            TimeSpan timeSpan = TimeSpan.FromSeconds(seconds);
+            return tasks.Where(task => task.TimeToComplete > timeSpan).OrderByDescending(t => t.TimeToComplete).ToList();            
         }
 
         public void AssignCategoryToTaskById(int id, TaskCategoryEnum category) 
