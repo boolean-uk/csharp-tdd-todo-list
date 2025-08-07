@@ -6,6 +6,13 @@ using System.Threading.Tasks;
 
 namespace tdd_todo_list.CSharp.Main
 {
+    file class TodoObject
+    {
+        private int _id;
+        private string _taskString;
+        private string _priority;
+
+    }
     public class TodoList
     {
     }
