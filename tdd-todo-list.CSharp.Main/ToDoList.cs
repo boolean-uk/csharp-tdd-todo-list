@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -93,7 +94,17 @@ namespace tdd_todo_list.CSharp.Main
 
         public List<TodoObject> OrderList(bool ascending = true)
         {
-            throw new NotImplementedException();
+            if (ascending)
+            {
+                List<TodoObject> sortedList = Todo.Values.OrderBy(o => o.TaskStr).ToList();
+                return sortedList;
+
+            }
+            else
+            {
+                List<TodoObject> sortedList = Todo.Values.OrderByDescending(o => o.TaskStr).ToList();
+                return sortedList;
+            }
         }
 
         public void PrioritiseTask(int id, string priority)
