@@ -32,7 +32,5 @@ namespace tdd_todo_list.CSharp.Test
 
             Assert.That(todoList.Tasks.Count, Is.EqualTo(2));
         }
-
-        [Test]
     }
 }
