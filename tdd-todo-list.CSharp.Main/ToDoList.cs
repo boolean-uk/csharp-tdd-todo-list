@@ -6,14 +6,28 @@ using System.Threading.Tasks;
 
 namespace tdd_todo_list.CSharp.Main
 {
-    file class TodoObject
+    internal class TodoObject
     {
-        private int _id;
-        private string _taskString;
-        private string _priority;
+        public string TaskStr { get; set; } = " ";
+        public string Priority { get; set; } = " ";
+        public bool Completed { get; set; } = false;
 
+        public TodoObject(string taskStr) 
+        { 
+            this.TaskStr = taskStr;
+        }
+
+        public TodoObject(string taskStr, string priority)
+        {
+            this.TaskStr = taskStr;
+            this.Priority = priority;
+        }
     }
+
     public class TodoList
     {
+        private Dictionary<string, TodoObject> _todo = new Dictionary<string, TodoObject>();
+
+
     }
 }
