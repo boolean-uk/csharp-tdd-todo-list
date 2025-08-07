@@ -94,7 +94,7 @@ namespace tdd_todo_list.CSharp.Main
      
         }
 
-        public bool GiveTaskPriority(string taskName, string priority)
+        public bool GiveTaskPriority(string taskName, int priority)
         {
             Task? task = GetTaskByName(taskName);
             if (task == null)
@@ -103,6 +103,11 @@ namespace tdd_todo_list.CSharp.Main
             }
             task.Priority = priority;
             return true;
+        }
+
+        public List<Task> SortTasksByPriority()
+        {
+            return _tasks.Values.OrderBy(task => task.Priority).ToList();
         }
     }
 }

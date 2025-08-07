@@ -1,7 +1,7 @@
-﻿using tdd_todo_list.CSharp.Main;
-using NUnit.Framework;
+﻿using NUnit.Framework;
+using NUnit.Framework.Interfaces;
 using System.Security.Cryptography.X509Certificates;
-
+using tdd_todo_list.CSharp.Main;
 using Task = tdd_todo_list.CSharp.Main.Task;
 
 namespace tdd_todo_list.CSharp.Test
@@ -162,6 +162,7 @@ namespace tdd_todo_list.CSharp.Test
         [Test]
         public void GiveTaskPriorityTest()
         {
+            // Note: Priority from highest to lowest 1, 2, 3
             TodoList todoList = new TodoList();
             string taskName1 = "Homework";
             string taskName2 = "Laundry";
@@ -170,16 +171,38 @@ namespace tdd_todo_list.CSharp.Test
             todoList.AddTask(taskName2);
             todoList.AddTask(taskName3);
 
-            todoList.GiveTaskPriority(taskName1, "medium");
-            todoList.GiveTaskPriority(taskName2, "low");
-            todoList.GiveTaskPriority(taskName3, "high");
+            todoList.GiveTaskPriority(taskName1, 2);
+            todoList.GiveTaskPriority(taskName2, 3);
+            todoList.GiveTaskPriority(taskName3, 1);
 
-            bool result = todoList.GiveTaskPriority("Run", "high");
+            bool result = todoList.GiveTaskPriority("Run", 1);
 
-            Assert.That(todoList.Tasks[0].Priority == "medium");
-            Assert.That(todoList.Tasks[1].Priority == "low");
-            Assert.That(todoList.Tasks[2].Priority == "high");
+            Assert.That(todoList.Tasks[0].Priority == 2);
+            Assert.That(todoList.Tasks[1].Priority == 3);
+            Assert.That(todoList.Tasks[2].Priority == 1);
             Assert.That(result, Is.False);
+        }
+
+        [Test]
+        public void SortTasksByPriorityTest()
+        {
+            TodoList todoList = new TodoList();
+            string taskName1 = "Homework";
+            string taskName2 = "Laundry";
+            string taskName3 = "Dishes";
+            todoList.AddTask(taskName1);
+            todoList.AddTask(taskName2);
+            todoList.AddTask(taskName3);
+
+            todoList.GiveTaskPriority(taskName1, 2);
+            todoList.GiveTaskPriority(taskName2, 3);
+            todoList.GiveTaskPriority(taskName3, 1);
+
+            List<Task> sortedTasks = todoList.SortTasksByPriority();
+
+            Assert.That(sortedTasks[0].Name, Is.EqualTo("Dishes"));
+            Assert.That(sortedTasks[1].Name, Is.EqualTo("Homework"));
+            Assert.That(sortedTasks[2].Name, Is.EqualTo("Laundry"));
         }
     }
 }

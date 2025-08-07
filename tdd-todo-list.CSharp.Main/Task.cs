@@ -11,7 +11,7 @@ namespace tdd_todo_list.CSharp.Main
         private string _name;
         private int _id;
         private bool _isCompleted = false;
-        private string _priority = "low";
+        private int _priority = 3;
         private string _category = String.Empty;
         private DateTime _timeCreated;
         private DateTime _timeCompleted;
@@ -25,6 +25,6 @@ namespace tdd_todo_list.CSharp.Main
         public string Name { get { return _name; } }
         public int ID { get { return _id; } }
         public bool IsCompleted { get { return _isCompleted; } set { _isCompleted = value; } }
-        public string Priority { get { return _priority; } set { _priority = value; } }
+        public int Priority { get { return _priority; } set { _priority = value; } }
     }
 }
