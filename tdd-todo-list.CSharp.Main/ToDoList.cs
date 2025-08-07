@@ -73,14 +73,22 @@ namespace tdd_todo_list.CSharp.Main
             return incompletedTasks;
         }
 
-        public bool SearchFor(string v)
+        public bool SearchFor(string searchTask)
         {
-            throw new NotImplementedException();
+            bool foundTask = false;
+            foreach (TodoObject task in Todo.Values)
+            {
+                if (task.TaskStr == searchTask)
+                {
+                    foundTask = true;
+                }
+            }
+            return foundTask;
         }
 
-        public void Remove(int v)
+        public void Remove(int id)
         {
-            throw new NotImplementedException();
+            Todo.Remove(id);
         }
 
         public List<TodoObject> OrderList(bool ascending = true)
@@ -88,14 +96,22 @@ namespace tdd_todo_list.CSharp.Main
             throw new NotImplementedException();
         }
 
-        public void PrioritiseTask(int v1, string v2)
+        public void PrioritiseTask(int id, string priority)
         {
-            throw new NotImplementedException();
+            Todo[id].Priority = priority;
         }
 
-        public List<TodoObject> GetPriority(string v)
+        public List<TodoObject> GetPriority(string priority)
         {
-            throw new NotImplementedException();
+            List<TodoObject> priorityTasks = new List<TodoObject>();
+            foreach (TodoObject task in Todo.Values)
+            {
+                if (task.Priority == priority)
+                {
+                    priorityTasks.Add(task);
+                }
+            }
+            return priorityTasks;
         }
     }
 }
