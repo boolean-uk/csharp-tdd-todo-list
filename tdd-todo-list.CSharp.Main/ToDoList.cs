@@ -59,5 +59,35 @@ namespace tdd_todo_list.CSharp.Main
         {
             throw new NotImplementedException();
         }
+
+        public List<TodoObject> GetAllIncompleteTasks()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool SearchFor(string v)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Remove(int v)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<TodoObject> OrderList(bool ascending = true)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void PrioritiseTask(int v1, string v2)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<TodoObject> GetPriority(string v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

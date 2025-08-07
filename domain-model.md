@@ -22,11 +22,11 @@
 | ToDoList.cs | GetTasks() | Get all tasks from todo list | List of all todo tasks |
 | ToDoList.cs | PrintTasks() | Print all tasks from todo list | Print of all todo tasks |
 | ToDoList.cs | GetCompleteTasks() | Get all complete todo tasks | List of all complete tasks | 
-| ToDoList.cs | GetIncompleteTasks() | Get all complete todo tasks | List of all complete tasks | 
+| ToDoList.cs | GetIncompleteTasks() | Get all incomplete todo tasks | List of all incomplete tasks | 
 | ToDoList.cs | SearchForTask(ToDoTask? ) | Search for task | Returns null if it doesn't exist, returns the tasks otherwise | 
 | ToDoList.cs | RemoveTask(ToDoTask task) | Remove task from todo list |  | 
 | ToDoList.cs | OrderList(bool ascending = true) | Orders the todo list | returns the todo list ordered. (returns ascending or decending dependent on boolean value | 
-| ToDoList.cs | PrioritiseTask(ToDoTask task, string priority) | Sets what priority the task has |  | 
+| ToDoList.cs | PrioritiseTask(int taskid, string priority) | Sets what priority the task has |  | 
 | ToDoList.cs | GetTasksByPriority(string priority) | Get all tasks from todo liost with given priority | returns all tasks by priorioty | 
 
 
