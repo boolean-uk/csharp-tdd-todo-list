@@ -14,14 +14,17 @@ namespace tdd_todo_list.CSharp.Test
         public void GetTaskByIdTest()
         {
             TodoList todoList = new TodoList();
-            string taskContent = "do the dishes";
-            todoList.AddTask(taskContent);
+            var taskContent = "aaa";
+            var task1 = new TodoTask(0, taskContent);
+            todoList.AddTask(task1);
 
-            string taskContent2 = "do the dishes2";
-            todoList.AddTask(taskContent2);
+            var taskContent2 = "bbb";
+            var task2 = new TodoTask(1, taskContent2);
+            todoList.AddTask(task2);
 
-            string taskContent3 = "do the dishes3";
-            todoList.AddTask(taskContent3);
+            var taskContent3 = "ccc";
+            var task3 = new TodoTask(2, taskContent3);
+            todoList.AddTask(task3);
 
             int idOfFirstTask = 0;
 
@@ -34,8 +37,9 @@ namespace tdd_todo_list.CSharp.Test
         public void UpdateTaskContentByIdTest()
         {
             TodoList todoList = new TodoList();
-            string taskContent = "do the dishes";
-            todoList.AddTask(taskContent);
+            var taskContent = "do the dishes";
+            var task1 = new TodoTask(0, taskContent);
+            todoList.AddTask(task1);
 
             int idOfFirstTask = 0;
             string updatedTaskContent = "do not do the dishes";
@@ -51,8 +55,10 @@ namespace tdd_todo_list.CSharp.Test
         public void UpdateTaskStatusByIdTest()
         {
             TodoList todoList = new TodoList();
-            string taskContent = "do the dishes";
-            todoList.AddTask(taskContent);
+
+            var taskContent = "do the dishes";
+            var task1 = new TodoTask(0, taskContent);
+            todoList.AddTask(task1);
 
             int idOfFirstTask = 0;
 
@@ -69,8 +75,10 @@ namespace tdd_todo_list.CSharp.Test
         public void TaskCreationTimeTest()
         {
             TodoList todoList = new TodoList();
-            string taskContent = "do the dishes";
-            todoList.AddTask(taskContent);
+
+            var taskContent = "do the dishes";
+            var task1 = new TodoTask(0, taskContent);
+            todoList.AddTask(task1);
 
             int idOfFirstTask = 0;
 
@@ -83,8 +91,10 @@ namespace tdd_todo_list.CSharp.Test
         public void TaskCompletionTimeTest()
         {
             TodoList todoList = new TodoList();
-            string taskContent = "do the dishes";
-            todoList.AddTask(taskContent);
+
+            var taskContent = "aaa";
+            var task1 = new TodoTask(0, taskContent);
+            todoList.AddTask(task1);
 
             int idOfFirstTask = 0;
 
@@ -99,11 +109,14 @@ namespace tdd_todo_list.CSharp.Test
         public void GetTaskWithMaximalCompletionTimeTest()
         {
             TodoList todoList = new TodoList();
-            string taskContent = "do the dishes";
-            todoList.AddTask(taskContent);
 
-            string taskContent2 = "do the dishes2";
-            todoList.AddTask(taskContent2);
+            var taskContent = "aaa";
+            var task1 = new TodoTask(0, taskContent);
+            todoList.AddTask(task1);
+
+            var taskContent2 = "bbb";
+            var task2 = new TodoTask(1, taskContent2);
+            todoList.AddTask(task2);
 
             int idOfFirstTask = 0;
             int idOfSecondTask = 1;
@@ -120,11 +133,14 @@ namespace tdd_todo_list.CSharp.Test
         public void GetTaskWithMinimumCompletionTimeTest()
         {
             TodoList todoList = new TodoList();
-            string taskContent = "do the dishes";
-            todoList.AddTask(taskContent);
 
-            string taskContent2 = "do the dishes2";
-            todoList.AddTask(taskContent2);
+            var taskContent = "aaa";
+            var task1 = new TodoTask(0, taskContent);
+            todoList.AddTask(task1);
+
+            var taskContent2 = "bbb";
+            var task2 = new TodoTask(1, taskContent2);
+            todoList.AddTask(task2);
 
             int idOfFirstTask = 0;
             int idOfSecondTask = 1;
@@ -143,11 +159,14 @@ namespace tdd_todo_list.CSharp.Test
         public void GetTaskWithGivenCompletionTimeTest()
         {
             TodoList todoList = new TodoList();
-            string taskContent = "do the dishes";
-            todoList.AddTask(taskContent);
 
-            string taskContent2 = "do the dishes2";
-            todoList.AddTask(taskContent2);
+            var taskContent = "aaa";
+            var task1 = new TodoTask(0, taskContent);
+            todoList.AddTask(task1);
+
+            var taskContent2 = "bbb";
+            var task2 = new TodoTask(1, taskContent2);
+            todoList.AddTask(task2);
 
             int idOfFirstTask = 0;
             int idOfSecondTask = 1;
@@ -168,11 +187,14 @@ namespace tdd_todo_list.CSharp.Test
         public void ChangeTaskPriorityTest()
         {
             TodoList todoList = new TodoList();
-            string taskContent = "do the dishes";
-            todoList.AddTask(taskContent);
 
-            string taskContent2 = "do the dishes2";
-            todoList.AddTask(taskContent2);
+            var taskContent = "aaa";
+            var task1 = new TodoTask(0, taskContent);
+            todoList.AddTask(task1);
+
+            var taskContent2 = "bbb";
+            var task2 = new TodoTask(1, taskContent2);
+            todoList.AddTask(task2);
 
             int idOfFirstTask = 0;
             int idOfSecondTask = 1;
@@ -190,14 +212,16 @@ namespace tdd_todo_list.CSharp.Test
         public void GetTasksByPriorityTest()
         {
             TodoList todoList = new TodoList();
+
             string taskContent = "do the dishes";
-            todoList.AddTask(taskContent);
+            var task1 = new TodoTask(0, taskContent);
+            todoList.AddTask(task1);
 
-            string taskContent2 = "do the dishes2";
-            todoList.AddTask(taskContent2);
+            var task2 = new TodoTask(1, "do the dishes2");
+            todoList.AddTask(task2);
 
-            string taskContent3 = "do the dishes3";
-            todoList.AddTask(taskContent3);
+            var task3 = new TodoTask(2, "do the dishes3");
+            todoList.AddTask(task3);
 
             int idOfFirstTask = 0;
             int idOfSecondTask = 1;

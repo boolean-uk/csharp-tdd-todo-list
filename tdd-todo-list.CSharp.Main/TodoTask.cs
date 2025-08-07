@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace tdd_todo_list.CSharp.Main
 {
-    public class Task
+    public class TodoTask : ITodoTask
     {
         private string _taskContent = "";
         private bool _isCompleted = false;
-        private TaskPriorityEnum _priority;
+        private TaskPriorityEnum _priority = TaskPriorityEnum.Medium;
         private DateTime _timeCompleted;
         private TimeSpan _timeToComplete;
         private TaskCategoryEnum _category;
@@ -27,16 +27,15 @@ namespace tdd_todo_list.CSharp.Main
 
         public TaskCategoryEnum Category { get { return _category; } }
 
-        public void ChangeTaskContent(string taskContent)
-        {
-            _taskContent = taskContent;
-        }
-
-        public Task(int id, string taskContent)
+        public TodoTask(int id, string taskContent)
         {
             Id = id;
             _taskContent = taskContent;
             TimeCreated = DateTime.Now;
+        }
+        public void ChangeTaskContent(string taskContent)
+        {
+            _taskContent = taskContent;
         }
 
         public void CompleteTask()

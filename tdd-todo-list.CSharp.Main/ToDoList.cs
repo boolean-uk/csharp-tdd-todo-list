@@ -9,12 +9,10 @@ namespace tdd_todo_list.CSharp.Main
 {
     public class TodoList
     {
-        public readonly List<Task> tasks = new();
+        public readonly List<ITodoTask> tasks = new();
 
-        public void AddTask(string taskContent)
+        public void AddTask(ITodoTask task)
         {
-            int id = tasks.Count;
-            var task = new Task(id, taskContent);
             tasks.Add(task);
         }
 
@@ -23,22 +21,22 @@ namespace tdd_todo_list.CSharp.Main
             tasks.Where(t => t.TaskContent == taskName).First().CompleteTask();
         }
 
-        public IEnumerable<Task> GetAllTasks()
+        public IEnumerable<ITodoTask> GetAllTasks()
         {
             return tasks;
         }
 
-        public IEnumerable<Task> GetCompletedTasks()
+        public IEnumerable<ITodoTask> GetCompletedTasks()
         {
             return tasks.Where(t => t.IsCompleted == true).ToList();
         }
 
-        public IEnumerable<Task> GetIncompleteTasks()
+        public IEnumerable<ITodoTask> GetIncompleteTasks()
         {
             return tasks.Where(t => t.IsCompleted == false).ToList();
         }
 
-        public Task SearchForTask(string taskContent)
+        public ITodoTask SearchForTask(string taskContent)
         {
             return tasks.Where(t => t.TaskContent == taskContent).First();
         }
@@ -55,12 +53,12 @@ namespace tdd_todo_list.CSharp.Main
             tasks.Remove(taskToRemove);
         }
 
-        public IEnumerable<Task> GetAlphabeticallySortedTasks(bool ascending) 
+        public IEnumerable<ITodoTask> GetAlphabeticallySortedTasks(bool ascending) 
         {  
             if (ascending)
-                return tasks.OrderByDescending(task  => task.TaskContent).ToArray();
+                return tasks.OrderBy(task  => task.TaskContent).ToArray();
 
-            return tasks.OrderBy(task => task.TaskContent).ToArray();
+            return tasks.OrderByDescending(task => task.TaskContent).ToArray();
         }
 
         public void ChangeTaskPriorityByName(string name, TaskPriorityEnum priority) 
@@ -73,12 +71,12 @@ namespace tdd_todo_list.CSharp.Main
             tasks.Where(t => t.Id == id).First().ChangeTaskPriority(priority);
         }
 
-        public IEnumerable<Task> GetAllTasksByPriority(TaskPriorityEnum priority)
+        public IEnumerable<ITodoTask> GetAllTasksByPriority(TaskPriorityEnum priority)
         {
             return tasks.Where(t => t.Priority == priority).ToList();
         }
 
-        public Task GetTaskByName(string name) 
+        public ITodoTask GetTaskByName(string name) 
         { 
             var task = tasks.Where(t => t.TaskContent == name).FirstOrDefault(); 
 
@@ -89,7 +87,7 @@ namespace tdd_todo_list.CSharp.Main
                 throw new TaskNotFoundException();
         }
 
-        public Task GetTaskById(int id) 
+        public ITodoTask GetTaskById(int id) 
         {
             return tasks.Where(t => t.Id == id).First();
         }
@@ -106,19 +104,19 @@ namespace tdd_todo_list.CSharp.Main
             task.CompleteTask();
         }
 
-        public Task GetTaskLongestToComplete()
+        public ITodoTask GetTaskLongestToComplete()
         {
             var task = tasks.OrderByDescending(t => t.TimeToComplete).First();
             return task;
         }
 
-        public Task GetTaskShortestToComplete() 
+        public ITodoTask GetTaskShortestToComplete() 
         {
             var task = tasks.Where(task => task.TimeToComplete > TimeSpan.MinValue).OrderBy(t => t.TimeToComplete).FirstOrDefault();
             return task;
         }
 
-        public IEnumerable<Task> GetTasksWhichTookLongerToCompleteThan(int seconds) 
+        public IEnumerable<ITodoTask> GetTasksWhichTookLongerToCompleteThan(int seconds) 
         {
             TimeSpan timeSpan = TimeSpan.FromSeconds(seconds);
             return tasks.Where(task => task.TimeToComplete > timeSpan).OrderByDescending(t => t.TimeToComplete).ToList();            
@@ -130,7 +128,7 @@ namespace tdd_todo_list.CSharp.Main
             task.ChangeTaskCategory(category);
         }
 
-        public IEnumerable<Task> GetTasksByCategory(TaskCategoryEnum category)
+        public IEnumerable<ITodoTask> GetTasksByCategory(TaskCategoryEnum category)
         {
             return tasks.Where(task => task.Category == category).ToList();
         }

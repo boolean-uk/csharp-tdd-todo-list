@@ -11,8 +11,9 @@ namespace tdd_todo_list.CSharp.Test
         public void Add1TaskTest()
         {
             TodoList todoList = new TodoList();
-            string taskContent = "do the dishes";
-            todoList.AddTask(taskContent);
+
+            var task1 = new TodoTask(0, "do the dishes");
+            todoList.AddTask(task1);
 
 
             int expectedTasksNumber = 1;
@@ -24,11 +25,12 @@ namespace tdd_todo_list.CSharp.Test
         public void Add2TasksTest()
         {
             TodoList todoList = new TodoList();
-            string taskContent = "do the dishes";
-            todoList.AddTask(taskContent);
 
-            string taskContent2 = "do the dishes2";
-            todoList.AddTask(taskContent2);
+            var task1 = new TodoTask(0, "do the dishes");
+            todoList.AddTask(task1);
+
+            var task2 = new TodoTask(1, "do the dishes 2");
+            todoList.AddTask(task2);
 
             int expectedTasksNumber = 2;
 
@@ -39,8 +41,10 @@ namespace tdd_todo_list.CSharp.Test
         public void ChangeTaskStatusTest()
         {
             TodoList todoList = new TodoList();
+
             string taskContent = "do the dishes";
-            todoList.AddTask(taskContent);
+            var task1 = new TodoTask(0, taskContent);
+            todoList.AddTask(task1);
 
 
             todoList.ChangeTaskStatus(taskContent);
@@ -53,18 +57,17 @@ namespace tdd_todo_list.CSharp.Test
         public void GetAllTasksTest()
         {
             TodoList todoList = new TodoList();
-            string taskContent = "do the dishes";
-            todoList.AddTask(taskContent);
 
-            string taskContent2 = "do the dishes2";
-            todoList.AddTask(taskContent2);
+            var task1 = new TodoTask(0, "do the dishes");
+            todoList.AddTask(task1);
 
-            string taskContent3 = "do the dishes3";
-            todoList.AddTask(taskContent3);
+            var task2 = new TodoTask(1, "do the dishes2");
+            todoList.AddTask(task2);
+
+            var task3 = new TodoTask(2, "do the dishes3");
+            todoList.AddTask(task3);
 
             int expectedTasksNumber = 3;
-
-            todoList.ChangeTaskStatus(taskContent);
 
             var allTasks = todoList.GetAllTasks();
 
@@ -75,11 +78,13 @@ namespace tdd_todo_list.CSharp.Test
         public void GetCompleteTasksTest()
         {
             TodoList todoList = new TodoList();
-            string taskContent = "do the dishes";
-            todoList.AddTask(taskContent);
 
-            string taskContent2 = "do the dishes2";
-            todoList.AddTask(taskContent2);
+            string taskContent = "do the dishes";
+            var task1 = new TodoTask(0, taskContent);
+            todoList.AddTask(task1);
+
+            var task2 = new TodoTask(1, "do the dishes2");
+            todoList.AddTask(task2);
 
             int expectedTasksNumber = 1;
 
@@ -88,20 +93,23 @@ namespace tdd_todo_list.CSharp.Test
             var completedTasks = todoList.GetCompletedTasks();
 
             Assert.That(completedTasks.Count, Is.EqualTo(expectedTasksNumber));
+            Assert.That(completedTasks.FirstOrDefault().TaskContent, Is.EqualTo(taskContent));
         }
 
         [Test]
         public void GetIncompleteTasksTest()
         {
             TodoList todoList = new TodoList();
+
             string taskContent = "do the dishes";
-            todoList.AddTask(taskContent);
+            var task1 = new TodoTask(0, taskContent);
+            todoList.AddTask(task1);
 
-            string taskContent2 = "do the dishes2";
-            todoList.AddTask(taskContent2);
+            var task2 = new TodoTask(1, "do the dishes2");
+            todoList.AddTask(task2);
 
-            string taskContent3 = "do the dishes3";
-            todoList.AddTask(taskContent3);
+            var task3 = new TodoTask(2, "do the dishes3");
+            todoList.AddTask(task3);
 
             int expectedTasksNumber = 2;
 
@@ -116,8 +124,9 @@ namespace tdd_todo_list.CSharp.Test
         public void GetTaskNotFoundExceptionTest()
         {
             TodoList todoList = new TodoList();
-            string taskContent = "do the dishes";
-            todoList.AddTask(taskContent);
+
+            var task1 = new TodoTask(0, "do the dishes");
+            todoList.AddTask(task1);
 
             Assert.Throws<TaskNotFoundException>( () => todoList.GetTaskByName("name") );
         }
@@ -126,8 +135,10 @@ namespace tdd_todo_list.CSharp.Test
         public void RemoveTaskTest()
         {
             TodoList todoList = new TodoList();
+
             string taskContent = "do the dishes";
-            todoList.AddTask(taskContent);
+            var task1 = new TodoTask(0, taskContent);
+            todoList.AddTask(task1);
 
             int expectedTasksNumber = 0;
 
@@ -143,13 +154,14 @@ namespace tdd_todo_list.CSharp.Test
         {
             TodoList todoList = new TodoList();
             string taskContent = "aaa";
-            todoList.AddTask(taskContent);
+            var task1 = new TodoTask(0, taskContent);
+            todoList.AddTask(task1);
 
-            string taskContent2 = "bbb";
-            todoList.AddTask(taskContent2);
+            var task2 = new TodoTask(1, "bbb");
+            todoList.AddTask(task2);
 
-            string taskContent3 = "ccc";
-            todoList.AddTask(taskContent3);
+            var task3 = new TodoTask(2, "ccc");
+            todoList.AddTask(task3);
 
             bool ascending = true;
             var sortedTasks = todoList.GetAlphabeticallySortedTasks(ascending);
@@ -165,31 +177,34 @@ namespace tdd_todo_list.CSharp.Test
         public void GetAlphabethicallyReverseSortedTasksTest()
         {
             TodoList todoList = new TodoList();
-            string taskContent = "ddd";
-            todoList.AddTask(taskContent);
+            var taskContent = "ddd";
+            var task1 = new TodoTask(0, taskContent);
+            todoList.AddTask(task1);
 
-            string taskContent2 = "bbb";
-            todoList.AddTask(taskContent2);
+            var taskContent2 = "fff";
+            var task2 = new TodoTask(1, taskContent2);
+            todoList.AddTask(task2);
 
-            string taskContent3 = "ccc";
-            todoList.AddTask(taskContent3);
+            var task3 = new TodoTask(2, "ccc");
+            todoList.AddTask(task3);
 
-            bool ascending = true;
+            bool ascending = false;
             var sortedTasks = todoList.GetAlphabeticallySortedTasks(ascending);
 
             int expectedTasksNumber = 3;
 
             Assert.That(sortedTasks.Count, Is.EqualTo(expectedTasksNumber));
-
-            Assert.That(sortedTasks.FirstOrDefault().TaskContent, Is.EqualTo(taskContent));
+            Assert.That(sortedTasks.FirstOrDefault().TaskContent, Is.EqualTo(taskContent2));
         }
 
         [Test]
         public void ChangeTaskPriorityTest()
         {
             TodoList todoList = new TodoList();
-            string taskContent = "aaa";
-            todoList.AddTask(taskContent);
+
+            var taskContent = "ddd";
+            var task1 = new TodoTask(0, taskContent);
+            todoList.AddTask(task1);
 
             todoList.ChangeTaskPriorityByName(taskContent, TaskPriorityEnum.High);
 
@@ -204,23 +219,29 @@ namespace tdd_todo_list.CSharp.Test
         public void GetHighPriorityTasksTest()
         {
             TodoList todoList = new TodoList();
-            string taskContent = "do the dishes";
-            todoList.AddTask(taskContent);
+            var taskContent = "aaa";
+            var task1 = new TodoTask(0, taskContent);
+            todoList.AddTask(task1);
 
-            string taskContent2 = "do the dishes2";
-            todoList.AddTask(taskContent2);
+            var taskContent2 = "bbb";
+            var task2 = new TodoTask(1, taskContent2);
+            todoList.AddTask(task2);
 
-            string taskContent3 = "do the dishes3";
-            todoList.AddTask(taskContent3);
+            var taskContent3 = "ccc";
+            var task3 = new TodoTask(2, taskContent3);
+            todoList.AddTask(task3);
 
-            int expectedTasksNumber = 2;
+            int expectedHighPriorityTasksNumber = 2;
+            int expectedMediumPriorityTasksNumber = 1;
 
             todoList.ChangeTaskPriorityByName(taskContent, TaskPriorityEnum.High);
             todoList.ChangeTaskPriorityByName(taskContent2, TaskPriorityEnum.High);
 
-            var incompletedTasks = todoList.GetAllTasksByPriority(TaskPriorityEnum.High);
+            var highPriorityTasks = todoList.GetAllTasksByPriority(TaskPriorityEnum.High);
+            Assert.That(highPriorityTasks.Count, Is.EqualTo(expectedHighPriorityTasksNumber));
 
-            Assert.That(incompletedTasks.Count, Is.EqualTo(expectedTasksNumber));
+            var mediumPriorityTasks = todoList.GetAllTasksByPriority(TaskPriorityEnum.Medium);
+            Assert.That(mediumPriorityTasks.Count, Is.EqualTo(expectedMediumPriorityTasksNumber));
         }
     }
 }
