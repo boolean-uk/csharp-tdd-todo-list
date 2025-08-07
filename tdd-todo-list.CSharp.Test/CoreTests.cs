@@ -1,5 +1,8 @@
 ﻿using tdd_todo_list.CSharp.Main;
 using NUnit.Framework;
+using System.Security.Cryptography.X509Certificates;
+
+using Task = tdd_todo_list.CSharp.Main.Task;
 
 namespace tdd_todo_list.CSharp.Test
 {
@@ -46,6 +49,50 @@ namespace tdd_todo_list.CSharp.Test
 
             Assert.That(todoList.Tasks[0].IsCompleted, Is.True);
             Assert.That(todoList.Tasks[1].IsCompleted, Is.False);
+        }
+
+        [Test]
+        public void GetCompleteTasksTest()
+        {
+            TodoList todoList = new TodoList();
+            string taskName1 = "Homework";
+            string taskName2 = "Laundry";
+            string taskName3 = "Dishes";
+            string taskName4 = "Run";
+            todoList.AddTask(taskName1);
+            todoList.AddTask(taskName2);
+            todoList.AddTask(taskName3);
+            todoList.AddTask(taskName4);
+
+            todoList.ToggleComplete(0);
+            todoList.ToggleComplete(3);
+
+            List<Task> completeTaskList = todoList.GetCompleteTasks();
+
+            Assert.That(completeTaskList.All(task => task.IsCompleted), Is.True);
+            Assert.That(completeTaskList.Count == 2);
+        }
+
+        [Test]
+        public void GetInompleteTasksTest()
+        {
+            TodoList todoList = new TodoList();
+            string taskName1 = "Homework";
+            string taskName2 = "Laundry";
+            string taskName3 = "Dishes";
+            string taskName4 = "Run";
+            todoList.AddTask(taskName1);
+            todoList.AddTask(taskName2);
+            todoList.AddTask(taskName3);
+            todoList.AddTask(taskName4);
+
+            todoList.ToggleComplete(0);
+            todoList.ToggleComplete(3);
+
+            List<Task> incompleteTaskList = todoList.GetIncompleteTasks();
+
+            Assert.That(incompleteTaskList.All(task => task.IsCompleted), Is.False);
+            Assert.That(incompleteTaskList.Count == 2);
         }
     }
 }

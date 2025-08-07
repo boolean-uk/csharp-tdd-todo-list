@@ -20,5 +20,35 @@ namespace tdd_todo_list.CSharp.Main
             _tasks.Add(_taskCount, newTask);
             _taskCount++;
         }
+
+        public void ToggleComplete(int taskID)
+        {
+            _tasks[taskID].IsCompleted = !_tasks[taskID].IsCompleted;
+        }
+
+        public List<Task> GetCompleteTasks()
+        {
+            List<Task> completeTasks = new List<Task>();
+            foreach (Task task in _tasks.Values) {
+                if (task.IsCompleted)
+                {
+                    completeTasks.Add(task);
+                }
+            }
+            return completeTasks;
+        }
+
+        public List<Task> GetIncompleteTasks()
+        {
+            List<Task> incompleteTasks = new List<Task>();
+            foreach (Task task in _tasks.Values)
+            {
+                if (!task.IsCompleted)
+                {
+                    incompleteTasks.Add(task);
+                }
+            }
+            return incompleteTasks;
+        }
     }
 }
