@@ -62,7 +62,7 @@ namespace tdd_todo_list.CSharp.Test
 
             int idOfFirstTask = 0;
 
-            todoList.UpdateTaskStatusById(idOfFirstTask);
+            todoList.CompleteTaskById(idOfFirstTask);
 
             var task = todoList.GetTaskById(idOfFirstTask);
 
@@ -98,7 +98,7 @@ namespace tdd_todo_list.CSharp.Test
 
             int idOfFirstTask = 0;
 
-            todoList.UpdateTaskStatusById(idOfFirstTask);
+            todoList.CompleteTaskById(idOfFirstTask);
 
             var task = todoList.GetTaskById(idOfFirstTask);
 
@@ -121,8 +121,8 @@ namespace tdd_todo_list.CSharp.Test
             int idOfFirstTask = 0;
             int idOfSecondTask = 1;
 
-            todoList.UpdateTaskStatusById(idOfSecondTask);
-            todoList.UpdateTaskStatusById(idOfFirstTask);
+            todoList.CompleteTaskById(idOfSecondTask);
+            todoList.CompleteTaskById(idOfFirstTask);
 
             var task = todoList.GetTaskLongestToComplete();
 
@@ -134,21 +134,57 @@ namespace tdd_todo_list.CSharp.Test
         {
             TodoList todoList = new TodoList();
 
-            var taskContent = "aaa";
-            var task1 = new TodoTask(0, taskContent);
-            todoList.AddTask(task1);
-
-            var taskContent2 = "bbb";
-            var task2 = new TodoTask(1, taskContent2);
-            todoList.AddTask(task2);
-
             int idOfFirstTask = 0;
             int idOfSecondTask = 1;
+            int idOfThirdTask = 2;
 
-            Thread.Sleep(1000);
-            todoList.UpdateTaskStatusById(idOfSecondTask);
-            Thread.Sleep(1000);
-            todoList.UpdateTaskStatusById(idOfFirstTask);
+            var task1 = new MockTodoTask(
+                id: idOfFirstTask,
+                taskContent: "ccc",
+                isCompleted: true,
+                priority: TaskPriorityEnum.Medium,
+                timeCompleted: DateTime.Parse("Jan 5, 2009"),
+                timeCreated: DateTime.Parse("Jan 1, 2009"),
+                timeToComplete: TimeSpan.MaxValue,
+                category: TaskCategoryEnum.Study
+            );
+            todoList.AddTask(task1);
+
+            var task2 = new MockTodoTask(
+                id: idOfSecondTask,
+                taskContent: "ccc",
+                isCompleted: true,
+                priority: TaskPriorityEnum.Medium,
+                timeCompleted: DateTime.Parse("Jan 5, 2009"),
+                timeCreated: DateTime.Parse("Jan 1, 2009"),
+                timeToComplete: TimeSpan.FromSeconds(1),
+                category: TaskCategoryEnum.Study
+            );
+            todoList.AddTask(task2);
+
+            var task3 = new MockTodoTask(
+                id: idOfThirdTask,
+                taskContent: "ccc",
+                isCompleted: true,
+                priority: TaskPriorityEnum.Medium,
+                timeCompleted: DateTime.Parse("Jan 5, 2009"),
+                timeCreated: DateTime.Parse("Jan 1, 2009"),
+                timeToComplete: TimeSpan.MaxValue,
+                category: TaskCategoryEnum.Study
+            );
+            todoList.AddTask(task3);
+
+            var task4 = new MockTodoTask(
+                id: idOfThirdTask,
+                taskContent: "ccc",
+                isCompleted: false,
+                priority: TaskPriorityEnum.Medium,
+                timeCompleted: DateTime.Parse("Jan 5, 2009"),
+                timeCreated: DateTime.Parse("Jan 1, 2009"),
+                timeToComplete: TimeSpan.MinValue,
+                category: TaskCategoryEnum.Study
+            );
+            todoList.AddTask(task4);
 
             var task = todoList.GetTaskShortestToComplete();
 
@@ -160,84 +196,90 @@ namespace tdd_todo_list.CSharp.Test
         {
             TodoList todoList = new TodoList();
 
-            var taskContent = "aaa";
-            var task1 = new TodoTask(0, taskContent);
-            todoList.AddTask(task1);
-
-            var taskContent2 = "bbb";
-            var task2 = new TodoTask(1, taskContent2);
-            todoList.AddTask(task2);
-
-            int idOfFirstTask = 0;
-            int idOfSecondTask = 1;
-
-            todoList.UpdateTaskStatusById(idOfSecondTask);
-            Thread.Sleep(1000);
-            todoList.UpdateTaskStatusById(idOfFirstTask);
-
-            int thresholdSeconds = 1;
-            int expectedTasksNumber = 1;
-            var tasks = todoList.GetTasksWhichTookLongerToCompleteThan(thresholdSeconds);
-
-            Assert.That(tasks.Count, Is.EqualTo(expectedTasksNumber));
-            Assert.That(tasks.FirstOrDefault().Id, Is.EqualTo(idOfFirstTask));
-        }
-
-        [Test]
-        public void ChangeTaskPriorityTest()
-        {
-            TodoList todoList = new TodoList();
-
-            var taskContent = "aaa";
-            var task1 = new TodoTask(0, taskContent);
-            todoList.AddTask(task1);
-
-            var taskContent2 = "bbb";
-            var task2 = new TodoTask(1, taskContent2);
-            todoList.AddTask(task2);
-
-            int idOfFirstTask = 0;
-            int idOfSecondTask = 1;
-
-            todoList.ChangeTaskPriorityById(idOfFirstTask, TaskPriorityEnum.High);
-
-            TaskPriorityEnum expectedTaskPriorityValue = TaskPriorityEnum.High;
-
-            var task = todoList.GetTaskById(idOfFirstTask);
-
-            Assert.That(task.Priority, Is.EqualTo(expectedTaskPriorityValue));
-        }
-
-        [Test]
-        public void GetTasksByPriorityTest()
-        {
-            TodoList todoList = new TodoList();
-
-            string taskContent = "do the dishes";
-            var task1 = new TodoTask(0, taskContent);
-            todoList.AddTask(task1);
-
-            var task2 = new TodoTask(1, "do the dishes2");
-            todoList.AddTask(task2);
-
-            var task3 = new TodoTask(2, "do the dishes3");
-            todoList.AddTask(task3);
-
             int idOfFirstTask = 0;
             int idOfSecondTask = 1;
             int idOfThirdTask = 2;
 
-            todoList.ChangeTaskPriorityById(idOfFirstTask, TaskPriorityEnum.High);
-            todoList.ChangeTaskPriorityById(idOfThirdTask, TaskPriorityEnum.High);
+            var taskContent = "aaa";
+            var task1 = new TodoTask(idOfFirstTask, taskContent);
+            todoList.AddTask(task1);
 
-            TaskPriorityEnum expectedTaskPriorityValue = TaskPriorityEnum.High;
+            var taskContent2 = "bbb";
+            var task2 = new TodoTask(idOfSecondTask, taskContent2);
+            todoList.AddTask(task2);
+
+            var task3 = new MockTodoTask(
+                id: idOfThirdTask,
+                taskContent: "ccc",
+                isCompleted: true,
+                priority: TaskPriorityEnum.Medium,
+                timeCompleted: DateTime.Parse("Jan 5, 2009"),
+                timeCreated: DateTime.Parse("Jan 1, 2009"),
+                timeToComplete: TimeSpan.MaxValue,
+                category: TaskCategoryEnum.Study
+            );
+            todoList.AddTask(task3);
+
+            todoList.CompleteTaskById(idOfSecondTask);
+            todoList.CompleteTaskById(idOfFirstTask);
+
+            int thresholdSeconds = 10;
+            int expectedTasksNumber = 1;
+            var tasks = todoList.GetTasksWhichTookLongerToCompleteThan(thresholdSeconds);
+
+            Assert.That(tasks.Count, Is.EqualTo(expectedTasksNumber));
+            Assert.That(tasks.FirstOrDefault().Id, Is.EqualTo(idOfThirdTask));
+        }
+
+        [Test]
+        public void AssignCategoryToTaskTest()
+        {
+            TodoList todoList = new TodoList();
+
+            int idOfFirstTask = 0;
+
+            var taskContent = "aaa";
+            var task1 = new TodoTask(idOfFirstTask, taskContent);
+            todoList.AddTask(task1);
+
+            todoList.AssignCategoryToTaskById(idOfFirstTask, TaskCategoryEnum.Admin);
+
+            var task = todoList.GetTaskById(idOfFirstTask);
+
+            Assert.That(task.Category, Is.EqualTo(TaskCategoryEnum.Admin));
+        }
+
+        [Test]
+        public void GetTasksByCategoryTest()
+        {
+            TodoList todoList = new TodoList();
+
+            int idOfFirstTask = 0;
+            int idOfSecondTask = 1;
+            int idOfThirdTask = 2;
+            int idOfFourthTask = 3;
+
+            var task1 = new TodoTask(idOfFirstTask, "aaa");
+            todoList.AddTask(task1);
+
+            var task2 = new TodoTask(idOfSecondTask, "bbb");
+            todoList.AddTask(task2);
+
+            var task3 = new TodoTask(idOfThirdTask, "ccc");
+            todoList.AddTask(task3);
+
+            var task4 = new TodoTask(idOfFourthTask, "ddd");
+            todoList.AddTask(task4);
+
+            todoList.AssignCategoryToTaskById(idOfSecondTask, TaskCategoryEnum.Admin);
+            todoList.AssignCategoryToTaskById(idOfThirdTask, TaskCategoryEnum.Admin);
+
+            var tasks = todoList.GetTasksByCategory(TaskCategoryEnum.Admin);
+
             int expectedTasks = 2;
 
-            var tasks = todoList.GetAllTasksByPriority(TaskPriorityEnum.High);
-
             Assert.That(tasks.Count(), Is.EqualTo(expectedTasks));
-
-            Assert.That(tasks.FirstOrDefault().Priority, Is.EqualTo(expectedTaskPriorityValue));
+            Assert.That(tasks.FirstOrDefault().Category, Is.EqualTo(TaskCategoryEnum.Admin));
         }
     }
 }

@@ -16,11 +16,6 @@ namespace tdd_todo_list.CSharp.Main
             tasks.Add(task);
         }
 
-        public void ChangeTaskStatus(string taskName)
-        {
-            tasks.Where(t => t.TaskContent == taskName).First().CompleteTask();
-        }
-
         public IEnumerable<ITodoTask> GetAllTasks()
         {
             return tasks;
@@ -36,20 +31,15 @@ namespace tdd_todo_list.CSharp.Main
             return tasks.Where(t => t.IsCompleted == false).ToList();
         }
 
-        public ITodoTask SearchForTask(string taskContent)
-        {
-            return tasks.Where(t => t.TaskContent == taskContent).First();
-        }
-
         public void RemoveTaskByName(string taskContent) 
         {
-            var taskToRemove = tasks.Where(t => t.TaskContent == taskContent).First();
+            var taskToRemove = tasks.Where(t => t.TaskContent == taskContent).FirstOrDefault();
             tasks.Remove(taskToRemove);
         }
 
         public void RemoveTaskById(int id)
         {
-            var taskToRemove = tasks.Where(t => t.Id == id).First();
+            var taskToRemove = tasks.Where(t => t.Id == id).FirstOrDefault();
             tasks.Remove(taskToRemove);
         }
 
@@ -63,17 +53,17 @@ namespace tdd_todo_list.CSharp.Main
 
         public void ChangeTaskPriorityByName(string name, TaskPriorityEnum priority) 
         {
-            tasks.Where(t => t.TaskContent == name).First().ChangeTaskPriority(priority);
+            tasks.Where(t => t.TaskContent == name).FirstOrDefault().ChangeTaskPriority(priority);
         }
 
         public void ChangeTaskPriorityById(int id, TaskPriorityEnum priority)
         {
-            tasks.Where(t => t.Id == id).First().ChangeTaskPriority(priority);
+            tasks.Where(t => t.Id == id).FirstOrDefault().ChangeTaskPriority(priority);
         }
 
-        public IEnumerable<ITodoTask> GetAllTasksByPriority(TaskPriorityEnum priority)
+        public IEnumerable<ITodoTask> GetAllTasksByPriority()
         {
-            return tasks.Where(t => t.Priority == priority).ToList();
+            return tasks.OrderByDescending(t => t.Priority).ToArray();
         }
 
         public ITodoTask GetTaskByName(string name) 
@@ -89,7 +79,7 @@ namespace tdd_todo_list.CSharp.Main
 
         public ITodoTask GetTaskById(int id) 
         {
-            return tasks.Where(t => t.Id == id).First();
+            return tasks.Where(t => t.Id == id).FirstOrDefault();
         }
 
         public void UpdateTaskNameById(int id, string newName) 
@@ -98,21 +88,27 @@ namespace tdd_todo_list.CSharp.Main
             task.ChangeTaskContent(newName);
         }
 
-        public void UpdateTaskStatusById(int id) 
+        public void CompleteTaskById(int id) 
         {
             var task = GetTaskById(id);
             task.CompleteTask();
         }
 
+        public void CompleteTaskByName(string name)
+        {
+            var task = GetTaskByName(name);
+            task.CompleteTask();
+        }
+
         public ITodoTask GetTaskLongestToComplete()
         {
-            var task = tasks.OrderByDescending(t => t.TimeToComplete).First();
+            var task = tasks.OrderByDescending(t => t.TimeToComplete).FirstOrDefault();
             return task;
         }
 
         public ITodoTask GetTaskShortestToComplete() 
         {
-            var task = tasks.Where(task => task.TimeToComplete > TimeSpan.MinValue).OrderBy(t => t.TimeToComplete).FirstOrDefault();
+            var task = tasks.Where(t => t.IsCompleted == true).OrderBy(t => t.TimeToComplete).FirstOrDefault();
             return task;
         }
 

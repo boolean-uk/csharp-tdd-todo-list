@@ -47,7 +47,7 @@ namespace tdd_todo_list.CSharp.Test
             todoList.AddTask(task1);
 
 
-            todoList.ChangeTaskStatus(taskContent);
+            todoList.CompleteTaskByName(taskContent);
             bool expectedCompleteness = true;
 
             Assert.That(todoList.tasks.First().IsCompleted, Is.EqualTo(expectedCompleteness));
@@ -88,7 +88,7 @@ namespace tdd_todo_list.CSharp.Test
 
             int expectedTasksNumber = 1;
 
-            todoList.ChangeTaskStatus(taskContent);
+            todoList.CompleteTaskByName(taskContent);
 
             var completedTasks = todoList.GetCompletedTasks();
 
@@ -113,7 +113,7 @@ namespace tdd_todo_list.CSharp.Test
 
             int expectedTasksNumber = 2;
 
-            todoList.ChangeTaskStatus(taskContent);
+            todoList.CompleteTaskByName(taskContent);
 
             var incompletedTasks = todoList.GetIncompleteTasks();
 
@@ -231,17 +231,14 @@ namespace tdd_todo_list.CSharp.Test
             var task3 = new TodoTask(2, taskContent3);
             todoList.AddTask(task3);
 
-            int expectedHighPriorityTasksNumber = 2;
-            int expectedMediumPriorityTasksNumber = 1;
+            int totalTasks = 3;
 
-            todoList.ChangeTaskPriorityByName(taskContent, TaskPriorityEnum.High);
-            todoList.ChangeTaskPriorityByName(taskContent2, TaskPriorityEnum.High);
+            todoList.ChangeTaskPriorityByName(taskContent, TaskPriorityEnum.Low);
+            todoList.ChangeTaskPriorityByName(taskContent3, TaskPriorityEnum.High);
 
-            var highPriorityTasks = todoList.GetAllTasksByPriority(TaskPriorityEnum.High);
-            Assert.That(highPriorityTasks.Count, Is.EqualTo(expectedHighPriorityTasksNumber));
-
-            var mediumPriorityTasks = todoList.GetAllTasksByPriority(TaskPriorityEnum.Medium);
-            Assert.That(mediumPriorityTasks.Count, Is.EqualTo(expectedMediumPriorityTasksNumber));
+            var prioritySortedTasks = todoList.GetAllTasksByPriority();
+            Assert.That(prioritySortedTasks.Count, Is.EqualTo(totalTasks));
+            Assert.That(prioritySortedTasks.FirstOrDefault().TaskContent, Is.EqualTo(taskContent3));
         }
     }
 }
