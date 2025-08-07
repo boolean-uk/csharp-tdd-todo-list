@@ -38,5 +38,20 @@ namespace tdd_todo_list.CSharp.Main
             Todo[_UNIQUE_IDS] = newTask;
             _UNIQUE_IDS++;
         }
+
+        public List<TodoObject> GetAllTasks() 
+        {
+            return Todo.Values.ToList();
+        }
+
+        public List<string> GetAllStringTasks()
+        {
+            List<string> tasks = new List<string>();
+            foreach (TodoObject task in Todo.Values)
+            {
+                tasks.Add(task.TaskStr);
+            }
+            return tasks;
+        }
     }
 }
