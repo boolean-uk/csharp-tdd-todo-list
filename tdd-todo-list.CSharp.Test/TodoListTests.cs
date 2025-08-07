@@ -12,9 +12,28 @@ namespace tdd_todo_list.CSharp.Test
     {
 
         [Test]
-        public void Test1()
+        public void AddOneTaskTest()
         {
-            Assert.Pass();
+            TodoList TestList = new TodoList();
+            string Task = "test task";
+            TestList.Add(Task);
+            int expectedLength = 1;
+            int length = TestList.Todo.Count;
+
+            Assert.That(length == expectedLength);
+        }
+        [Test]
+        public void AddTwoTaskTest()
+        {
+            TodoList TestList = new TodoList();
+            string Task1 = "test task";
+            TestList.Add(Task1);
+            string Task2 = "test task2";
+            TestList.Add(Task2);
+            int expectedLength = 2;
+            int length = TestList.Todo.Count;
+
+            Assert.That(length == expectedLength);
         }
     }
 }
