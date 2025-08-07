@@ -134,5 +134,29 @@ namespace tdd_todo_list.CSharp.Test
 
         }
 
+        [Test]
+        public void GetAllTasksSortedByNameTest()
+        {
+            TodoList todoList = new TodoList();
+            string taskName1 = "Homework";
+            string taskName2 = "Laundry";
+            string taskName3 = "Dishes";
+            todoList.AddTask(taskName1);
+            todoList.AddTask(taskName2);
+            todoList.AddTask(taskName3);
+
+            bool useAscendingOrder = true;
+
+            List<Task> sortedTaskAscending = todoList.GetAllTasksSortedByName(useAscendingOrder);
+            List<Task> sortedTaskDescending = todoList.GetAllTasksSortedByName(!useAscendingOrder);
+
+            Assert.That(sortedTaskAscending[0].Name == "Dishes");
+            Assert.That(sortedTaskAscending[1].Name == "Homework");
+            Assert.That(sortedTaskAscending[2].Name == "Laundry");
+  
+            Assert.That(sortedTaskDescending[0].Name == "Laundry");
+            Assert.That(sortedTaskDescending[1].Name == "Homework");
+            Assert.That(sortedTaskDescending[2].Name == "Dishes");
+        }
     }
 }

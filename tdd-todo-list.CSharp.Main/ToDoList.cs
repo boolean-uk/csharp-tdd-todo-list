@@ -83,5 +83,15 @@ namespace tdd_todo_list.CSharp.Main
             return _tasks.Remove(task.ID);
 
         }
+
+        public List<Task> GetAllTasksSortedByName(bool useAscendingOrder)
+        {
+            if (useAscendingOrder)
+            {
+                return _tasks.Values.OrderBy(task => task.Name).ToList();
+            }
+            return _tasks.Values.OrderByDescending(task => task.Name).ToList();
+     
+        }
     }
 }
