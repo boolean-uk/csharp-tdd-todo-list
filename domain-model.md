@@ -3,7 +3,7 @@
 |Classes|Method/Properties|Scenario|Outputs|
 |-------|-----------------|--------|-------|
 |`TodoList`|`AddTask(string name)`|Add task with name to todo list| int ID of new task|
-|`TodoList`|`TodoList.Tasks`|Provide all tasks in todo list | List<Task> |
+|`TodoList`|`TodoList.Tasks`|Provide all tasks in todo list | Dictionary<int, Task> |
 |`Task`| `ToggleComplete()` | Toggle status from complete to incomplete or incomplete to complete| bool |
 |`TodoList`| `GetCompleteTasks()`| Provide all complete tasks in todo list | List<Task>|
 |`TodoList`| `GetIncompleteTasks()`| Provide all incomplete tasks in todo list | List<Task>|
