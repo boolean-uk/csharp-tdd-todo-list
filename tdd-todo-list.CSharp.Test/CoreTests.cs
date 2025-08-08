@@ -52,7 +52,7 @@ namespace tdd_todo_list.CSharp.Test
             todo.Add("trash");
 
             bool original = todo.Todo[1].Status;
-            todo.Todo[1].ChangeStatus(true);
+            todo.Todo[1].Status = true;
             bool afterChange = todo.Todo[1].Status;
 
             Assert.That(original, Is.False);
@@ -68,13 +68,13 @@ namespace tdd_todo_list.CSharp.Test
             todo.Add("wash");
             todo.Add("trash");
 
-            todo.Todo[1].ChangeStatus(true);
+            todo.Todo[1].Status =true;
 
             completed = todo.ViewCompleted();
 
             Assert.That(completed.Count == 1);
 
-            todo.Todo[1].ChangeStatus(false);
+            todo.Todo[1].Status = false;
             completed = todo.ViewCompleted();
 
             Assert.That(completed.Count == 0);
@@ -89,13 +89,13 @@ namespace tdd_todo_list.CSharp.Test
             todo.Add("wash");
             todo.Add("trash");
 
-            todo.Todo[1].ChangeStatus(true);
+            todo.Todo[1].Status=true;
 
             incompleted = todo.ViewIncompleted();
 
             Assert.That(incompleted.Count == 1);
 
-            todo.Todo[1].ChangeStatus(false);
+            todo.Todo[1].Status=false;
             incompleted = todo.ViewIncompleted();
 
             Assert.That(incompleted.Count == 2);

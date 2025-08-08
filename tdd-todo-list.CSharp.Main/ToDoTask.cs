@@ -18,29 +18,14 @@ namespace tdd_todo_list.CSharp.Main
         private Type _typeOfTask;
         private TimeSpan? _timeToCompletion = null;
 
-        public ToDoTask(string task, int id, bool done = false, int priority = 0)
+        public ToDoTask(string task, int id, bool done = false, int priority = 0, Type type = Type.Standard)
         {
             _name = task;
             _ID = id;
             _priority = priority;
             _done = done;
             _created = DateTime.Now;
-            _typeOfTask = Type.Standard;
-        }
-
-        public ToDoTask(string task, int id, Type type)
-        {
-            _name = task;
-            _ID = id;
-            _priority = 0;
-            _done = false;
-            _created = DateTime.Now;
             _typeOfTask = type;
-        }
-
-        public void ChangeStatus(bool status)
-        {
-            _done = status;
         }
 
         public void ChangePriority(int priority)
@@ -52,7 +37,7 @@ namespace tdd_todo_list.CSharp.Main
         public string Name { get { return _name; } set { _name = value; } }
         public int getPriority() { return _priority; }
 
-        public DateTime TimeCreated { get { return _created; } }
+        public DateTime TimeCreated { get { return _created; } set { _created = value; } }
         public DateTime TimeFinished { get { return _finished; } }
 
         public void markAsFinished() { _finished = DateTime.Now; _timeToCompletion = _finished.Subtract(_created); }

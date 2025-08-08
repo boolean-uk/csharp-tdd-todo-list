@@ -16,7 +16,7 @@ namespace tdd_todo_list.CSharp.Main
         {
             _IDCOUNTER++;
 
-            ToDoTask newTask = new ToDoTask(task, _IDCOUNTER, typeOfTask);
+            ToDoTask newTask = new ToDoTask(task, _IDCOUNTER, type:typeOfTask);
 
             Todo.Add(_IDCOUNTER, newTask);
         }
@@ -51,16 +51,7 @@ namespace tdd_todo_list.CSharp.Main
 
         public bool IsPresent(int id)
         {
-            if (Todo.ContainsKey(id)) {  return true; }
-            return false;
-        }
-        public bool IsPresentName(string task)
-        {
-            foreach (var t in Todo.Values)
-            {
-                if (t.Name == task) { return true; }
-            }
-            return false;
+            return (Todo.ContainsKey(id) ? true : false);
         }
 
         public void Remove(int id)
@@ -87,11 +78,7 @@ namespace tdd_todo_list.CSharp.Main
 
         public ToDoTask getById(int id)
         {
-            if (IsPresent(id))
-            {
-                return Todo[id];
-            }
-            else { return null; } 
+            return IsPresent(id) ? Todo[id] : null;
         }
 
         public void UpdateById(int id, string newName)
@@ -123,6 +110,11 @@ namespace tdd_todo_list.CSharp.Main
         public ToDoTask ShortestBeforeFinished()
         {
             return Todo.Values.OrderBy(t => t.TimeSpan).ToList()[0];
+        }
+
+        public List<ToDoTask> ListAllActiveFor5PlussDays()
+        {
+            return Todo.Values.Where(t => t.TimeSpan > TimeSpan.FromDays(5)).ToList();
         }
     }
 }
