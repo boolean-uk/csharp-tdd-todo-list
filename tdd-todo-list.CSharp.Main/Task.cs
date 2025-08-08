@@ -29,7 +29,7 @@ namespace tdd_todo_list.CSharp.Main
 
         public TimeSpan calculateDuration()
         {
-            TimeSpan duration = this._created.Subtract(this._finished);
+            TimeSpan duration = this._finished.Subtract(this._created);
             this._duration = duration;
             return duration;
         }

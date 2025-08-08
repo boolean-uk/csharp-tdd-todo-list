@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -101,5 +102,51 @@ namespace tdd_todo_list.CSharp.Main
         {
             return list[id].Finished;
         }
+
+        public TimeSpan getTeskDuration(string id)
+        {
+            Task task = list[id];
+            return task.Finished.Subtract(task.Created);
+
+        }
+
+        public Task findLongestDurationTask()
+        {
+            List<Task> tasks = list.Values.ToList();
+            tasks.Sort((task1, task2) => task1.Duration.CompareTo(task2.Duration));
+            tasks.Reverse();
+            return tasks.First();
+        }
+
+        public Task findShortestDurationTask()
+        {
+            List<Task> tasks = list.Values.ToList();
+            tasks.Sort((task1, task2) => task1.Duration.CompareTo(task2.Duration));
+            return tasks.First();
+        }
+        
+        public void printTaskDurationById(string id)
+        {
+            Task task = list[id];
+            Console.WriteLine(task.Duration);
+        }
+
+
+        public List<Task> findTasksLongerThan5Days()
+        {
+            List<Task> tasks = list.Values.ToList();
+            List<Task> fiveDayTasks = new List<Task>();
+            TimeSpan fivedays = TimeSpan.FromDays(5);
+
+            foreach (Task task in tasks)
+            {
+                if(task.Duration.CompareTo(fivedays) > 0)
+                {
+                    fiveDayTasks.Add(task);
+                }
+            }
+            return fiveDayTasks;
+        }
+
     }
 }
