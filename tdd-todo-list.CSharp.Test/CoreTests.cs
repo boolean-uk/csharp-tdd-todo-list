@@ -153,14 +153,15 @@ namespace tdd_todo_list.CSharp.Test
         public void GetAlphabethicallySortedTasksTest()
         {
             TodoList todoList = new TodoList();
-            string taskContent = "aaa";
+            string taskContent = "f";
             var task1 = new TodoTask(0, taskContent);
             todoList.AddTask(task1);
 
-            var task2 = new TodoTask(1, "bbb");
+            string taskContent2 = "a";
+            var task2 = new TodoTask(1, taskContent2);
             todoList.AddTask(task2);
 
-            var task3 = new TodoTask(2, "ccc");
+            var task3 = new TodoTask(2, "c");
             todoList.AddTask(task3);
 
             bool ascending = true;
@@ -170,7 +171,7 @@ namespace tdd_todo_list.CSharp.Test
 
             Assert.That(sortedTasks.Count, Is.EqualTo(expectedTasksNumber));
 
-            Assert.That(sortedTasks.FirstOrDefault().TaskContent, Is.EqualTo(taskContent));
+            Assert.That(sortedTasks.FirstOrDefault().TaskContent, Is.EqualTo(taskContent2));
         }
 
         [Test]

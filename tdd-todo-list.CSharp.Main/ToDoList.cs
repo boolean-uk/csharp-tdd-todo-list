@@ -46,9 +46,9 @@ namespace tdd_todo_list.CSharp.Main
         public IEnumerable<ITodoTask> GetAlphabeticallySortedTasks(bool ascending) 
         {  
             if (ascending)
-                return tasks.OrderBy(task  => task.TaskContent).ToArray();
+                return tasks.OrderBy(task  => task.TaskContent).ToList();
 
-            return tasks.OrderByDescending(task => task.TaskContent).ToArray();
+            return tasks.OrderByDescending(task => task.TaskContent).ToList();
         }
 
         public void ChangeTaskPriorityByName(string name, TaskPriorityEnum priority) 
