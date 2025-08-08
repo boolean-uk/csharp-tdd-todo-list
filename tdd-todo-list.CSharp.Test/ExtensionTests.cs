@@ -43,5 +43,66 @@ namespace tdd_todo_list.CSharp.Test
             Assert.That(actualName == newName);
 
         }
+        [Test]
+        public void CompleteTaskTest() 
+        {
+            DateTime completeDate = DateTime.Now;
+            TodoObject todoObject = _extension.Todo[0];
+            _extension.CompleteTask(0, completeDate);
+
+            Assert.That(todoObject.CompleteDate == completeDate && todoObject.Completed == true);
+        }
+        [Test]
+        public void SeeCreatedDateTest()
+        {
+            DateTime createDate = DateTime.Today;
+            _extension.Add("New task created now", createDate);
+
+            DateTime createDateFromList = _extension.SeeCreatedDate(2);
+
+            Assert.That(createDate == createDateFromList);
+        }
+        [Test]
+        public void SeeCompletedDateTest()
+        {
+            DateTime completeDate = DateTime.Now;
+            _extension.CompleteTask(2, completeDate);
+
+
+            DateTime completedDateFromList = _extension.SeeCompletedDate(2);
+
+            Assert.That(completeDate == completedDateFromList);
+        }
+        [Test]
+        public void SeeCompletedLengthTest()
+        {
+            DateTime completeDate = DateTime.Now;
+            _extension.CompleteTask(2, completeDate);
+
+
+            DateTime completedDateFromList = _extension.SeeCompletedDate(2);
+
+            Assert.That(completeDate == completedDateFromList);
+        }
+        [Test]
+        public void GetLongestCompletedTaskTest()
+        {
+
+        }
+        [Test]
+        public void GetShortestCompletedTaskTest()
+        {
+
+        }
+        [Test]
+        public void Over5DaysTest()
+        {
+
+        }
+        [Test]
+        public void ListByCategoryTest()
+        {
+
+        }
     }
 }

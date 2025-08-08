@@ -46,12 +46,16 @@
 
 |Classes|Methods/Properties|Scenario|Output|
 |-------|------------------|--------|------|
-| ToDoList.cs | GetByID(int id)  | Get task by ID | returns task given the ID | 
-| ToDoList.cs | UpdateName(int id, string name) | Update name given an ID and a new name |  | 
-| ToDoList.cs | SeeCreatedDate(int id) | Get date of task | returns the date when the task was created | 
-| ToDoList.cs | SeeCompletedDate(int id) | Get completed date of task | returns the date of when the tasl was completed | 
-| ToDoList.cs | CompleteTask(int id, DateTime date) | Completes task given an id |  |
-| ToDoList.cs | GetLongestCompletedTask() | Get task that was completed the slowest | Returns a task object |
-| ToDoList.cs | GetShortestCompletedTask() | Get task that was completed the fastest | Returns a task object |
-| ToDoList.cs | GetTasksOver5Days() | Get all tasks that took longer than 5 days to complete | Returns a list of task objects |
-| ToDoList.cs | ListByCategory(string category) | Get all tasks given a category | Returns a list of task objects | 
+| Extension.cs | GetByID(int id)  | Get task by ID | returns task given the ID | 
+| Extension.cs | UpdateName(int id, string name) | Update name given an ID and a new name |  | 
+| Extension.cs | DateTime CreatedDate | Property for saving created date |  |
+| Extension.cs | DateTime CompletedDate | Property for saving completed date |  |
+| Extension.cs | SeeCreatedDate(int id) | Get date of task | returns the date when the task was created | 
+| Extension.cs | CompleteTask(int id, DateTime date) | Completes task given an id | Returns difference of CompletedDate and CreatedDate |
+| Extension.cs | SeeCompletedDate(int id) | Get completed date of task | returns the date of when the tasl was completed | 
+| Extension.cs | GetCompleteLength(int id) | Get how long it took to complete task |  |
+| Extension.cs | GetLongestCompletedTask() | Get task that was completed the slowest | Returns a task object |
+| Extension.cs | GetShortestCompletedTask() | Get task that was completed the fastest | Returns a task object |
+| Extension.cs | GetTasksOver5Days() | Get all tasks that took longer than 5 days to complete | Returns a list of task objects |
+| Extension.cs | String Category | Property for category of task |  |
+| Extension.cs | ListByCategory(string category) | Get all tasks given a category | Returns a list of task objects | 
