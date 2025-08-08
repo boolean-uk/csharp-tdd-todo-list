@@ -10,41 +10,22 @@ namespace tdd_todo_list.CSharp.Main
     {
         private string _description;
         private bool _isDone;
-        private int _priority;
+        private Priority _priority;
 
-        public TaskItem(string description, int priority = 2)
+        public Guid Id { get; private set; } = Guid.NewGuid();
+
+        public TaskItem(string description, Priority priority = Priority.Medium)
         {
             _description = description;
             _isDone = false;
             _priority = priority;
         }
 
-        public string GetDescription()
-        {
-            return _description;
-        }
+        public string GetDescription() => _description;
+        public bool GetStatus() => _isDone;
+        public Priority GetPriority() => _priority;
 
-        public bool GetStatus()
-        {
-            return _isDone;
-        }
-
-        public int GetPriority()
-        {
-            return _priority;
-        }
-
-        public void SetStatus()
-        {
-            _isDone = true; 
-        }
-
-        public void SetPriority(int priority)
-        {
-            _priority = priority;
-        }
+        public void SetStatus() => _isDone = true;
+        public void SetPriority(Priority priority) => _priority = priority;
     }
 }
-
-
-

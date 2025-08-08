@@ -2,6 +2,8 @@
 
 ## User Stories
 
+### Core Tasks
+
 - I want to add tasks to my todo list  
 - I want to see all the tasks in my todo list  
 - I want to change the status of a task between incomplete and complete  
@@ -29,3 +31,16 @@
 | TaskItem.cs   | Description (string)                 | The task text                                    | e.g. "Buy groceries"      |
 | TaskItem.cs   | IsDone (bool)                        | Task completion state                            | true / false              |
 | TaskItem.cs   | Priority (int)                       | Task priority (1 = High, 2 = Medium, 3 = Low)     | 1–3                       |
+
+### Extension Tasks
+
+- I want to be able to get a task by a unique ID.
+- I want to update the name of a task by providing its ID and a new name.
+- I want to be able to change the status of a task by providing its ID.
+- I want to be able to see the date and time that I created each task.
+- I want to be able to see the date and time that I completed a task.
+- I want to know which task took the longest amount of time to complete.
+- I want to know which task took the shortest amount of time to complete.
+- I want to know which tasks took longer than 5 days to complete.
+- I want to categorise tasks e.g. study, work, admin etc
+- I want to list all tasks by category
