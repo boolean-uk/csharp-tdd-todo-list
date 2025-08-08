@@ -232,5 +232,24 @@ namespace tdd_todo_list.CSharp.Test
             Assert.That(task2, Is.Null);
 
         }
+
+        [Test]
+        public void UpdateTaskNameTest()
+        {
+            TodoList todoList = new TodoList();
+            string taskName1 = "Homework";
+            todoList.AddTask(taskName1);
+
+            string newName = "Dishes";
+            int task1ID = 0;
+            int notExistID= 1;
+
+            bool success = todoList.UpdateTaskName(task1ID, newName);
+            bool fail = todoList.UpdateTaskName(notExistID, newName);
+
+            Assert.That(todoList.Tasks[0].Name, Is.EqualTo(newName));
+            Assert.True(success);
+            Assert.False(fail);
+        }
     }
 }

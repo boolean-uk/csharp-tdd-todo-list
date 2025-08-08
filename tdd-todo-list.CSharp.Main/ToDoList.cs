@@ -118,5 +118,15 @@ namespace tdd_todo_list.CSharp.Main
             }
             return null;
         }
+
+        public bool UpdateTaskName(int taskID, string newName)
+        {
+            if (_tasks.ContainsKey(taskID))
+            {
+                _tasks[taskID].Name = newName;
+                return true;
+            }
+            return false;
+        }
     }
 }
