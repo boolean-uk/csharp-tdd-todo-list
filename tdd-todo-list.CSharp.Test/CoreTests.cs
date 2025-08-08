@@ -19,7 +19,7 @@ namespace tdd_todo_list.CSharp.Test
 
             Assert.That(result, Is.True);
             Assert.That(list.ToDoList[0].Name, Is.EqualTo(name));
-            Assert.That(list.ToDoList[0].Id, Is.EqualTo(1));
+            Assert.That(list.ToDoList[0].Id, Is.EqualTo(0));
         }
 
         [Test]
@@ -36,7 +36,6 @@ namespace tdd_todo_list.CSharp.Test
 
             Assert.That(list.Amout_tasks, Is.EqualTo(3));
         }
-
 
         [Test]
         public void ChangeStatus()
@@ -256,7 +255,6 @@ namespace tdd_todo_list.CSharp.Test
             {
                 Assert.That(sorted[i].Name, Is.EqualTo(expected.ToDoList[i].Name));
             }
-
         }
     }
 }

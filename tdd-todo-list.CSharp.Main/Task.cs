@@ -15,12 +15,11 @@ namespace tdd_todo_list.CSharp.Main
 
         public Task(string name) 
         {
-            _id = _id + 1;
             _name = name;
         }
 
-        public int Id { get { return _id; } }
-        public string Name { get { return _name; } }
+        public int Id { get { return _id; } set { _id = value; } }
+        public string Name { get { return _name; } set { _name = value; } }
 
         public bool Status { get { return _status; } set { _status = value; } }
 

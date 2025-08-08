@@ -10,12 +10,16 @@ namespace tdd_todo_list.CSharp.Main
     {
         private List<Task> _toDoList = new List<Task>();
         private int _amout_tasks = 0;
-
-        public bool Add( string name)
+        private int _id = 0;
+        
+        
+        public bool Add(string name)
         {
             Task task = new Task(name);
             _toDoList.Add(task);
             _amout_tasks++;
+            task.Id = _id;
+            _id++;
             return true;
         }
 
@@ -153,13 +157,7 @@ namespace tdd_todo_list.CSharp.Main
 
         public List<Task> SeeTaskByPriority()
         {
-            List<Task> sorted = _toDoList.OrderBy(task => task.Priority).ToList();
-            foreach (Task t in sorted) {
-                Console.WriteLine("Task: " + t.Name + " " + t.Priority);
-            }
-            return sorted;
-            
-           
+           return _toDoList.OrderBy(task => task.Priority).ToList();
         }
 
         public List<Task> ToDoList

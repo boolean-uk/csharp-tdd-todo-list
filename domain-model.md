@@ -33,9 +33,9 @@
 
 | Classes         | Methods/Properties                                 | Scenario                        | Outputs          |
 |-----------------|----------------------------------------------------|---------------------------------|------------------|
-|Task.cs			|Get(string id)										| find a task by ID							| Task	|
-|Task.cs			|UpdateName(string id, string newName) 				| change name by ID 						|bool|
-|Task.cs			|ChangeStatus(string id)							| change status	by ID						|bool	|
+|Task.cs			|Get(int id)										| find a task by ID							| Task	|
+|Task.cs			|UpdateName(int id, string newName) 				| change name by ID 						|bool|
+|Task.cs			|ChangeStatus(int id)							| change status	by ID						|bool	|
 |Task.cs			|Created()											| See when task is created 					|Date and time|
 |Task.cs			|Completed()										| See when task is completed				|Date and time|
 |ToDoList.cs		|Longest()											| See which task who took the longest time	|Task|
