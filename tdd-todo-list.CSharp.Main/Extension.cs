@@ -37,5 +37,36 @@ namespace tdd_todo_list.CSharp.Main
         {
             throw new NotImplementedException();
         }
+
+        public TimeSpan? GetCompleteLength(int id)
+        {
+            TodoObject todoObject = GetByID(id);
+            try
+            {
+                return todoObject.CompleteDate.Subtract(todoObject.CreateDate);
+
+            }
+            catch {  return null; }
+        }
+
+        public List<TodoObject> ListByCategory(string v)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<TodoObject> GetTasksOver5Days()
+        {
+            throw new NotImplementedException();
+        }
+
+        public TodoObject GetShortestCompletedTask()
+        {
+            throw new NotImplementedException();
+        }
+
+        public TodoObject GetLongestCompletedTask()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

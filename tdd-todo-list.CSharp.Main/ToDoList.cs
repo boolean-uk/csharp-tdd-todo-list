@@ -15,6 +15,8 @@ namespace tdd_todo_list.CSharp.Main
         public string Priority { get; set; } = " ";
         public bool Completed { get; set; } = false;
         public DateTime CompleteDate { get; set; }
+        public DateTime CreateDate { get; set; }
+        public string Category { get; set; }
 
         public TodoObject(int id, string taskStr) 
         {
