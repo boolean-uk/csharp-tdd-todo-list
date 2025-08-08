@@ -160,9 +160,58 @@ namespace tdd_todo_list.CSharp.Main
             List<(Task, DateTime)> timeCompletedList = new List<(Task, DateTime)> ();
             foreach (Task task in _tasks.Values)
             {
-                timeCompletedList.Add((task, task.TimeCompleted));
+                if (task.IsCompleted)
+                {
+                    timeCompletedList.Add((task, task.TimeCompleted));
+                }
             }
             return timeCompletedList;
+        }
+
+        public Task GetTaskWithLongestCompletionTime()
+        {
+            int longestCompletionTime = 0;
+            Task? longestCompletionTask = null;
+            List<(Task, DateTime)> completedTaskList = GetAllTaskTimeCompleted();
+            foreach ((Task, DateTime) listItem in completedTaskList)
+            {
+                Task task = listItem.Item1;
+                if (task.CompletionTime == null)
+                {
+                    task.CalculateCompletionTime();
+                }
+                if (task.CompletionTime > longestCompletionTime)
+                {
+                    longestCompletionTime = (int)task.CompletionTime;
+                    longestCompletionTask = task;
+                }
+
+            }
+            return longestCompletionTask!;
+
+        }
+
+        public Task GetTaskWithShortestCompletionTime()
+        {
+            // Assuming no completion times will exceed 100 days
+            int shortestCompletionTime = 100;
+            Task? shortestCompletionTask = null;
+            List<(Task, DateTime)> completedTaskList = GetAllTaskTimeCompleted();
+            foreach ((Task, DateTime) listItem in completedTaskList)
+            {
+                Task task = listItem.Item1;
+                if (task.CompletionTime == null)
+                {
+                    task.CalculateCompletionTime();
+                }
+                if (task.CompletionTime < shortestCompletionTime)
+                {
+                    shortestCompletionTime = (int)task.CompletionTime;
+                    shortestCompletionTask = task;
+                }
+
+            }
+            return shortestCompletionTask!;
         }
     }
 }

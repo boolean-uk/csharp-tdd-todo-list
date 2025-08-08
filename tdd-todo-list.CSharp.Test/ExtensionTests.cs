@@ -113,6 +113,8 @@ namespace tdd_todo_list.CSharp.Test
             todoList.ToggleComplete("Homework");
             todoList.AddTask(taskName2);
             todoList.ToggleComplete("Laundry");
+            // Not completed task
+            todoList.AddTask("Laundry2");
 
             Assert.That(todoList.Tasks[0].TimeCompleted, Is.Not.Null);
 
@@ -126,9 +128,60 @@ namespace tdd_todo_list.CSharp.Test
 
             Assert.That(timeCompletedList[0].Item2, Is.EqualTo(completeTime));
             Assert.That(timeCompletedList[1].Item2, Is.EqualTo(completeTime));
+            Assert.That(timeCompletedList.Count, Is.EqualTo(2));
 
-            
+        }
 
+        [Test]
+        public void GetTaskWithLongestCompletionTimeTest()
+        {
+            DateTime createdTime = new DateTime(2025, 08, 05);
+            DateTime completeTime1 = new DateTime(2025, 08, 06);
+            DateTime completeTime2 = new DateTime(2025, 08, 10);
+
+            TodoList todoList = new TodoList();
+            string taskName1 = "Homework";
+            string taskName2 = "Laundry";
+            todoList.AddTask(taskName1);
+            todoList.ToggleComplete("Homework");
+            todoList.AddTask(taskName2);
+            todoList.ToggleComplete("Laundry");
+
+            // Override time created and completed
+            todoList.Tasks[0].TimeCreated = createdTime;
+            todoList.Tasks[1].TimeCreated = createdTime;
+            todoList.Tasks[0].TimeCompleted = completeTime1;
+            todoList.Tasks[1].TimeCompleted = completeTime2;
+
+            Task longestCompletionTimeTask = todoList.GetTaskWithLongestCompletionTime();
+
+            Assert.That(longestCompletionTimeTask.Name, Is.EqualTo(taskName2));
+        }
+
+        [Test]
+        public void GetTaskWithShortestCompletionTimeTest()
+        {
+            DateTime createdTime = new DateTime(2025, 08, 05);
+            DateTime completeTime1 = new DateTime(2025, 08, 06);
+            DateTime completeTime2 = new DateTime(2025, 08, 10);
+
+            TodoList todoList = new TodoList();
+            string taskName1 = "Homework";
+            string taskName2 = "Laundry";
+            todoList.AddTask(taskName1);
+            todoList.ToggleComplete("Homework");
+            todoList.AddTask(taskName2);
+            todoList.ToggleComplete("Laundry");
+
+            // Override time created and completed
+            todoList.Tasks[0].TimeCreated = createdTime;
+            todoList.Tasks[1].TimeCreated = createdTime;
+            todoList.Tasks[0].TimeCompleted = completeTime1;
+            todoList.Tasks[1].TimeCompleted = completeTime2;
+
+            Task shortestCompletionTimeTask = todoList.GetTaskWithShortestCompletionTime();
+
+            Assert.That(shortestCompletionTimeTask.Name, Is.EqualTo(taskName1));
         }
     }
 }

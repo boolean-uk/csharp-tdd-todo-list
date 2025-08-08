@@ -17,8 +17,8 @@
 |`TodoList`|`UpdateTaskStatus(int id)` | Toggle the status of task with given ID | bool |
 |`TodoList`|`GetAllTaskTimeCreated()` | Provide all tasks along with time of creation | (List<Task>, datetime) |
 |`TodoList`|`GetAllTaskTimeCompleted()` | Provide all tasks along with time of completion | (List<Task>, datetime) |
-|`TodoList`|`GetTaskWithLongestCompletionTime()` | Provide the task with the longest completion time | (<Task>, completion time) |
-|`TodoList`|`GetTaskWithShortestCompletionTime()` | Provide the task with the shortest completion time | (<Task>, completion time) |
+|`TodoList`|`GetTaskWithLongestCompletionTime()` | Provide the task with the longest completion time | `Task` |
+|`TodoList`|`GetTaskWithShortestCompletionTime()` | Provide the task with the shortest completion time | `Task` |
 |`TodoList`|`GetTasksByCompletionTime(int numDaysToComplete)` | Provide all tasks with completion time longer than given time | List<Task> |
 |`Task`| `SetTaskCategory(string name, string category)` | Set category of task | bool |
 |`TodoList`|`GetTasksByCategory(string category)` | Get all tasks matching the given category | List<Task> | 
