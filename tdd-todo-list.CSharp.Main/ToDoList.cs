@@ -21,9 +21,14 @@ namespace tdd_todo_list.CSharp.Main
             _taskCount++;
         }
 
-        public void ToggleComplete(int taskID)
+        public bool ToggleComplete(string taskName)
         {
-            _tasks[taskID].IsCompleted = !_tasks[taskID].IsCompleted;
+            Task? task = GetTaskByName(taskName);
+            if (task != null) { 
+                task.IsCompleted = !task.IsCompleted;
+                return true;
+            }
+            return false;
         }
 
         public List<Task> GetCompleteTasks()
@@ -124,6 +129,16 @@ namespace tdd_todo_list.CSharp.Main
             if (_tasks.ContainsKey(taskID))
             {
                 _tasks[taskID].Name = newName;
+                return true;
+            }
+            return false;
+        }
+
+        public bool UpdateTaskStatus(int taskID)
+        {
+            if (_tasks.ContainsKey(taskID))
+            {
+                _tasks[taskID].IsCompleted = !_tasks[taskID].IsCompleted;
                 return true;
             }
             return false;

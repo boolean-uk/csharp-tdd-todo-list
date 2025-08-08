@@ -4,7 +4,7 @@
 |-------|-----------------|--------|-------|
 |`TodoList`|`AddTask(string name)`|Add task with name to todo list| int ID of new task|
 |`TodoList`|`TodoList.Tasks`|Provide all tasks in todo list | Dictionary<int, Task> |
-|`TodoList`|`ToggleComplete(string name)` | Toggle status of give task from complete to incomplete or incomplete to complete|  |
+|`TodoList`|`ToggleComplete(string name)` | Toggle status of give task from complete to incomplete or incomplete to complete| bool |
 |`TodoList`|`GetCompleteTasks()`| Provide all complete tasks in todo list | List<Task>|
 |`TodoList`|`GetIncompleteTasks()`| Provide all incomplete tasks in todo list | List<Task>|
 |`TodoList`|`GetTaskByName(string name)`| Search for Task with given name | Task, provide message if not found |

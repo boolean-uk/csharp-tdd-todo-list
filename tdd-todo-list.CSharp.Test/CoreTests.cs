@@ -45,10 +45,13 @@ namespace tdd_todo_list.CSharp.Test
             todoList.AddTask(taskName1);
             todoList.AddTask(taskName2);
 
-            todoList.ToggleComplete(0);
+            bool success = todoList.ToggleComplete("Homework");
+            bool fail = todoList.ToggleComplete("Run");
 
             Assert.That(todoList.Tasks[0].IsCompleted, Is.True);
             Assert.That(todoList.Tasks[1].IsCompleted, Is.False);
+            Assert.True(success);
+            Assert.False(fail);
         }
 
         [Test]
@@ -64,8 +67,8 @@ namespace tdd_todo_list.CSharp.Test
             todoList.AddTask(taskName3);
             todoList.AddTask(taskName4);
 
-            todoList.ToggleComplete(0);
-            todoList.ToggleComplete(3);
+            todoList.ToggleComplete("Homework");
+            todoList.ToggleComplete("Run");
 
             List<Task> completeTaskList = todoList.GetCompleteTasks();
 
@@ -86,8 +89,8 @@ namespace tdd_todo_list.CSharp.Test
             todoList.AddTask(taskName3);
             todoList.AddTask(taskName4);
 
-            todoList.ToggleComplete(0);
-            todoList.ToggleComplete(3);
+            todoList.ToggleComplete("Homework");
+            todoList.ToggleComplete("Run");
 
             List<Task> incompleteTaskList = todoList.GetIncompleteTasks();
 
@@ -248,6 +251,28 @@ namespace tdd_todo_list.CSharp.Test
             bool fail = todoList.UpdateTaskName(notExistID, newName);
 
             Assert.That(todoList.Tasks[0].Name, Is.EqualTo(newName));
+            Assert.True(success);
+            Assert.False(fail);
+        }
+
+        [Test]
+        public void UpdateTaskStatusTest()
+        {
+            TodoList todoList = new TodoList();
+            string taskName1 = "Homework";
+            string taskName2 = "Laundry";
+            todoList.AddTask(taskName1);
+            todoList.AddTask(taskName2);
+
+            int task1ID = 0;
+            int task2ID = 1;
+            int notExistID = 2;
+
+            bool success = todoList.UpdateTaskStatus(task1ID);
+            bool fail = todoList.UpdateTaskStatus(notExistID);
+
+            Assert.True(todoList.Tasks[task1ID].IsCompleted);
+            Assert.False(todoList.Tasks[task2ID].IsCompleted);
             Assert.True(success);
             Assert.False(fail);
         }
