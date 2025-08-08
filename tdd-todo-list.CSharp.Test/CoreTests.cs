@@ -12,7 +12,6 @@ namespace tdd_todo_list.CSharp.Test
         {
             //arrange
             ToDoList list = new ToDoList();
-
             list.AddTask("Test", Priority.High, Category.Work);
 
             //act
@@ -27,7 +26,6 @@ namespace tdd_todo_list.CSharp.Test
         {
             //arrange
             ToDoList list = new ToDoList();
-
             list.AddTask("Test1", Priority.High, Category.Work);
             list.AddTask("Test2", Priority.Medium, Category.School);
             list.AddTask("Test3", Priority.Low, Category.Life);
@@ -45,14 +43,14 @@ namespace tdd_todo_list.CSharp.Test
         {
             //arrange
             ToDoList list = new ToDoList();
-
             list.AddTask("Test", Priority.High, Category.Work);
 
             //act
-            var changed = list.ChangeTaskStatus(list[0].id, true);
+            var changed = list.GetAllTasks()[0];
+            list.ChangeTaskStatus(changed.Id, true);
 
             //assert
-            Assert.That(changed[0].Status, Is.EqualTo(true));
+            Assert.That(changed.IsComplete, Is.True);
         }
 
         [Test]
@@ -60,16 +58,16 @@ namespace tdd_todo_list.CSharp.Test
         {
             //arrange
             ToDoList list = new ToDoList();
-
             list.AddTask("Test1", Priority.High, Category.Work);
             list.AddTask("Test2", Priority.Medium, Category.School);
 
             //act
-            list.ChangeTaskStatus(list[1].id, true);
-            var completedTasks = list.GetCompletedTasks();
+            var tasks = list.GetAllTasks()[1];
+            list.ChangeTaskStatus(tasks.Id, true);
 
             //assert
-            Assert.That(completedTasks[0].name, Is.EqualTo("Test2"));
+            var completedTasks = list.GetCompletedTasks();
+            Assert.That(completedTasks[0].Name, Is.EqualTo("Test2"));
         }
 
         [Test]
@@ -77,16 +75,14 @@ namespace tdd_todo_list.CSharp.Test
         {
             //arrange
             ToDoList list = new ToDoList();
-
             list.AddTask("Test1", Priority.High, Category.Work);
             list.AddTask("Test2", Priority.Medium, Category.School);
 
             //act
-            list.ChangeTaskStatus(list[1].id, false);
             var completedTasks = list.GetInCompletedTasks();
 
             //assert
-            Assert.That(completedTasks[0].name, Is.EqualTo("Test2"));
+            Assert.That(completedTasks.Count, Is.EqualTo(2));
         }
 
         [Test]
@@ -94,7 +90,6 @@ namespace tdd_todo_list.CSharp.Test
         {
             //arrange
             ToDoList list = new ToDoList();
-
             list.AddTask("Test1", Priority.High, Category.Work);
 
             //act
@@ -109,14 +104,14 @@ namespace tdd_todo_list.CSharp.Test
         {
             //arrange
             ToDoList list = new ToDoList();
-
             list.AddTask("Test1", Priority.High, Category.Work);
+            var task = list.GetAllTasks().First();
 
             //act
-            list.RemoveTask(1);
+            list.RemoveTask(task.Id);
 
             //assert
-            Assert.Null(list);
+            Assert.That(list.GetAllTasks().Count, Is.EqualTo(0));
         }
 
         [Test]
@@ -124,7 +119,6 @@ namespace tdd_todo_list.CSharp.Test
         {
             //arrange
             ToDoList list = new ToDoList();
-
             list.AddTask("Bread", Priority.High, Category.Work);
             list.AddTask("Ants", Priority.High, Category.Work);
             list.AddTask("Crab", Priority.High, Category.Work);
@@ -133,9 +127,9 @@ namespace tdd_todo_list.CSharp.Test
             var ascendingList = list.GetTasksAscendingAZ();
 
             //assert
-            Assert.That(ascendingList[0].name, Is.EqualTo("Ants"));
-            Assert.That(ascendingList[1].name, Is.EqualTo("Bread"));
-            Assert.That(ascendingList[2].name, Is.EqualTo("Crab"));
+            Assert.That(ascendingList[0].Name, Is.EqualTo("Ants"));
+            Assert.That(ascendingList[1].Name, Is.EqualTo("Bread"));
+            Assert.That(ascendingList[2].Name, Is.EqualTo("Crab"));
         }
 
         [Test]
@@ -149,12 +143,12 @@ namespace tdd_todo_list.CSharp.Test
             list.AddTask("Crab", Priority.High, Category.Work);
 
             //act
-            var ascendingList = list.GetTasksAscendingAZ();
+            var ascendingList = list.GetTasksDescendingAZ();
 
             //assert
-            Assert.That(ascendingList[2].name, Is.EqualTo("Ants"));
-            Assert.That(ascendingList[1].name, Is.EqualTo("Bread"));
-            Assert.That(ascendingList[0].name, Is.EqualTo("Crab"));
+            Assert.That(ascendingList[0].Name, Is.EqualTo("Crab"));
+            Assert.That(ascendingList[1].Name, Is.EqualTo("Bread"));
+            Assert.That(ascendingList[2].Name, Is.EqualTo("Ants"));
         }
 
         [Test]
@@ -171,9 +165,9 @@ namespace tdd_todo_list.CSharp.Test
             var byPriority = list.GetTasksByPriority();
 
             //assert
-            Assert.That(byPriority[0].name, Is.EqualTo("Test3"));
-            Assert.That(byPriority[1].name, Is.EqualTo("Test1"));
-            Assert.That(byPriority[2].name, Is.EqualTo("Test2"));
+            Assert.That(byPriority[0].Name, Is.EqualTo("Test3"));
+            Assert.That(byPriority[1].Name, Is.EqualTo("Test1"));
+            Assert.That(byPriority[2].Name, Is.EqualTo("Test2"));
         }
     }
 }

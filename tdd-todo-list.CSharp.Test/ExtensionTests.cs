@@ -15,14 +15,14 @@ namespace tdd_todo_list.CSharp.Test
         {
             //arrange
             ToDoList list = new ToDoList();
-
             list.AddTask("Test", Priority.High, Category.Work);
 
             //act
-            var tasks = list.GetTaskById(list.id);
+            var task = list.GetAllTasks().First();
+            var found = list.GetTaskById(task.Id);
 
             //assert
-            Assert.That(tasks.Name, Is.EqualTo("Test"));
+            Assert.That(found?.Name, Is.EqualTo("Test"));
         }
 
         [Test]
@@ -30,14 +30,15 @@ namespace tdd_todo_list.CSharp.Test
         {
             //arrange
             ToDoList list = new ToDoList();
-
             list.AddTask("Test", Priority.High, Category.Work);
 
             //act
-            list.UpdateTaskName(list.id, "UpdatedTest");
+            var task = list.GetAllTasks().First();
+            list.UpdateTaskName(task.Id, "UpdatedTest");
+            var updated = list.GetTaskById(task.Id);
 
             //assert
-            Assert.That(tasks.Name, Is.EqualTo("UpdatedTest"));
+            Assert.That(updated?.Name, Is.EqualTo("UpdatedTest"));
         }
 
         [Test]
@@ -45,28 +46,28 @@ namespace tdd_todo_list.CSharp.Test
         {
             //arrange
             ToDoList list = new ToDoList();
-            var currentTime = DateTime.Now;
-            list.AddTask("Test", Priority.High, Category.Work);
 
             //act
-            var createdAt = list.CreatedAt;
+            list.AddTask("Test", Priority.High, Category.Work);
+            var task = list.GetAllTasks().First();
 
             //assert
-            Assert.That(currentTime, Is.EqualTo(createdAt));
+            Assert.That((DateTime.Now - task.CreatedAt).TotalSeconds, Is.LessThan(2));
         }
 
+        [Test]
         public void TimeCompletedAtIsSet()
         {
             //arrange
             ToDoList list = new ToDoList();
             list.AddTask("Test", Priority.High, Category.Work);
+            var task = list.GetAllTasks().First();
 
             //act
-            list.ChangeStatusById(list.id, true);
-            var completedAt = list.CompletedAt;
+            list.ChangeStatusById(task.Id, true);
 
             //assert
-            Assert.That(completedAt, Is.EqualTo(null!));
+            Assert.That(task.CompletedAt, Is.Not.EqualTo(default(DateTime)));
         }
     }
 }
