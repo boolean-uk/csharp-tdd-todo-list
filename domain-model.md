@@ -28,6 +28,7 @@
 | ToDoList.cs | OrderList(bool ascending = true) | Orders the todo list | returns the todo list ordered. (returns ascending or decending dependent on boolean value | 
 | ToDoList.cs | PrioritiseTask(int taskid, string priority) | Sets what priority the task has |  | 
 | ToDoList.cs | GetTasksByPriority(string priority) | Get all tasks from todo liost with given priority | returns all tasks by priorioty | 
+| ToDoList.cs | CompleteTask(int id) | Completes task given an id |  |
 
 
 
@@ -46,6 +47,6 @@
 
 |Classes|Methods/Properties|Scenario|Output|
 |-------|------------------|--------|------|
-| ToDoList.cs |  |  |  | 
-| ToDoList.cs |  |  |  | 
-| ToDoList.cs |  |  |  | 
+| ToDoList.cs | GetByID(int id)  | Get task by ID | returns task given the ID | 
+| ToDoList.cs | UpdateName(int id, string name) | Update name given an ID and a new name |  | 
+| ToDoList.cs | SeeCreatedDate | (int id, ) |  | 
