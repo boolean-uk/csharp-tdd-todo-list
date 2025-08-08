@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NUnit.Framework.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,11 +12,11 @@ namespace tdd_todo_list.CSharp.Main
         private int _IDCOUNTER = 0;
         public Dictionary<int, ToDoTask> Todo = new Dictionary<int, ToDoTask>();
 
-        public void Add(string task)
+        public void Add(string task, Type typeOfTask=Type.Standard)
         {
             _IDCOUNTER++;
 
-            ToDoTask newTask = new ToDoTask(task, _IDCOUNTER);
+            ToDoTask newTask = new ToDoTask(task, _IDCOUNTER, typeOfTask);
 
             Todo.Add(_IDCOUNTER, newTask);
         }
@@ -33,7 +34,7 @@ namespace tdd_todo_list.CSharp.Main
             List<ToDoTask> completed = new List<ToDoTask>();
             foreach(var task in Todo.Values)
             {
-                    if (task.getStatus()) { completed.Add(task); }
+                    if (task.Status) { completed.Add(task); }
             }
             return completed;
         }
@@ -43,7 +44,7 @@ namespace tdd_todo_list.CSharp.Main
             List<ToDoTask> incompleted = new List<ToDoTask>();
             foreach (var task in Todo.Values)
             {
-                if (!task.getStatus()) { incompleted.Add(task); }
+                if (!task.Status) { incompleted.Add(task); }
             }
             return incompleted;
         }
@@ -57,7 +58,7 @@ namespace tdd_todo_list.CSharp.Main
         {
             foreach (var t in Todo.Values)
             {
-                if (t.getName() == task) { return true; }
+                if (t.Name == task) { return true; }
             }
             return false;
         }
@@ -75,13 +76,13 @@ namespace tdd_todo_list.CSharp.Main
         public List<ToDoTask> ViewAlphabetical()
         {
             List<ToDoTask> toDoTasks = Todo.Values.ToList();
-            return toDoTasks.OrderBy(t => t.getName()).ToList();
+            return toDoTasks.OrderBy(t => t.Name).ToList();
         }
 
         public List<ToDoTask> ViewDescendingAlphabetical()
         {
             List<ToDoTask> toDoTasks = Todo.Values.ToList();
-            return toDoTasks.OrderByDescending(t => t.getName()).ToList();
+            return toDoTasks.OrderByDescending(t => t.Name).ToList();
         }
 
         public ToDoTask getById(int id)
@@ -97,7 +98,7 @@ namespace tdd_todo_list.CSharp.Main
         {
             if (IsPresent(id))
             {
-                Todo[id].setName(newName);
+                Todo[id].Name = newName;
             }
         }
 
@@ -105,10 +106,23 @@ namespace tdd_todo_list.CSharp.Main
         {
             if (IsPresent(id))
             {
-                Todo[id].setStatus(status);
+                Todo[id].Status = status;
             }
         }
 
+        public List<ToDoTask> ListAllByCategory()
+        {
+            return Todo.Values.OrderBy(t => t.TypeOfTask).ToList();
+        }
 
+        public ToDoTask LongestBeforeFinished()
+        {
+            return Todo.Values.OrderByDescending(t => t.TimeSpan).ToList()[0];
+        }
+
+        public ToDoTask ShortestBeforeFinished()
+        {
+            return Todo.Values.OrderBy(t => t.TimeSpan).ToList()[0];
+        }
     }
 }

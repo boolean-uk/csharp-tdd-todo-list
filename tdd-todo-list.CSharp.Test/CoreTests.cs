@@ -51,9 +51,9 @@ namespace tdd_todo_list.CSharp.Test
             todo.Add("wash");
             todo.Add("trash");
 
-            bool original = todo.Todo[1].getStatus();
+            bool original = todo.Todo[1].Status;
             todo.Todo[1].ChangeStatus(true);
-            bool afterChange = todo.Todo[1].getStatus();
+            bool afterChange = todo.Todo[1].Status;
 
             Assert.That(original, Is.False);
             Assert.IsTrue(afterChange);
@@ -159,7 +159,7 @@ namespace tdd_todo_list.CSharp.Test
 
             for (int i = 0; i < strings.Count; i++)
             {
-                Assert.That(strings[i].getName() == target[i]);
+                Assert.That(strings[i].Name == target[i]);
             }
 
            
@@ -179,7 +179,7 @@ namespace tdd_todo_list.CSharp.Test
 
             for (int i = 0; i < toDoTasks.Count; i++)
             {
-                Assert.That(toDoTasks[i].getName() == target[i]);
+                Assert.That(toDoTasks[i].Name == target[i]);
             }
         }
         [Test]
@@ -196,7 +196,7 @@ namespace tdd_todo_list.CSharp.Test
 
             for (int i = 0; i < toDoTasks.Count; i++)
             {
-                Assert.That(toDoTasks[i].getName() == target[i]);
+                Assert.That(toDoTasks[i].Name == target[i]);
             }
         }
 
