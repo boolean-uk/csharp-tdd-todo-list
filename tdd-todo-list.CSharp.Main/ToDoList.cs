@@ -67,48 +67,21 @@ namespace tdd_todo_list.CSharp.Main
             Todo.Remove(id);
         }
 
-        public List<string> ViewByPriority()
+        public List<ToDoTask> ViewByPriority()
         {
-            List<string> low = new List<string>();
-            List<string> medium = new List<string>();
-            List<string> High = new List<string>();
-
-            foreach (var t in Todo.Values)
-            {
-                if (t.getPriority() == 0) { low.Add(t.getName()); }
-                else if (t.getPriority() == 1) { medium.Add(t.getName()); }
-                else { High.Add(t.getName()); }
-            }
-
-            return High.Concat(medium).Concat(low).ToList();
+            return Todo.Values.OrderByDescending(t => t.getPriority()).ToList();
         }
 
-        public List<string> ViewAlphabetical()
+        public List<ToDoTask> ViewAlphabetical()
         {
-            List<string> list = new List<string>();
             List<ToDoTask> toDoTasks = Todo.Values.ToList();
-            foreach (var t in toDoTasks)
-            {
-                list.Add(t.getName());
-            }
-
-            list.Sort();
-        return list;
+            return toDoTasks.OrderBy(t => t.getName()).ToList();
         }
 
-        public List<string> ViewDescendingAlphabetical()
+        public List<ToDoTask> ViewDescendingAlphabetical()
         {
-            List<string> list = new List<string>();
             List<ToDoTask> toDoTasks = Todo.Values.ToList();
-            foreach (var t in toDoTasks)
-            {
-                list.Add(t.getName());
-            }
-
-            list.Sort();
-            list.Reverse();
-            
-            return list;
+            return toDoTasks.OrderByDescending(t => t.getName()).ToList();
         }
 
         public ToDoTask getById(int id)

@@ -7,4 +7,4 @@ todo.Add("beta");
 todo.Add("alpha");
 todo.Add("charlie");
 
-List<string> toDoTasks = todo.ViewDescendingAlphabetical();
+List<ToDoTask> toDoTasks = todo.ViewAlphabetical();

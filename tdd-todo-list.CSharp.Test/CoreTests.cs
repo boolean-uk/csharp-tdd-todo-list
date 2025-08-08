@@ -154,12 +154,12 @@ namespace tdd_todo_list.CSharp.Test
             todo.Todo[1].ChangePriority(1);
             todo.Todo[2].ChangePriority(2);
 
-            List<string> strings = todo.ViewByPriority();
+            List<ToDoTask> strings = todo.ViewByPriority();
             List<string> target = new List<string> { "aaa", "bbb", "ccc" };
 
             for (int i = 0; i < strings.Count; i++)
             {
-                Assert.That(strings[i] == target[i]);
+                Assert.That(strings[i].getName() == target[i]);
             }
 
            
@@ -171,15 +171,15 @@ namespace tdd_todo_list.CSharp.Test
             TodoList todo = new TodoList();
 
             todo.Add("charlie");
-            todo.Add("beta");
+            todo.Add("bravo");
             todo.Add("alpha");
 
-            List<string> toDoTasks = todo.ViewAlphabetical();
-            List<string> target = new List<string> { "alpha", "beta", "charlie" };
+            List<ToDoTask> toDoTasks = todo.ViewAlphabetical();
+            List<string> target = new List<string> { "alpha", "bravo", "charlie" };
 
             for (int i = 0; i < toDoTasks.Count; i++)
             {
-                Assert.That(toDoTasks[i] == target[i]);
+                Assert.That(toDoTasks[i].getName() == target[i]);
             }
         }
         [Test]
@@ -188,15 +188,15 @@ namespace tdd_todo_list.CSharp.Test
             TodoList todo = new TodoList();
 
             todo.Add("charlie");
-            todo.Add("beta");
+            todo.Add("bravo");
             todo.Add("alpha");
 
-            List<string> toDoTasks = todo.ViewDescendingAlphabetical();
-            List<string> target = new List<string> { "charlie", "beta", "alpha"  };
+            List<ToDoTask> toDoTasks = todo.ViewDescendingAlphabetical();
+            List<string> target = new List<string> { "charlie", "bravo", "alpha"  };
 
             for (int i = 0; i < toDoTasks.Count; i++)
             {
-                Assert.That(toDoTasks[i] == target[i]);
+                Assert.That(toDoTasks[i].getName() == target[i]);
             }
         }
 
