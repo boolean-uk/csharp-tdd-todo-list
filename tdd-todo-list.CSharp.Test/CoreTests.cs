@@ -204,5 +204,29 @@ namespace tdd_todo_list.CSharp.Test
             Assert.That(sortedTasks[1].Name, Is.EqualTo("Homework"));
             Assert.That(sortedTasks[2].Name, Is.EqualTo("Laundry"));
         }
+
+        [Test]
+        public void GetTaskByIDTest()
+        {
+            TodoList todoList = new TodoList();
+            string taskName1 = "Homework";
+            string taskName2 = "Laundry";
+            string taskName3 = "Dishes";
+            todoList.AddTask(taskName1);
+            todoList.AddTask(taskName2);
+            todoList.AddTask(taskName3);
+
+            todoList.RemoveTask("Laundry");
+
+            int task1ID = 0; 
+            int task3ID = 2;
+
+            Task task1 = todoList.GetTaskByID(task1ID);
+            Task task3 = todoList.GetTaskByID(task3ID);
+
+            Assert.That(task1.ID, Is.EqualTo(0));
+            Assert.That(task3.ID, Is.EqualTo(2));
+
+        }
     }
 }

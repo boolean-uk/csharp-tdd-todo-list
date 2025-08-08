@@ -109,5 +109,10 @@ namespace tdd_todo_list.CSharp.Main
         {
             return _tasks.Values.OrderBy(task => task.Priority).ToList();
         }
+
+        public Task GetTaskByID(int taskID)
+        {
+            return _tasks[taskID];
+        }
     }
 }
