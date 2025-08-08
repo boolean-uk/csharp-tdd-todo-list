@@ -26,6 +26,7 @@ namespace tdd_todo_list.CSharp.Main
             Task? task = GetTaskByName(taskName);
             if (task != null) { 
                 task.IsCompleted = !task.IsCompleted;
+                task.TimeCompleted = DateTime.Today;
                 return true;
             }
             return false;
@@ -152,6 +153,16 @@ namespace tdd_todo_list.CSharp.Main
                 timeCreatedList.Add((task, task.TimeCreated));
             }
             return timeCreatedList;
+        }
+
+        public List<(Task, DateTime)> GetAllTaskTimeCompleted()
+        {
+            List<(Task, DateTime)> timeCompletedList = new List<(Task, DateTime)> ();
+            foreach (Task task in _tasks.Values)
+            {
+                timeCompletedList.Add((task, task.TimeCompleted));
+            }
+            return timeCompletedList;
         }
     }
 }

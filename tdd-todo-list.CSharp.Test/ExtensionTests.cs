@@ -99,5 +99,36 @@ namespace tdd_todo_list.CSharp.Test
             Assert.That(timeCreatedList[1].Item2, Is.EqualTo(today));
 
         }
+
+        [Test]
+        public void GetAllTaskTimeCompletedTest()
+        {
+            DateTime createdTime = new DateTime(2025, 08, 05);
+            DateTime completeTime = new DateTime(2025, 08, 06);
+
+            TodoList todoList = new TodoList();
+            string taskName1 = "Homework";
+            string taskName2 = "Laundry";
+            todoList.AddTask(taskName1);
+            todoList.ToggleComplete("Homework");
+            todoList.AddTask(taskName2);
+            todoList.ToggleComplete("Laundry");
+
+            Assert.That(todoList.Tasks[0].TimeCompleted, Is.Not.Null);
+
+            // Override time created and completed
+            todoList.Tasks[0].TimeCreated = createdTime;
+            todoList.Tasks[1].TimeCreated = createdTime;
+            todoList.Tasks[0].TimeCompleted = completeTime;
+            todoList.Tasks[1].TimeCompleted = completeTime;
+
+            List<(Task, DateTime)> timeCompletedList = todoList.GetAllTaskTimeCompleted();
+
+            Assert.That(timeCompletedList[0].Item2, Is.EqualTo(completeTime));
+            Assert.That(timeCompletedList[1].Item2, Is.EqualTo(completeTime));
+
+            
+
+        }
     }
 }
