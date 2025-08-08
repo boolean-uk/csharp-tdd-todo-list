@@ -219,13 +219,17 @@ namespace tdd_todo_list.CSharp.Test
             todoList.RemoveTask("Laundry");
 
             int task1ID = 0; 
+            int task2ID = 1;
             int task3ID = 2;
 
-            Task task1 = todoList.GetTaskByID(task1ID);
-            Task task3 = todoList.GetTaskByID(task3ID);
+            Task? task1 = todoList.GetTaskByID(task1ID);
+            Task? task3 = todoList.GetTaskByID(task3ID);
+
+            Task? task2 = todoList.GetTaskByID(task2ID);
 
             Assert.That(task1.ID, Is.EqualTo(0));
             Assert.That(task3.ID, Is.EqualTo(2));
+            Assert.That(task2, Is.Null);
 
         }
     }
