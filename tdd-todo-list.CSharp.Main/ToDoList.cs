@@ -233,5 +233,18 @@ namespace tdd_todo_list.CSharp.Main
             return tasks;
 
         }
+
+        public bool SetTaskCategory(string taskName, string category)
+        {
+            Task task = GetTaskByName(taskName);
+
+            if (task == null) { 
+                return false;
+            }
+
+            task.Category = category;
+            return true;
+
+        }
     }
 }

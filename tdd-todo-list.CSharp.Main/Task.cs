@@ -38,5 +38,6 @@ namespace tdd_todo_list.CSharp.Main
         public DateTime TimeCreated { get { return _timeCreated; } set { _timeCreated = value;} }
         public DateTime TimeCompleted { get { return _timeCompleted; } set { _timeCompleted = value; } }
         public int? CompletionTime { get { return _completionTime; } }
+        public string Category { get { return _category; } set { _category = value; } }
     }
 }

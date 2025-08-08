@@ -216,5 +216,26 @@ namespace tdd_todo_list.CSharp.Test
 
             Assert.True(tasks.All(task => task.CompletionTime > daysLimit));
         }
+
+        [Test]
+        public void SetTaskCategoryTest()
+        {
+            TodoList todoList = new TodoList();
+            string taskName1 = "Homework";
+            string taskName2 = "Laundry";
+            todoList.AddTask(taskName1);
+            todoList.AddTask(taskName2);
+
+            string category = "School";
+
+            bool success = todoList.SetTaskCategory(taskName1, category);
+            bool fail = todoList.SetTaskCategory("Dishes", category);
+
+            Assert.True(success);
+            Assert.False(fail);
+            Assert.That(todoList.Tasks[0].Category, Is.EqualTo(category));
+            Assert.That(todoList.Tasks[1].Category, Is.Empty);
+
+        }
     }
 }
