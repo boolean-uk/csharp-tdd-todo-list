@@ -103,7 +103,7 @@ namespace tdd_todo_list.CSharp.Main
             return list[id].Finished;
         }
 
-        public TimeSpan getTeskDuration(string id)
+        public TimeSpan getTaskDuration(string id)
         {
             Task task = list[id];
             return task.Finished.Subtract(task.Created);
@@ -146,6 +146,17 @@ namespace tdd_todo_list.CSharp.Main
                 }
             }
             return fiveDayTasks;
+        }
+
+        public void printAllTasks()
+        {
+            List<Task> tasks = list.Values.ToList();
+            foreach(Task task in tasks)
+            {
+                Console.WriteLine($"Task id: {task.Id}\nTask description: {task.Desc}\nTask priority: {task.Priority}" +
+                    $"\nTask completed: {task.Completed}\nTask category: {task.Category}\nTask creation time: {task.Created}" +
+                    $"\nTask completion time: {task.Finished}\nTask duration: {task.Duration}\n");
+            }
         }
 
     }

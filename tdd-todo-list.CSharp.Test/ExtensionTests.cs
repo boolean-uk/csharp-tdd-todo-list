@@ -109,7 +109,7 @@ namespace tdd_todo_list.CSharp.Test
 
             task.calculateDuration();
 
-            TimeSpan result = list.getTeskDuration("1");
+            TimeSpan result = list.getTaskDuration("1");
             
 
             Assert.That((int)result.TotalMinutes , Is.InRange(1439, 1440));
@@ -134,7 +134,7 @@ namespace tdd_todo_list.CSharp.Test
             taskLong.calculateDuration();
             taskShort.calculateDuration();
 
-            TimeSpan resultShort = list.getTeskDuration("1");
+            TimeSpan resultShort = list.getTaskDuration("1");
 
             Task longest = list.findLongestDurationTask();
 
@@ -161,7 +161,7 @@ namespace tdd_todo_list.CSharp.Test
             taskLong.calculateDuration();
             taskShort.calculateDuration();
 
-            TimeSpan resultLong = list.getTeskDuration("2");
+            TimeSpan resultLong = list.getTaskDuration("2");
 
             Task shortest = list.findShortestDurationTask();
 
