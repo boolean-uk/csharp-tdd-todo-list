@@ -1,6 +1,6 @@
 | Classes       | Methods/Properties                                | Scenario							| Outputs          |
 |---------------|---------------------------------------------------|-----------------------------------|------------------
-|ToDoList.cs	|Add(string name)										|Add task to ToDoList				|bool
+|ToDoList.cs	|Add(string name, bool complete = false, Priority priority = Priority.Undefined, string category = "")										|Add task to ToDoList				|bool
 |ToDoList.cs	|GetAll(bool complete=false, bool incomplete=false)	|Get tasks from ToDoList (filtered)	|List\<Task\>
 |ToDoList.cs	|ChangeStatus(int TaskId)							|Change status for a task			|bool
 |ToDoList.cs	|GetTask(int taskId)								|Get task by Id						|Task
