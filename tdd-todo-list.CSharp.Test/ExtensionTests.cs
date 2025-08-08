@@ -83,6 +83,20 @@ namespace tdd_todo_list.CSharp.Test
         [Test]
         public void GetAllTaskTimeCreatedTest()
         {
+            // Simplifying to date, ignoring time of day
+            DateTime today = DateTime.Today;
+
+            TodoList todoList = new TodoList();
+            string taskName1 = "Homework";
+            string taskName2 = "Laundry";
+            todoList.AddTask(taskName1);
+            todoList.AddTask(taskName2);
+
+            List < (Task, DateTime) > timeCreatedList = todoList.GetAllTaskTimeCreated();
+
+            Assert.That(todoList.Tasks[0].TimeCreated, Is.EqualTo(today));
+            Assert.That(timeCreatedList[0].Item2, Is.EqualTo(today));
+            Assert.That(timeCreatedList[1].Item2, Is.EqualTo(today));
 
         }
     }

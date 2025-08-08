@@ -143,5 +143,15 @@ namespace tdd_todo_list.CSharp.Main
             }
             return false;
         }
+
+        public List<(Task, DateTime)> GetAllTaskTimeCreated()
+        {
+            List<(Task, DateTime)> timeCreatedList = new List<(Task, DateTime)> ();
+            foreach (Task task in _tasks.Values)
+            {
+                timeCreatedList.Add((task, task.TimeCreated));
+            }
+            return timeCreatedList;
+        }
     }
 }
