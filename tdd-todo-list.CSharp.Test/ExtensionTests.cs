@@ -13,8 +13,7 @@ namespace tdd_todo_list.CSharp.Test
             _extension = new TodoListExtension();
         }
 
-        [Test]
-        public void GetTaskTest()
+        private void AddCourse()
         {
             string task1 = "Laundry";
             string task2 = "Dishwashing";
@@ -23,6 +22,12 @@ namespace tdd_todo_list.CSharp.Test
             _extension.ToDoList.Add(task1);
             _extension.ToDoList.Add(task2);
             _extension.ToDoList.Add(task3);
+        }
+
+        [Test]
+        public void GetTaskTest()
+        {
+            AddCourse();
 
             Task result = _extension.GetTask(2);
 
@@ -32,13 +37,7 @@ namespace tdd_todo_list.CSharp.Test
         [Test]
         public void UpdateNameTest()
         {
-            string task1 = "Laundry";
-            string task2 = "Dishwashing";
-            string task3 = "Training";
-
-            _extension.ToDoList.Add(task1);
-            _extension.ToDoList.Add(task2);
-            _extension.ToDoList.Add(task3);
+            AddCourse();
 
             Task result = _extension.UpdateName(2, "Walk a dog");
 
@@ -48,31 +47,58 @@ namespace tdd_todo_list.CSharp.Test
         [Test]
         public void ChangeStatusTest()
         {
-            string task1 = "Laundry";
-            string task2 = "Dishwashing";
-            string task3 = "Training";
-
-            _extension.ToDoList.Add(task1);
-            _extension.ToDoList.Add(task2);
-            _extension.ToDoList.Add(task3);
+            AddCourse();
 
             Task result = _extension.ChangeStatus(2);
 
             Assert.That(result.Status, Is.True);
         }
+        //[Test]
+        //public void CreatedTest()
+        //{
+        //    string task1 = "Laundry";
+        //    string task2 = "Dishwashing";
+        //    string task3 = "Training";
+
+        //    _extension.ToDoList.Add(task1);
+        //    _extension.ToDoList.Add(task2);
+        //    _extension.ToDoList.Add(task3);
+
+
+        //    //Assert.That(result.Status, Is.True);
+        //}
+
         [Test]
-        public void CreatedTest()
+        public void CategoriseTest()
         {
-            string task1 = "Laundry";
-            string task2 = "Dishwashing";
-            string task3 = "Training";
+            AddCourse();
 
-            _extension.ToDoList.Add(task1);
-            _extension.ToDoList.Add(task2);
-            _extension.ToDoList.Add(task3);
+            _extension.Categorise(2, Category.Work);
 
-            
-            //Assert.That(result.Status, Is.True);
+            Assert.That(_extension.ToDoList.ToDoList[2].Category, Is.EqualTo(Category.Work));
+        }
+        [Test]
+        public void ShowCategoriseTest()
+        {
+            AddCourse();
+
+            _extension.Categorise(0, Category.Work);
+            _extension.Categorise(1, Category.Admin);
+            _extension.Categorise(2, Category.Study);
+
+            List<Task> sorted = _extension.SeeTaskByCategory();
+
+            TodoList expected = new TodoList();
+
+            expected.Add("Dishwashing");
+            expected.Add("Training");
+            expected.Add("Laundry");
+
+            for (int i = 0; i < sorted.Count; i++)
+            {
+                Assert.That(sorted[i].Name, Is.EqualTo(expected.ToDoList[i].Name));
+            }
+
         }
     }
 }

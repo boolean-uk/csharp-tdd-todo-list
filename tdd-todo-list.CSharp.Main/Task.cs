@@ -12,6 +12,7 @@ namespace tdd_todo_list.CSharp.Main
         private string _name;
         private bool _status = false;
         private Priority _priority = Priority.low;
+        private Category _category;
 
         public Task(string name) 
         {
@@ -24,5 +25,6 @@ namespace tdd_todo_list.CSharp.Main
         public bool Status { get { return _status; } set { _status = value; } }
 
         public Priority Priority { get { return _priority; } set { _priority = value; } }
+        public Category Category { get { return _category; } set { _category = value; } }
     }
 }

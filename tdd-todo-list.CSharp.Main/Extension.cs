@@ -39,6 +39,16 @@ namespace tdd_todo_list.CSharp.Main
             return GetTask(id);
         }
 
+        public void Categorise(int id, Category category)
+        {
+            GetTask(id).Category = category; 
+        }
+
+        public List<Task> SeeTaskByCategory()
+        {
+            return _toDoList.ToDoList.OrderBy(task => task.Category).ToList();  
+        }
+
         public TodoList ToDoList { get { return _toDoList; }}
     }
 }

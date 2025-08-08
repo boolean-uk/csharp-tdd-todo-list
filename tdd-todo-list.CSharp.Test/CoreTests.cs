@@ -34,7 +34,16 @@ namespace tdd_todo_list.CSharp.Test
             list.Add(task2);
             list.Add(task3);
 
-            Assert.That(list.Amout_tasks, Is.EqualTo(3));
+            TodoList expected = new TodoList();
+
+            expected.Add("Laundry");
+            expected.Add("Dishwashing");
+            expected.Add("Training");
+
+            for (int i = 0; i < list.Amout_tasks; i++)
+            {
+                Assert.That(list.ToDoList[i].Name, Is.EqualTo(expected.ToDoList[i].Name));
+            }
         }
 
         [Test]
