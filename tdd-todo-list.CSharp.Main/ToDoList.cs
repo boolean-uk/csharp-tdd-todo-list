@@ -213,5 +213,25 @@ namespace tdd_todo_list.CSharp.Main
             }
             return shortestCompletionTask!;
         }
+
+        public List<Task> GetTasksByCompletionTime(int daysLimit)
+        {
+            List<Task> tasks = new List<Task>();
+            List<(Task, DateTime)> completedTaskList = GetAllTaskTimeCompleted();
+            foreach ((Task, DateTime) listItem in completedTaskList)
+            {
+                Task task = listItem.Item1;
+                if (task.CompletionTime == null)
+                {
+                    task.CalculateCompletionTime();
+                }
+                if (task.CompletionTime > daysLimit)
+                {
+                    tasks.Add(task);
+                }
+            }
+            return tasks;
+
+        }
     }
 }

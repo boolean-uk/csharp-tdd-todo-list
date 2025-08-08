@@ -183,5 +183,38 @@ namespace tdd_todo_list.CSharp.Test
 
             Assert.That(shortestCompletionTimeTask.Name, Is.EqualTo(taskName1));
         }
+
+        [Test]
+        public void GetTasksByCompletionTimeTest()
+        {
+            DateTime createdTime = new DateTime(2025, 08, 05);
+            DateTime completeTime1 = new DateTime(2025, 08, 06);
+            DateTime completeTime2 = new DateTime(2025, 08, 11);
+            DateTime completeTime3 = new DateTime(2025, 08, 12);
+
+            TodoList todoList = new TodoList();
+            string taskName1 = "Homework";
+            string taskName2 = "Laundry";
+            string taskName3 = "Dishes";
+            todoList.AddTask(taskName1);
+            todoList.AddTask(taskName2);
+            todoList.AddTask(taskName3);
+            todoList.ToggleComplete(taskName1);
+            todoList.ToggleComplete(taskName2);
+            todoList.ToggleComplete(taskName3);
+            // Override time created and completed
+            todoList.Tasks[0].TimeCreated = createdTime;
+            todoList.Tasks[1].TimeCreated = createdTime;
+            todoList.Tasks[2].TimeCreated = createdTime;
+            todoList.Tasks[0].TimeCompleted = completeTime1;
+            todoList.Tasks[1].TimeCompleted = completeTime2;
+            todoList.Tasks[2].TimeCompleted = completeTime3;
+
+            int daysLimit = 5;
+
+            List<Task> tasks = todoList.GetTasksByCompletionTime(daysLimit);
+
+            Assert.True(tasks.All(task => task.CompletionTime > daysLimit));
+        }
     }
 }
