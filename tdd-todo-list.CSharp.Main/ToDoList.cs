@@ -246,5 +246,21 @@ namespace tdd_todo_list.CSharp.Main
             return true;
 
         }
+
+        public List<Task> GetTasksByCategory(string category)
+        {
+            List<Task > tasks = new List<Task>();
+            foreach (Task task in _tasks.Values)
+            {
+                if (task.Category == String.Empty)
+                {
+                    continue;
+                }
+                if (task.Category == category) { 
+                    tasks.Add(task);
+                }
+            }
+            return tasks;
+        }
     }
 }

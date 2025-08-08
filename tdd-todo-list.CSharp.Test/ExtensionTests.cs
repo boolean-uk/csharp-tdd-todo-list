@@ -237,5 +237,31 @@ namespace tdd_todo_list.CSharp.Test
             Assert.That(todoList.Tasks[1].Category, Is.Empty);
 
         }
+
+        [Test]
+        public void GetTasksByCategoryTest()
+        {
+            TodoList todoList = new TodoList();
+            string taskName1 = "Homework";
+            string taskName2 = "Laundry";
+            string taskName3 = "Dishes";
+            todoList.AddTask(taskName1);
+            todoList.AddTask(taskName2);
+            todoList.AddTask(taskName3);
+            string category1 = "School";
+            string category2 = "Home";
+            todoList.SetTaskCategory(taskName1, category1);
+            todoList.SetTaskCategory(taskName2, category2);
+            todoList.SetTaskCategory(taskName3, category2);
+
+            List<Task> cat1Tasks = todoList.GetTasksByCategory(category1);
+            List<Task> cat2Tasks = todoList.GetTasksByCategory(category2);
+
+            Assert.That(cat1Tasks.Count, Is.EqualTo(1));
+            Assert.That(cat1Tasks[0].Name, Is.EqualTo(taskName1));
+            Assert.That(cat2Tasks.Count, Is.EqualTo(2));
+            Assert.That(cat2Tasks[0].Name, Is.EqualTo(taskName2));
+            Assert.That(cat2Tasks[1].Name, Is.EqualTo(taskName3));
+        }
     }
 }
