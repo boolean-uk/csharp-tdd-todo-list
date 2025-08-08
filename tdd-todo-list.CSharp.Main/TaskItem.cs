@@ -8,9 +8,11 @@ namespace tdd_todo_list.CSharp.Main
 {
     public class TaskItem
     {
+        private static int _nextId = 1;
         
         private int _id;
-        private string _status = "incomplete";
+        private string _name;
+        private bool _statusComplete;
         private string _text;
         private int _priority;
         private string _category;
@@ -18,28 +20,52 @@ namespace tdd_todo_list.CSharp.Main
         public DateTime _completed;
    
 
-        public TaskItem(int id, string name, string text, int priority, string category, string status="incomplete")
+        public TaskItem(string name, string text, int priority, string category, bool statusComplete=false)
         {
-            _id = id;
-            Name = name;
+            _id = _nextId++;
+            _name = name;
             _text = text;
             _priority = priority;
-            _status = status;
+            _statusComplete = statusComplete;
             _created = DateTime.Now;
         
         }
-        public string Status { get { return _status; } set { _status = Status; } }
+        public bool StatusComplete { get { return _statusComplete; } set { _statusComplete = value; } }
         public string Text { get { return _text; } }
-        public string Name {  get; set; }
+        public string Name { get { return _name; } set { _name = value; } } 
         public int Id { get { return _id; } }
+        public DateTime Completed { get { return _completed; } set { _completed = value; } }
+        public int Priority { get { return _priority; } }
 
         override
         public string ToString()
         {
-            return $"name: {Name} - text: {_text} - priority: {_priority} - status: {_status}";
+            return $" id: {_id} name: {_name} - text: {_text} - priority: {_priority} - status: {_statusComplete}";
         }
 
-        
+        public string ShowDateTimeOfCreation()
+        {
+            return _created.ToString() ;
+        }
+
+        public string ShowDateTimeOfCompletion()
+        {
+            return _completed.ToString();
+        }
+
+        public void ChangeStatus()
+        {
+            _statusComplete = !_statusComplete;
+            _completed = _statusComplete ? DateTime.Now : DateTime.MaxValue;
+        }
+
+       
+
+
+
+
+
+
 
     }
 }

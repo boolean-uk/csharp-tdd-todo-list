@@ -15,6 +15,8 @@ namespace tdd_todo_list.CSharp.Main
          
         
         }
+
+        //public List<TaskItem> Tasks { get { return _tasks; } }
        
 
         public void AddTask(TaskItem task)
@@ -37,17 +39,20 @@ namespace tdd_todo_list.CSharp.Main
 
         public void ChangeStatus(TaskItem task)
         {
-            task.Status = (task.Status.Equals("incomplete") ? "complete" : "incomplete");
+            task.StatusComplete = !task.StatusComplete;
+            
+
+            task.Completed = task.StatusComplete ? DateTime.Now : DateTime.MaxValue;
         }
 
         public List<TaskItem> GetCompletedTasks()
         {
-            return _tasks.Where(t => t.Status.Equals("complete")).ToList();
+            return _tasks.Where(t => t.StatusComplete.Equals("complete")).ToList();
         }
 
         public List<TaskItem> GetIncompleteTasks()
         {
-            return _tasks.Where(t => t.Status.Equals("incomplete")).ToList();
+            return _tasks.Where(t => t.StatusComplete.Equals("incomplete")).ToList();
         }
 
         public void RemoveTask(TaskItem task)
@@ -65,6 +70,11 @@ namespace tdd_todo_list.CSharp.Main
             return _tasks.OrderByDescending(t => t.Name).ToList();
         }
 
+        public List<TaskItem> GetAllTasksSortedByPriority()
+        {
+            return _tasks.OrderBy(t => t.Priority).ToList();
+        }
+
         public void PrintListOfTasks(List<TaskItem> tasks)
         {
             foreach(var task in tasks)
@@ -75,19 +85,31 @@ namespace tdd_todo_list.CSharp.Main
 
         public TaskItem GetTaskById(int id)
         {
-            return _tasks.FirstOrDefault(t => t.Id == id);
+            return _tasks.First(t => t.Id == id);
         }
 
         public void UpdateNameById(int id, string name)
         {
-            TaskItem t = GetTaskById(id);
-            t.Name = name;
+            
+            GetTaskById(id).Name = name;
         }
 
-        public void UpdateStatusById(int id, string status)
+        public void UpdateStatusById(int id, bool statusComplete)
         {
             TaskItem t = GetTaskById(id);
-            t.Status = status;
+            t.StatusComplete = statusComplete;
+
+            t.Completed = t.StatusComplete ? DateTime.Now : DateTime.MaxValue;
+        }
+
+        public bool DoesTaskExistByName(string name)
+        {
+            return _tasks.Any(t => t.Name == name);
+        }
+
+        public bool DoesTaskExist(TaskItem t)
+        {
+            return _tasks.Contains(t);
         }
     }
     
