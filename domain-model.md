@@ -16,3 +16,17 @@
 
 ## Extensions ##
 
+| Methods/Properties                             | Scenario                                                     | Outputs                                                 |
+|------------------------------------------------|--------------------------------------------------------------|---------------------------------------------------------|
+| GetTask(Guid id)                               | get a task by unique id                                      | Task with id                                            |
+| UpdateTaskName(Guid id, string name)           | update the name of a task by providing id and name           | None                                                    |
+| SetTaskStatus(Guid id, TaskStatus status)      | change the status of a task with id                          | None                                                    |
+| GetTaskTimeOfCreation(Guid id)                 | see date and time of task creation                           | Date and time of task creation                          |
+| GetTaskTimeOfCompletion(Guid id)               | see date and time of task completion                         | Date and time of task completion                        |
+| FindLongestCompletedTask()                     | know which task took the longest amount of time to complete  | Task that took the longest amount of time to complete   |
+| FindShortestCompletedTask()                    | know which task took the shortest amount of time to complete | Task that took the shortest amount of time to complete  |
+| FindTasksCompletedInMoreThan5Days()            | know which tasks took longer than 5 days to complete         | A list of tasks that took  more than 5 days to complete |
+| CategoriseTask(Guid id, TaskCategory category) | categorise tasks e.g. study, work, admin etc                 | None                                                    |
+| ListByCategory()                               | list all tasks by category                                   | A list of tasks ordered by category                     |
+
+
