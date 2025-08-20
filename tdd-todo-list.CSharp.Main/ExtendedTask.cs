@@ -6,17 +6,33 @@ public class ExtendedTask
     public readonly DateTime CreateTime;
     public TaskStatus Status { get; private set; }
     public DateTime? CompleteTime { get; private set; }
-    
-    public string Name;
-    public string Description;
 
-    public ExtendedTask(string name, string description)
+
+    public string Name;
+    public TaskCategory Category;
+
+    public ExtendedTask(string name, int completionDays = -1)
     {
         Id = Guid.NewGuid();
         Name = name;
-        Description = description;
-        Status = TaskStatus.Incomplete;
         CreateTime = DateTime.Now;
+        Category = TaskCategory.Work;
+
+        if (completionDays == -1)
+        {
+            Status = TaskStatus.Incomplete;
+        }
+        else
+        {
+            Status = TaskStatus.Complete;
+            CompleteTime = DateTime.Now;
+            CompleteTime = CompleteTime?.AddDays(completionDays);
+        }
+    }
+
+    public TimeSpan? GetDuration()
+    {
+        return CompleteTime - CreateTime;
     }
 
     public void Complete()
@@ -26,7 +42,7 @@ public class ExtendedTask
         CompleteTime = DateTime.Now;
     }
 
-    public bool Equals(Task other)
+    public bool Equals(ExtendedTask other)
     {
         return Name == other.Name;
     }

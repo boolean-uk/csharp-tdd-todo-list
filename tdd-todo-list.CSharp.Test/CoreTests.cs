@@ -14,7 +14,7 @@ namespace tdd_todo_list.CSharp.Test
         {
             // Arrange
             TodoList todo = new TodoList();
-            Task task = new Task("TaskName", "TaskDescription");
+            Task task = new Task("TaskName");
 
             // Act
             todo.AddTask(task);
@@ -31,9 +31,9 @@ namespace tdd_todo_list.CSharp.Test
 
             Task[] tasks =
             [
-                new("Task1", "Task1 description"),
-                new("Task2", "Task2 description"),
-                new("Task3", "Task3 description"),
+                new("Task1"),
+                new("Task2"),
+                new("Task3"),
             ];
 
             foreach (Task task in tasks)
@@ -58,7 +58,7 @@ namespace tdd_todo_list.CSharp.Test
         {
             // Arrange
             TodoList todo = new TodoList();
-            Task task = new Task("TaskName", "TaskDescription", startStatus);
+            Task task = new Task("TaskName", startStatus);
             todo.AddTask(task);
 
             // Act
@@ -75,9 +75,9 @@ namespace tdd_todo_list.CSharp.Test
             TodoList todo = new TodoList();
             Task[] tasks =
             [
-                new("Task1", "Task1 description", TaskStatus.Complete),
-                new("Task2", "Task2 description", TaskStatus.Complete),
-                new("Task3", "Task3 description", TaskStatus.Incomplete)
+                new("Task1", TaskStatus.Complete),
+                new("Task2", TaskStatus.Complete),
+                new("Task3", TaskStatus.Incomplete)
             ];
 
             foreach (Task task in tasks)
@@ -102,9 +102,9 @@ namespace tdd_todo_list.CSharp.Test
             TodoList todo = new TodoList();
             Task[] tasks =
             [
-                new("Task1", "Task1 description"),
-                new("Task2", "Task2 description"),
-                new("Task3", "Task3 description", TaskStatus.Complete)
+                new("Task1"),
+                new("Task2"),
+                new("Task3", TaskStatus.Complete)
             ];
 
             foreach (Task task in tasks)
@@ -129,9 +129,9 @@ namespace tdd_todo_list.CSharp.Test
             TodoList todo = new TodoList();
             Task[] tasks =
             [
-                new("Task1", "Task1 description", TaskStatus.Complete),
-                new("Task2", "Task2 description", TaskStatus.Complete),
-                new("Task3", "Task3 description", TaskStatus.Incomplete)
+                new("Task1", TaskStatus.Complete),
+                new("Task2", TaskStatus.Complete),
+                new("Task3", TaskStatus.Incomplete)
             ];
 
             foreach (Task task in tasks)
@@ -151,7 +151,7 @@ namespace tdd_todo_list.CSharp.Test
         {
             // Arrange
             TodoList todo = new TodoList();
-            Task task = new Task("TaskName", "TaskDescription");
+            Task task = new Task("TaskName");
 
             todo.AddTask(task);
 
@@ -170,16 +170,16 @@ namespace tdd_todo_list.CSharp.Test
 
             Task[] unordered =
             [
-                new("ATask1", "Task1 description", TaskStatus.Complete),
-                new("CTask2", "Task2 description", TaskStatus.Complete),
-                new("BTask3", "Task3 description", TaskStatus.Incomplete)
+                new("ATask1", TaskStatus.Complete),
+                new("CTask2", TaskStatus.Complete),
+                new("BTask3", TaskStatus.Incomplete)
             ];
             
             Task[] ordered =
             [
-                new("ATask1", "Task1 description", TaskStatus.Complete),
-                new("BTask3", "Task3 description", TaskStatus.Incomplete),
-                new("CTask2", "Task2 description", TaskStatus.Complete)
+                new("ATask1", TaskStatus.Complete),
+                new("BTask3", TaskStatus.Incomplete),
+                new("CTask2", TaskStatus.Complete)
             ];
 
 
@@ -206,16 +206,16 @@ namespace tdd_todo_list.CSharp.Test
 
             Task[] unordered =
             [
-                new("ATask1", "Task1 description", TaskStatus.Complete),
-                new("CTask2", "Task2 description", TaskStatus.Complete),
-                new("BTask3", "Task3 description", TaskStatus.Incomplete),
+                new("ATask1", TaskStatus.Complete),
+                new("CTask2", TaskStatus.Complete),
+                new("BTask3", TaskStatus.Incomplete),
             ];
             
             Task[] ordered =
             [
-                new("CTask2", "Task2 description", TaskStatus.Complete),
-                new("BTask3", "Task3 description", TaskStatus.Incomplete),
-                new("ATask1", "Task1 description", TaskStatus.Complete),
+                new("CTask2", TaskStatus.Complete),
+                new("BTask3", TaskStatus.Incomplete),
+                new("ATask1", TaskStatus.Complete),
             ];
 
 
@@ -240,7 +240,7 @@ namespace tdd_todo_list.CSharp.Test
             // Arrange
             const TaskPriority TARGET_PRIORITY = TaskPriority.High;
             TodoList todo = new TodoList();
-            Task task = new Task("TaskName", "TaskDescription");
+            Task task = new Task("TaskName");
             todo.AddTask(task);
 
             // Act
@@ -258,16 +258,16 @@ namespace tdd_todo_list.CSharp.Test
 
             Task[] unordered =
             [
-                new("ATask1", "Task1 description", TaskStatus.Complete, TaskPriority.High),
-                new("CTask2", "Task2 description", TaskStatus.Complete, TaskPriority.Low),
-                new("BTask3", "Task3 description", TaskStatus.Incomplete, TaskPriority.Medium),
+                new("ATask1", TaskStatus.Complete, TaskPriority.High),
+                new("CTask2", TaskStatus.Complete, TaskPriority.Low),
+                new("BTask3", TaskStatus.Incomplete, TaskPriority.Medium),
             ];
             
             Task[] ordered =
             [
-                new("ATask1", "Task1 description", TaskStatus.Complete, TaskPriority.High),
-                new("BTask3", "Task3 description", TaskStatus.Incomplete, TaskPriority.Medium),
-                new("CTask2", "Task2 description", TaskStatus.Complete, TaskPriority.Low),
+                new("ATask1", TaskStatus.Complete, TaskPriority.High),
+                new("BTask3", TaskStatus.Incomplete, TaskPriority.Medium),
+                new("CTask2", TaskStatus.Complete, TaskPriority.Low),
             ];
 
 

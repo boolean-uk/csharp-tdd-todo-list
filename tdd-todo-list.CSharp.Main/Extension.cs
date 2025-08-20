@@ -8,56 +8,79 @@ namespace tdd_todo_list.CSharp.Main
 {
     public class TodoListExtension
     {
-        private List<ExtendedTask> _tasks = new List<ExtendedTask>();
-        
-        public ExtendedTask GetTask(Guid id)
+        private readonly List<ExtendedTask> _tasks = new();
+
+        public void AddTask(ExtendedTask task)
         {
-            throw new NotImplementedException();
+            _tasks.Add(task);
+        }
+        
+        public ExtendedTask? GetTask(Guid id)
+        {
+            ExtendedTask? task = _tasks.Find(task => task.Id == id);
+            return task;
         }
 
         public void UpdateTaskName(Guid id, string name)
         {
-            throw new NotImplementedException();
+            int taskIndex = _tasks.FindIndex(task => task.Id == id);
+            if (taskIndex != -1)
+            {
+                _tasks[taskIndex].Name = name;
+            }
         }
 
         public void SetTaskStatus(Guid id, TaskStatus status)
         {
-            throw new NotImplementedException();
+            int taskIndex = _tasks.FindIndex(task => task.Id == id);
+            if (taskIndex != -1)
+            {
+                if (status == TaskStatus.Complete && _tasks[taskIndex].Status == TaskStatus.Incomplete)
+                {
+                    _tasks[taskIndex].Complete();
+                }
+            }
         }
 
-        public DateTime GetTaskTimeOfCreation(Guid id)
+        public DateTime? GetTaskTimeOfCreation(Guid id)
         {
-            throw new NotImplementedException();
+            var task = _tasks.Find(task => task.Id == id);
+            return task?.CreateTime;
         }
 
         public DateTime? GetTaskTimeOfCompletion(Guid id)
         {
-            throw new NotImplementedException();
+            var task = _tasks.Find(task => task.Id == id);
+            return task?.CompleteTime;        }
+
+        public ExtendedTask FindLongestCompletedTask()
+        {
+            return _tasks.OrderByDescending(task => task.GetDuration()).First();
         }
 
-        public ExtendedTask FindLongestCompletedTask(Guid id)
+        public ExtendedTask FindShortestCompletedTask()
         {
-            throw new NotImplementedException();
-        }
+            return _tasks.OrderByDescending(task => task.GetDuration()).Last();
 
-        public ExtendedTask FindShortestCompletedTask(Guid id)
-        {
-            throw new NotImplementedException();
         }
 
         public List<ExtendedTask> FindTasksCompletedInMoreThan5Days()
         {
-            throw new NotImplementedException();
+            return _tasks.Where(task => task.GetDuration()?.Days >= 5).ToList();
         }
 
         public void CategoriseTask(Guid id, TaskCategory category)
         {
-            throw new NotImplementedException();
+            int index = _tasks.FindIndex(task => task.Id == id);
+            if (index != -1)
+            {
+                _tasks[index].Category = category;
+            }
         }
 
-        public List<ExtendedTask> ListTasksByCategory(TaskCategory category)
+        public List<ExtendedTask> ListTasksByCategory()
         {
-            throw new NotImplementedException();
+            return _tasks.OrderBy(task => task.Category).ToList();
         }
     }
 }
